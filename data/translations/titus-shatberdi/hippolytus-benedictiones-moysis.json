@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -98,17 +104,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s6",
-      "source_sha256": "c57bd9b5f4bceb57",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b80ba6e833006dad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when he was forty years old, he resolved to visit his brothers, the sons of Israel. Seeing a Hebrew being overpowered, he helped him and struck down that Egyptian."
+      "text": "And when he was forty years old, he resolved to visit his brothers, the sons of Israel. Seeing a Hebrew being overpowered, he came to his aid and struck down the Egyptian."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s7",
-      "source_sha256": "d377b81a76fb36a2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "39b189180ec81400",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Pharaoh heard of it and sought to kill him. But he fled and sojourned in the land of the Midianites."
+      "text": "And Pharaoh heard of it and sought to kill him. But he became a fugitive and lived as a stranger in the land of the Midianites."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s8",
@@ -217,62 +223,69 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s23",
-      "source_sha256": "e20679c2c2a8e5a0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "40e8e9af46410307",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And because of such unbelief and the rebellion that took place there, the Lord made a promise to Moses with an oath and said: \"Those men who embittered me and did not believe my words,"
+      "text": "And so, because of the unbelief and the rebellion that took place there, the Lord made a promise to Moses with an oath and said to him:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s24",
+      "source_sha256": "520be17f44e2dadc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"These men who have embittered me and did not believe my words,"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s25",
       "source_sha256": "699564f2559e5a71",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "who saw signs and wonders in the land of Egypt, shall not see the good land that I promised to their fathers.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s25",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s26",
       "source_sha256": "e3d87e3448905fb7",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"But these children, of whom they said that they would become captives of the enemies, to these I will give that land, and to Joshua son of Nun,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s26",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s27",
       "source_sha256": "9ca496a9e9d6dc0a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "and my servant Caleb son of Jephunneh, for the Spirit was upon him. I will bring them in there and give them that land which they surveyed with their feet,\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s27",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s28",
       "source_sha256": "a1dda4b08d930974",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "because of which that people were kept in the wilderness for forty years, and all of them perished according to the word of the Lord."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s28",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s29",
       "source_sha256": "46c88cca7922c6e9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But those two men, of whom he had spoken beforehand, and their sons, having grown up, were joined to the number in place of their fathers, those whom he called."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s29",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s30",
       "source_sha256": "e2beb893e3956def",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "The blessed Moses, beyond the Jordan, taught the second law to the fathers who were born from above and perfect."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s30",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s31",
       "source_sha256": "d50074bb12025016",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "That law was not another law given to them beyond the former one that he gave to their fathers, but he wrote the same one,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s31",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.II.s32",
       "source_sha256": "e388c8c21cafd39c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -350,24 +363,24 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.III.s11",
-      "source_sha256": "63cddd30c624aa4d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "dc412b54b179e282",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "so that they might glorify Christ, [?] themselves liable and justly condemned."
+      "text": "so that they might glorify Christ, they themselves being justly condemned as guilty. For Moses also spoke beforehand, and through that teaching he shows us the type:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.III.s12",
-      "source_sha256": "79fa4ed7979d8fb9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e5bc5e2666360ac7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "For Moses also spoke beforehand, and by that teaching he shows us the type: \"And these too shall stand for the blessings:"
+      "text": "\"And these also shall stand for the blessings: Simeon, Levi, Judah, Zebulun, Joseph, Benjamin\", through whom Christ was prefigured beforehand:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.III.s13",
-      "source_sha256": "9ffd6615e135100d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9e676ac373eeea47",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Simeon, Levi, Judah, Zebulun, Joseph, Benjamin,\" through whom Christ was foreshadowed, was born, and was made manifest, and was believed in, and was glorified, and was recognized through Joseph, and from Levi and from Judah."
+      "text": "he was born, and was made manifest, and we believed in him, and he was glorified, and he was recognized through Joseph, from Levi and from Judah."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.III.s14",
@@ -581,202 +594,195 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s19",
-      "source_sha256": "f3ccd1dce7e1fc11",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5c253b5afd86e184",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The law came through Moses, and Moses was mediator between the Son and that people by the giving of the justice of the law."
+      "text": "The law came through Moses, and Moses was the mediator between the Son and the people through the giving of the ordinance of the law. For Jeremiah also says something like this:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s20",
-      "source_sha256": "c3b19e0fe1ab40cb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a7e35935b9e1e592",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "For Jeremiah too says something similar to these words: \"This is our God, and there is no other besides him;"
+      "text": "\"This is our God, and there is no other besides him. He found all the ways of knowledge and gave them to Jacob his servant and to Israel his beloved.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s21",
-      "source_sha256": "e8cceec938c120f7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "he found all the ways of learning and gave them to Jacob his servant and to Israel his beloved.\""
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s22",
       "source_sha256": "f54218209cb188b7",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And all wisdom and learning, found by the Father, he gave to the Son, whom the prophet designates as Jacob and Israel, who is the firstborn Son of God; and the Son has received all wisdom."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s23",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s22",
       "source_sha256": "423e3844709fbee2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "He bestowed it graciously on human beings, as it says: \"After this he shall appear on earth and live among human beings.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s24",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s23",
       "source_sha256": "a7d3c37b604e859f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For Moses too first gave to their fathers the law which he had received from the Son."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s25",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s24",
       "source_sha256": "98ea774610d07e3a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And after this he taught their sons the law which he had received from the Son."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s26",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s25",
       "source_sha256": "15de4bb01cc9fa75",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And after this he taught their sons a second law, in order to show the two laws:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s27",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s26",
       "source_sha256": "d8bd62e6e6b0b010",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "the old one he appointed for their fathers with circumcision, and the new one he kept for the new people."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s28",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s27",
       "source_sha256": "3512f32a9e6095eb",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Now he who ordained the old through Moses is the same who shows us the new, for he alone is the one and only God, who was proclaimed through them, invisible [and] believed [?]."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s29",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s28",
       "source_sha256": "5bc6a98ed8c976c6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And he is the only Son of God, who appeared to the world so that it might believe, as he says through Jeremiah:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s30",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s29",
       "source_sha256": "0cb28767718a8109",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"And it shall be in those days, says the Lord, that I will lay upon the house of David and upon the house of Judah a new covenant, not such as I promised to their fathers on Mount Horeb.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s31",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s30",
       "source_sha256": "8e122542e5a6f2aa",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Now the Son of God [?], who has been the mediator of all things between God and human beings, first through a cloud, as through a mirror,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s32",
-      "source_sha256": "87a2a1bb1f7b2acd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s31",
+      "source_sha256": "3752bc88a05a7ea9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "appeared to Moses on the mountain and commanded the law from the Father, as the Scripture says: \"And the Lord said to Moses: 'Go down, command the people:"
+      "text": "He appeared to Moses on the mountain and gave the law as a command from the Father, as Scripture says: \"And the Lord said to Moses:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s32",
+      "source_sha256": "e476b870dc3a4665",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'Go down and command the people: if you diligently keep the commandments of the Lord your God and do what is pleasing before him,"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s33",
-      "source_sha256": "1ca0e7eb5da174dc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "29077685269a5c16",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "If you diligently keep the commandments of the Lord your God and do what is pleasing before him, all the plagues"
+      "text": "I will not send upon you any of the plagues that I brought upon the land of Egypt, for I am the Lord your God.'\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s34",
-      "source_sha256": "3e3f9bfcabf620b4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "that I brought upon the land of Egypt I will not send upon you, for I am the Lord your God.'\""
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s35",
       "source_sha256": "0635edb3b8448db4",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Now who is that Lord who spoke to Moses, if not the Son? Or whose law was he commanding, if not the Father's? He wished to reveal his own judgment and said:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s36",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s35",
       "source_sha256": "f0f52c4fe881fc20",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"All the plagues that I brought upon the Egyptians I will not bring upon you.\" And he did not speak thus, as of the one who sent him:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s37",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s36",
       "source_sha256": "f90629a9cd312e2d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"For the Father judges no one, but has given all judgment to the Son,\" who judged the Egyptians, justly drowned in the Red Sea?"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s38",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s37",
       "source_sha256": "72e9a09b76b7d9d5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Deuteronomy rightly says: \"He received laws from his mouth,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s39",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s38",
       "source_sha256": "1077d16ed35ec5bf",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "which Moses commanded us, an inheritance of the people of Jacob,\" and \"there shall be a ruler through the beloved of the Lord,\" so that at that time he might appear to Moses as a ruler, trustworthy."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s40",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s39",
       "source_sha256": "e0218e327ecc158b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "When that beloved Son of God appears from heaven in glory together with Moses, and what was preached by him"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s41",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s40",
       "source_sha256": "ec23739f80b28ea8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "is shown openly to all, that which he then told Moses on the mountain and no one believed."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s42",
-      "source_sha256": "b9661556449678eb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s41",
+      "source_sha256": "b90b39d1697cbcfb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And now to the world, as a man manifest among them and not recognized, as Moses himself speaks of the assembly of rulers together with the tribes of Israel,"
+      "text": "And now he was made manifest to the world as a man among them and was not recognized [?], as Moses himself speaks of the assembly of the rulers together with the tribes of Israel. Therefore the apostles also said something like this:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s42",
+      "source_sha256": "25e9075981b824da",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Lord, you are the one who made heaven and earth and the sea and everything, who spoke through the mouth of your beloved servant David:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s43",
-      "source_sha256": "d3d229615723a5e4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "973e4fac1158021f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for this reason the apostles too said something similar: \"Lord, you are the one who made heaven and earth and the sea and all things,"
+      "text": "'Why did the nations gather together like brute beasts, and the people plot vain things?'\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s44",
-      "source_sha256": "e0ce5438ff5f3db6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "who spoke through the mouth of your beloved servant David: Why did the nations gather like beasts, and the people devise vain things?"
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s45",
       "source_sha256": "a4eff1b51ce85d2e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "The kings of the earth conspired and the rulers gathered together against the Lord and against his anointed."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s46",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s45",
       "source_sha256": "64527d6bc6db4717",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Truly, Herod and Pontius Pilate, together with the people and the authorities, gathered against your Son Jesus,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s47",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IV.s46",
       "source_sha256": "a207538cfef34e30",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -798,38 +804,38 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s3",
-      "source_sha256": "b4195dc563f5391d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7621d04292f32277",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But David too foretells similar words concerning Christ, saying: \"I shall not die, but I shall live.\""
+      "text": "Indeed, David also speaks beforehand about Christ in similar words: \"I shall not die, but I shall live.\" Likewise Moses also says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s4",
-      "source_sha256": "cd3533a260b85896",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "416c7201ef6b98c9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Likewise Moses too says: \"Let Reuben live and not die, and let him be many in number,\""
+      "text": "\"Let Reuben live and not die, and let him be many in number.\" This is now being fulfilled through the churches among the nations, and the children of the barren woman are more numerous"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s5",
-      "source_sha256": "d0d58582201241fe",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a89ddb533bc7d7db",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "which is now coming about through the churches among the nations, and the children of the barren woman are more numerous than those of her who has a husband,"
+      "text": "than those of the woman who has a husband. This is a sign of the resurrection. Moses foresaw the resurrection of the Lord, that death would have no dominion over him, and he said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s6",
-      "source_sha256": "0af847acae7471d3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a3ea70ef99e87d62",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "which is a sign of the resurrection. Moses foresaw the resurrection of the Lord, that death would have no power over him, and said: \"Let him live and not die.\""
+      "text": "\"Let him live and not die.\" For David too could not have said this about himself:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s7",
-      "source_sha256": "ce545705a099ebfa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "62e6aa04566d382a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "For David too could not have said of himself, \"I shall live and not die,\" he who died and whose tomb remains to this very day,"
+      "text": "\"I shall live and not die\", since he died, and his tomb lies there to this very day."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s8",
@@ -854,27 +860,34 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s11",
-      "source_sha256": "685a2488ff1f2093",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "beaa9dda09c56af6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when he said that he \"died to sin,\" he shows us fully that: \"For all sinful men, he on whom death had no claim"
+      "text": "And when it says, \"He died through sin,\" it clearly teaches us that:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s12",
-      "source_sha256": "d2d0fe6024f2a014",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b45d67771ef4e845",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "was given over to death for all of us, so that those who were alive might live not for themselves, but for him who died for them and rose.\""
+      "text": "\"For the sake of all sinful men, he to whom death was not due was given over to death for us all,"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s13",
+      "source_sha256": "d0f45fc54647385f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "so that those who live might no longer live for themselves, but for him who died for them and rose again.\""
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s14",
       "source_sha256": "d3e174db802ebcf5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And: \"If we die with Christ through baptism, we believe that he, having risen from the dead, will die no more, and death will have no dominion over him.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s14",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.V.s15",
       "source_sha256": "adc5dec1627da332",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -973,160 +986,167 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s9",
-      "source_sha256": "94dcb9c85a24ec50",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7ec35f3537f2372e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He will judge created beings by displaying at that time before all the mark of the nails in his hands, as John says: \"They shall look with their eyes on him whom they pierced.\""
+      "text": "He will judge created beings, showing everyone at that time the mark of the nails in his hands, as John says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s10",
-      "source_sha256": "b12d794062515caa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a03a909b23c92714",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And again he says: \"Be a helper against his enemies,\" for the Father helped him and delivered him from enemies and plotters, as Jacob says: \"Your hands on the shoulders of your enemies.\""
+      "text": "\"They will look on him whom they pierced.\" And further he says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s11",
-      "source_sha256": "a16fd1dada255ba6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "bc526f8d99f79009",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And David says: \"Many dogs surrounded me and the congregation of the wicked encompassed me,\" for \"I was cast upon you from my mother's womb."
+      "text": "\"Be a helper against his enemies,\" for the Father helped him and delivered him from enemies and plotters, as Jacob says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s12",
+      "source_sha256": "1c9d66a93e229c13",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Your hands are on the backs of your enemies.\" And David says:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s13",
+      "source_sha256": "b4af55a209bcdd18",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Many dogs have surrounded me, and the assembly of the wicked has hemmed me in,\" for \"I was cast upon you from my mother's womb."
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s14",
       "source_sha256": "cbe5748a7926df96",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "You are the one to whom I entrust myself.\" The Father exalted him and seated him on the thrones of glory, to whom he says:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s13",
-      "source_sha256": "e1a3ae70b809d901",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"Sit at my right hand, until I make your enemies the footstool of your feet.\""
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s14",
-      "source_sha256": "082e0ad44d8e635e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "This was the one of whom Moses spoke beforehand: \"Hear, Lord, the voice of Judah.\" And may they come to his congregation. And his hands shall judge."
-    },
-    {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s15",
+      "source_sha256": "5e13fad91e9a4d2c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Sit at my right hand, until I make your enemies a footstool for your feet.\" This was what Moses foretold:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s16",
+      "source_sha256": "b77c5a0ca0ac9572",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Hear, O Lord, the voice of Judah.\" And they will come to his assembly. And his hands will judge."
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s17",
       "source_sha256": "5990487161bad6da",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And may you be a helper against his enemies.\" And again concerning Levi he speaks in the same manner: \"Give to Levi his manifestation"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s16",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s18",
       "source_sha256": "cd0098de197659e8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "and his justice to the holy man, whom they tested with trial and whom they reproached at the waters of dispute,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s17",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s19",
       "source_sha256": "9115156f42b7a58c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "who said to his father and mother, 'I do not know you,' and to his brothers, 'I do not know you.'"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s18",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s20",
       "source_sha256": "39551129b95ea479",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And he did not acknowledge his own children. He kept your words and did not transgress your covenant."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s19",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s21",
       "source_sha256": "efa9c0cd42f8cc82",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "They shall make known your judgment to Jacob and your law to Israel; they shall offer incense at the time of wrath upon him and upon your offerings."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s20",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s22",
       "source_sha256": "a8358153c65c5bb2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Bless, Lord, his strength, and accept the works of his hands."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s21",
-      "source_sha256": "1e503d07b550959a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Break the powers of his enemies who have risen up, and may those who hate him not rise.\""
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s22",
-      "source_sha256": "427812c40ae4bf4b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And when he said, \"Give to Levi the manifestation,\" he reveals by this word Christ as priest of the most high and invisible God,"
-    },
-    {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s23",
-      "source_sha256": "2dd2f00e4ddbc774",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "cb13969c728dc1a0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who afterward put on the manifestation and justice, holding up the two laws on both shoulders, down to the ankle:"
+      "text": "He will break the strength of his enemies who rise up, and those who hate him will not rise.\" And as for what he said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s24",
-      "source_sha256": "0b710ecdb352b45c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8a5a7d364ec870ac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "the manifestation is the Law, justice is the Gospel, so that he might be a perfect priest, shown forth by the perfect Father."
+      "text": "\"Give to Levi manifestation\": with these words he reveals Christ as priest of the most high and invisible God, who afterwards put on manifestation and truth;"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s25",
-      "source_sha256": "9c97eb2b36fb5865",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "58b991a53c972c1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "As he says through the prophet David: \"You are a priest forever, according to the order of Melchizedek.\""
+      "text": "the two laws held up on both shoulders down to the ankle [?]: manifestation is the Law, truth is the Gospel, so that he might be shown to be a perfect priest by the perfect Father."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s26",
-      "source_sha256": "28153aee28690bf2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2d61d544014702dd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Nathan says: \"May the Lord raise up for himself as priest a faithful one, who will do and accomplish all the will of his heart.\" For he was prepared."
+      "text": "As he says through David the prophet: \"You are a priest forever after the order of Melchizedek.\" And Nathan says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s27",
+      "source_sha256": "9154d4f5a9cdc253",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"The Lord will raise up for himself a faithful priest, who will do and fulfill all the will of his heart.\" For he was prepared."
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s28",
       "source_sha256": "5f99a222c3216aa2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Christ, from the tribe of Levi, from the established priesthood, from the tribe of Aaron, likewise born in the flesh, was made eternal priest by the Father."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s28",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s29",
       "source_sha256": "64e61161b1e3e60a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Moses proclaimed beforehand and said: \"Give to Levi his manifestation, and his justice to the holy man.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s29",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s30",
       "source_sha256": "5afb7d41d610c40b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "You see now how he revealed the man as a name for him. He alone has revealed justice to us, and when he said:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s30",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s31",
       "source_sha256": "d25b081b75f977fe",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"His justice to the holy man,\" he also shows him to us as a man, the one who was to appear afterward."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s31",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.VII.s32",
       "source_sha256": "ae13b6a91271b019",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1155,97 +1175,104 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s2",
-      "source_sha256": "b3bf580f88a25066",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3d8792c94c4e7339",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And so that no one should think Christ a mere man, Moses said with caution: \"whom they tempted in the testing, and reproached him at the waters of dispute.\""
+      "text": "And so that no one would think Christ a mere man, Moses spoke with care:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s3",
-      "source_sha256": "0dff1819ee54dcf4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "496af6b7a8797fef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Now where did they tempt and reproach him? Surely in the desert, where the people murmured against Moses and Aaron and said: \"Show us water, so that we may drink."
+      "text": "\"Those who tested him in the testing reproached him at the waters of strife.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s4",
-      "source_sha256": "976906d5df2053a1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2dbc8da20fa67d8b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Why have they brought us out of the land of the Egyptians, to destroy us and our children with thirst?\""
+      "text": "Now where did they test him and reproach him? In the wilderness, of course, where the people murmured against Moses and Aaron and said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s5",
+      "source_sha256": "92a32a71e01e3119",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Give us water to drink. Why did you bring us out of the land of the Egyptians to kill us and our children with thirst?\""
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s6",
       "source_sha256": "6895d18d5258f4cf",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And Moses said to them: \"Why do you reproach us, and why do you test the Lord?\" \"This murmuring of yours is not against us, but against God.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s6",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s7",
       "source_sha256": "7a5d4a9bec44d7af",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "The Lord said to Moses: \"I have heard the murmuring of the sons of Israel,\" which they murmur against you."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s7",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s8",
       "source_sha256": "7d77162bcc3663aa",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"And now take with you some of the elders at dawn, and I will stand on that rock at Horeb until you come, and you shall strike that rock with the staff"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s8",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s9",
       "source_sha256": "73f1a7e4b0911916",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "with which you struck the sea, and water will come out of the rock, and the people will drink.\" And the name of that place was called Testing and Reproach, for they tested God, saying:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s9",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s10",
       "source_sha256": "6cc320f4ee0e5c42",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Is the Lord with us or not? Now who is it that said to Moses:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s10",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s11",
       "source_sha256": "7896a66755c1dda9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"I will stand on that rock at Horeb until you come\"? Surely the one concerning whom Moses said:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s11",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s12",
       "source_sha256": "e1843cbc56256a16",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Give to Levi his manifestation, and his justice to the holy man, whom they tempted in the testing, and reproached him at the waters of dispute."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s12",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s13",
       "source_sha256": "0c629e8bbc4e098f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "If he existed beforehand, before he had yet put on flesh, he was not only a man; and if he revealed himself by word to Moses in the desert, he was not merely a man."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s13",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s14",
       "source_sha256": "d38593b15c40d28f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "This one, sent and made manifest, he has shown to us as God, saying: \"They drank from the spiritual rock that followed them, and that rock was Christ.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s14",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s15",
       "source_sha256": "b3bb58c99cb8c71e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "He recounts this in detail on account of those who understand wrongly, both those who diminish Christ in respect of his divine part and those who ascribe suffering to the Father of all,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s15",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.IX.s16",
       "source_sha256": "b2e1f327f984fc22",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1351,17 +1378,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.X.s15",
-      "source_sha256": "4486f02338f78a1a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4daa0554a9f2025d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "because they became offspring of lawlessness and an evil seed, were justly cast off by him."
+      "text": "For they had become offspring of lawlessness and an evil seed, and they were justly cast out by him. What does Moses say?"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.X.s16",
-      "source_sha256": "f97173d938d45350",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a198315bd344626f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "What does Moses say? \"They kept your words; they did not transgress your covenant.\" Who kept whose words?"
+      "text": "\"They kept your words; they did not transgress your covenant.\" Who kept whose words?"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.X.s17",
@@ -1442,17 +1469,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XI.s8",
-      "source_sha256": "ed23630e2fe01908",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "6765a22269fb95e4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Let all who rose up to attack him turn back and be ashamed.\""
+      "text": "Let all who rose up to attack him be turned back and put to shame.\" And Moses says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XI.s9",
-      "source_sha256": "5abb83d4bf4d280b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b6c0497871f7cf3f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Moses says: \"Bless, Lord, his strength, and accept the works of his hands,\" for everything that the Son did"
+      "text": "\"Bless, O Lord, his strength, and accept the works of his hands,\" for everything which the Son did."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XI.s10",
@@ -1463,24 +1490,24 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XI.s11",
-      "source_sha256": "d03122b6169f8caf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b511b59f3626d838",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Let the strength of his enemies be crushed, and let those who hate him not rise.\""
+      "text": "\"Let the strength of his enemies be crushed, and let those who hate him not rise up.\" He does not say this to mean:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XI.s12",
-      "source_sha256": "0df8c400162fce78",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4a8bdf67fedd2c73",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "It does not mean by this that those who hate Christ should not rise at all; rather, those who do not believe in him will not rise for judgment, for behold, they are already judged."
+      "text": "\"Let them not rise at all.\" Those who hate Christ and do not believe in him will not rise to judgment; see, they are already judged. As David says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XI.s13",
-      "source_sha256": "9d6f6729e343a579",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "59794384cde1c714",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "As David says: \"The ungodly will not rise in the judgment, nor sinners in the counsel of the righteous, for the Lord knows the ways of the righteous, and the way of the ungodly will perish.\""
+      "text": "\"The ungodly will not rise in the judgment, nor sinners in the council of the righteous, for the Lord knows the way of the righteous, but the way of the ungodly will perish.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s1",
@@ -1505,17 +1532,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s4",
-      "source_sha256": "f5f2c7fd8f797375",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7c1307c00ac69bd5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when Moses came down from the mountain and saw their wicked deeds, he stood and cried out with a shout in that struggle and said, \"If anyone is the Lord's, let him come to me.\""
+      "text": "And Moses, when he had come down from the mountain and saw their evil deeds, stood and cried out loudly [?] in the struggle [?] and said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s5",
-      "source_sha256": "62e37d92d38183a5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ab4b18030708c073",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then all the tribes of Levi came to him. And he said to them: \"Thus says the Lord:"
+      "text": "\"If anyone is the Lord's, let him come to me.\" Then all the kindred of Levi came to him. And he said to them: \"Thus says the Lord:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s6",
@@ -1526,24 +1553,24 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s7",
-      "source_sha256": "dedeaadc913786dc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "603316a7c01794c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the Levites did as Moses commanded them. And about three thousand men fell on that day."
+      "text": "And the sons of Levi did as Moses had commanded them. And on that day about three thousand men fell. And Moses said to them:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s8",
-      "source_sha256": "75f302e2b6ade356",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "73ea484a5f7208f7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Moses said to them: \"Now lift up your hands to the Lord to receive a blessing.\" The sons of Levi did this justice, but those of Simeon,"
+      "text": "\"Now lift up your hands to the Lord to receive a blessing.\" And the sons of Levi carried out this judgment, and so did those of Simeon, who were brothers from one mother,"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s9",
-      "source_sha256": "c621884f7b98b8bd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "0d21dbe1bfdb24da",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who were brothers from one mother, did not hasten and were not zealous as they had been zealous for Dinah, their sister, who was lawlessly violated by Hamor, son of Shechem."
+      "text": "They did not hasten, nor were they zealous, as they were zealous for Dinah, their sister, who was unlawfully defiled by Shechem, the son of Hamor."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s10",
@@ -1561,73 +1588,73 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s12",
-      "source_sha256": "7a738db3a6131008",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3d7556cb913fa4b5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But killing a sinner is one thing, and killing a righteous person is another."
+      "text": "But it is one thing to kill a sinner and another to kill a righteous man. It is evident, for Phinehas too, the son of Eleazar,"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s13",
-      "source_sha256": "302427d7147dbc8a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e558f88cdae0addd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "It is well known that Phinehas too, son of Eleazar, son of Aaron the priest,"
+      "text": "the son of Aaron the priest, went into the chamber [?] and pierced through the harlot and Zimri, and he was not counted among murderers, but received praise and blessing from the Lord."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s14",
-      "source_sha256": "3f915728d04aa6cd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "entered the chamber and pierced through the harlot and Zimri, and he was not counted among murderers, but received praise and blessing from the Lord."
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s15",
       "source_sha256": "44a2a9e33a79b331",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For when he saw them embracing one another, he pierced them through with the sword, and by his own hand he did away with the lawlessness of the people through that public display."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s16",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s15",
       "source_sha256": "472f5f0b64b02a9e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "If this is so, when someone kills a sinner, he is not condemned along with murderers. But if someone unlawfully kills a righteous person, as a murderer,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s17",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s16",
       "source_sha256": "234763d58db0afb6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "he is condemned. For the rulers of this world too continually destroy sinners by their law and judgment, and for that killing they pay no penalty."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s18",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s17",
       "source_sha256": "4c51aac1daf345a8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "If someone kills lawlessly, he is a murderer, and as a murderer he shall be punished like them."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s19",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s18",
       "source_sha256": "89955af000e568f6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Here too we must understand that those who pursued zeal for God and slew those liable to death received blessing and praise, so that others, being frightened, would sin no more."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s20",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s19",
       "source_sha256": "7d5662b747c03433",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And concerning Simeon, because of the reason that was spoken of, it remains for us to speak about him a second time, for we find that the blessed Joseph also,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s21",
-      "source_sha256": "d934c89c1a394b10",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s20",
+      "source_sha256": "795000dd20db2b4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for he bound Simeon before his brothers and put him in prison for three days, concerning which he also said: \"You shall not go out from there until that youngest brother of yours comes.\""
+      "text": "For he bound Simeon before his brothers and put him in prison for three days, concerning whom he also said:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XII.s21",
+      "source_sha256": "cd4250f07a0f09bf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"You shall not come out from here until your youngest brother comes.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIII.s1",
@@ -1694,24 +1721,24 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIII.s10",
-      "source_sha256": "58d78b3847f3fdbc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "695d74219cdac7cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Those who believe in the forgiveness of sins are forgiven, and those who were confined in the bonds and shadows of death are delivered from judgment, and he sends down blessing from heaven upon all,"
+      "text": "Those who believe in the forgiveness of sins are forgiven, and those who had been held in the bonds and shadows of death"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIII.s11",
-      "source_sha256": "709ed8e730581a0a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ba46ccdd1a472ae2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for Christ was recognized by Simeon in the temple, and he said prophetically: \"Now dismiss your servant, Lord, in peace,"
+      "text": "have been delivered from judgment, and he will send down blessing from heaven upon all; for through Simeon, Christ, recognized in the temple, was speaking prophetically:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIII.s12",
-      "source_sha256": "57a06e88b35437ab",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "65472fb58253e872",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "according to your word.\" According to what word, if not that which he spoke through Joseph, namely:"
+      "text": "\"Now, Lord, let your servant depart in peace, according to your word.\" According to what word? Rather, according to that which he spoke through Joseph, namely:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIII.s13",
@@ -1883,17 +1910,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIV.s11",
-      "source_sha256": "86495c94da09e2da",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8530de7da46ed3a2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "This is he himself, for he carried the cross on his shoulder, and in the crucifixion he stretched out both his arms, so that what was said might be fulfilled rightly: \"He rested between his shoulders.\""
+      "text": "This is he himself, for he carried the cross on his shoulder, and at the crucifixion he stretched out both his arms, so that what was said might be fulfilled, namely:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIV.s12",
-      "source_sha256": "684421432f970eaa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "1118adefad045964",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "For the apostle also says: \"I have been crucified with Christ; it is not I who live, but Christ lives with me."
+      "text": "\"He rested between his shoulders.\" For the Apostle also says: \"I have been crucified with Christ; it is not I who live, but Christ lives with me.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIV.s13",
@@ -1939,17 +1966,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s6",
-      "source_sha256": "482f07b4906aa664",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a610054355e5583c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Just as Moses, concerning him, tells those words beforehand one after another, dividing the blessings to his tribe."
+      "text": "Just as, ahead of those words, Moses speaks of him in succession, distributing those blessings to his race. And what he says, namely:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s7",
-      "source_sha256": "b23a55ae7059906b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b1c2ab45652fb3da",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And as for what it says, \"By the blessing of the Lord is his land,\" this may be said of Mary, who became a blessed land, and the Word came upon her like dew."
+      "text": "\"Blessed of the Lord is his land\" can be said of Mary, who became a blessed land, and the Word came down like dew."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s8",
@@ -2002,31 +2029,31 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s15",
-      "source_sha256": "064fb3162f5462dc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "cde4e6474af50d6f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Therefore the prophet of the Psalms says from out of the cloud: \"By the blessing of the Lord is his land, from the seasons of heaven,"
+      "text": "For this reason the prophet of the Psalms speaks as from the cloud:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s16",
-      "source_sha256": "f6d6c04e5509bc65",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "50c96e8a205e0d87",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and from the dew, and from the springs of the deep below,\" in order to show us his birth and how he was born, and to reveal his resurrection."
+      "text": "\"Blessed of the Lord is his land, from the seasons of heaven, and from the dew, and from the springs of the deep,\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s17",
-      "source_sha256": "71d40006b17f47e3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "1e547512bb0c4fe5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And because he said, \"from the seasons of heaven and from the dew,\" this means that his birth was not from seed,"
+      "text": "so that he might show us both his birth and how he was born, and might reveal his resurrection. And because he said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s18",
-      "source_sha256": "be2033eaaaf82f3d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5f5ed947fc5f060a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "but from the Holy Spirit; and he said \"from the springs of the abysses\" because he came up from hell and from the abysses."
+      "text": "\"From the seasons of heaven and from the dew,\" [this means] that his birth is not from seed but from the Holy Spirit; and \"from the springs of the abysses,\" because he came up from hell and from the abysses."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XV.s19",
@@ -2149,38 +2176,31 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVI.s12",
-      "source_sha256": "2316d22fbd0ab6b3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3cf65131657efeaf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "whose horns he made grow like the horns of a calf, so that he might be offered as a holy offering to the Father, and a sweet fragrance might rise up to heaven."
+      "text": "Whose horns he made to grow like a bull's, so that he might be offered as a holy offering to the Father, and the breath of fragrance might rise up to heaven. \"The horn of the unicorn — his horns.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVI.s13",
-      "source_sha256": "83de0f14d7ea519e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ed62fee2acf34505",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"The horn of the unicorn: his horns.\" The unicorn is that wood which they raised up on the earth, which by goring tears apart the unbelieving nations,"
+      "text": "The unicorn is the wood which they set up on the earth, which tears down the unbelieving nations by goring, but gathered the believers into his own kingdom; and he says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVI.s14",
-      "source_sha256": "59b25ad48b2764a1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "dc664533cc91f8a8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "but the believers they gathered into his kingdom, and he says: \"These are the myriads of Ephraim, and the thousands of Manasseh.\""
+      "text": "\"These are the myriads of Ephraim, and the thousands of Manasseh.\" And the thousands were those sealed from his people, while the myriads were those called from the nations."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVI.s15",
-      "source_sha256": "606a0c03430632c0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4abb5e039117e198",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the thousands were those sealed from the people, while the myriads were those called from the nations. Ephraim and Manasseh show us the figure of the two laws."
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVI.s16",
-      "source_sha256": "13ef36429b424c04",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Joseph had two sons, as we have set out the account of them accurately in another place."
+      "text": "Ephraim and Manasseh show us the figure of two laws. Joseph had two sons, as we have truly explained the words concerning them in another place."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s1",
@@ -2198,132 +2218,146 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s3",
-      "source_sha256": "bce9283dd847af12",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "490b283b7a8e9615",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And concerning Zebulun, just as Jacob blessed him, for Jacob says: \"Zebulun shall dwell by the seashore and be a resting place for ships, and he shall extend as far as Sidon.\""
+      "text": "And concerning Zebulun, as Jacob blessed him; for Jacob says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s4",
+      "source_sha256": "6d198b02010e1145",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Zebulun shall dwell by the seashore and be a haven for ships, and shall reach as far as Sidon.\""
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s5",
       "source_sha256": "a4a354ad5829abd0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "As we have seen, this blessing is now being fulfilled for the believers through the calling of the nations."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s5",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s6",
       "source_sha256": "2a75585bb77c7634",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "The bay for ships and the resting place is the Lord, and the ships are the churches, which, through the trials of this world, flee for refuge to the Lord from the oppression and assaults of alien spirits, as ships take refuge in a calm harbor."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s6",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s7",
       "source_sha256": "8ec7ab1e9f08315d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And he reached as far as Sidon through the preaching of the apostles, which reached the nations dwelling far away, as the Psalmist says:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s7",
-      "source_sha256": "7425f99fe7643ee5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"Their voice has gone out into all the earth, and their words to the ends of the world.\""
-    },
-    {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s8",
-      "source_sha256": "557f42d2f2c8caf6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9b1255e52873273d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Similarly to this, Moses also says: \"Be glad, Zebulun, in your goings out.\""
+      "text": "\"Their voice has gone out into all the earth, and their words to the ends of the world.\" Similarly Moses also says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s9",
-      "source_sha256": "74b139d1603105de",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a248be567911b5fe",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And by these goings out he does not mean the going out from Egypt. For not only Zebulun came out from there, but all the tribes as well."
+      "text": "\"Rejoice, Zebulun, in your goings out.\" And by \"goings out\" he does not mean the going out from Egypt."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s10",
+      "source_sha256": "8b09b0b7d8f71edd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "For it was not only Zebulun who went out from there, but all the tribes."
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s11",
       "source_sha256": "d48eae2e65e7f34b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But those who are now called in the Gospel stand ready to depart from this world to another world."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s11",
-      "source_sha256": "9414d9e5356589f6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "This is what the prophet cries out beforehand in his preaching to all who trust in Christ."
-    },
-    {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s12",
-      "source_sha256": "994121a733cf4f3e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b0bfc07ac97a2794",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He says: \"Make glad, Zebulun, your goings out,\" for those who depart from this world in holiness are glad in the hope of the resurrection,"
+      "text": "The prophet proclaims this beforehand in his preaching to all who trust in Christ. He says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s13",
+      "source_sha256": "dc712b05c6e2504d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Rejoice, Zebulun, in your goings out,\" for those who leave this world in holiness rejoice in the hope of the resurrection."
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s14",
       "source_sha256": "c5179e18640a49aa",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "and those who rest in the bosom of the Father are glad to dwell in that incorruptible age and to enter that paradise of delight."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s14",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s15",
       "source_sha256": "293fc1c3ad6ccf39",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Solomon says: \"Prepare your works for your going out, and go out to the fruits. And follow in my footsteps, and raise your houses on high.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s15",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s16",
       "source_sha256": "ebaebe3bc7bc8df2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "He admonished Zebulun and Issachar in order to show the ascent of the two laws to Christ through justification. And Zebulun is translated \"gift,\" and Issachar \"labor.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s16",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s17",
       "source_sha256": "177ff03a58b1b9d4",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And those who work the vineyard well, and whose fruit is pleasing, shall receive life, like those workers of the vineyard."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s17",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s18",
       "source_sha256": "23ccdbab637326e8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But he said: \"Give them their wages, and begin from the last up to the first.\" \"Now rejoice, Zebulun, in your goings out,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s18",
-      "source_sha256": "1af8eadd341c0932",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s19",
+      "source_sha256": "3de684d9c0de3e34",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and Issachar, in his dwellings\" — and he speaks of the dwellings of the cities, which are settled by the holy churches: \"And you shall call there, and you shall offer the offerings of righteousness.\""
+      "text": "\"And Issachar, in his dwellings\": he means the dwellings of the cities, which are settled in the holy churches:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s19",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s20",
+      "source_sha256": "8c416ca2036d3ec7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"And there you shall call [?], and you shall offer sacrifices of righteousness."
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s21",
       "source_sha256": "f6e188225e19ba0f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And whom should we call upon, if not that Lord of heaven, and what offering should we offer him, if not the prayer we send up from the mouth?"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s20",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s22",
       "source_sha256": "ed271d3ca81fb20b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"And the wealth of the sea shall suckle you.\" By the wealth of the sea he means, in a spiritual understanding, the nations, who through faith suck out that heavenly Spirit as if it were milk."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s21",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVII.s23",
       "source_sha256": "2168630f0cad6305",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -2338,97 +2372,104 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s2",
-      "source_sha256": "fa7370209212ed3d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fcf973d9390fa2f4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for there the land of the assembled rulers was divided, together with the authority of the princes. He did the justice of the Lord and judgment in Israel.\""
+      "text": "For there the land of the rulers who were gathered together was divided, along with the authority of the princes."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s3",
-      "source_sha256": "e0f1636377228144",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "489adae3a8518504",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And as for what he said: \"The man who makes broad\" — for the blessing of the Lord spread over the breadth of the earth to the nations; and as for what he said:"
+      "text": "He carried out the justice of the Lord and judgment in Israel.\" And about what he said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s4",
+      "source_sha256": "17920ece9ebe8630",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"The man who enlarges\": for the blessing of the Lord spread over the breadth of the earth to the nations. And about what he said:"
+    },
+    {
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s5",
       "source_sha256": "6b4f20842b668715",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"Like a lion he rested,\" it is like those words of Jacob, who said concerning Judah:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s5",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s6",
       "source_sha256": "6480d47f33382fcc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"You crouched [?] and slept like a lion and like a whelp,\" so as to reveal his rest upon the earth."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s6",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s7",
       "source_sha256": "7464245357a7271e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And as for what he said: \"They crushed the arms of the rulers,\" he speaks of those rulers who cried out against him, and of him"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s7",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s8",
       "source_sha256": "7ca25d4f7360ea36",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "who by the rest of death crushed the arms of the devil, his principalities and powers being trampled down."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s8",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s9",
       "source_sha256": "53906dfa3e25dc22",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"And he saw his dominion, for there was scattered also the land of the rulers of the peoples.\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s9",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s10",
       "source_sha256": "3b4500b2969358f9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "By that beginning of his he means the saints, who are of the earth, of the dust, and have risen from the dead."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s10",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s11",
       "source_sha256": "7168fe3e0d2bfe66",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For Jesus became the firstborn of the dead and the beginning of all. And as for what he said:"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s11",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s12",
       "source_sha256": "65cdc68150376602",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"There the land of those assembled rulers was divided, with the nations and with the princes of the peoples,\" he foretells to us all those gathered to him from the four ends of the earth,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s12",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s13",
       "source_sha256": "6ef8152dafbd3f8e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "who, gathered by him from all nations and peoples, share out that holy land by reigning with Christ."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s13",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s14",
       "source_sha256": "cf14ff4d6fde7d5b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And as for what he said: \"He did the justice of the Lord and his judgment in Israel,\""
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s14",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s15",
       "source_sha256": "5bf5bbd93d298f40",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "it is because he alone was found righteous above all men and fulfilled the will of his Father by declaring justice to that people."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s15",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XVIII.s16",
       "source_sha256": "930557cd38691cb0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -2457,24 +2498,24 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIX.s4",
-      "source_sha256": "29cfb5ab425b777a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "bf8676740f863270",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But from the holy books that foretold these things his wickedness is known, that he is the Antichrist."
+      "text": "But from the holy books that foretold these things, his wickedness is known: he is the Antichrist. Jacob says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIX.s5",
-      "source_sha256": "fa6fdef786169c6e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7576807192a0181f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Jacob says: \"Let Dan be like a serpent lying in wait by the road.\" And Moses says: \"Dan is a lion's whelp; for one time he shall reign.\""
+      "text": "\"Dan shall be like a serpent lying in wait on the roads.\" And Moses says: \"Dan is a lion's whelp; he shall reign for a time.\" And Jeremiah says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIX.s6",
-      "source_sha256": "6980505171050830",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "d143d63b7fdb785e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Jeremiah says: \"The sound of the swiftness of his horses shall be heard from Dan, and at the sound of the neighing and of the driver [?] of the chariots the whole earth shall shake.\""
+      "text": "\"The sound of the swiftness of his horses shall be heard from Dan, and the whole earth shall be shaken by the sound of the neighing and of the driving [?] of his chariots.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIX.s7",
@@ -2506,55 +2547,48 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIX.s11",
-      "source_sha256": "5aedaf3742f64ea5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a940efcb60594996",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And at the coming of that ruler with deception, the Lord shall appear from heaven to crush and subdue all the powers of that adversary."
+      "text": "And at the coming of that deceiving ruler, the Lord will appear from heaven to crush and bring down all the powers of that adversary, as Paul says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XIX.s12",
-      "source_sha256": "19ff051cab4d8f8d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3ecea7052bb42add",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "As Paul says: \"Whom the Lord shall destroy with the spirit of his mouth and with the manifestation of his coming, the one whose coming shall be by the power of the devil.\""
+      "text": "\"whom the Lord will consume with the spirit of his mouth and by the manifestation of his coming, the one whose coming will be by the power of the devil.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s1",
-      "source_sha256": "cd4bc1f52391b810",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "217aed1a2bea4c22",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And to Naphtali he said: \"Naphtali shall prepare the food of favor, and he shall be filled with blessing from the Lord God, from the sea and from the south.\""
+      "text": "And to Naphtali he said: \"Naphtali shall prepare the food of favour, and they shall be filled with the blessing of the Lord God, by the sea and toward the south.\" And concerning Naphtali he said:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s2",
-      "source_sha256": "1a4415c0da834532",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "6ff93320c592a1d2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And of Naphtali he said: \"A shoot that has grown up."
+      "text": "\"A shoot has sprung up; it has put forth its beauty from its roots.\" He says this to show what the saints are like: shoots in the middle of a vineyard, gladdened by good works."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s3",
-      "source_sha256": "f8cb51804984c9a3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "It shall put forth its beauty from the roots,\" in order to show that those of the saints are like shoots in a vineyard, gladdened by good works."
-    },
-    {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s4",
       "source_sha256": "738d90ef578ecca8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But Moses says: \"Naphtali, nurturer with favor,\" for the Lord is full of gift and grace,"
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s5",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s4",
       "source_sha256": "f3b885ce0de30013",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "so that through these things the saints may be established as a perfect man and in the measure of stature, so that they may be found perfect by the blessing from the Lord."
     },
     {
-      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s6",
+      "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XX.s5",
       "source_sha256": "97efbca47e5d4edd",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -2583,17 +2617,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s4",
-      "source_sha256": "e82612cf02885322",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b0e466df8f9b0816",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and in the strength of those everlasting arms. They shall drive the enemies out from before you.\""
+      "text": "\"And by the strength of those everlasting arms they shall drive the enemies out from before your face.\" And he shall say to him:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s5",
-      "source_sha256": "de2d0e95414ea92c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "996527e6ce0ed07d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he shall say: \"Perish!\" And Israel shall dwell in hope in that land of Jacob amid wheat and wine, and his heavens shall be mingled with dew from the cloud.\""
+      "text": "\"Perish!\" And Israel shall dwell in hope in that land of Jacob, among wheat and wine, and his heavens shall drip dew from the clouds."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s6",
@@ -2639,31 +2673,31 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s12",
-      "source_sha256": "7c6c64ee6d2fe5a4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e542360d46baf2d6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"The wealth of the sea will suckle you\": these are the nations, who draw suck from the commandments of the Lord."
+      "text": "\"The wealth of the sea shall nurse you.\" This wealth is the nations, who draw nourishment from the commandments of the Lord. That is why he says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s13",
-      "source_sha256": "91ec60edfce24181",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e3a5639280645615",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "For this reason he says: \"Let him be acceptable among his brothers.\" Is it not those to whom the Savior also said: \"My brothers and joint heirs\"?"
+      "text": "\"He shall be accepted among his brothers.\" Are these not the ones to whom the Saviour also said, \"My brothers and fellow heirs\"?"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s14",
-      "source_sha256": "4214ac6e66df69bc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7ade41fa02799c14",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "To these the Word became acceptable, as a man who appeared on earth in the flesh, but he is also confessed by them as God, for Thomas says: \"My Lord and my God.\""
+      "text": "By these the Word was accepted, as a man who had appeared in the flesh on earth. He was also confessed as God by them, for Thomas says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s15",
-      "source_sha256": "87d5d26c29359be4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b729263c6cf5d14b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "This one, known to those very brothers according to the flesh, they despised, and they reviled him as a poor and contemptible man."
+      "text": "\"My Lord and my God.\" But his brothers according to the flesh, the very ones by whom he was known, despised him and insulted him as a poor and contemptible man."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s16",
@@ -2716,17 +2750,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s23",
-      "source_sha256": "41cebab1c8afb3f9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "805849a2f3944c74",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Let him dip his foot in oil,\" he is saying nothing other than that it concerns what belonged to those sufferings, for the blood that flowed from that side, mercy for us"
+      "text": "\"He shall dip his foot in oil\" means nothing other than his sufferings, for the blood that poured from his side was proclaimed to us as mercy."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s24",
-      "source_sha256": "f0d5c01faeaa745f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "c0fac5d8b0d58137",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "was drawn forth [?] for us. The foot of the Lord was dipped, so that the purple-colored mark on him, accomplished at that time, might appear, and that door of life might be taught to us."
+      "text": "The Lord's foot was dipped so that the purple-coloured mark on it might appear, fulfilled at that time, and so that the door of life might be taught to us."
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXI.s25",
@@ -2800,31 +2834,31 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s7",
-      "source_sha256": "be082ef9907c4bc3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fe1643d50e964339",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "This is the Father of the beloved Son, as he testifies in the Gospel: \"A voice came from heaven and said: This is my beloved Son, in whom I am well pleased."
+      "text": "This is the Father of the beloved Son, as he testifies in the Gospel:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s8",
-      "source_sha256": "13cbf30a77e50fd3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "26ea56661f3c97fc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Hear him.\" Similarly to this Moses too said: \"There is no God like that Beloved, who sits in the heavens, a helper for you.\""
+      "text": "\"A voice came from heaven and said, 'This is my beloved Son, in whom I am well pleased. Listen to him.'\" Moses also said something like this:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s9",
-      "source_sha256": "6b2762c6fec94290",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ad9a64f7f4c22adf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Jacob, in blessing, spoke thus to Joseph: \"And my God has helped you."
+      "text": "\"There is no God like the beloved one, who sits in the heavens as your helper.\" And Jacob, blessing Joseph, said this to him:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s10",
-      "source_sha256": "9b4ec6f7bcecbe6b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And David says: \"My helper and my deliverer and my glory and the lifter up of my head.\""
+      "source_sha256": "ba709eafb309ba5e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 5,
+      "text": "\"And my God helped you.\" And David says: \"My helper and my deliverer and my glory and the one who lifts up my head.\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s11",
@@ -2842,17 +2876,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s13",
-      "source_sha256": "882d8fcdccb333ff",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "As the prophet says: \"His might covered the heavens,\" and David says: \"Glory and wealth and power you have put upon him.\""
+      "source_sha256": "bf17abcde68e34f9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 5,
+      "text": "As the prophet says: \"His strength covered the heavens,\" and David says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXII.s14",
-      "source_sha256": "21baba38e6d9a634",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And again he says: \"Gird your sword upon your loins, O mighty one, array yourself, go forward and reign!\""
+      "source_sha256": "64613d58050620a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 5,
+      "text": "\"Glory and wealth and might you have put upon him.\" And again he says: \"Gird your sword upon your loins, O mighty one; array yourself, go forth prosperously, and reign!\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXIII.s1",
@@ -2891,17 +2925,17 @@
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXIII.s6",
-      "source_sha256": "1f696af88c791cf8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "so that he may show him forth as king forever and subject his enemies and the treacherous beneath him."
+      "source_sha256": "a8f772ec89880fb7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 5,
+      "text": "So that he might show him forth as eternal King and subject his enemies and the deceitful beneath him. As the prophet says:"
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXIII.s7",
-      "source_sha256": "69c914ce9186e008",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "As the prophet says: \"The Lord said to my Lord: Sit at my right hand, until I place your enemies beneath your feet.\""
+      "source_sha256": "34887510af36c49b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 5,
+      "text": "\"The Lord said to my Lord: 'Sit at my right hand, until I make your enemies a footstool under your feet.'\""
     },
     {
       "chunk_id": "titus-shatberdi/hippolytus-benedictiones-moysis#Satb.HippMos.XXIII.s8",

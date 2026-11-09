@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -496,11 +502,18 @@
       "text": "This is the eternal God of Abraham, Lord of creation, who protects this army, brave and mighty, with his great hand.\""
     },
     {
-      "chunk_id": "aspr/exodus#Exodus.276",
-      "source_sha256": "c857de30cdc0d60c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then the man of the living [God?] raised a loud voice before the armies, as he spoke to the people: \"Look! Dearest of peoples, you now see with your own eyes a sudden wonder: how I myself, with this right hand, have struck the depth of the ocean with a green token."
+      "chunk_id": "aspr/exodus#Exodus.276.s1",
+      "source_sha256": "d8700158b2d67ef0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "Then before the hosts the leader of the living raised a loud voice, when he spoke to the people:"
+    },
+    {
+      "chunk_id": "aspr/exodus#Exodus.276.s2",
+      "source_sha256": "c044b6c63f75747e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "\"Lo, you now look with your eyes, dearest of peoples, on a sudden wonder: how I myself, with this right hand, have struck the depth of the ocean with a green token."
     },
     {
       "chunk_id": "aspr/exodus#Exodus.282.s1",

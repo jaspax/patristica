@@ -2,11 +2,11 @@
  "format": 1,
  "group": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b",
  "pivot": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b",
- "groups": 126,
- "inputs": "7e4d375d7ddcd2f0",
- "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 127,
+ "inputs": "60874d11b914e228",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b", "units": 169, "ids": "77b5f2083461de8e", "inputs": "34b5a2f308ca39a3", "spans": "..++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=......................................", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-b", "units": 137, "ids": "157010cf2f7ab999", "inputs": "c9ad22ca872e6cd7", "spans": ".++++=+++=++++++++++++++++++++++++++++++++=++++=++=++=+++++++++++++++++++++++=++=++++++++++++++++++=+.+++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b", "units": 168, "ids": "a985028003b18c5b", "inputs": "128f9f25f80eedf6", "spans": "..+++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=....................................", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-b", "units": 139, "ids": "7abfa9e31723ab4a", "inputs": "229ae3b31a5479c3", "spans": ".++++=+++=++++++++++++++++++++++++++++++++=+++++++=++=+++++++++++++++++++++++=++=++++++=++++++++++++=+.+++++++++++++++++++++=++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

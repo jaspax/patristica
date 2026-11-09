@@ -3,10 +3,10 @@
  "group": "csel/stoa0104a/stoa001/opp-lat1",
  "pivot": "anf-works/cyprian-to-donatus",
  "groups": 145,
- "inputs": "991b6e1a547870cd",
- "run": {"aligner": 2, "date": "2026-10-29", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "1f3318a6af468abb",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/cyprian-to-donatus", "units": 168, "ids": "c76dad74b1f69260", "inputs": "8586123a5a9a666a", "spans": ".....+=+++++=+.+++++++++=+++++=++++++++++++++++++=+++=+++++=++++++++++++=++=++++++=+++=+++++++=+++++.++++++++++++++++++++++=++++++=++++++++++=+++++++++=++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "csel/stoa0104a/stoa001/opp-lat1", "units": 148, "ids": "f31a278fe5e6809d", "inputs": "76e57824c8551867", "spans": "+=+++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/cyprian-to-donatus", "units": 168, "ids": "c76dad74b1f69260", "inputs": "e19a90b469670336", "spans": ".....+=+++++=+.++++++++=++++++=++++++++++++++++++=+++=+++++=++++++++++++=++=++++++=+++=+++++++=+++++.++++++++++++++++++++++=++++++=++++++++++=+++++++++=++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "csel/stoa0104a/stoa001/opp-lat1", "units": 148, "ids": "f31a278fe5e6809d", "inputs": "00afd3bbdc0f0d55", "spans": "+=+++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

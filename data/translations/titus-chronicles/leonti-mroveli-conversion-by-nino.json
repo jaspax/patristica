@@ -4,16 +4,16 @@
   "source_language": "oge",
   "target_language": "eng",
   "provenance": {
-    "claude-opus-5-5/bulk-2026-10-12/2026-10-31": {
-      "model": "claude-opus-5-5",
-      "prompt_version": "bulk-2026-10-12",
-      "date": "2026-10-31",
-      "script": "__main__"
-    },
     "claude-opus-5-5/bulk-2026-10-12/2026-11-04": {
       "model": "claude-opus-5-5",
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
+      "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
       "script": "__main__"
     }
   },
@@ -146,17 +146,24 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.73.s10",
-      "source_sha256": "d30d78be2a25550b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8dac5d49808bf2a0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Early in the morning the Branjs rose, put on garments for death, and went out to the place where men were slain and blood was shed."
+      "text": "Early in the morning those Franks got up and put on burial clothes,"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.73.s11",
-      "source_sha256": "124b4340d2bcc5e2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "cf583755fb23681a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They prayed and thanked God for their baptism, saying: \"In death we are immortal, for God has made us worthy of such glory, to receive"
+      "text": "and went out to the place where people were slaughtered and blood was shed. They prayed and thanked God for baptism, and said:"
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.73.s12",
+      "source_sha256": "de97316a1914e650",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"In death we are immortal, for God has made us worthy to receive such glory"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.74.s1",
@@ -496,20 +503,27 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.78.s9",
-      "source_sha256": "84863c9f6a549e04",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "375036f5b6468729",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But the shroud was not found, although some people said of Peter: \"He managed to take it, and he kept it.\""
+      "text": "But the shroud was not found, although some people said about Peter:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.78.s10",
-      "source_sha256": "5197bb9021584096",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a8f3af886e1441e0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But they did not tell us this plainly, as they did with the other things. And the crosses are buried here in this very city of Jerusalem, but no one knows where they are;"
+      "text": "\"He was able to take [?] it, and he had it.\" But they did not tell us this openly, as they did the other things."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.78.s11",
+      "source_sha256": "1e4ee74572bdf48e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "The crosses are buried in this same city of Jerusalem, but no one knows where they are;"
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.78.s12",
       "source_sha256": "83590781098aba05",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1049,24 +1063,24 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.86.s4",
-      "source_sha256": "36e9b5391f178ccc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "99e874587f2f83b8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And while she slept, a man came to her in a vision. He was of moderate [?] stature, and his hair was half-long [?]."
+      "text": "And while she was asleep, a man came to her in a vision. He was of medium height, and his hair was half-length [?]. He gave a sealed letter to Saint Nino and said:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.86.s5",
-      "source_sha256": "66bca5e02086374a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "12a856d9255dbb04",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he gave holy Nino a sealed letter and said: \"Take this to Mtskheta, to the king of the pagans.\""
+      "text": "\"Take this to Mtskheta, to the king of the heathens.\" But Saint Nino began to weep and plead with him:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.86.s6",
-      "source_sha256": "c7d4e4c99812966a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "28ef874fc572357d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But holy Nino began to weep and plead with him: \"Lord, I am a foreign woman and ignorant, and I do not even know the language. How can I go to a foreign land and among foreign peoples?\""
+      "text": "\"Lord, I am a foreign and ignorant woman, and I do not even know the language. How can I go to a foreign land and among foreign peoples?\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.86.s7",
@@ -1126,62 +1140,55 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s3",
-      "source_sha256": "647e68ef5fb3623b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5bc0bc6c5cf4cbd2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "8. Do not fear those who kill your bodies, for they cannot kill the soul."
+      "text": "8. Do not be afraid of those who kill your bodies but cannot kill the soul. 9. Jesus said to Mary Magdalene:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s4",
-      "source_sha256": "892c1dc827ed0511",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9e5e961132cae4a3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "9. Jesus said to Mary Magdalene: \"Go, woman, and bring the good news to my sisters and brothers."
+      "text": "\"Go, woman, and bring the good news to my sisters and brothers.\" 10. Wherever you preach in the name of the Father, and of the Son, and of the Holy Spirit."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s5",
-      "source_sha256": "d8f4accdd4adf9f5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "10. Wherever you preach in the name of the Father, and of the Son, and of the Holy Spirit."
-    },
-    {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s6",
       "source_sha256": "3aefb9c166f92dd7",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "When Saint Nino had read these sayings, she began to pray to God, and she understood that the vision had come from heaven."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s7",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s6",
       "source_sha256": "5ef33f2f1e960dc5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "She lifted her eyes to heaven and asked for his help [?from the next day on]."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s8",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s7",
       "source_sha256": "1b6fb565e458b1d3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "After this she set out toward the river of the lake, which flowed toward the west."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s9",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s8",
       "source_sha256": "a40353bca30e2c4d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "She travelled hard and rough roads. She met great hardships on the way and great terror from wild beasts, until she reached the place where the water began to flow toward the east."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s10",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s9",
       "source_sha256": "6c7b52102899695e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "From then on she found comfort, because she met travellers there. With them she reached the region of Kartli, at the city called Urbnisi,"
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s11",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.87.s10",
       "source_sha256": "5f89a7ed40fb7513",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1245,17 +1252,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.89.s1",
-      "source_sha256": "61715bef9d1cc3f7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "588cd9e294f6b798",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Saint Nino asked a certain Jewish woman, \"What is this?\""
+      "text": "Saint Nino asked a certain Jewish woman, \"What is this?\" And she said to her:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.89.s2",
-      "source_sha256": "53ee6949d47e549f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7988d7ecc7c43b58",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And she said, \"The god of gods, Armazi, [?] — besides whom there is no other idol.\" Then Saint Nino immediately went to see Armazi."
+      "text": "\"They declare [?] him Armazi, the god of gods, and there is no other idol besides him.\" Then Saint Nino immediately went to see Armazi."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.89.s3",
@@ -1357,34 +1364,41 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s6",
-      "source_sha256": "cfd7f9613cf85ddb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e015f16ae2c60332",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"I send you forth as a complete man, and you will come to a foreign land and to the peoples called 'daragevel zepel bakadul', which in Frankish means 'men who rise up against God.'\""
+      "text": "\"I send you out as a mature man, and you will reach a foreign land and the peoples darageveli zepel bakadul [?], which in the Frankish language is:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s7",
-      "source_sha256": "6a741994740f1856",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "59ff2e9d1722a4db",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then she raised her eyes to heaven and said: \"Lord, by the greatness of your power your enemies have lied to you. In your great long-suffering you have [?] what these creatures of dust do and devise on earth."
+      "text": "\"men who have fallen away from God.\" Then she lifted her eyes to heaven and said:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s8",
+      "source_sha256": "3e15e4062e81f071",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Lord, through the greatness of your power your enemies have lied to you, and through your great long-suffering you bear [?] what these enemies do and plot on the earth."
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s9",
       "source_sha256": "13e7ac963a94b86a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But do not disregard them, for man is your image. For man's sake one of the Holy Trinity became man and saved the whole world."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s9",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s10",
       "source_sha256": "8010f0da7540503b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Look with mercy on these peoples too. Rebuke these disobedient spirits, the rulers of the world and princes of darkness, and cast them down into hard places."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s10",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.I.90.s11",
       "source_sha256": "7c4d1f65dd2de417",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1735,17 +1749,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.II.95.s2",
-      "source_sha256": "b197074199780a06",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "At that same time a letter reached me from the Jewish priests of Antioch. It said: \"God has split the kingdom of Israel into three."
+      "source_sha256": "a271d4b3540baf8b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "At that same time a letter reached me from Antioch, from the priests of the Jews. In it was written:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.II.95.s3",
-      "source_sha256": "fe55d9a5daf7a643",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Look: our prophets have fallen silent, everything the Spirit moved them to say has been fulfilled, and we have been scattered"
+      "source_sha256": "db083f0d3b4c4de7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"God has split the kingdom of Israel into three. Look, our prophets have fallen silent, and everything the Spirit moved them to speak has been fulfilled, and we have been scattered"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.II.96.s1",
@@ -2309,17 +2323,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.103.s12",
-      "source_sha256": "50d4463a047cd81d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "d107aa8ad46a5ed7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But when the physicians had left her without hope, she came and fell down before Saint Nino and begged her to heal the child."
+      "text": "When the physicians had left her without hope, she came and fell down before Saint Nino and begged her to heal the child. Then Saint Nino said:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.103.s13",
-      "source_sha256": "30a717116f6821b7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "714661e2d200ee1d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then Saint Nino said: \"I can do nothing at all for you through the healing that comes from human beings. But my God, Christ, will give healing to that child, who has been given up by everyone"
+      "text": "\"I do not practise the kind of healing that comes from men. But my God, Christ, will give healing to that child, whom everyone has given up for lost"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s1",
@@ -2330,83 +2344,76 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s2",
-      "source_sha256": "51eaeee59790564d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "d6ede3606e4ce0b2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And at that very hour the child was healed, and she gave him back alive to his mother."
+      "text": "At that very moment the child was healed, and she gave him back alive to his mother. The child's mother confessed Christ and said:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s3",
-      "source_sha256": "f81b79354d9ec9d5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "251d17600c5ab15e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the child's mother confessed Christ and said: \"There is no other God but Christ, whom Nino preaches.\""
+      "text": "\"There is no other God except Christ, whom Nino preaches.\" She became a disciple of Saint Nino, followed in her footsteps, and glorified God."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s4",
-      "source_sha256": "2f0b9cc2411992df",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And she became a disciple of Saint Nino, followed in her footsteps, and glorified God."
-    },
-    {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s5",
       "source_sha256": "451b8e4b594f291f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Then Queen Nana fell into a great and bitter illness, which no one was able to cure."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s6",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s5",
       "source_sha256": "ad50944fe675479e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For all the skilled physicians used up all their medicines and could not cure her. They were at a loss and gave up hope."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s7",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s6",
       "source_sha256": "187941febe005c02",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But some people told the queen: \"Through the prayer of that woman, the Roman captive whose name is Nino, many sick people are healed.\""
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s8",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s7",
       "source_sha256": "5e6cf0158bad184b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Then she ordered her servants to bring Nino to her."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s9",
-      "source_sha256": "d5ff0b0784d10dfc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s8",
+      "source_sha256": "68f53e3c5de24ce4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The queen's servants went and found Saint Nino under her shelter of brambles, praying at the sixth hour, and they told her the queen's command."
+      "text": "The queen's servants went and found Saint Nino in the hut under the bramble bush, praying at the sixth hour, and they told her the queen's order. But Saint Nino said:"
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s9",
+      "source_sha256": "2ec521b23c1e0601",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"I have not been commanded to go out to where our comfort is not. Instead, let the queen come to this dwelling of mine, and she will truly be healed by the power of Christ.\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s10",
-      "source_sha256": "3a061305a0af58c0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "c943ce2abd62208e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But Saint Nino said: \"I have not been commanded to go out to a place where our rest is not. Rather, let the queen come to this dwelling of mine, and she will truly be healed by the power of Christ.\""
+      "text": "The servants reported Nino's words to the queen. Then the queen earnestly said to them:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s11",
-      "source_sha256": "97fab2182689a04a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "68b47a6cfed77cb3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The servants reported Nino's words to the queen. Then the queen eagerly told them: \"Prepare a litter for me and carry me to her.\""
+      "text": "\"Prepare a litter for me and bring me to her.\" Then the servants carried him on a litter, and his son Rev and a great crowd of the people went with him."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s12",
-      "source_sha256": "6d77379feaa481c6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Then the servants carried her on the litter, and her son Rev and a crowd of people went with her."
-    },
-    {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.104.s13",
       "source_sha256": "df7f1689458be975",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -2596,76 +2603,83 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s2",
-      "source_sha256": "2704a74dfb127762",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "And let this command of mine be enough for you.\" The blessed Nino answered: \"You, King: in the name of Christ, and through the intercession of his mother and of all the saints with him,"
+      "source_sha256": "27666b60d94c39a4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"And let this command of mine be enough for you.\" Blessed Nino answered:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s3",
-      "source_sha256": "bbf2977d456d8128",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-10-31",
+      "source_sha256": "dfb9b0660f8b3436",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "May God, the Creator of heaven and earth, the Maker of everything created, send upon you,"
+      "text": "\"You, king: in the name of Christ, and through the prayers of his mother and of all the saints with him, may God, the Creator of heaven and earth, send down upon you,"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s4",
-      "source_sha256": "2c5f9b2f0e801848",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "from his great and glorious and countless abundant mercy may he send upon you, like a spark from a furnace, one spark of his grace,"
+      "source_sha256": "759f3f1655f38125",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "may the Maker of every created thing send down upon you, out of his great and glorious and countless abundant mercy,"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s5",
-      "source_sha256": "900c3fec56fe788d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "so that you may know and understand the height of heaven and the light of the sun, the depth of the sea and the breadth of the earth and its foundation, and that it may be made known to you, King,"
+      "source_sha256": "847f90b8abebf5bd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "a single spark of his grace, like a spark from a furnace, so that you may know and understand the height of heaven and the light of the sun,"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s6",
-      "source_sha256": "f201058430e77f97",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a8f8b170711eb5f2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Who covers the heavens with clouds and thunders with the voice of the air; and the earth quakes at his might, and thunderbolts strike, and in his track fire blazes with his wrath."
+      "text": "the depth of the sea and the breadth of the earth and its foundation. And may it be made known to you, king, who it is who clothes the heavens with cloud and thunders with the voice of the air,"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s7",
+      "source_sha256": "56fec58d2e326eab",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and by whose might the earth shakes, and thunderbolts run, and fire blazes in his track because of his wrath."
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s8",
       "source_sha256": "6ee5587f3d8fa974",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Or when that great dragon stirs in the seas, the whole earth quakes, until the firm mountains, the cliffs and the rocks are shattered."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s8",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s9",
       "source_sha256": "a7db5d5a59a09cff",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And I have made you understand all this, bringing you to it: that God is in the heavens, and he himself is invisible to all created beings, except his Son,"
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s9",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s10",
       "source_sha256": "36a9a7f586aec4e3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "who came forth from him and appeared on earth as a man, who fulfilled everything for which he had come, and ascended to those same heights with the Father."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s10",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s11",
       "source_sha256": "1b84bb61cc23a114",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And he alone has seen the One without beginning, who is high and looks upon the lowly, and knows the lofty from afar."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s11",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s12",
       "source_sha256": "f155b3cf07775501",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "O king, the time is near for you to draw close and look to God, for there is a sign in this city:"
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s12",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.107.s13",
       "source_sha256": "5320ea66707d912d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -2694,38 +2708,31 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.108.s4",
-      "source_sha256": "acedaa12b530d387",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b46429a8a1793b01",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"And they brought the prince to her, and the queen also came into the garden, under the fir trees."
+      "text": "\"And they brought the prince to her, and the queen also came into the garden, under the fir trees. And she set him facing east, [?] to raise his hands and to say three times:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.108.s5",
-      "source_sha256": "008f8a79dca133be",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "c8599e691b113388",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And she stood him facing east, [?] him to lift up his hands, and had him say three times: 'I renounce you, devil, and I follow Christ, the Son of God.'"
+      "text": "'I renounce you, devil, and I follow Christ the Son of God.' And Nino wept, sighing from her soul."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.108.s6",
-      "source_sha256": "5c901dc55ea91566",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "94f3a44364d8b88b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Nino wept, groaning in her spirit, and asked God for help for that man."
+      "text": "And she asked God to help that man. And her disciples stayed right there for one day and two nights."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.108.s7",
-      "source_sha256": "46b73bbf0e42f6aa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fc3dcb2b839b2c1d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And her disciples stayed there one day and two nights. And quickly the evil spirit went out of him."
-    },
-    {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.III.108.s8",
-      "source_sha256": "54ad267542a22a1d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And he became a disciple of Nino together with his household and his people, and they glorified God.\""
+      "text": "And quickly the evil spirit went out of him. And they became disciples of Nino, with their household and their people, and they glorified God.\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.108.s1",
@@ -2820,17 +2827,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.109.s8",
-      "source_sha256": "08d9bd049ee71284",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a4feab4364677c1b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He stood still in one place, having given up hope for his life."
+      "text": "He stood still in one place, and he had lost all hope of staying alive. And when he came back to his senses, he reasoned this way in his heart:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.109.s9",
-      "source_sha256": "1d0f66ecf131d7a7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a8bc42b82378e281",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when he came back to his senses, he reasoned thus in his heart: \"Behold, I have called upon my gods and have found no relief for myself."
+      "text": "\"Look at this: I called on my gods and found no relief for myself."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.109.s10",
@@ -2897,17 +2904,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.110.s7",
-      "source_sha256": "1bb16ff7a3a8d4e5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b5b2cfa141d3dcb1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he marked that place and set off. They saw the light, and the scattered people gathered to him."
+      "text": "And he marked that place and set out. They saw the light, and the scattered people gathered together. And the king cried out:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.110.s8",
-      "source_sha256": "53269fa3ab9ce566",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a5d8d21e86c22452",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the king cried out: \"Give glory to the God of Nino, for he is God from eternity, and to him alone glory is fitting forever.\""
+      "text": "\"Give glory to Nino's God, for he is God from eternity, and to him alone glory is fitting forever.\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.110.s9",
@@ -2932,17 +2939,24 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.110.s12",
-      "source_sha256": "9e5f8a9ebfc231c1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e3cfb120b015e39c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when the king arrived, the city was in commotion, and the king cried out in a loud voice: \"Where is that foreign woman, who is my mother, and whose God is my deliverer?\""
+      "text": "And as the king arrived, the city was stirred up, and the king cried out in a loud voice:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.110.s13",
-      "source_sha256": "37dd69356336e81f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "1626d6a04539ddd9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when they told him, \"She is here in the bramble thicket, praying,\" the king himself came with all that army. The king dismounted from his horse and said to Nino:"
+      "text": "\"Where is that foreign woman, who is my mother, and whose God is my saviour?\" And when they told him:"
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.110.s14",
+      "source_sha256": "ca96c42ec32114cd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"She is here in the bramble thicket, praying,\" the king himself came with his whole army. The king got down from his horse and said to Nino:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.111.s1",
@@ -3002,17 +3016,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.111.s9",
-      "source_sha256": "04e29ba1af979a79",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ca63f1e98ddecea2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "'I love these bramble bushes of yours, and my mind wants it to be there. But I will not do that. Instead, I will not spare that royal garden,"
+      "text": "\"These brambles of yours are dear to me, and in my mind I wish for that place, but I will not do so;"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.111.s10",
-      "source_sha256": "cdf4a01048bfdba5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "da6b8fe32840528b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "or the height of these firs, or the fruitfulness of these babilo trees [?], or the fragrance of the flowers."
+      "text": "instead I will not spare the royal garden, nor the height of these fir trees, nor the fruitfulness of these babilo trees [?], nor the fragrance of the flowers."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.111.s11",
@@ -3184,48 +3198,55 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s7",
-      "source_sha256": "dd8d861daafb1ffe",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7dc66f7dcb57c2ba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They wept for their kin. And soon it was heard, as they cried out loudly: \"The king of the Persians, the King of Kings Khuaran-Khuara, commands: Spare every Jew from the edge of the sword.\""
+      "text": "They were weeping for their kinsfolk. \"And suddenly a voice was heard as they shouted loudly:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s8",
+      "source_sha256": "cad0539d0e9e794a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'The king of the Persians, the king of kings Khuaran-Khuara, commands: Save all the Jews from the edge of the sword.'"
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s9",
       "source_sha256": "9508efb78b25b3e7",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "When I heard this, I came to my senses. I and the ten who were with me wavered in our faith. The swordsmen had come close around us, striking and killing."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s9",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s10",
       "source_sha256": "ad28b0c137c7326c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Then a loud voice was heard: \"King Mirian has been captured!\" The brave struggler looked around and said: \"I know that this one who is crying out is now in great distress.\""
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s10",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s11",
       "source_sha256": "65e0a21bf3589a12",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"I thank God, for this is the sign of their destruction, of the life of Kartli, and of the glory of this place.\""
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s11",
-      "source_sha256": "ef84675e868e81ca",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "She comforted us like a skilled teacher, truly a teacher and apostle of Christ."
-    },
-    {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s12",
-      "source_sha256": "8e6dd9e926105cbb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "1b8e1500401b767f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "She turned to the oncoming host and said: \"Where are the kings of the Persians, Khuara and Khuaran-Khuara? You came from Sabastan yesterday. You have certainly come quickly, and you are certainly a great army."
+      "text": "And she comforted us like a skilled teacher, truly a teacher and apostle of Christ. She turned to the approaching people and said:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s13",
+      "source_sha256": "6e7e3ee88fa4dd6f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Where are the kings of the Persians, Khuara and Khuaran-Khuara? You set out from Sabastan yesterday; you have certainly come quickly, and you are certainly a great army,"
+    },
+    {
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.113.s14",
       "source_sha256": "03ca5099cc1f6465",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -3268,17 +3289,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.114.s6",
-      "source_sha256": "3db4ab9e56212dc4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "42bbbea343fb95e3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "In amazement I went up to her and said: \"My lady, what is this?\" She said to me: \"Bow your head to the ground,\" and she began to weep from the awe of it."
+      "text": "And in amazement I went up to her and said: 'Queen, what is this?' And she said to me:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.114.s7",
-      "source_sha256": "6ced2fc6114d9b45",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "After a little while she rose, raised me up, and we went away from that place."
+      "source_sha256": "b1206e1b54a80473",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"Bow your head to the ground,\" and in that terror he began to weep. After a short time he rose, raised me up, and we left that place."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.114.s8",
@@ -3597,24 +3618,24 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.117.s10",
-      "source_sha256": "3ef64d9ce1e223c7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And he gave a great amount of treasure to Bishop John and commanded him: \"Wherever you see fit in the places of Kartli, build churches in my name;"
+      "source_sha256": "54d17528cbab819c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "He gave a great amount of treasure to Bishop John and commanded him:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.117.s11",
-      "source_sha256": "5b40ec6ada41a973",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "and place these gifts in the cities of Kartli.\" And the bishop set out, and the envoy with him."
+      "source_sha256": "b58b170eb6ed7cc1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"Wherever you think fit among the places of Kartli, build churches in my name, and endow the cities of Kartli with these gifts.\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.117.s12",
-      "source_sha256": "954bb0798f7e3201",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And when they reached the place called Erusheti, he left builders there to work on a church."
+      "source_sha256": "983b51728c67244e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "So the bishop set out, and the apostle with him. When they reached the place called Erusheti, he left builders there to work on the church."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.IV.117.s13",
@@ -3933,62 +3954,55 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s6",
-      "source_sha256": "b41f168d78419544",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And likewise men came from the mountain of Kakheti and said: \"We saw the star coming from here, and it stopped at the village of Bodi in Kukheti.\""
+      "source_sha256": "05fe0746cedfb9c0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "Likewise people came from the mountains of Kakheti and said: \"We saw a star moving from here, and it stopped over the village of Bodi in Kukheti.\" Then the blessed Nino commanded:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s7",
-      "source_sha256": "6b0b6a9876a23e52",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Then the blessed Nino commanded: \"Take two crosses and set one up at Tkhoti,"
+      "source_sha256": "689d8d2e7506dd0e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"Take two crosses. Set up one at Tkhoti, where God revealed his power to me. Give the other to Salome, the handmaid of Christ, and let her set it up in the city of Ujarma.\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s8",
-      "source_sha256": "7cdf6954ea711ccf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "where God has revealed his power, and give one to Salome, the handmaid of Christ, and let her set it up in the city of Ujarma."
-    },
-    {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s9",
       "source_sha256": "125ac7c1be2ffc6e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For Bodi, a village of Kukheti, shall not take precedence over the city of the kings, because there is a multitude of people in it."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s10",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s9",
       "source_sha256": "2ed5519395c31a9f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "But the village of Bodi will itself later see that place pleasing to God.\" And they did just as the queen had commanded."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s11",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s10",
       "source_sha256": "51cb29a347d5c460",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "By this sign, a vision from heaven, they took up the precious cross in Mtskheta with human hands, and we went to the foot of that hill."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s12",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s11",
       "source_sha256": "f3aa3c1eae385a54",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "They spent the night at that spring and prayed to God, and the blessed Nino mingled her tears with the spring, and healings and great miracles took place."
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s13",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s12",
       "source_sha256": "1946dd7632d64baa",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "The next day they went up onto that rock. And the blessed woman came onto that hill and fell down on the stones;"
     },
     {
-      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s14",
+      "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.121.s13",
       "source_sha256": "928265dbc64750b3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -4108,17 +4122,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.123.s2",
-      "source_sha256": "8620e672d39c1162",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Because it was the only child they had, he took it and laid it before the Cross and said with tears: \"If you grant me this child alive, I will build a vault as a dwelling for you.\""
+      "source_sha256": "8690d0cfaa0e74c7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "Because he was their only child, she took him, laid him before the cross, and said in tears:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.123.s3",
-      "source_sha256": "a36931815a150ef3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And at that very moment the child was healed, and he took it away healed and restored to life."
+      "source_sha256": "0d90bb0c511a546a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"If you grant me this child alive, I will build a shrine as a dwelling for you.\" At that very moment the child was healed, and she took him away healed and restored to life."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VI.123.s4",
@@ -4703,17 +4717,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VII.129.s10",
-      "source_sha256": "12ba634c2ae38427",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "In the same way he charged the bishops to magnify the glory of that place, \"for it is worthy of honour.\""
+      "source_sha256": "38b17c6ae03affc5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "Likewise he charged the bishops to magnify the glory of that place, \"for it is worthy of honour.\" And to his son he said:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VII.129.s11",
-      "source_sha256": "072788ebbd60014b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "To his son he said: \"My child, my darkness has been changed into light and my death into life. I have given you the crown of my kingship."
+      "source_sha256": "56153a9db54efa17",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"My child, my darkness has been changed into light and my death into life. I have given you the crown of my kingship."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.VII.129.s12",
@@ -4997,24 +5011,24 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.0.s6",
-      "source_sha256": "c4115422f4939f2b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "during this prayer an angel shining with light appeared to him, and at the sight of it the king was afraid."
+      "source_sha256": "631825846ea0c83b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "During this prayer a shining angel of light appeared to him, and the king was afraid at the sight of him. But the angel said to him:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.0.s7",
-      "source_sha256": "58715289390e353d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "But the angel said to him: \"Do not be afraid, O king, for your prayers have been heard before God, and a son will be given to you who will be great and perfect before God and men,"
+      "source_sha256": "5568383d53d2f24d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"Do not be afraid, O king, for your supplications have been heard before God. A son will be given to you who will be great and perfect before God and men, and he will turn many peoples to God.\""
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.0.s8",
-      "source_sha256": "1a8c79e4a9c78533",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "and he will turn many peoples to God.\" And when the king woke up, he glorified God with a joyful spirit."
+      "source_sha256": "f809c4594ffd95e7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "When the king woke up, he glorified God with a joyful spirit."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.0.s9",
@@ -5291,17 +5305,17 @@
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.134.s10",
-      "source_sha256": "e47bddaee31d8023",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "That night there was an earthquake, thunderbolts and great lightning. A certain man stood over the ruler of that city and spoke to him in a terrifying way: \"Release the servants of God."
+      "source_sha256": "ea30582f2bdc3559",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "But that night there was an earthquake, thunderbolts and much lightning. A certain man stood over the ruler of the city and spoke to him terrifyingly:"
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.134.s11",
-      "source_sha256": "1b689d1681ce3e8b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "If you do not, this city will be destroyed.\" Terrified, he released them. After this they came to Jerusalem."
+      "source_sha256": "a0d38cdce1bda6a3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 15,
+      "text": "\"Release the servants of God. If you do not, this city will be destroyed.\" Terrified, he released them. After this they came to Jerusalem."
     },
     {
       "chunk_id": "titus-chronicles/leonti-mroveli-conversion-by-nino#KCx.VitaNin.X.134.s12",

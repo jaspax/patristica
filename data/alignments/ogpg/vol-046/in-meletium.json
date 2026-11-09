@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-046/in-meletium",
  "pivot": "npnf-works/gregory-of-nyssa-funeral-oration-on-meletius",
- "groups": 118,
- "inputs": "c7a75b26c4568e08",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 119,
+ "inputs": "5790b6806cc191d5",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/gregory-of-nyssa-funeral-oration-on-meletius", "units": 130, "ids": "221281e246fee86c", "inputs": "1dd3dae69d61285a", "spans": "+=+++++++++=+++.+++++=++++=++++++++++++++++.+++++++++++=+++++++++.+++=++++++++=+++++++++++++++++++++++++=+++++++++++.+++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-046/in-meletium", "units": 129, "ids": "14747164670e625f", "inputs": "be7a0556b80d82cf", "spans": "+++++++++++++++++.++=++++++++++++++=+++++++++=++++++++++=++++++++=+++=+++++++=++++++++++++=+++=++++++++++++++++++=+++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/gregory-of-nyssa-funeral-oration-on-meletius", "units": 131, "ids": "8515c69fd9d9f8a4", "inputs": "515154e2a704571d", "spans": "+=+++++++++=+++.+++++=++++=++++++++++++++++.+++++++++++=+++++++++.+++=++++++++=++++++++++++++++++++++++++=++++++++++=++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-046/in-meletium", "units": 129, "ids": "14747164670e625f", "inputs": "be7a0556b80d82cf", "spans": "+++++++++++++++++.++=++++++++++++++=+++++++++=++++++++++=++++++++=+++=+++++++=++++++++++++=++++++++++++++++++++++=+++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

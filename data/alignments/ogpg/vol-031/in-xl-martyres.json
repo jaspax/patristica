@@ -2,12 +2,12 @@
  "format": 1,
  "group": "ogpg/vol-031/in-xl-martyres",
  "pivot": "ogpg/vol-031/in-xl-martyres",
- "groups": 127,
- "inputs": "d086f587ca14e02c",
- "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 124,
+ "inputs": "32fe959fe6ffe57e",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ccmh-supr/basil-in-xl-martyres", "units": 138, "ids": "e7ab8d7b9d982f5d", "inputs": "351922f29c8e1d1b", "spans": "++++++++++.++++++++++++++++.+++++++++++++=+++++++++=+++++++++=+++++++..+++++++++++++++++++++++++.++++++.+++++++++++++++++++=++++++++++=+++", "conf": "2999999999999999999999999799999999999998999999999999999999999999999999999999999999999999999999959999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-031/in-xl-martyres", "units": 140, "ids": "d45767b5f0acd6ea", "inputs": "877a47fbfe51b7fa", "spans": "..+++++++=+++.++++++++++++++++..+++++++++++++=+.++++++++++++++++++.++++++.+++++++++++++++.+++++++++++++++++++++++++++++.++++++++++++++++.+++", "conf": "2999999999999999999999999799999999999998999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "titus-translations/basil-homily-17", "units": 131, "ids": "2f81eb89b5a82207", "inputs": "2c642c8f19ca3e17", "spans": "+2=+++++=++++++++++++++++++++++++++++++++=++2++++++++++++++.++++++++..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999969999999999999799999999889999899999999999999999999999999999999999999999999999999999999999999999995999"}
+  {"work_id": "ccmh-supr/basil-in-xl-martyres", "units": 138, "ids": "e7ab8d7b9d982f5d", "inputs": "0e0f045ff9db71ce", "spans": "++++++++++.++++=+++++++++++.++++++++=++++=+=+++++++=+++++++++=+++++++..+++++++++++++++++++++++++.++++++.+++++++++++++++++++=++++++++++=+++", "conf": "2999999999999999999999997999999999999999999999999999999999999999999999999999999999999999999959999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-031/in-xl-martyres", "units": 139, "ids": "727ae09272a3b469", "inputs": "ef9b82188bcef12b", "spans": "..+++++++=+++.++++=+++++++++++..+++++++=+++++=+=+++++++++++++++++.++++++.+++++++++++++++.+++++++++++++++++++++++++++++.++++++++++++++++.+++", "conf": "2999999999999999999999997999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "titus-translations/basil-homily-17", "units": 129, "ids": "c088b951814e818e", "inputs": "a3a971daa1152451", "spans": "+2=+++++=+++++++++++++++++++++++++=+++++=++++++++++++++++++++++++..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999996999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999995999"}
  ]
 }

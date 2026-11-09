@@ -3,11 +3,11 @@
  "group": "ogpg/vol-010/thaumaturgus-epistula-canonica",
  "pivot": "ogpg/vol-010/thaumaturgus-epistula-canonica",
  "groups": 63,
- "inputs": "29102ffc665d19e2",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "9f59ed6996241da5",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/gregory-thaumaturgus-canonical-epistle", "units": 71, "ids": "70c8ac8f0be3b8b6", "inputs": "19a8380ff11d6be6", "spans": "..+++++++2+++.+4+=++++++=++++2+.+++++.+++++++2++.++++.+2++=+==+++2.+2+.+.+=++=", "conf": "999998799999999999999999999978999999999999999799999999"},
+  {"work_id": "anf-works/gregory-thaumaturgus-canonical-epistle", "units": 70, "ids": "2933aa9b5524814d", "inputs": "a88746b84624c9b9", "spans": "..+++++++2+++.+4+=++++++++++2+.+++++.+++++++2++.++++.+2++=+==+++2.+2+.+.+=++=", "conf": "999998799999999999999999999978999999999999999799999999"},
   {"work_id": "npnf-works/gregory-thaumaturgus-canonical-epistle", "units": 24, "ids": "418ba22d19172650", "inputs": "a0ee58da350a977c", "spans": ".+7+5.++.+12+14+4.+4=+4++2+2.+2.+.++2", "conf": "8999959999699998"},
-  {"work_id": "ogpg/vol-010/thaumaturgus-epistula-canonica", "units": 293, "ids": "aeda85b4795c0da1", "inputs": "85af12afeb8aab3e", "spans": "+=+++++.+.+++++=................................+=..........+=....+++++++++++.+==.........................+=++++.....+=................++.+++++...+.++=.+=..........................+==++......+....+=++........................+==.........+==.+=+.+=..+..........+.....+==......+=+===.....+=++=...", "conf": "999998879999999999999999999999999789999599999999999999699999999"}
+  {"work_id": "ogpg/vol-010/thaumaturgus-epistula-canonica", "units": 292, "ids": "0b37db6c5d4c7183", "inputs": "36f093fcb17ff24c", "spans": "+=+++++.+.+++++=................................+=..........+=....+++++++++++.+==.........................+=++++.....+=................++.+++++...+.++=.+=..........................+==++......+....+=++.......................+==.........+==.+=+.+=..+..........+.....+==......+=+===.....+=++=...", "conf": "999998879999999999999999999999999789999599999999999999699999999"}
  ]
 }

@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -98,20 +104,13 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.4.s4",
-      "source_sha256": "594e23931e21f52e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "21f273872d29d4b2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And the thin paper sheets that you sent us, from which"
+      "text": "And that slender letter which you sent to us, from which I read about the deeds of our father of Zedazeni, and we examined some things concerning him and his disciples,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.4.s5",
-      "source_sha256": "a5b2f80cd7fb4642",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "I read about the deeds of our father of Zedazeni, and we examined some things about him and about his disciples,"
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.4.s6",
       "source_sha256": "195977abeebec7c3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -287,97 +286,111 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s1",
-      "source_sha256": "6bd7773a20dc5877",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And the one who sent him revealed to him who he himself was, and said: \"I am the God of Abraham, the God of Isaac, the God of Jacob,\" and [the God] of the one who made [it] known to your fathers [?]."
+      "source_sha256": "59dd728b5d46cb68",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But the one who sends revealed himself, who he was, and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s2",
+      "source_sha256": "535b67f748e10b7b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"I am the God of Abraham, the God of Isaac, the God of Jacob,\" and of the one who made [things] known to your fathers [?]."
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s3",
       "source_sha256": "104330e87672f0aa",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "He made his name known from the mountain [?] to the three patriarchs, the great and righteous ones; he was named God. Then Moses, the one who received [it], asks God again:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s3",
-      "source_sha256": "9b34c3afdeda565f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "\"If they say to me, 'Who sent you?', what shall I say?\" He taught him to speak the one depth from the abyss, and said to him: \"Say this: 'He who is has sent me.'"
-    },
-    {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s4",
-      "source_sha256": "0ee9aa7f38df5979",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He is, he who is, who has no beginning.\" And as confirmation he gave him the ten very great signs, by which [it is shown that] he is the God of the fathers,"
+      "source_sha256": "2c4e6d43f5eaee40",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"If they say to me, 'Who sent you?', what shall I say?\" The One taught him to speak of the depth of the abyss, and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s5",
+      "source_sha256": "c973fff12e2f204f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Say this: 'He who is, he has sent me.'\" He is the one who is, who has no beginning."
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s6",
+      "source_sha256": "ac2e424109167bb3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And as a confirmation he gave him the ten very great signs, by which he is the God of the fathers,"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s7",
       "source_sha256": "cd9d76972944a1ba",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "so that they might believe the boundary of the knowledge of the true God, that great light. [But] darkness seized them, and they were swallowed up in the deep."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s6",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s8",
       "source_sha256": "0cad30a8b41cd9b9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "And the one who is that light is the one invisible and unchangeable God, without beginning and without end, immeasurable,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s7",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s9",
       "source_sha256": "cff06630e23973df",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "ever blessed, the light of the Trinity, for this [light] of the most divine Godhead [?] unites the three hypostases together: Father, Son and Holy Spirit."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s8",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s10",
       "source_sha256": "e8eef6e2b4133b24",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "Thus it is reckoned as united, without confusion and without division. It is not right to make the Son less than the Father, nor the Spirit less than the Son."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s9",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s11",
       "source_sha256": "dde0a3c9644a047c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "And if the Godhead were not so, it would not be exceedingly glorious, for it is invisible, timeless, uncontainable, unchangeable"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s10",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s12",
       "source_sha256": "5a1e82bcc95036a1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "(unchangeable, without quality, without quantity, [without] form), incomprehensible and indivisible. It moves itself eternally with motion, powerful by itself."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s11",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s13",
       "source_sha256": "8592577897819d7f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "Although everything that belongs to the first cause goes back to it, such as the Son, the only living and life-giving one, the giver of life, as he says:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s12",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s14",
       "source_sha256": "fe20e9eae78b7680",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "\"I live, and you too shall live, and whoever has believed in me shall also live through me\": that light,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s13",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s15",
       "source_sha256": "b0bac32e912bc576",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "ever blessed and radiant, not separate from the most exalted nature of being, light eternally, by hearing [?]."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s14",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.9.s16",
       "source_sha256": "a53d3c8f954a2d59",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -560,48 +573,55 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s5",
-      "source_sha256": "2b4099ab9180d419",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "46d884f2c7883c1e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Nor did he understand what the prophet David said: \"By the word of the Lord the heavens were established, and all their power by the Spirit of his mouth.\""
+      "text": "and he did not understand that saying of the prophet David:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s6",
+      "source_sha256": "8680be2995581b8d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"By the word of the Lord the heavens were established, and by the spirit of his mouth all their power.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s7",
       "source_sha256": "623bcc738b1515e0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "If he is the Spirit of his mouth, how could the Holy Spirit be created? For all that exists is his."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s7",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s8",
       "source_sha256": "5781cfc82f2b470f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "If the Spirit were created, then the Father would have been without the Spirit until that Spirit was created!"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s8",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s9",
       "source_sha256": "bbfc0e7941a3e183",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "On the contrary, the Spirit of truth is a creator. He proceeds from the Father and is worshipped together with the Son. He is that Spirit"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s9",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s10",
       "source_sha256": "3540303cf423dd3e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "who moved over the waters. By that moving over them he gave form to all created things and created them, and by grace he brought each one into being as he willed."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s10",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s11",
       "source_sha256": "10082ef0d1f71300",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "That Spirit came down on the apostles like fire, and with surpassing wonder divided tongues among them."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s11",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.0.12.s12",
       "source_sha256": "c1b7c807f3394285",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -700,17 +720,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.1.5.s1",
-      "source_sha256": "406404a0ed27b6f2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "But afterwards God also made his servant known, for this is God's custom: \"Everyone who humbles himself will be exalted.\""
+      "source_sha256": "da920ff5d7e2fe93",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But afterward God also made his servant known, for this is God's custom:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.1.5.s2",
-      "source_sha256": "9c10806920a5aa77",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "People began to come to him again, even there, where he was hidden in the cave."
+      "source_sha256": "e75d9186059ea783",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Everyone who humbles himself will be exalted.\" Once again people began to come there to him, though he was hidden in a cave."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.1.5.s3",
@@ -735,17 +755,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.1.s1",
-      "source_sha256": "b3a864b8776aac3b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then the blessed John began to consider in his mind going away to a distant land,"
+      "source_sha256": "31b91246959c2ef8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then blessed John began to consider in his mind going away to a distant land, where no report at all of his virtues had been heard, and he said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.1.s2",
-      "source_sha256": "e4b6931b2b1a504f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "where no report of his virtues had been heard at all. He said: \"Wherever [?] I may guard myself, the journey must be undertaken.\""
+      "source_sha256": "ff6206e5b9af62c9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"From where shall I guard myself [?]; it is fitting that his journey be made to prosper.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.2.s1",
@@ -790,28 +810,42 @@
       "text": "Truly, a holy root has made something good spring up."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.3",
-      "source_sha256": "b7586605ac65aca9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then the blessed John began to deliberate, and he said to his disciples: \"Stay here, for I wish to go to a distant land, in the hope that I may find what I am seeking.\""
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.3.s1",
+      "source_sha256": "48bd6c480eeadbe5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then blessed John began to deliberate, and he said to his disciples:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.3.s2",
+      "source_sha256": "ed5b3c00cfa2f73a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Stay here, for I wish to go away to a remote land, in case I may find what I am seeking.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.4.s1",
-      "source_sha256": "607ab745ebeceaca",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "But the blessed disciples remembered the words of the prophet Elisha: \"As the Lord lives, and as your soul lives, we will not leave you alone, wherever you go.\""
+      "source_sha256": "5235e974b018a58e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But the blessed disciples remembered the word of the prophet Elisha:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.4.s2",
+      "source_sha256": "afa12f1d193b559e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"As the Lord lives, and as your soul lives, we will not leave you alone, wherever you go.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.4.s3",
       "source_sha256": "d26a50165c0511cd",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "\"And the spring from which we drink every day, and by which we are satisfied, let us not deprive ourselves of it in these few days of ours.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.4.s3",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.2.4.s4",
       "source_sha256": "de735008061e0e94",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -959,24 +993,38 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.4.s4",
-      "source_sha256": "4117762cc70ed46f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 21,
-      "text": "He prayed for a long time. Then he left that place and climbed the high mountain called Zedazeni, where his monastery now stands. That place was entirely covered in forest."
+      "source_sha256": "c81bee3391dd1575",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And he prayed for a long time, and went out from there and climbed that high mountain which is called Zedazadeni,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.4.s5",
-      "source_sha256": "ac958c0c758e5be1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 21,
-      "text": "When he saw it, it pleased him and he said: \"This is my resting place. I will dwell here, for I have desired it. I will surely bless its provision.\""
+      "source_sha256": "e293b0da5e4e1d73",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "where his monastery is now built, for that place was entirely forested. And when he saw it, it pleased him, and he said:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.5",
-      "source_sha256": "bf0cf170ce1b15ee",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 21,
-      "text": "But as I think, O blessed one, these words are yours: \"Who would give me wings like a dove's? I would fly up, I would rise on high, I would go away and find rest in the wilderness.\""
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.4.s6",
+      "source_sha256": "6cf851c6db934090",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"This is my resting place; therefore I will dwell here, for I have desired it; I will bless its wild beasts with blessing.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.5.s1",
+      "source_sha256": "fc7cbb6fd3fb0b6d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But as I think, blessed one, this saying is yours:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.5.s2",
+      "source_sha256": "a63fa7232b06df0d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Who would give me wings like a dove's? I would fly up, I would rise on high, I would go away and rest in the wilderness.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.3.6.s1",
@@ -1246,27 +1294,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s3",
-      "source_sha256": "2b55300cfa119c17",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ae423fa5f2320a3e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "We have these two wills set against each other, as the apostle says: \"The flesh desires against the spirit, and the spirit against the flesh, and they are opposed to each other.\""
+      "text": "We have these two wills opposed to each other, as the apostle says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s4",
+      "source_sha256": "5935ef07a5cd1098",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"The flesh desires against the spirit, and the spirit against the flesh, and they are opposed to each other.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s5",
       "source_sha256": "7bbdf1f96b7344ef",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "And again he says: \"I do not do what I want, but I do what I hate; and if [I do] what [I do] not [want], I bear witness to the law that it is good."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s5",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s6",
       "source_sha256": "c6daf5f85cb115fc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "So now it is no longer I who do this, but the sin that has come to dwell in me."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s6",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.5.s7",
       "source_sha256": "b7788b2d19103faa",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1281,17 +1336,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s2",
-      "source_sha256": "753f257de65699fb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "66637bbf5341b585",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "one will, created by nature, which Adam had in paradise before he broke the commandment, while he was still spiritual and [?];"
+      "text": "One will was created natural; it belonged to Adam in paradise before the transgression of the commandment, while he was still spiritual and [?]. But the other one,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s3",
-      "source_sha256": "dd78ca1d4eab1c1d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "bfeb660abd2207fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and the other, which after the fall came to dwell in us, not by nature, but having broken in [?] from outside the heart through the guile of that one."
+      "text": "which settled in us after the fall, not by nature, but broken in from outside the heart through that cunning [of the deceiver]."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s4",
@@ -1309,38 +1364,38 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s6",
-      "source_sha256": "e33a5fb2b8aae91f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "But if not, he puts to death the deeds of the flesh and lives as a spiritual person, free of that will [?]."
+      "source_sha256": "76b6027b1de59b65",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "But if he does not put to death the deeds of the flesh, that spiritual one lives unwillingly. Now it has been shown that our power holds both of these wills,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s7",
-      "source_sha256": "1e08eeed6dde5b80",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "So now it is clear that both these wills are in our power, even though the devil's will tirelessly draws [us] by its own evil will toward the desires of the flesh."
+      "source_sha256": "b82885f3e67db991",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "even though the devil's will ceaselessly draws [our] will toward its own evil, toward the desires of the flesh. But the same apostle says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s8",
-      "source_sha256": "cdb7cbeef3f97317",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "But the same apostle says: \"What the law could not do, because it was weakened by the flesh,"
+      "source_sha256": "c152e3e4782e2569",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"What the law could not do, in that it was weak through the flesh, God did by sending his own Son in the likeness of flesh,\" and he took on this flesh of ours without sin,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s9",
-      "source_sha256": "6eb94cc4b6d7452f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "God did by sending his own Son in the likeness of flesh\"; and he took on this flesh of ours without sin, cleansed of all the error of the first Adam,"
+      "source_sha256": "970a97ba04b65e27",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "cleansed of all the error of the first Adam, so that the righteousness of the law might be fulfilled in us,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.6.s10",
-      "source_sha256": "0cc0745c6298a803",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "so that the righteousness of the law might be fulfilled in us, \"for the mind of the flesh is death, but the mind of the spirit is life.\""
+      "source_sha256": "b66d546e92bb4339",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"for the mind of the flesh is death, but the mind of the Spirit is life.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.4.7.s1",
@@ -1673,24 +1728,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.6.3.s1",
-      "source_sha256": "6cd6ddf57e85435d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "One day that whole multitude was stirred up and appeared openly. They surrounded blessed John and said to him: \"Why have you come here?\""
+      "source_sha256": "d1200082d191ba95",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "One day that whole multitude stirred and showed itself openly. They surrounded the blessed John and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.6.3.s2",
-      "source_sha256": "bb6dc3416462fb21",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And one of them, the chief of the demons, called him by name: \"John, why are you driving us away?"
+      "source_sha256": "6b4e4ee8deeb4e50",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"Why have you come here?\" And one of them, the chief of the demons, called him by name:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.6.3.s3",
-      "source_sha256": "101edd859fa9ea9f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Where have you come from? This place is ours, and you cannot stay here.\""
+      "source_sha256": "d11986eace162c51",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"John, why are you fighting against us? Where have you come from? This place is ours, and you cannot stay here."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-john-of-zedazeni-a#IoZedA.6.3.s4",

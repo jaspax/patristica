@@ -3,10 +3,10 @@
  "group": "pearse-arabic/ibn-al-tayyib-knowledge-and-miracles",
  "pivot": "pearse-arabic-eng/ibn-al-tayyib-knowledge-and-miracles",
  "groups": 13,
- "inputs": "cddd54b9dec3a58d",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "84ad3b1c4c369d00",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "pearse-arabic-eng/ibn-al-tayyib-knowledge-and-miracles", "units": 15, "ids": "810d10e39b2d474e", "inputs": "356e72392a2b10bd", "spans": ".++=+++++++++++", "conf": "8999999999999"},
-  {"work_id": "pearse-arabic/ibn-al-tayyib-knowledge-and-miracles", "units": 16, "ids": "598865cabf0e9e36", "inputs": "d4d438767348101f", "spans": ".++=+++++++.++++", "conf": "8999999999999"}
+  {"work_id": "pearse-arabic-eng/ibn-al-tayyib-knowledge-and-miracles", "units": 15, "ids": "810d10e39b2d474e", "inputs": "4e5cd3db269c380a", "spans": ".+=++++++++++++", "conf": "9999999999999"},
+  {"work_id": "pearse-arabic/ibn-al-tayyib-knowledge-and-miracles", "units": 15, "ids": "ac00bd9b1e9944a8", "inputs": "a863aa1d292ed5e3", "spans": ".+=++++++++++++", "conf": "9999999999999"}
  ]
 }

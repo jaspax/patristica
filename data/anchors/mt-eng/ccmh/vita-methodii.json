@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh/vita-methodii",
  "anchor": "ccmh/vita-methodii",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "a4def6bbd02d91c8",
  "words": "02cd76c82529c941",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 209, "calibration": [0.1843, 0.5058], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 209},
+ "stats": {"beads": 209, "calibration": [0.0593, 0.5606], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 209},
  "paragraphs": {
   "0": {"words": "82d3831b9d681575", "starts": [0]},
   "1.1": {"words": "5381a78750e617db", "starts": [0, 24]},
@@ -45,7 +45,7 @@
   "1.35": {"words": "b2b04194c86e5648", "starts": [0]},
   "1.36": {"words": "fdcf724c4987f4f8", "starts": [0, 12]},
   "1.37": {"words": "a41b4d8aab8cbdc8", "starts": [0]},
-  "1.38": {"words": "3bade02883127963", "starts": [0, 4, 23, 43]},
+  "1.38": {"words": "3bade02883127963", "starts": [0, 4, 23, 46]},
   "2.1": {"words": "138fdd46a890277f", "starts": [0, 22, 50]},
   "2.2": {"words": "74ac91f9728a4e3b", "starts": [0]},
   "2.3": {"words": "cb9da0a022b97304", "starts": [0, 22, 40]},
@@ -126,7 +126,7 @@
   "11.9": {"words": "5fb9ad92ab9a98ae", "starts": [0]},
   "11.10": {"words": "3813b843a796aba5", "starts": [0]},
   "11.11": {"words": "48a65acc9b3be951", "starts": [0]},
-  "12.1": {"words": "8695b78898e61e67", "starts": [0, 31]},
+  "12.1": {"words": "8695b78898e61e67", "starts": [0, 26]},
   "12.2": {"words": "82a134cb7542cba3", "starts": [0]},
   "12.3": {"words": "f1078ba71d88b7ec", "starts": [0]},
   "12.4": {"words": "61ce5226bd2491b5", "starts": [0]},
@@ -161,7 +161,7 @@
   "17.10": {"words": "9e71a0070d64043a", "starts": [0, 20]},
   "17.11": {"words": "d50e65ea27261a19", "starts": [0]},
   "17.12": {"words": "7b6b3122c48485e4", "starts": [0]},
-  "17.13": {"words": "5a9a58c78e20acff", "starts": [0, 20]},
+  "17.13": {"words": "5a9a58c78e20acff", "starts": [0, 23]},
   "17.14": {"words": "77cc4160a70240e5", "starts": [0, 21, 46]},
   "17.15": {"words": "ca555c8fc787b583", "starts": [0]}
  }

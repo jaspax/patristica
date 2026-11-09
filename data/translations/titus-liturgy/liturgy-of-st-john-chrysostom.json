@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -21,17 +27,17 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.1.s1",
-      "source_sha256": "6428e5954f617ebc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "When the deacon enters the diaconicon, he says the prayer: O Lord my God, send down upon me power from on high and strengthen me for this service of yours,"
+      "source_sha256": "f433ab1b8a6d8edb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "When the deacon enters the diaconicon, he says the prayer: O Lord my God,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.1.s2",
-      "source_sha256": "53c83b0425f154ea",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "so that I may stand without condemnation before your holy, fearful and awesome altar and offer to you the bloodless sacrifice. For yours is the kingdom, the power and the glory, of the Father and of the Son"
+      "source_sha256": "223b16e148ae6318",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "send down upon me power from on high and strengthen me for this ministry of yours, so that I may stand without condemnation before your holy, dread and awesome altar and offer to you the bloodless sacrifice. For yours is the kingdom, the power and the glory, of the Father and of the Son"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.2",
@@ -48,11 +54,18 @@
       "text": "When he cuts out the portion of the All-Holy [Mother of God], let him say: Accept, O Lord our God, this offering through the intercession of our all-holy Lady, the Mother of God and ever-virgin Mary."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.4",
-      "source_sha256": "52c5a5acc351c7b4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "Over the portion of a saint, let him say: Remember, O Lord our God, your saint (name), and accept this our service through his intercession."
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.4.s1",
+      "source_sha256": "51aa1eb81e933da0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Over the holy [?] let him say:"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.4.s2",
+      "source_sha256": "629dda2fdac627e1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Remember, O Lord our God, your saint [Name], and accept this service of ours through his intercession."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.1.5",
@@ -83,11 +96,25 @@
       "text": "Let him pour [the wine] over it and say: One of the soldiers pierced his side with a spear, and at once blood and water came out. He who saw it has borne witness, and his witness is true."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.2.9",
-      "source_sha256": "c87eed8e7aa99543",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "Prayer of the priest: We offer incense to you, O Christ our God, as a spiritual fragrance; in return send down upon us the grace of your Holy Spirit, always, now"
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.2.9.s1",
+      "source_sha256": "fba5ad5741027f17",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "The priest's prayer: We offer incense to you,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.2.9.s2",
+      "source_sha256": "e6ccc70153ef9685",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "O Christ our God,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.2.9.s3",
+      "source_sha256": "c777c35dc372e49b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "as a sweet fragrance. In return send down upon us the grace of your Holy Spirit, always, now."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.2.10",
@@ -280,17 +307,10 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.33.s2",
-      "source_sha256": "877786963d821f7a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "d6be6aca988b03b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "O Lord our God,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.33.s3",
-      "source_sha256": "7c8e156b4d82eb91",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "save your people and bless your inheritance. Preserve the fullness of your Church, and sanctify those who love the beauty of your house. In return [?] them, and do not forsake [me / us] who hope in you."
+      "text": "O Lord our God, save your people and bless your inheritance. Preserve the fullness of your Church, and sanctify those who love the beauty of your house. You [?] them in return; do not forsake us who hope in you."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.34",
@@ -301,17 +321,31 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.35.s1",
-      "source_sha256": "1a5234668a4e6da1",
+      "source_sha256": "3e1324e9f20e7d08",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "Remembering our all-holy, incorruptible, most blessed Lady, the Mother of God and ever-virgin Mary,"
+      "text": "Of the all-holy,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.35.s2",
-      "source_sha256": "20a5f9605c952c50",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "dbd92e2180244f4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and the holy Forerunner and Baptist John, together with all the saints, [let us commend] ourselves [?]..."
+      "text": "Of our immaculate, most blessed Lady, the Mother of God and ever-virgin Mary,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.35.s3",
+      "source_sha256": "8d7915ec2b8d499f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "of the holy Forerunner and Baptist John,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.4.35.s4",
+      "source_sha256": "c2748438a0ed9b95",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "remembering, together with all the saints, ourselves [?]"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.36",
@@ -329,17 +363,10 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.37.s2",
-      "source_sha256": "59c3ca6c4966de0a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2df34f39b0bd36aa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "You who have given us these common and united prayers, and who have promised to grant the requests of two or three gathered together in your name: fulfill them now for our good, giving us in this present age the knowledge of your truth,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.37.s3",
-      "source_sha256": "c646552e05616a48",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "and granting us eternal life in the age to come."
+      "text": "You who have granted us these common prayers offered with one voice, and who have promised to fulfil the requests of two or three who agree together in your name: fulfil them now for what is best [?], giving us in this present age the knowledge of your truth, and granting us eternal life in the age to come."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.38",
@@ -350,20 +377,13 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.39.s1",
-      "source_sha256": "3e1324e9f20e7d08",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3d9857e9d3bc9b17",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Of the all-holy,"
+      "text": "Of the all-holy, immaculate [?], of the holy and all-praised apostles,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.39.s2",
-      "source_sha256": "3f5d232e89dbb0d6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "the incorruptible, of the holy and all-praised apostles,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.5.39.s3",
       "source_sha256": "ee1748b5d45b0e55",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -385,17 +405,17 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.6.42.s1",
-      "source_sha256": "435c016a5f4706f8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "60e124c7bdafbaaa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Prayer said by the priest:"
+      "text": "The priest's prayer: O Master,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.6.42.s2",
-      "source_sha256": "72ef10b6cad70d71",
+      "source_sha256": "877786963d821f7a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "Master, Lord our God,"
+      "text": "O Lord our God,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.6.42.s3",
@@ -420,24 +440,24 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.6.44.s1",
-      "source_sha256": "4d3468d0b97e54a9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "0adfbb6c58cf3f7a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "I worship the Father, the Son and the Holy Spirit,"
+      "text": "I worship the Father,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.6.44.s2",
-      "source_sha256": "628aba85d01a91e7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2d619e283864e908",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "the consubstantial, undivided Trinity,"
+      "text": "the Son and the Holy Spirit, the Trinity of one essence,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.6.44.s3",
-      "source_sha256": "762db8826d6e5174",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "24ff303010ba5a50",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who reigns for ever."
+      "text": "undivided, who reigns forever."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s1",
@@ -462,41 +482,34 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s4",
-      "source_sha256": "191eace685f129e6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "21a6099379d33d32",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who created humankind in your image and likeness and adorned them with all your grace; who give wisdom and understanding to those who ask, and do not despise sinners but have appointed repentance for salvation; who have made us worthy,"
+      "text": "You created man in your image and likeness and adorned him with all your grace. You give wisdom and understanding to those who ask, and you do not despise sinners but appoint repentance for their salvation."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s5",
-      "source_sha256": "949edaffcd706708",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7dfc2800d43f9273",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "your lowly and unworthy servants, even at this hour to stand before the glory of your holy altar and to offer you due worship and glorification."
+      "text": "You have made us, your lowly and unworthy servants, worthy even at this hour to stand before the glory of your holy altar and to offer you the worship and praise that are your due."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s6",
-      "source_sha256": "e98a91ed86178c68",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "c7c1373c8d2fc9bf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Master, accept the thrice-holy hymn even from the mouths of us sinners, and look on us in your kindness; forgive us all our transgressions,"
+      "text": "O Master, accept the thrice-holy hymn even from the mouths of us sinners, and look upon us in your sweetness. Forgive us all our transgressions, voluntary and involuntary,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s7",
-      "source_sha256": "96707695fb7ca646",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "60a316fa012332b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "both voluntary and involuntary, and sanctify our souls and bodies, and grant us to serve you worthily all the days of our life,"
+      "text": "and sanctify our souls and bodies, and grant us to serve you worthily all the days of our life, through the intercessions of the all-holy Mother of God and of all your saints who have pleased you."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s8",
-      "source_sha256": "ef48ae9b4b2e913d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "through the intercessions of the all-holy Mother of God and of all your saints who have pleased you."
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.7.45.s9",
       "source_sha256": "0b9866e2cbdd4c9b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -524,53 +537,39 @@
       "text": "Peace be to all."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.49.s1",
-      "source_sha256": "7a74f431fa9f7960",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.49",
+      "source_sha256": "7c3212fda41d331e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The deacon:"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.49.s2",
-      "source_sha256": "0a568a4da8beb25c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Bless, master."
+      "text": "The deacon: Bless us, Master."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.50.s1",
-      "source_sha256": "5c7b056b13fe573d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fd1455d4d0d450fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The priest: The Lord [?] the words of the evangelist with great power,"
+      "text": "The priest: May the Lord [?] the words to the evangelist with great power, the King of the powers of love [?], by his grace, always,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.50.s2",
-      "source_sha256": "8453f97454c628fc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "cac8c372a967679d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "the King of the hosts of the beloved, by his grace, always, now [?]"
+      "text": "now"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.51.s1",
-      "source_sha256": "87c210c26ed709f9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2a84b93b627b1111",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The deacon: O heavenly King, Comforter, Spirit of truth, Guide to wisdom, Giver of understanding,"
+      "text": "The deacon: O King of heaven,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.51.s2",
-      "source_sha256": "68b2a799986ff252",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Teacher of the foolish and Upholder of the hand of the poor, strengthen my soul and make it wise, O Master; give me a word,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.51.s3",
-      "source_sha256": "576163a7a142af69",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "O Word of the Father. Behold, I will not keep my lips from crying out to you. O merciful one, have mercy on me, who have fallen down before you."
+      "source_sha256": "c1ecc7b9723133e3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "O Comforter, Spirit of truth, guide of wisdom, giver of knowledge, teacher of the foolish and one who takes the poor by the hand: strengthen my soul and make it wise, O Master. Give me speech, O Word of the Father. Behold, I will not keep my lips silent from crying out to you. O Merciful One, be merciful to me, who have fallen down before you."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.8.52",
@@ -664,18 +663,11 @@
       "text": "Again we beseech you for the righteousness and life and the forgiveness of sins of the servant of God N., and for all our brothers, let us all say."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.9.65.s1",
-      "source_sha256": "a2d25443972bf508",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The priest makes the sign of the cross over both and says the exclamation: For you are a merciful God who loves mankind, and to you we send up glory. The people:"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.9.65.s2",
-      "source_sha256": "52e837e10237d7e7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Amen."
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.9.65",
+      "source_sha256": "f4404c887797ba3a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "The priest shall make the sign of the cross over both and say the exclamation: For you are a merciful God who loves humankind, and we send up glory to you. The people: Amen."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.67",
@@ -720,25 +712,11 @@
       "text": "Exclamation: So that these too, with us, may glorify your all-honorable and majestic name, of the Father"
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.73.s1",
-      "source_sha256": "95e130dd03b15315",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The deacon: As many as are catechumens,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.73.s2",
-      "source_sha256": "b5e50215df495c5d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "depart,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.73.s3",
-      "source_sha256": "73dae937cada4ce4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Catechumens, depart. As many as are catechumens, depart. Let none of the catechumens"
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.73",
+      "source_sha256": "395eace02f73d3cd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "The deacon: All who are catechumens, depart. Catechumens, depart. All who are catechumens, depart. Let none of the catechumens"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.74",
@@ -749,31 +727,52 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.75.s1",
-      "source_sha256": "dd75173075cfb88b",
+      "source_sha256": "435c016a5f4706f8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The priest says the prayer: We thank you,"
+      "group_size": 20,
+      "text": "The priest, a prayer:"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.75.s2",
+      "source_sha256": "6e53c341274371c5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "We thank you,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.75.s3",
       "source_sha256": "c982cc3c2a3ad452",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "O Lord of hosts, who have made us worthy to stand even now at your holy altar and to fall down before your mercies for our sins and for the ignorances of the people. Receive our supplication, O God. Make us worthy to offer you supplications, prayers and bloodless sacrifices for all your people. Through the power of your Holy Spirit, enable us, whom you have appointed to this your ministry, to call upon you at every time and in every place, blamelessly and without stumbling, with the pure witness of our conscience, so that you may hear us and be merciful to us in the abundance of your gospel [?]."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.76",
-      "source_sha256": "bd153fc1389a8b8e",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.76.s1",
+      "source_sha256": "7a74f431fa9f7960",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "The deacon: Help us, save us"
+      "text": "Deacon:"
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.77",
-      "source_sha256": "3c5c022843088967",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.76.s2",
+      "source_sha256": "07b7d9049a79693f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "help us, save us"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.77.s1",
+      "source_sha256": "5928bac15e144967",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "Exclamation: For to you belongs all glory, honor."
+      "text": "Exclamation:"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.77.s2",
+      "source_sha256": "7fd85c53b4792e9d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "For to you belong all glory and honour."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.78",
@@ -805,27 +804,34 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s1",
-      "source_sha256": "be046c8b6b3269c6",
+      "source_sha256": "435c016a5f4706f8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The priest says the prayer: Again and many times we fall down before you and pray to you, O good One and Lover of mankind, that you will look upon our prayer and cleanse our souls and bodies from every defilement of flesh and spirit,"
+      "group_size": 20,
+      "text": "The priest, a prayer:"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s2",
+      "source_sha256": "97b9cd22d3e34db9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "Again and many times we fall down before you and entreat you, O Good One who loves humankind, that you look upon our prayer and cleanse our souls and bodies from all defilement of flesh and spirit,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s3",
       "source_sha256": "af97bb2493a23c06",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "and grant us to stand at your holy altar blamelessly and without condemnation. Grant,"
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s3",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s4",
       "source_sha256": "25076e1d08776718",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "O God, to those who pray with us as well, progress in life, in faith and in spiritual understanding."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s4",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.10.82.s5",
       "source_sha256": "d62f55ae6859cbd6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -944,18 +950,11 @@
       "text": "And the priest shall begin: \"Have mercy on me,\" and after it the prayer: \"O King of heaven, guide of wisdom and bestower of knowledge, teacher of the foolish and helper of the poor, strengthen my heart and make it understanding, O King. Give me a word, O Word of the Father, for behold, I will not keep my lips silent from crying out to you, O King; be merciful to me, who have fallen down before you.\""
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.14.88.s1",
-      "source_sha256": "4f6ddd52caa7f901",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The priest shall wash his hands: \"O Lord my God, send down upon me power from on high and strengthen me for this service of yours, so that I may stand without condemnation before your holy, fearful and awesome altar and offer to you this bloodless sacrifice,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.14.88.s2",
-      "source_sha256": "90959de660e0c9fa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "for yours is the kingdom, the power and the glory. Of the Father [?]\""
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.14.88",
+      "source_sha256": "ca6b81a719c46e68",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "The priest washes his hands. O Lord my God, send down upon me power from on high, and strengthen me for this service of yours, so that I may stand without condemnation before your holy, fearful and awesome altar and offer you the bloodless sacrifice. For yours is the kingdom, the power and the glory, of the Father"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.14.89",
@@ -1029,24 +1028,17 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.96.s3",
-      "source_sha256": "81a253a9341420e7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Almighty, the only Holy One, who accept a sacrifice of praise"
+      "source_sha256": "a79c85a149bc4a06",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "O Almighty, only Holy One, who accept the sacrifice of praise from those who call upon you with their whole heart,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.96.s4",
-      "source_sha256": "15c1efbd287a19b1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "from those who call upon you with their whole heart, accept from us sinners also"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.96.s5",
-      "source_sha256": "22b816e12cb53ed1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "our prayer, and bring it to your holy altar. Make us able to offer you gifts and spiritual sacrifices for our sins and for the ignorances of the people. Make us worthy to find grace before you, so that our sacrifice may be acceptable to you and the good Spirit of your grace may dwell upon us, upon these gifts set before us, and upon all your people.\""
+      "source_sha256": "97c0ce50d9fa7541",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "receive the prayer of us sinners as well, and bring it to your holy altar. Enable us to offer you gifts and spiritual sacrifices for our sins and for the sins of the people committed in ignorance. Make us worthy to find grace before you, so that our sacrifice may be acceptable to you, and so that the good Spirit of your grace may dwell upon us, upon these gifts set before you, and upon all your people."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.97",
@@ -1106,20 +1098,27 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.104.s2",
-      "source_sha256": "2ef2ea3661c45a9d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "together with all the saints, let us commend ourselves and one another, and our whole life, to Christ,"
+      "source_sha256": "5d51fc06e649311d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "having remembered [them] together with all the saints, [let us commit] ourselves and one another"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.104.s3",
+      "source_sha256": "8e6618c98b3be280",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "and all our life to Christ,"
+    },
+    {
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.104.s4",
       "source_sha256": "bb3026cf48c6c27b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "our God,"
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.104.s4",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.15.104.s5",
       "source_sha256": "67abcfb5ce7de62e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1498,17 +1497,10 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.19.136.s2",
-      "source_sha256": "bb936f1b8ad8f089",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "and grant him to your holy churches in peace, safe and well,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.19.136.s3",
-      "source_sha256": "50a13c92a2dd7e07",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "honoured, healthy and long-lived, rightly teaching your truth."
+      "source_sha256": "6795524573d097b4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "whom you have granted to your holy churches: [keep them] in peace, alive, honoured, healthy and long-lived, rightly dividing the word of your truth."
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.19.137.s1",
@@ -1596,27 +1588,20 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.20.144.s1",
-      "source_sha256": "b2389306a1b7694b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "that God, the lover of mankind,"
+      "source_sha256": "dff44846143414d0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "that God, who loves humankind, having received these upon his holy, heavenly and spiritual altar,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.20.144.s2",
-      "source_sha256": "8bb5615108cd3347",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "who has received them upon his holy, heavenly and spiritual altar,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.20.144.s3",
       "source_sha256": "e09328af522edbf5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "having accepted them as a sweet spiritual fragrance, may send down upon us in return the grace of his Holy Spirit."
     },
     {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.20.144.s4",
+      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.20.144.s3",
       "source_sha256": "704fede495e4f832",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1778,20 +1763,13 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.22.160.s1",
-      "source_sha256": "5928bac15e144967",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Exclamation:"
+      "source_sha256": "8bcaf1fff65fbc9e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "The exclamation: By the grace, mercy and love for humankind of your only-begotten Son, with whom you are blessed, together with your all-holy"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.22.160.s2",
-      "source_sha256": "978b98d26ef45072",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Through the grace, mercy and love for mankind of your only-begotten Son, with whom you are blessed, together with your all-holy,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.22.160.s3",
       "source_sha256": "53c0fd700f3a8aef",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -1799,20 +1777,13 @@
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.22.161.s1",
-      "source_sha256": "6afe7dec3e50b3d5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Look upon us, O Lord our God,"
+      "source_sha256": "e437f823a9042a14",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 16,
+      "text": "Look down upon us, O Lord our God, from your holy dwelling place,"
     },
     {
       "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.22.161.s2",
-      "source_sha256": "e8c2873551eb7847",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "from your holy dwelling place,"
-    },
-    {
-      "chunk_id": "titus-liturgy/liturgy-of-st-john-chrysostom#LitChrys.22.161.s3",
       "source_sha256": "c217853d1ccd8e6b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,

@@ -1,23 +1,23 @@
 {
  "work_id": "mt-eng/ccmh-supr/vita-alexandri-sidensis",
  "anchor": "ccmh-supr/vita-alexandri-sidensis",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "e604d348bb9cd0a5",
  "words": "1f0cdeb949b413e2",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 149, "calibration": [0.5577, 0.266], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9867, "rounds": 4, "units": 149},
+ "stats": {"beads": 149, "calibration": [0.5956, 0.282], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9867, "rounds": 2, "units": 149},
  "paragraphs": {
-  "Supr.79r": {"words": "1a39bb04cf9e97de", "starts": [0, 25, 47, 59, 73, 90, 113, 128, 135, 158, 178, 193, 204]},
-  "Supr.79v": {"words": "51f9284cc4c3268b", "starts": [0, 14, 35, 48, 72, 87, 107, 120, 141, 154, 175, 191, 208]},
+  "Supr.79r": {"words": "1a39bb04cf9e97de", "starts": [0, 25, 47, 59, 73, 90, 98, 115, 135, 158, 178, 193, 204]},
+  "Supr.79v": {"words": "51f9284cc4c3268b", "starts": [0, 14, 35, 50, 72, 87, 107, 120, 141, 154, 175, 191, 208]},
   "Supr.80r": {"words": "c533fee331afed3f", "starts": [0, 22, 47, 53, 68, 80, 104, 119, 136, 147, 166, 184, 201]},
   "Supr.80v": {"words": "9fec633938f30b13", "starts": [0, 25, 40, 49, 64, 80, 90, 101, 127, 135, 153, 158, 174]},
-  "Supr.81r": {"words": "8bf7552b3aadc7d7", "starts": [0, 23, 45, 65, 87, 102, 106, 119, 144, 169, 190, 197]},
-  "Supr.81v": {"words": "94ba7c22c4970705", "starts": [0, 17, 37, 53, 73, 98, 115, 130, 141, 158, 185, 190]},
-  "Supr.82r": {"words": "25bbba330774170f", "starts": [0, 16, 41, 64, 80, 94, 110, 126, 146, 170, 182, 201]},
+  "Supr.81r": {"words": "8bf7552b3aadc7d7", "starts": [0, 23, 45, 65, 87, 102, 119, 132, 144, 159, 177, 197]},
+  "Supr.81v": {"words": "94ba7c22c4970705", "starts": [0, 17, 37, 53, 73, 98, 115, 130, 145, 158, 185, 190]},
+  "Supr.82r": {"words": "25bbba330774170f", "starts": [0, 16, 41, 64, 80, 94, 108, 126, 146, 170, 182, 201]},
   "Supr.82v": {"words": "9184d72d7f14eaef", "starts": [0, 21, 44, 66, 78, 99, 116, 132, 142, 155, 171, 189, 203]},
-  "Supr.83r": {"words": "6fb6d374f88bae85", "starts": [0, 4, 20, 33, 61, 89, 103, 121, 134, 147, 165, 183]},
+  "Supr.83r": {"words": "6fb6d374f88bae85", "starts": [0, 4, 20, 33, 61, 72, 103, 121, 134, 147, 165, 183]},
   "Supr.83v": {"words": "3594d9dec96ed11d", "starts": [0, 22, 35, 60, 74, 87, 102, 117, 133, 167, 178, 196]},
   "Supr.84r": {"words": "2315934a2409d79c", "starts": [0, 18, 36, 53, 69, 84, 105, 131, 148, 166, 179, 198]},
-  "Supr.84v": {"words": "10340377665120fb", "starts": [0, 20, 40, 52, 70, 98, 112, 127, 143, 163, 178, 205]}
+  "Supr.84v": {"words": "10340377665120fb", "starts": [0, 20, 40, 52, 74, 98, 112, 127, 143, 163, 178, 205]}
  }
 }

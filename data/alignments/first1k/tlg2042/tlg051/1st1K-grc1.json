@@ -3,10 +3,10 @@
  "group": "first1k/tlg2042/tlg051/1st1K-grc1",
  "pivot": "first1k/tlg2042/tlg051/1st1K-grc1",
  "groups": 67,
- "inputs": "4b5a56dda6b1cb17",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "8152b0d07d3b844e",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "first1k/tlg2042/tlg051/1st1K-grc1", "units": 77, "ids": "9058ff0fd135660f", "inputs": "5fbe3e6c4d19182f", "spans": ".++++++++=++++++++++++++++++=++++....++=++++++++++++=++++.+++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "first1k/tlg2042/tlg051/1st1K-grc1", "units": 78, "ids": "8e50b04ba8b05aba", "inputs": "3cc3eec395325305", "spans": ".++++++++=++++++++++++++++++=++++....++=++=++++++++++=++++.+++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "ogpg/vol-012/selecta-in-leviticum", "units": 68, "ids": "c4f8afaa07db82a6", "inputs": "919024fe59cfa70b", "spans": "+=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

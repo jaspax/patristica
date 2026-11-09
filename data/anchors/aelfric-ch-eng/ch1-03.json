@@ -1,19 +1,19 @@
 {
  "work_id": "aelfric-ch-eng/ch1-03",
  "anchor": "aelfric-ch/ch1-03",
- "method": "351020005494c156",
- "anchor_cuts": "d776acd184f4d9a3",
+ "method": "cd4ac1843c0db506",
+ "anchor_cuts": "b12042d60e9781fe",
  "words": "a7428e078e88394d",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 94, "calibration": [0.0828, 0.4506], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9688, "rounds": 4, "units": 96},
+ "stats": {"beads": 94, "calibration": [0.098, 0.4489], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9688, "rounds": 3, "units": 96},
  "paragraphs": {
   "AECHomI.3.1": {"words": "cd2e6eba8274b3d0", "starts": [0]},
   "AECHomI.3.2": {"words": "8d7e2dc792f8dcd3", "starts": [0]},
-  "AECHomI.3.3": {"words": "5017ba619e428dc6", "starts": [0, 28, 70, 100, 123, 141, 164, 196, 216, 239, 280, 314, 343, 378, 395, 424, 443, 461, 488, 519, 548, 569, 600, 618, 639, 660]},
+  "AECHomI.3.3": {"words": "5017ba619e428dc6", "starts": [0, 28, 70, 100, 123, 141, 164, 196, 216, 246, 280, 309, 343, 378, 395, 424, 443, 465, 488, 519, 551, 569, 600, 618, 639, 660]},
   "AECHomI.3.4": {"words": "e8c92cba52de8dd1", "starts": [0, 35, 70, 101, 127, 159, 182, 200, 231, 266, 302, 326, 355, 372, 389, 421, 434, 461]},
-  "AECHomI.3.5": {"words": "10a3f291445e87dd", "starts": [0, 26, 59, 81, 97, 126]},
+  "AECHomI.3.5": {"words": "10a3f291445e87dd", "starts": [0, 26, 49, 81, 97, 126]},
   "AECHomI.3.6": {"words": "a2e41cdf865339a8", "starts": [0, 35, 59, 77, 100, 135, 156, 172, 199]},
-  "AECHomI.3.7": {"words": "0cfad12bfdc6f9d8", "starts": [0, 19, 39, 57, 91, 122, 147, 167, 193, 221, 256, 269, 289, 315, 343, 366, 394, 414, 445, 465, 487, 514, 540, 569, 604, 629, 655]},
+  "AECHomI.3.7": {"words": "0cfad12bfdc6f9d8", "starts": [0, 19, 39, 59, 91, 122, 156, 183, 200, 221, 247, 269, 289, 317, 343, 366, 394, 414, 445, 465, 487, 514, 540, 569, 609, 629, 655]},
   "AECHomI.3.8": {"words": "3726af1cb8ef414e", "starts": [0, 21, 49, 80]},
   "AECHomI.3.9": {"words": "93e4a37f1369925b", "starts": [0, 14, 28, 41]}
  }

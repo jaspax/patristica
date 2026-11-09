@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-005/hegesippus",
  "pivot": "anf-works/hegesippus-fragments",
- "groups": 58,
- "inputs": "7964c226e8b01967",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 59,
+ "inputs": "555e4822a2b65be1",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/hegesippus-fragments", "units": 83, "ids": "03aac4d14db4a7bf", "inputs": "d3c6fc654656c8b6", "spans": ".......+++++++.+++++=++=.+=.+..+==+++++=++++++++++=.++++++++=+++++++.+++++++++=..++", "conf": "9999999999999998999999999999999999999999999999999999999969"},
-  {"work_id": "ogpg/vol-005/hegesippus", "units": 87, "ids": "006e7946548e90e4", "inputs": "7783092744e2287f", "spans": "..+++++++++++++..+=+++++++...+++++++++..++++++++=+++...++++++...+++++++=.+=+++.........", "conf": "9999999999999998999999999999999999999999999999999999999969"}
+  {"work_id": "anf-works/hegesippus-fragments", "units": 84, "ids": "76f47056a81d3998", "inputs": "0953f1b818af0e2d", "spans": ".......+++++++.+++++=+++==+..+...+=+++++=++++++++++=.++++++++=+++++++.+++++++++=..++", "conf": "99999999999997999999999999999999999999999999999999999999969"},
+  {"work_id": "ogpg/vol-005/hegesippus", "units": 87, "ids": "006e7946548e90e4", "inputs": "7783092744e2287f", "spans": "..+++++++++++++..+++++++++...+++++++++..++++++++=+++...++++++...+++++++=.+=+++.........", "conf": "99999999999997999999999999999999999999999999999999999999969"}
  ]
 }

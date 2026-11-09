@@ -1,11 +1,11 @@
 {
  "work_id": "ccmh-supr/chrysostom-de-proditione-judae",
  "anchor": "ogpg/vol-049/de-proditione-judae-1",
- "method": "e26e66e4678bcee0",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "3c3ffe87b93dca45",
  "words": "6fd44e25162deb34",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 112, "calibration": [0.6556, 0.1382], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9565, "rounds": 4, "units": 122},
+ "stats": {"beads": 111, "calibration": [0.6474, 0.1432], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9478, "rounds": 4, "units": 121},
  "paragraphs": {
   "Supr.203r": {"words": "2a7334437efde9a9", "starts": [0, 24, 42, 55, 70, 90, 114, 122, 138, 151]},
   "Supr.203v": {"words": "d7ba43b7916431c4", "starts": [0, 14, 31, 48, 65]},
@@ -16,16 +16,16 @@
   "Supr.206r": {"words": "94bdcf9fa2e3bc4f", "starts": [0, 31, 157]},
   "Supr.206v": {"words": "6c19888828661e9f", "starts": [0, 67, 86, 107, 121, 136, 148, 172]},
   "Supr.207r": {"words": "0a3b358f3858edb7", "starts": [0, 11, 27, 39, 57, 76, 92, 115, 143, 164, 186]},
-  "Supr.207v": {"words": "75ebc40acaedc138", "starts": [0, 21, 45, 59, 76]},
-  "Supr.208r": {"words": "a7019f97d6a8a54b", "starts": [0, 23, 28, 162]},
-  "Supr.208v": {"words": "5b7f03c98ce641f8", "starts": [0, 106]},
+  "Supr.207v": {"words": "75ebc40acaedc138", "starts": [0, 21, 33, 59, 76, 179]},
+  "Supr.208r": {"words": "a7019f97d6a8a54b", "starts": [0, 128]},
+  "Supr.208v": {"words": "5b7f03c98ce641f8", "starts": [0, 70]},
   "Supr.209r": {"words": "3098f8188932aa1c", "starts": [0, 47, 59, 72, 89, 100, 117, 137, 166, 171]},
   "Supr.209v": {"words": "38dfa4dab0d19419", "starts": [0, 20, 34, 49, 68, 73, 94, 110, 125, 147, 163]},
   "Supr.210r": {"words": "98e470c501d5d7c4", "starts": [0, 10, 24, 130]},
   "Supr.210v": {"words": "fd397f16b5ac789a", "starts": [0, 80]},
-  "Supr.211r": {"words": "18b6ad37d90c3649", "starts": [0, 2, 134, 145, 172]},
+  "Supr.211r": {"words": "18b6ad37d90c3649", "starts": [0, 13, 125, 151, 163]},
   "Supr.211v": {"words": "0655a8f225449c7e", "starts": [0, 3, 42, 51, 73, 96, 112, 127, 148, 166, 183]},
-  "Supr.212r": {"words": "a4dbf7d8a6b60bbf", "starts": [0, 88, 144]},
-  "Supr.212v": {"words": "6c6fc03c181d2206", "starts": [0, 55, 67]}
+  "Supr.212r": {"words": "a4dbf7d8a6b60bbf", "starts": [0, 88]},
+  "Supr.212v": {"words": "6c6fc03c181d2206", "starts": [0, 25, 55, 67]}
  }
 }

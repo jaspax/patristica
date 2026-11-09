@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ogpg/vol-046/de-theodoro",
  "anchor": "ogpg/vol-046/de-theodoro",
- "method": "e26e66e4678bcee0",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "9414270d3e4e6823",
  "words": "ff1e26841e58245f",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 99, "calibration": [0.7573, 0.1366], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8319, "rounds": 3, "units": 99},
+ "stats": {"beads": 99, "calibration": [0.754, 0.1394], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8319, "rounds": 2, "units": 99},
  "paragraphs": {
   "ogpg.vol-046.c0735.2": {"words": "47b758d873adb3b2", "starts": [0, 13, 49, 77, 103]},
   "ogpg.vol-046.c0737.1": {"words": "0bf8d75752f796b2", "starts": [0, 27, 49, 80, 101, 130, 180, 192, 226, 245, 265, 288, 317, 347, 378, 393, 432, 478, 507, 547]},

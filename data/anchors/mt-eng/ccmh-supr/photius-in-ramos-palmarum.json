@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/ccmh-supr/photius-in-ramos-palmarum",
  "anchor": "ccmh-supr/photius-in-ramos-palmarum",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "16fb8ca65b33778b",
  "words": "d40491cb6928b477",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 140, "calibration": [0.6201, 0.2368], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9718, "rounds": 3, "units": 140},
+ "stats": {"beads": 140, "calibration": [0.6222, 0.2598], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9718, "rounds": 1, "units": 140},
  "paragraphs": {
   "Supr.166v": {"words": "b92fdbcaec31c2de", "starts": [0, 13, 25, 42, 66, 80, 101, 116]},
   "Supr.167r": {"words": "ca1148acb978b938", "starts": [0, 18, 35, 60, 71, 93, 106, 130, 149, 168, 183, 198, 215, 225]},
@@ -15,7 +15,7 @@
   "Supr.169r": {"words": "528112a777d3ca11", "starts": [0, 20, 36, 48, 68, 93, 112, 123, 138, 167, 177, 200]},
   "Supr.169v": {"words": "c87d4f1667e25e15", "starts": [0, 11, 29, 43, 57, 73, 93, 105, 124, 139, 161, 183, 198]},
   "Supr.170r": {"words": "9d6ad48491711ba5", "starts": [0, 12, 34, 42, 80, 97, 123, 138, 152, 183, 198, 213, 233]},
-  "Supr.170v": {"words": "71debb0d3263d52e", "starts": [0, 31, 42, 59, 77, 103, 109, 125, 136, 150, 160, 188, 213]},
+  "Supr.170v": {"words": "71debb0d3263d52e", "starts": [0, 23, 42, 59, 77, 103, 109, 125, 136, 150, 160, 188, 198]},
   "Supr.171r": {"words": "743838e2436311e6", "starts": [0, 18, 33, 54, 77, 84, 100, 119, 137, 149, 166, 181, 200]},
   "Supr.171v": {"words": "cb852d956d73689f", "starts": [0, 17, 42, 47, 66, 92, 98, 118, 138, 161, 172, 185, 200]}
  }

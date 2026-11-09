@@ -2,12 +2,12 @@
  "format": 1,
  "group": "pta/pta0001/pta054/pta-grc1",
  "pivot": "mt-eng/pta/pta0001/pta054/pta-grc1",
- "groups": 72,
- "inputs": "80fccf1e74b64cd2",
- "run": {"aligner": 2, "date": "2026-11-02", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 73,
+ "inputs": "b05e1bd759a97c9b",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "mt-eng/pta/pta0001/pta054/pta-grc1", "units": 83, "ids": "000781503ccfb813", "inputs": "3d897cd3027fcb86", "spans": "+++++++++++++=+++=+=+++++++++=++++++=++++++++++++++++++++++=+=+=+=+=++++++++=++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "pta/pta0001/pta054/pta-grc1", "units": 83, "ids": "b4191c663dc97f71", "inputs": "f5f73b0d18782a8e", "spans": "+++++++++++++=+++=+=+++++++++=++++++=++++++++++++++++++++++=+=+=+=+=++++++++=++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "pta/pta0001/pta054/pta-lat1", "units": 77, "ids": "fe237bfbbe7e9cf7", "inputs": "12036daa6e409850", "spans": "+++++=+++=++++++++++=+++++++++=++++++=+++++++++=+3+=++2+++++++++++++++=++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/pta/pta0001/pta054/pta-grc1", "units": 83, "ids": "000781503ccfb813", "inputs": "b36b788577a79267", "spans": "+++++++++++++=+++=+=++++++++++++++++=++++++++++++++++++++++=+=+=+=+=++++++++=++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta/pta0001/pta054/pta-grc1", "units": 83, "ids": "b4191c663dc97f71", "inputs": "f5f73b0d18782a8e", "spans": "+++++++++++++=+++=+=++++++++++++++++=++++++++++++++++++++++=+=+=+=+=++++++++=++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "pta/pta0001/pta054/pta-lat1", "units": 77, "ids": "fe237bfbbe7e9cf7", "inputs": "12036daa6e409850", "spans": "+++++=+++=++++++++++=++++++++++++++++=+++++++++=+3+=++2+++++++++++++++=++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

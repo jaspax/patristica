@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-025/expositio-fidei",
  "pivot": "npnf-works/athanasius-statement-of-faith",
- "groups": 44,
- "inputs": "0b89bd020de83b4d",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 47,
+ "inputs": "bf512bf67839d4fc",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-statement-of-faith", "units": 56, "ids": "466410597ee93fba", "inputs": "e4b62ff6fe8869df", "spans": ".++++=++=+.+=++++.+++++++++.++=++=++++++++++.++=++++=+++", "conf": "99999999999999999999989999999999999999999999"},
-  {"work_id": "ogpg/vol-025/expositio-fidei", "units": 53, "ids": "c3df117add6b8f27", "inputs": "ae8422d9dc55385e", "spans": "+++++=++++++=+....+++++++++++++++++++=+++++++++.++++=", "conf": "99999999999999999999989999999999999999999999"}
+  {"work_id": "npnf-works/athanasius-statement-of-faith", "units": 58, "ids": "8b62dc4a0820bb72", "inputs": "7a78d3a1070550c6", "spans": ".+++=+++++.+=+++++.+++++++++.++=++=+++++++++++.++=+++.++++", "conf": "99999998999999999999999899999999999999999999999"},
+  {"work_id": "ogpg/vol-025/expositio-fidei", "units": 54, "ids": "2ba19d8a29e08a27", "inputs": "68539d98557eefcb", "spans": "++.++++++++++++....+++++++++++++++++++++++++++++.++++=", "conf": "99999998999999999999999899999999999999999999999"}
  ]
 }

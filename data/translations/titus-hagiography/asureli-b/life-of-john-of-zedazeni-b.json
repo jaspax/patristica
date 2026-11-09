@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -301,34 +307,41 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s1",
-      "source_sha256": "25e7345187408ce5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "As for wine, it is superfluous even to speak of it, for it is not for monks, since the apostle Paul called it the root and agent of evil: 'And do not be drunk with wine, in which is debauchery.'"
+      "source_sha256": "bdc844b2aba27691",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "As for wine, even to speak of it is superfluous, for it is not for monks, since the apostle Paul called it the root and agent of wickedness:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s2",
+      "source_sha256": "7fe1f714f391ebb1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"And do not get drunk with wine, in which there is debauchery.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s3",
       "source_sha256": "f1d71f6ca3b22fc1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "It is a deadly poison and the mother of evil desires. Do not touch it at all, for it lures [?] us into eternal punishment."
     },
     {
-      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s3",
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s4",
       "source_sha256": "c7f75415581eadac",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "My brothers, always remember death and where we are going. For this body is mortal and passing away, but the soul is forever immortal."
     },
     {
-      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s4",
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s5",
       "source_sha256": "203da03ad460ddbc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "Let us struggle here and now for our souls, for all this life belongs to affliction, but the eternal life belongs to rest."
     },
     {
-      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s5",
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s6",
       "source_sha256": "c71ac171cc661549",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -833,31 +846,31 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s3",
-      "source_sha256": "875c88c6d1162d58",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "I tell you in the name of our Lord Jesus Christ: come out of this man.\""
+      "source_sha256": "978b36f27f9e5560",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"I tell you in the name of our Lord Jesus Christ: come out of this man.\" And at his very command it came out."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s4",
-      "source_sha256": "4cad8aa7f71eaffa",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The spirit came out as soon as he gave the command. The man was healed, and everyone was amazed. And the elder spoke to them like this:"
+      "source_sha256": "7f918f38967ddcaf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "And the man was healed, and everyone marveled. And the elder said this to them: \"Why are you amazed? For I am not a healer,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s5",
-      "source_sha256": "0cfeb5bcac6fd5e0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"Why are you amazed? I am not a healer. Rather, when the name of our Lord Jesus Christ is invoked, every disease and every power of darkness flees."
+      "source_sha256": "61ebab8da9ac7bd9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "but by calling on the name of our Lord Jesus Christ every disease and every power of darkness flees, for he himself declared,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s6",
-      "source_sha256": "731881e0cf1eaa83",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "For he himself declared: 'Whoever believes in me will also do what I do, and will do greater things than I do.'\""
+      "source_sha256": "4b34a540df5dba70",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "'Whoever believes in me will also do what I do, and he will do greater things than mine.'\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.64.s1",
@@ -987,24 +1000,17 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.69.s1",
-      "source_sha256": "9f91e225534b4b55",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Jacob's ladder was seen here too, and the angels of God came down it,"
+      "source_sha256": "144940a7cbcc2217",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "And Jacob's ladder was seen here too, and the angels of God were coming down, and the Lord stood firmly at the top of the ladder, and he said to him,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.69.s2",
-      "source_sha256": "e055171478f23324",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "and the Lord stood firm at the top of the ladder and said to him: \"I am the God of Abraham your father.\""
-    },
-    {
-      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.69.s3",
-      "source_sha256": "2827773acab48055",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"Now come to me, so that I may give you rest from your labours.\" In this way, brothers, God glorifies those who glorify him."
+      "source_sha256": "a763adfe85a10c3c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 8,
+      "text": "\"I am the God of Abraham your father\"; now come to me, so that I may give you rest from your labors. In this way, brothers, God glorifies those who glorify him."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.70",

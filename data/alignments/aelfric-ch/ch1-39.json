@@ -2,11 +2,11 @@
  "format": 1,
  "group": "aelfric-ch/ch1-39",
  "pivot": "aelfric-ch-eng/ch1-39",
- "groups": 48,
- "inputs": "e97cd0dc2cd2c107",
- "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 49,
+ "inputs": "941e83fd05cabdbb",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "aelfric-ch-eng/ch1-39", "units": 49, "ids": "4516f18d892b69a0", "inputs": "c048f0025fa81153", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"},
-  {"work_id": "aelfric-ch/ch1-39", "units": 49, "ids": "26d8f07dd5bd17e7", "inputs": "73d9747d6a40fae5", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999"}
+  {"work_id": "aelfric-ch-eng/ch1-39", "units": 50, "ids": "713e535b31973b93", "inputs": "547217ea3c73fb78", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999"},
+  {"work_id": "aelfric-ch/ch1-39", "units": 50, "ids": "ba395fa0cb319b6a", "inputs": "eb4732d6ae10727d", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999"}
  ]
 }

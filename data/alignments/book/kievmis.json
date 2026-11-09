@@ -2,11 +2,11 @@
  "format": 1,
  "group": "book:kievmis",
  "pivot": "mt-eng/torot/kievmis",
- "groups": 104,
- "inputs": "6c0b7b2d16be537b",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 102,
+ "inputs": "91b57eb84e63fc14",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "mt-eng/torot/kievmis", "units": 108, "ids": "59ee69a615a10056", "inputs": "a05c5ceec5501334", "spans": "+++++++++++++++.++++++++++.+++++++++++++++++++++.++++++++++++++++++++++++++++++++++++++++++++++++++++++++.++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "torot/kievmis", "units": 109, "ids": "c4863e253d382820", "inputs": "112ecda1ec459cce", "spans": "++++++++++++++.+.++++++++++.+++++++++++++++++++++.++++++++++++++++++++++++++++++++++++++++++++++++++++++++.++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/torot/kievmis", "units": 106, "ids": "91f6d4a4957fc3f0", "inputs": "1a345f344195af1f", "spans": "+++++++++++++++.+++++++++.++++++++++++++++++++.++++++++++++++++++++++++++++++++++++++++++++++++++++++++.++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "torot/kievmis", "units": 109, "ids": "c4863e253d382820", "inputs": "112ecda1ec459cce", "spans": "++++++++++++++.+.+++=++++++.+++++++=+++++++++++++.++++++++++++++++++++++++++++++++++++++++++++++++++++++++.++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

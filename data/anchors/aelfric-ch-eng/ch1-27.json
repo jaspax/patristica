@@ -1,11 +1,11 @@
 {
  "work_id": "aelfric-ch-eng/ch1-27",
  "anchor": "aelfric-ch/ch1-27",
- "method": "351020005494c156",
- "anchor_cuts": "2443df104dd16679",
+ "method": "cd4ac1843c0db506",
+ "anchor_cuts": "5ae6b91351b274bb",
  "words": "a0fa3609e0e987ad",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 110, "calibration": [0.1862, 0.45], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9558, "rounds": 4, "units": 113},
+ "stats": {"beads": 112, "calibration": [0.1305, 0.4728], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9565, "rounds": 4, "units": 115},
  "paragraphs": {
   "AECHomI.27.1": {"words": "6b399fe61ead04d2", "starts": [0]},
   "AECHomI.27.2": {"words": "0a7060fc194fc082", "starts": [0]},
@@ -14,7 +14,7 @@
   "AECHomI.27.5": {"words": "4d68b547710eca66", "starts": [0, 39, 66, 107, 139, 172, 206, 229]},
   "AECHomI.27.6": {"words": "c0a203ec7eca6758", "starts": [0, 24, 45, 74, 103]},
   "AECHomI.27.7": {"words": "5c65ab69dfa8df90", "starts": [0, 26, 47, 81]},
-  "AECHomI.27.8": {"words": "679f4ce9818cd5ad", "starts": [0, 28, 60, 86, 109, 127, 148, 169, 193, 235, 256, 274]},
+  "AECHomI.27.8": {"words": "679f4ce9818cd5ad", "starts": [0, 28, 60, 86, 109, 143, 158, 193, 215, 240, 256, 274]},
   "AECHomI.27.9": {"words": "2d0c2949fa206efa", "starts": [0, 21, 55, 97, 123, 142, 163, 189, 224, 258, 286, 304, 333, 346, 376]},
   "AECHomI.27.10": {"words": "dcf4d5e294934f01", "starts": [0]},
   "AECHomI.27.11": {"words": "c8185b9a3c4db5b8", "starts": [0]},
@@ -23,10 +23,10 @@
   "AECHomI.27.14": {"words": "39e8b366132ac44f", "starts": [0, 24, 47, 76, 97, 115, 135, 163]},
   "AECHomI.27.15": {"words": "91adfbabd96ab53d", "starts": [0, 23, 53, 82, 99, 127]},
   "AECHomI.27.16": {"words": "e25ea6461161dabe", "starts": [0, 30, 50, 69, 88, 109]},
-  "AECHomI.27.17": {"words": "0d61c572250c9a0f", "starts": [0, 18, 35, 69, 98, 125, 150, 186]},
+  "AECHomI.27.17": {"words": "0d61c572250c9a0f", "starts": [0, 18, 35, 69, 102, 125, 150, 173, 196]},
   "AECHomI.27.18": {"words": "1aa7d62083916548", "starts": [0, 17, 37, 61, 85, 124, 148, 163]},
-  "AECHomI.27.19": {"words": "defc68a3d9a355f5", "starts": [0, 25, 51, 83, 110, 146, 168, 191, 221, 240, 270]},
-  "AECHomI.27.20": {"words": "dbad1ce8d5f5244d", "starts": [0, 39, 72, 88, 119]},
+  "AECHomI.27.19": {"words": "defc68a3d9a355f5", "starts": [0, 25, 51, 83, 110, 146, 168, 191, 221, 240, 257]},
+  "AECHomI.27.20": {"words": "dbad1ce8d5f5244d", "starts": [0, 20, 39, 72, 91, 119]},
   "AECHomI.27.21": {"words": "c6279f7d94344579", "starts": [0]}
  }
 }

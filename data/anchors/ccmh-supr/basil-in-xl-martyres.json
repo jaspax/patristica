@@ -1,19 +1,19 @@
 {
  "work_id": "ccmh-supr/basil-in-xl-martyres",
  "anchor": "ogpg/vol-031/in-xl-martyres",
- "method": "e26e66e4678bcee0",
- "anchor_cuts": "1846c01aa8dd6ff6",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8401f9ec72138f3b",
  "words": "c4476a1fabc4f2a2",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 130, "calibration": [0.8481, 0.108], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8857, "rounds": 4, "units": 138},
+ "stats": {"beads": 130, "calibration": [0.7519, 0.1325], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8921, "rounds": 4, "units": 138},
  "paragraphs": {
   "Supr.42r": {"words": "73e1d606a8b1ac1f", "starts": [0]},
   "Supr.42v": {"words": "43343039fbf22d56", "starts": [0, 26, 37, 58, 79, 105, 140]},
   "Supr.43r": {"words": "66c88f19c41f05d3", "starts": [0, 8, 24, 36, 53, 68, 90, 100, 124]},
   "Supr.43v": {"words": "10c29ed5b68bcd6d", "starts": [0, 24, 41, 67, 75, 84, 109, 129]},
   "Supr.44r": {"words": "a0c98c18d6768576", "starts": [0, 11, 56, 83, 99, 105, 135]},
-  "Supr.44v": {"words": "4bb4293ba99b46b2", "starts": [0, 21, 52, 62, 93, 96, 105, 121, 141]},
-  "Supr.45r": {"words": "49f00ef907588ced", "starts": [0, 4, 29, 45, 58, 83, 97, 108, 133, 154]},
+  "Supr.44v": {"words": "4bb4293ba99b46b2", "starts": [0, 21, 52, 72, 93, 96, 105, 121, 141]},
+  "Supr.45r": {"words": "49f00ef907588ced", "starts": [0, 4, 29, 45, 58, 83, 97, 113, 133, 154]},
   "Supr.45v": {"words": "e9efd0fb2780def4", "starts": [0, 7, 19, 43, 51, 65, 85, 101, 110, 140]},
   "Supr.46r": {"words": "8aed351fc9da8987", "starts": [0, 10, 41, 51, 63, 69, 86, 113, 126]},
   "Supr.46v": {"words": "5266e9076a2b42f4", "starts": [0, 107, 119, 130, 155]},
@@ -21,7 +21,7 @@
   "Supr.47v": {"words": "2951676e07bcb9d0", "starts": [0, 10, 32, 46, 55, 72, 79, 97, 111, 125, 133]},
   "Supr.48r": {"words": "56b429112f38a3a5", "starts": [0, 6, 21, 49, 62, 78, 105, 139]},
   "Supr.48v": {"words": "c7b1c770dfbe3ca0", "starts": [0, 7, 16, 46, 61, 96, 102, 124, 145, 158]},
-  "Supr.49r": {"words": "10b438d4d916d4c8", "starts": [0, 20, 37, 59, 70, 94, 118, 132, 158]},
+  "Supr.49r": {"words": "10b438d4d916d4c8", "starts": [0, 20, 37, 59, 70, 94, 118, 138, 158]},
   "Supr.49v": {"words": "0aa8439fd39e35a0", "starts": [0, 30, 43, 56, 83, 101, 116, 137]},
   "Supr.50r": {"words": "c00e26c27c80d620", "starts": [0, 5, 15, 31, 41, 50, 59]}
  }

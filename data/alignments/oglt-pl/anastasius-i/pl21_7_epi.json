@@ -3,10 +3,10 @@
  "group": "oglt-pl/anastasius-i/pl21_7_epi",
  "pivot": "npnf-works/anastasius-letter-to-john-of-jerusalem",
  "groups": 34,
- "inputs": "5aa0615584885375",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "4e223741f2550a06",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/anastasius-letter-to-john-of-jerusalem", "units": 50, "ids": "4507fbb3276c181b", "inputs": "ba06e738eeb42e86", "spans": "......+=+....++++++++=+++++=++=++=++++++++++++=+++", "conf": "9599899999999999999999999999999998"},
+  {"work_id": "npnf-works/anastasius-letter-to-john-of-jerusalem", "units": 51, "ids": "82383cc054fd9595", "inputs": "555672dfc65cc11c", "spans": "......+=+....++++++++=+++++=++=++=+++++++++++=+=+++", "conf": "9599899999999999999999999999999998"},
   {"work_id": "oglt-pl/anastasius-i/pl21_7_epi", "units": 115, "ids": "625fb40473115746", "inputs": "52c3cdd393782ebf", "spans": "++=+++......+++......++++++++..................++++++++.................+++++.................+++++................", "conf": "9599899999999999999999999999999998"}
  ]
 }

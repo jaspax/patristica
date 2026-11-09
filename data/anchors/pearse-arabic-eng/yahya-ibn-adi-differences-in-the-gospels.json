@@ -1,13 +1,13 @@
 {
  "work_id": "pearse-arabic-eng/yahya-ibn-adi-differences-in-the-gospels",
  "anchor": "pearse-arabic/yahya-ibn-adi-differences-in-the-gospels",
- "method": "e26e66e4678bcee0",
- "anchor_cuts": "6d4a402110bfdbf9",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "26190bd60f23a015",
  "words": "684db7536870eb36",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 10, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8182, "rounds": 2, "units": 11},
+ "stats": {"beads": 11, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8333, "rounds": 1, "units": 12},
  "paragraphs": {
   "Sbath16.1": {"words": "a085ab18c6b447aa", "starts": [0]},
-  "Sbath16.2": {"words": "ef4dbdbc93885e86", "starts": [0, 25, 58, 101, 124, 152, 187, 223, 249, 294]}
+  "Sbath16.2": {"words": "ef4dbdbc93885e86", "starts": [0, 25, 58, 101, 124, 152, 187, 230, 251, 294, 308]}
  }
 }

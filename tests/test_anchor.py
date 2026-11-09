@@ -550,19 +550,21 @@ def test_a_cut_made_on_text_vectors_of_a_rare_original_is_frozen(coptic_corpus) 
 
 
 def test_text_vector_originals_keep_the_method_of_existing_cut_files() -> None:
-    """Greek and Latin originals: the method hash is the one every cut file
-    before #392/#394 records, so none of them goes stale. (A Slavonic
+    """Greek and Latin originals: the method hash is ``anchoring.params_hash()``
+    (``ANCHOR_VERSION`` 3 since #622; 1 was ``e26e66e4678bcee0``). (A Slavonic
     *translation* is anchored on its Greek original: the original's language
     decides.)"""
     assert anchor.original_vectors("chu") == emb.KIND_TRANSLATION  # #336
     for language in ("grc", "lat", ""):
         c = anchor.Candidate("tr/w.json", "tr/w", "eng", "orig/w", "orig/w.json", language)
-        assert anchor.method_hash(c) == anchoring.params_hash() == "e26e66e4678bcee0"
+        assert anchor.method_hash(c) == anchoring.params_hash() == "7c99b01da01bd8eb"
 
 
-def test_a_provisional_cut_inside_a_clause_keeps_the_commas_around_it() -> None:
-    # De pythonissa: the provisional cut fell after '"Seek,'; the comma before
-    # it must stay a candidate, or the word can't move to the next verse.
+def test_a_provisional_cut_after_a_quotations_first_word_is_dropped() -> None:
+    # De pythonissa: the provisional cut fell after '"Seek,'. The break
+    # before the quotation must be a candidate, so the word can move to the
+    # next verse; the cut after its first word is one the rules forbid (#622),
+    # so it is not kept from the provisional cut either.
     text = ('He who said to his disciples, "Seek, and you will find," will surely '
             'also give the power to find to those who, out of love of learning, '
             'search as the Lord commanded and seek out the hidden mysteries.')
@@ -570,7 +572,11 @@ def test_a_provisional_cut_inside_a_clause_keeps_the_commas_around_it() -> None:
     seek = next(i for i, a in enumerate(atoms) if "Seek" in a)
     para = anchor_refine.Paragraph("p.1", atoms, [0, seek + 1])
     ends = [s.a1 for s in anchor_refine.segments_of([para], "eng")]
-    assert seek in ends and seek + 1 in ends
+    assert seek in ends and seek + 1 not in ends
+    # A provisional cut the rules allow stays a candidate.
+    find = next(i for i, a in enumerate(atoms) if "find," in a)
+    para = anchor_refine.Paragraph("p.1", atoms, [0, find + 2])
+    assert find + 2 in [s.a1 for s in anchor_refine.segments_of([para], "eng")]
 
 
 def test_the_rounds_cap_is_a_bound_not_a_measurement() -> None:

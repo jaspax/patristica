@@ -1,17 +1,17 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-de-thoma-2",
  "anchor": "ccmh-supr/chrysostom-de-thoma-2",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "4bac31a685bb3cb6",
  "words": "bdbcbf5957865db3",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 87, "calibration": [0.7812, 0.1702], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 87},
+ "stats": {"beads": 87, "calibration": [0.3229, 0.3976], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 87},
  "paragraphs": {
   "Supr.254v": {"words": "ca27510ffc8481f7", "starts": [0, 9, 18, 47, 64, 85, 101, 114, 130, 149, 159, 173]},
-  "Supr.255r": {"words": "a0528f7b8c5e2095", "starts": [0, 23, 47, 56, 84, 104, 119, 124, 142, 160, 168, 185, 203, 226, 245, 261, 284]},
-  "Supr.255v": {"words": "100dee98d11ca3f2", "starts": [0, 18, 31, 48, 56, 78, 101, 116, 142, 167, 182, 201, 225, 253, 276, 297, 315]},
-  "Supr.256r": {"words": "7029ac87ba69b9d5", "starts": [0, 25, 53, 65, 85, 102, 117, 148, 162, 174, 193, 201, 224, 234, 262, 272, 297]},
+  "Supr.255r": {"words": "a0528f7b8c5e2095", "starts": [0, 23, 33, 56, 84, 104, 119, 124, 142, 160, 168, 185, 203, 226, 245, 261, 284]},
+  "Supr.255v": {"words": "100dee98d11ca3f2", "starts": [0, 18, 31, 48, 56, 78, 101, 116, 142, 167, 182, 201, 225, 247, 276, 297, 315]},
+  "Supr.256r": {"words": "7029ac87ba69b9d5", "starts": [0, 20, 53, 65, 85, 102, 124, 148, 162, 174, 193, 201, 224, 234, 262, 272, 297]},
   "Supr.256v": {"words": "b98f5e26a5ad87ac", "starts": [0, 14, 38, 58, 71, 87, 104, 125, 151, 175, 204, 213, 234, 251, 271, 289, 299]},
-  "Supr.257r": {"words": "758f726787e9692c", "starts": [0, 16, 31, 46, 64, 77, 85]}
+  "Supr.257r": {"words": "758f726787e9692c", "starts": [0, 16, 31, 46, 64, 77, 95]}
  }
 }

@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/anatolius-arithmetica",
  "pivot": "anf-works/anatolius-arithmetic",
  "groups": 41,
- "inputs": "4d3f2a0de3145347",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "dcb943933027be0e",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "anf-works/anatolius-arithmetic", "units": 50, "ids": "521a461c9cc12c65", "inputs": "03913f9669ed3259", "spans": ".+=+++=++++++=++++++++++.+.+.+++++++++++.++++++=++", "conf": "99999999999999999997899999999999999999999"},
-  {"work_id": "ogpg/vol-010/anatolius-arithmetica", "units": 41, "ids": "049c0c694bb8fdcc", "inputs": "6c34fdc4e424c5b2", "spans": "+++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999997899999999999999999999"}
+  {"work_id": "ogpg/vol-010/anatolius-arithmetica", "units": 41, "ids": "049c0c694bb8fdcc", "inputs": "a1ce4b6a64f65068", "spans": "+++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999997899999999999999999999"}
  ]
 }

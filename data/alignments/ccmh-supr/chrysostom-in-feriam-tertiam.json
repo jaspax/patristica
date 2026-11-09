@@ -3,10 +3,10 @@
  "group": "ccmh-supr/chrysostom-in-feriam-tertiam",
  "pivot": "mt-eng/ccmh-supr/chrysostom-in-feriam-tertiam",
  "groups": 80,
- "inputs": "9a6516638078f1f0",
- "run": {"aligner": 2, "date": "2026-10-30", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "1518e46d2e9a98db",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "ccmh-supr/chrysostom-in-feriam-tertiam", "units": 81, "ids": "8ae35c131d0ec6e1", "inputs": "438ce33fbdd05ed8", "spans": "++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-feriam-tertiam", "units": 80, "ids": "8c18ea246d8ca8e8", "inputs": "829bd0fb73194e43", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/ccmh-supr/chrysostom-in-feriam-tertiam", "units": 80, "ids": "8c18ea246d8ca8e8", "inputs": "941ab80707bd378b", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

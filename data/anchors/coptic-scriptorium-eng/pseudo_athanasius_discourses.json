@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/pseudo_athanasius_discourses",
  "anchor": "coptic-scriptorium/pseudo_athanasius_discourses",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "7c51b266f20cb110",
  "words": "84c6a7434f98f8dd",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 552, "calibration": [0.3375, 0.3397], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 552},
+ "stats": {"beads": 552, "calibration": [0.353, 0.335], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 552},
  "paragraphs": {
   "CopScr.pseudo-athanasius-discourses.000.0000": {"words": "bcd9b5b0c2033efe", "starts": [0, 31]},
   "CopScr.pseudo-athanasius-discourses.000.0001": {"words": "bf6635e94e567796", "starts": [0]},

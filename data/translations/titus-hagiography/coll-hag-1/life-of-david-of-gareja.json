@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -84,27 +90,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s1",
-      "source_sha256": "84ace3c5e528738e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "Our holy father David answered and said to him: \"Brother Lucian, he who fed the people of Israel in the desert, made water spring up for them from hard rock, and rained quails on them in the midst of their camp,"
+      "source_sha256": "ee2ada6129a7a250",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But the holy father David answered and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s2",
+      "source_sha256": "0557e73f0ece245a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Brother Lucian, he who nourished the people of Israel in the desert, made water spring up for them from the solid rock and rained down quail [?] in the midst of their camp,"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s3",
       "source_sha256": "d278e5ac32273dcf",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "and who fed Elijah by means of a raven, and gave food to holy Anthony and to the other holy fathers who dwelt in the mountains and deserts,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s3",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s4",
       "source_sha256": "45fa58309de4ecbe",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "that same God is able now also to give us food to comfort the weakness of our flesh."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s4",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.5.s5",
       "source_sha256": "c4a4b7afced8e981",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
@@ -238,17 +251,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.9.s7",
-      "source_sha256": "586c2d73001af1f8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "daab2ab2980afea3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "I will not worry at all about this mortal flesh and this vain transitory world.\""
+      "text": "I have no concern at all for this mortal flesh or for this vain world.\" And holy David said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.9.s8",
-      "source_sha256": "b44f26f8479cf1a3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9622347357bb7a63",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And holy David said to him: \"Blessed is God, who has strengthened your heart, and blessed is the holy name of his glory forever.\""
+      "text": "\"Blessed is God, who has strengthened your heart, and blessed is the holy name of his glory forever.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.1.10",
@@ -371,31 +384,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.2.6.s1",
-      "source_sha256": "a148dca7f57a0660",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "15f2c6a21a31e652",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then an angel of the Lord called out behind him and said to him, \"David, David!\""
+      "text": "Then the angel of the Lord called out behind him and said, \"David, David!\" And he looked around."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.2.6.s2",
-      "source_sha256": "d39b6ab3d758915b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "7f81304eacc78381",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He looked around, and as he turned, lightning struck the dragon and burned it up completely."
+      "text": "And as he looked, a thunderbolt struck the dragon and burned it up completely. When holy David saw this, he was greatly distressed and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.2.6.s3",
-      "source_sha256": "d7956ba6b3fd27b7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9b4c2d4598d2f367",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "When holy David saw this, he was greatly distressed and said, \"O Lord, King of glory,"
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.2.6.s4",
-      "source_sha256": "7fc8e724bd1eb5c4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "why did you kill that dragon? It had put its hope and trust in me, and you have cruelly destroyed it.\""
+      "text": "\"O Lord, King of glory, why did you kill that dragon? It had come to me in hope and trust, and you have destroyed it harshly.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.2.7.s1",
@@ -546,24 +552,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.3.4.s2",
-      "source_sha256": "442717c979e9ef7f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "People came running to the holy David from every direction. They begged him to let them live with him."
+      "source_sha256": "fc49edd125082f4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And people ran to holy David from every side and begged him to count them worthy to stay with him. But he answered and said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.3.4.s3",
-      "source_sha256": "382f400a69c6a9d7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "But he answered them: \"Brothers, this place is harsh, and no comfort for the body is to be found in these parts.\""
+      "source_sha256": "71a2a8051adcab81",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Brothers, this place is a hard one, and no comfort for the flesh can be found in these parts.\" But they begged him and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.3.4.s4",
-      "source_sha256": "a68e437eec63d057",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "They begged him and said: \"Do not send us away, holy father. Even if we die here with you, we will not count it as death.\" When he could not persuade them otherwise, he said to them:"
+      "source_sha256": "0f07bdb7b02988f9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Do not send us away, holy father. Even if our death should come to pass in your presence, it will not seem to us like death.\" And when he could not dissuade them, he said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.3.4.s5",
@@ -658,17 +664,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.1.s7",
-      "source_sha256": "d62e111515560310",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He saw the saint standing in prayer and the partridge sitting at the saint's feet. The barbarian was amazed and said to him: \"Where are you from?\""
+      "source_sha256": "969332b7a7dad2ad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And when the barbarian saw the saint standing in prayer and the partridge sitting by the saint's feet, he was amazed and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.1.s8",
-      "source_sha256": "c277d22b0f9647ec",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He answered in the Armenian language: \"I am a sinful man, a servant of our Lord Jesus Christ. I am begging Him for His mercy,"
+      "source_sha256": "0a1bd44eef78707c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Who are you?\" He answered in the Armenian language: \"I am a sinful man, a servant of our Lord Jesus Christ, and I pray for his mercies,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.1.s9",
@@ -679,17 +685,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.1.s10",
-      "source_sha256": "a246ecb8be8fb418",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "The barbarian asked him again: \"Who here feeds and comforts you?\" He answered him: \"The one in whom I hope and whom I worship,"
+      "source_sha256": "584f70f25af25e45",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And again he said to him: \"Who is it here that feeds and comforts you?\" And he answered and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.1.s11",
-      "source_sha256": "add357289e3c3621",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He is the one who feeds and comforts all His creatures and everything He has made. By Him all people, all animals and all plants are fed,"
+      "source_sha256": "30f59c858c6e187b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"He in whom I hope and whom I worship is the one who feeds and comforts all his creatures and all he has made. By him all people, all animals and all plants are fed,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.1.s12",
@@ -742,20 +748,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.4.s1",
-      "source_sha256": "ec842585bd3a8b6f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e6ef36f154d755c6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then holy David took pity on him and prayed to the Lord, saying: \"Lord Jesus Christ, our God, who came for the salvation of the human race,"
+      "text": "Then holy David took pity on him, and he prayed to the Lord and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.4.s2",
-      "source_sha256": "8c188d9f691dd402",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ae3c74a7d55e48c2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "good and merciful one, who healed the withered hand: you yourself, O Master, [look on] this man who dared to raise his hand against your unworthy servant."
+      "text": "\"Lord Jesus Christ, our God, who came for the salvation of the human race, O good and merciful one,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.4.s3",
+      "source_sha256": "c2c5b1b7e3ff27ed",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "who healed the withered hand, you yourself, O King, [heal] this man who dared to raise his hand against your unworthy servant,"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.4.s4",
       "source_sha256": "aa9a976b3484322c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -924,24 +937,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.9.s3",
-      "source_sha256": "9fb34ca8de7ee8d1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5014bceefee1e034",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The elder gathered all the brothers, and they ate and drank and were satisfied."
+      "text": "Then the elder gathered all the brothers, and they ate and drank and were satisfied. And when they rose from supper, father David said to Bubakr:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.9.s4",
-      "source_sha256": "847d9e37c552bf95",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2af26b108950cb7b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "When they rose from the meal, father David said to Bubakr: \"What do you wish now, that we may do for you?\" He begged him to baptize them."
+      "text": "\"What do you wish now that we should do for you?\" And he begged that they baptize him. But he said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.9.s5",
-      "source_sha256": "261ccf6eec5cd406",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3003602806b3cb5b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He said to him: \"Take some of your goods, go to father Dodo, and give them to him so that he can care for the brothers living there and give them rest, and you will be blessed by them."
+      "text": "\"Take some of your wealth, go to father Dodo and offer it to him, so that he may serve the brothers who live there and give them rest, and you will be blessed by them.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.4.9.s6",
@@ -1085,17 +1098,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.5.3.s3",
-      "source_sha256": "dcf6a643e9c1b2fb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ff4920ee27826fbe",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But the holy father fell down and soaked the ground with tears, and said: \"O Lord God Jesus Christ,"
+      "text": "Then the holy father fell down and soaked the floor with his tears and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.5.3.s4",
-      "source_sha256": "b3e584ce1a2fad6f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fc246c10d1326fd3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who came to earth for the salvation of the human race, and in your goodness and mercy took upon yourself crucifixion and death for us sinners,"
+      "text": "\"Lord God Jesus Christ, who came down to earth for the salvation of the human race, and who took upon yourself crucifixion and death for us sinners because of your goodness and mercy,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.5.3.s5",
@@ -1183,17 +1196,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.5.7.s5",
-      "source_sha256": "ce5c2da0538378a4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "14154b20a1a63b54",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "from which he turned back. Command those swift runners to take the stones out of the bag and give him back only one.\""
+      "text": "from the place where he turned back, and send those swift runners, so that they may take those stones back from him at Makhalaki [?] and give him only one.\" And he said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.5.7.s6",
-      "source_sha256": "72c141e0b6c3c0e9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "299f1c0ccc5be936",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And [the angel told him to] say to him: \"The Lord has granted you a third of the grace of Jerusalem, and he declares to you that by your faith you had carried off the grace of Jerusalem."
+      "text": "\"The Lord has granted you a third of the grace of Jerusalem, and he tells you that by your faith you had carried away the grace of Jerusalem."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.5.7.s7",
@@ -1323,17 +1336,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.6.2.s1",
-      "source_sha256": "fb6b0bb41bc664d1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a5cc860b7d001fde",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Once he went to one of the brothers, who lived at the foot of a rock. He greeted him and said to him: \"How are you, brother?\""
+      "text": "Once he went to one of the brothers, who lived at the foot of a certain rock, and asked him, \"How are you, brother?\" He answered:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.6.2.s2",
-      "source_sha256": "79a605355dbfb2fe",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "He answered: \"Well, through your holy prayers. But this water that drips from this rock is very bitter, and when I take some of it, it makes my senses bitter."
+      "source_sha256": "014684572869ad98",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "\"Well, by your holy prayer. But this water that drips from this rock is very bitter, and when I drink from it, it makes my senses bitter.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.6.2.s3",
@@ -1400,24 +1413,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.7.1.s1",
-      "source_sha256": "c9dae9f388760a01",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 9,
-      "text": "And after some time had passed in this place, Father David learned that he would soon depart from the body."
+      "source_sha256": "d2a76cb668543bce",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "And when some time had passed in this way, Father David knew that he was about to depart from the body. He called all the brothers together and said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.7.1.s2",
-      "source_sha256": "b69aaf6648082379",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 9,
-      "text": "And he called all the brethren and said to them: \"Brothers and spiritual children, see, I am departing from the body, like any other man.\""
+      "source_sha256": "dc08d4b6b9b5d52a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "\"Brothers and spiritual children, I am now departing from the body, like any other man. But do not be alarmed;"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.7.1.s3",
-      "source_sha256": "c028201d6d3419a9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 9,
-      "text": "\"But do not be dismayed. Instead be steadfast and strong, and pray to God without ceasing for the salvation of your souls.\""
+      "source_sha256": "5576b53301c76b8b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 4,
+      "text": "instead, be strong and stand firm, and pray to God without ceasing for the salvation of your souls.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-david-of-gareja#DavGar.7.2.s1",

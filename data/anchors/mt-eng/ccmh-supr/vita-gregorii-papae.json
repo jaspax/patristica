@@ -1,17 +1,17 @@
 {
  "work_id": "mt-eng/ccmh-supr/vita-gregorii-papae",
  "anchor": "ccmh-supr/vita-gregorii-papae",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "063b420daa53def0",
  "words": "0794f4c261000d50",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 61, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8769, "rounds": 2, "units": 61},
+ "stats": {"beads": 62, "calibration": [0.6033, 0.2682], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9077, "rounds": 2, "units": 62},
  "paragraphs": {
   "Supr.61r": {"words": "5a1c7633c05afb8e", "starts": [0, 20, 35, 45, 74, 89]},
-  "Supr.61v": {"words": "bd167974766d2bd0", "starts": [0, 14, 40, 66, 105, 123, 138, 166, 175, 193, 212, 231]},
-  "Supr.62r": {"words": "07f5469f3f4ee60c", "starts": [0, 30, 45, 61, 73, 89, 111, 127, 136, 156, 166, 183, 202, 219]},
-  "Supr.62v": {"words": "6f3d603678c03f62", "starts": [0, 12, 37, 61, 86, 92, 109, 127, 139, 158, 177, 192, 208]},
-  "Supr.63r": {"words": "e1c72e4b7c2e29b2", "starts": [0, 26, 47, 56, 78, 99, 110, 138, 158, 167, 175, 207, 224, 239]},
+  "Supr.61v": {"words": "bd167974766d2bd0", "starts": [0, 31, 40, 66, 105, 123, 138, 157, 175, 193, 212, 231]},
+  "Supr.62r": {"words": "07f5469f3f4ee60c", "starts": [0, 30, 45, 61, 73, 89, 111, 127, 136, 147, 166, 183, 202, 219]},
+  "Supr.62v": {"words": "6f3d603678c03f62", "starts": [0, 12, 26, 37, 61, 83, 92, 109, 127, 139, 158, 172, 192, 208]},
+  "Supr.63r": {"words": "e1c72e4b7c2e29b2", "starts": [0, 26, 47, 56, 78, 92, 110, 138, 158, 167, 175, 207, 224, 239]},
   "Supr.63v": {"words": "068d0bd8c6515850", "starts": [0, 17]}
  }
 }

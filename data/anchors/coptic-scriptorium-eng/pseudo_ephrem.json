@@ -1,11 +1,11 @@
 {
  "work_id": "coptic-scriptorium-eng/pseudo_ephrem",
  "anchor": "coptic-scriptorium/pseudo_ephrem",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "46f77a5e11c9429d",
  "words": "8d514b86b2ce7ae0",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 495, "calibration": [0.4225, 0.3212], "converged": false, "fallback_paragraphs": 4, "one_one": 0.98, "rounds": 4, "units": 500},
+ "stats": {"beads": 495, "calibration": [0.3679, 0.3379], "converged": true, "fallback_paragraphs": 4, "one_one": 0.98, "rounds": 3, "units": 500},
  "paragraphs": {
   "CopScr.pseudo-ephrem.000.0000": {"words": "e3b7e0d780b7b59e", "starts": [0]},
   "CopScr.pseudo-ephrem.000.0001": {"words": "89f2c4226cfc2e0d", "starts": [0]},
@@ -366,7 +366,7 @@
   "CopScr.pseudo-ephrem.001.0191": {"words": "c6f1242f896fce10", "starts": [0]},
   "CopScr.pseudo-ephrem.001.0192": {"words": "d939da9b7ea36c50", "starts": [0]},
   "CopScr.pseudo-ephrem.001.0193": {"words": "a558a59f175417b6", "starts": [0]},
-  "CopScr.pseudo-ephrem.001.0194": {"words": "4aee3d23e961990a", "starts": [0, 23]},
+  "CopScr.pseudo-ephrem.001.0194": {"words": "4aee3d23e961990a", "starts": [0, 28]},
   "CopScr.pseudo-ephrem.001.0195": {"words": "3cb21a950e9d4452", "starts": [0]},
   "CopScr.pseudo-ephrem.001.0196": {"words": "75a1ef6319a45b1d", "starts": [0]},
   "CopScr.pseudo-ephrem.001.0197": {"words": "5df189811bc37180", "starts": [0]},

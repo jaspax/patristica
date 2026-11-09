@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -203,90 +209,104 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s5",
-      "source_sha256": "544419cb908c751f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "And God then made a man out of clay, and breathed a spirit into him, and gave him life, and he then became a man created in soul and in body; and God gave him the name Adam, and he was then for some while alone."
+      "source_sha256": "14ab0a8d8573cd08",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Then God made a man out of clay, breathed a spirit into him and gave him life, and so he became a man created in soul and in body."
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s6",
-      "source_sha256": "e4cba25e6a3258a4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "God then brought him into Paradise and settled him there, and said to him, \"You may enjoy all the things that are in Paradise, and they are all entrusted to you,"
+      "source_sha256": "293882713f962879",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "God gave him the name Adam, and for a while he was standing alone. Then God brought him into Paradise, settled him there, and said to him,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s7",
-      "source_sha256": "c3352cc9d840f9f0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "except one tree that stands in the middle of Paradise: do not touch that tree's fruit, for you will become mortal if you eat that tree's fruit.\""
+      "source_sha256": "24f7f28a854aba54",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"You may enjoy all the things that are in Paradise, and they are all entrusted to you, except one tree that stands in the middle of Paradise."
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s8",
-      "source_sha256": "ce870f41e59d079c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Why would God deny him so small a thing, when he had entrusted so many other things to him? Indeed, how could Adam know what he was, unless he were obedient to his Lord in some thing?"
+      "source_sha256": "795937647f89413e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Do not touch the fruit of that tree, because you will become mortal if you eat the fruit of that tree.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s9",
-      "source_sha256": "84d7008a91e6f1cb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "It was as if God had said to him, \"You will not know that I am your Lord and that you are my servant unless you do what I command you and refrain from what I forbid you."
+      "source_sha256": "eceb5dafae462f60",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Why would God deny him so small a thing, when he had entrusted so many other great things to him?"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s10",
+      "source_sha256": "c180496080ed68b1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Yes, but how could Adam recognise what he was, unless he was obedient to his Lord in some matter? It is as if God had said to him,"
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s11",
+      "source_sha256": "7248eeda72621221",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"You will not know that I am your Lord and that you are my servant unless you do what I command you and keep away from what I forbid you."
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s12",
       "source_sha256": "de75a61881b1f5d4",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "What then can it be that you must refrain from? I tell you, refrain from the fruit of one tree, and by that easy obedience you will earn the joy of the kingdom of heaven and the place from which the devil fell through disobedience.\""
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s11",
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s13",
       "source_sha256": "8760535ff2b8e616",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "If, then, you break this little command, you shall die the death.\""
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s12",
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s14",
       "source_sha256": "96c3ede9bd641ac3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "And Adam was so wise that God brought to him the cattle, and the kinds of wild animals, and the kinds of birds, when he had created them;"
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s13",
-      "source_sha256": "36fc20c24bb416f1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "and Adam gave names to them all; and just as he named them then, so they are still called."
-    },
-    {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s14",
-      "source_sha256": "e48a39a5e498e6a7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Then God said, \"It is not fitting that this man should be alone and have no helper; but let us make him a mate, to be a help and a comfort to him.\""
-    },
-    {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s15",
+      "source_sha256": "b0164becf6bda401",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "And Adam gave names to all of them, and they are still called by the names he gave them then. Then God said,"
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s16",
+      "source_sha256": "a1bea739fcd7e5db",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"It is not fitting that this man should be alone and have no helper. Let us make him a mate, to be a help and a comfort to him.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s17",
       "source_sha256": "b1d3a305754d50b6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "And God then put Adam to sleep, and while he slept he took a rib from his side, and made a woman from that rib, and asked Adam what she should be called."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s16",
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s18",
       "source_sha256": "31d9eb46db90d8fe",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "Then Adam said, \"She is bone of my bones and flesh of my flesh; let her name be Virago, that is, woman, because she is taken from her man.\""
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s17",
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.4.s19",
       "source_sha256": "260dcccc4019632c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
@@ -308,59 +328,59 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s3",
-      "source_sha256": "894370400dd25d7b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "and he then looked upon all his works that he had made, and they were all very good."
+      "source_sha256": "a3521b4bdfa893d5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "And he looked at all the works he had made, and they were all very good. He made all things without any pre-existing material. He said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s4",
-      "source_sha256": "aafe9873914b2bfb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "He made all things without any material. He said, \"Let there be light,\" and immediately light came into being."
+      "source_sha256": "453532de0eb494ac",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Let there be light,\" and at once light came into being. Again he said, \"Let there be heaven,\" and at once heaven was made, just as he had planned it with his wisdom and his will."
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s5",
-      "source_sha256": "7abfa780927d0dd6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "He said again, \"Let there be heaven,\" and immediately heaven was made, just as he had ordained it by his wisdom and his will;"
-    },
-    {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s6",
       "source_sha256": "c7e57d03fea069ba",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "He spoke again and commanded the earth to bring forth living beasts; and he then created from the earth every kind of beast and every kind of wild animal, all those that go on four feet;"
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s7",
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s6",
       "source_sha256": "e34ef2c1813b17da",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "likewise from water he created fish and birds, and gave the fish swimming and the birds flight; but he gave no soul to any beast or any fish;"
     },
     {
-      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s8",
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s7",
       "source_sha256": "f37b4594d302c638",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 21,
       "text": "but their blood is their life, and as soon as they are dead, they are entirely ended."
     },
     {
+      "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s8",
+      "source_sha256": "ab67f7a9facf7537",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "When he made the man Adam, he did not say, \"Let a man be made,\" but he said,"
+    },
+    {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s9",
-      "source_sha256": "88d46a4ae58afb77",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "When he made the man Adam, he did not say, \"Let man be made,\" but he said, \"Let us make man in our likeness,\" and he then made the man with his hands and breathed a soul into him;"
+      "source_sha256": "d0b5742b296843e6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Let us make man in our likeness.\" Then he made the man with his hands and breathed a soul into him. Therefore man, if he thrives in goodness, is better than all the animals,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s10",
-      "source_sha256": "5c62edde9ea50869",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "therefore man, if he thrives in goodness, is better than all the beasts are; for they all come to nothing, while man is eternal in one part, that is in the soul; it will never end."
+      "source_sha256": "d94b405aa0e8bb39",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "because they will all come to nothing, but man is eternal in one part, that is, in the soul, which will never end."
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.5.s11",
@@ -399,31 +419,31 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s2",
-      "source_sha256": "629150e638cd49a2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then he grew very angry and envious towards those people, and considered how he might destroy them."
+      "source_sha256": "d67007a318e5b1f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Then he felt great anger and envy towards the humans, and considered how he could destroy them. He came to the two humans in the form of a serpent, first to the woman, and said to her,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s3",
-      "source_sha256": "c3f5e536f898a8fb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then he came in the form of a serpent to the two people, first to the woman, and said to her, \"Why has God forbidden you the fruit of the tree that stands in the middle of paradise?\""
+      "source_sha256": "f0cff755d7351163",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Why did God forbid you the fruit of the tree that stands in the middle of Paradise?\" Then the woman said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s4",
-      "source_sha256": "42f50c1b081eb68d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Then the woman said, \"God forbade us the fruit of that tree, and said that we should die the death if we tasted of it.\""
+      "source_sha256": "506f8f430ade98be",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"God forbade us the fruit of that tree, and said that we would die if we tasted it.\" Then the devil said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s5",
-      "source_sha256": "a715e6569798e5ca",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then the devil said, \"It is not at all as you say, but God knows very well that if you eat of that tree, then your eyes will be opened, and you will be able to see and know both good and evil, and you will be like angels.\""
+      "source_sha256": "37e63f14c411725c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"It is not as you say. God knows very well that if you eat from that tree, your eyes will be opened, and you will be able to see and recognise both good and evil, and you will be like angels.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s6",
@@ -448,17 +468,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s9",
-      "source_sha256": "7b207d035bc3b519",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "Then God came and asked why he had broken his commandment, and drove them both out of paradise, and said, \"Because you were obedient to your wife's words,"
+      "source_sha256": "d91f9239c394c65a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Then God came and asked why he had broken his command. He drove them both out of Paradise and said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s10",
-      "source_sha256": "8c5ab8f1ca86d029",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "and despised my commandment, you shall get your food with hardship, and the earth, which is cursed in your work, shall give you thorns and brambles."
+      "source_sha256": "975925b7c735ed81",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Because you obeyed your wife's words and scorned my command, you will have to toil for your food with hardship, and the earth, which is cursed because of your deed, will give you thorns and brambles."
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.6.s11",
@@ -588,17 +608,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.10.s3",
-      "source_sha256": "dddffcf238c03e47",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "There was, however, one man righteous before God, who was called Noah. Then God said to him, \"I will destroy all mankind with water, because of their sins,"
+      "source_sha256": "4facfd7bb7bf2f4a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Yet there was one man righteous before God, who was called Noah. Then God said to him,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.10.s4",
-      "source_sha256": "f9cb3d8b4ce69fa7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "but I will preserve you alone, and your wife, and your three sons, Shem, Ham, and Japheth, and their three wives; because you are righteous and pleasing to me."
+      "source_sha256": "a94b82546893a350",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"I will destroy all mankind with water because of their sins, but I will save you alone, and your wife, and your three sons, Shem, Ham, and Japheth, and their three wives, because you are righteous and pleasing to me."
     },
     {
       "chunk_id": "aelfric-ch/ch1-01#AECHomI.1.10.s5",

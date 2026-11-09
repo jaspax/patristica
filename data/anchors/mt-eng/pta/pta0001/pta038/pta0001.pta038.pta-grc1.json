@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/pta/pta0001/pta038/pta-grc1",
  "anchor": "pta/pta0001/pta038/pta-grc1",
- "method": "e26e66e4678bcee0",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "e77f2f3d61b723ac",
  "words": "d6f086817bd9b5cd",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 178, "calibration": [0.6294, 0.1944], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 178},
+ "stats": {"beads": 178, "calibration": [0.6329, 0.1964], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 178},
  "paragraphs": {
   "pta0001.pta038.1": {"words": "09a39ebedd2558e3", "starts": [0, 27, 42, 63, 84, 104]},
   "pta0001.pta038.2": {"words": "aafe0ad99b1928be", "starts": [0, 37, 71]},
@@ -26,12 +26,12 @@
   "pta0001.pta038.17": {"words": "bf2446cb3512bac6", "starts": [0, 29, 52, 87, 104]},
   "pta0001.pta038.18": {"words": "38fbdaf3d00414b1", "starts": [0, 33, 46, 64]},
   "pta0001.pta038.19": {"words": "5cb563ae62dba262", "starts": [0, 26, 56, 78, 104]},
-  "pta0001.pta038.20": {"words": "071856fd4f8ceb39", "starts": [0, 14]},
+  "pta0001.pta038.20": {"words": "071856fd4f8ceb39", "starts": [0, 24]},
   "pta0001.pta038.21": {"words": "9d70a87dd5c78c00", "starts": [0, 41, 66]},
   "pta0001.pta038.22": {"words": "8e0fe6c7a98fc764", "starts": [0, 23, 44, 69, 78]},
   "pta0001.pta038.23": {"words": "140e2a930655fef8", "starts": [0, 28, 43]},
   "pta0001.pta038.24": {"words": "1fdf00a355c1986a", "starts": [0, 33, 57, 70, 98, 122, 156]},
-  "pta0001.pta038.25": {"words": "65d6e01a47fd51f6", "starts": [0, 21, 40, 56, 88, 119]},
+  "pta0001.pta038.25": {"words": "65d6e01a47fd51f6", "starts": [0, 21, 40, 56, 90, 119]},
   "pta0001.pta038.26": {"words": "2c91b24a399243dd", "starts": [0, 24]},
   "pta0001.pta038.27": {"words": "5df4cf0ac7c4a6b9", "starts": [0, 19, 54, 87]},
   "pta0001.pta038.28": {"words": "110042378fd068b3", "starts": [0, 32, 50, 64, 96]},
@@ -49,7 +49,7 @@
   "pta0001.pta038.40": {"words": "390c9e047547eb07", "starts": [0, 34, 55]},
   "pta0001.pta038.41": {"words": "e3cd9ce53be99d46", "starts": [0, 28, 60, 94, 133]},
   "pta0001.pta038.42": {"words": "388df901ab270439", "starts": [0, 14, 40, 55, 87]},
-  "pta0001.pta038.43": {"words": "571fb17ca4824905", "starts": [0, 17]},
+  "pta0001.pta038.43": {"words": "571fb17ca4824905", "starts": [0, 42]},
   "pta0001.pta038.44": {"words": "392e59cf0319f15e", "starts": [0, 18, 38]},
   "pta0001.pta038.45": {"words": "973a70ba67dbc989", "starts": [0, 16, 33, 64, 73, 112]}
  }

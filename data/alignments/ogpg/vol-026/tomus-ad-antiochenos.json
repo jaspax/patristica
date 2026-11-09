@@ -2,12 +2,12 @@
  "format": 1,
  "group": "ogpg/vol-026/tomus-ad-antiochenos",
  "pivot": "npnf-works/athanasius-tome-to-the-antiochenes",
- "groups": 106,
- "inputs": "bc4341a7ec19f6ff",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 104,
+ "inputs": "e088bd3798930d56",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-tome-to-the-antiochenes", "units": 157, "ids": "4bd1aaff204ee70e", "inputs": "4d0d9039a725649e", "spans": "++++++++++++.+++++.+++++++.+++=+++++++++++=+++=+++++++=+.++++++++++++++++++++++++++++++=++=++==+++++.++++++++++....+=....+...+=+.............+=.....+.....++.", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999983989992"},
-  {"work_id": "ogpg/vol-026/tomus-ad-antiochenos", "units": 128, "ids": "1ce6576ada52b740", "inputs": "09b13869b62d0006", "spans": "++++++++=+++++=+++++=+=+++=++++++++++++++++=+++++++++.+=++=+++++++.++++++++++=++++++=+..+++++++++=++=+++++++++++++=.++++=+=+=+=+", "conf": "9999999999989999999999999999999999999999999999999999999999999999999999999999999999999999999999999983989992"},
-  {"work_id": "pta/pta0022/pta015/pta-grc1", "units": 108, "ids": "d27a4ddbcb29e886", "inputs": "4c6b7ae675f40161", "spans": "+2++++.+++++++=+++++++++=+++++=+2+=++++=++++++++++++++++++++++++++++2++++=+++2++=+++++=.+++=++=++.++++++++++++++5", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/athanasius-tome-to-the-antiochenes", "units": 156, "ids": "fcdc11cbf95d3224", "inputs": "945dfebb2a46c3f0", "spans": "+++++++++++.+++++.+++++++.+++=+++++++++++=+++=+++++++=+.+++++++++++++++++++++++++++++=++=++==+++++.++++++++++....+=....+...+=+..............+=.....+.....++.", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999983989992"},
+  {"work_id": "ogpg/vol-026/tomus-ad-antiochenos", "units": 128, "ids": "1ce6576ada52b740", "inputs": "08a1a433684b4a8b", "spans": "++++++++=+=+++=+++++=+=+++=++++++++++++++++=+++++++++.+=++=+++++++.+=++++++++=++++++=+..+++++++++=++=+++++++++++++=.++++=+=+=+=+", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999983989992"},
+  {"work_id": "pta/pta0022/pta015/pta-grc1", "units": 107, "ids": "20a30c9e5d27651f", "inputs": "b89d0ede0b5bd3bc", "spans": "+2++++.++=++++=+++++++++=+++++=+2+=++++=++++++++++++++++++++++++=+++2++++=+++2++=+++++=+++=++=++.++++++++++++++5", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/coptic-scriptorium/shenoute_dirt",
  "anchor": "coptic-scriptorium/shenoute_dirt",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "88b68ac36ad06c12",
  "words": "d683d10057e4a880",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 203, "calibration": [0.1909, 0.4752], "converged": false, "fallback_paragraphs": 2, "one_one": 0.9805, "rounds": 4, "units": 205},
+ "stats": {"beads": 203, "calibration": [0.1099, 0.5026], "converged": true, "fallback_paragraphs": 2, "one_one": 0.9805, "rounds": 1, "units": 205},
  "paragraphs": {
   "CopScr.shenoute-dirt.000.0000": {"words": "a5ae770c6eb5be55", "starts": [0]},
   "CopScr.shenoute-dirt.000.0001": {"words": "ba4dc9e543dbb5f0", "starts": [0]},
@@ -45,7 +45,7 @@
   "CopScr.shenoute-dirt.000.0035": {"words": "95e1a3732593aa01", "starts": [0]},
   "CopScr.shenoute-dirt.000.0036": {"words": "878c5c08d5519824", "starts": [0]},
   "CopScr.shenoute-dirt.000.0037": {"words": "25885393529e4401", "starts": [0]},
-  "CopScr.shenoute-dirt.000.0038": {"words": "936ed93bed4214a2", "starts": [0, 26]},
+  "CopScr.shenoute-dirt.000.0038": {"words": "936ed93bed4214a2", "starts": [0, 27]},
   "CopScr.shenoute-dirt.000.0039": {"words": "f5871cda796b3438", "starts": [0]},
   "CopScr.shenoute-dirt.000.0040": {"words": "ad43932fc70b9174", "starts": [0]},
   "CopScr.shenoute-dirt.000.0041": {"words": "28ddab19ffaafaea", "starts": [0]},

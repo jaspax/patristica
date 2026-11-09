@@ -1,16 +1,16 @@
 {
  "work_id": "mt-eng/pta/pta0001/pta010/pta-grc1",
  "anchor": "pta/pta0001/pta010/pta-grc1",
- "method": "e26e66e4678bcee0",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "e6f51320b6e785f1",
  "words": "5ac931dbae9fe5e4",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 140, "calibration": [0.71, 0.1561], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 140},
+ "stats": {"beads": 140, "calibration": [0.6359, 0.1886], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 140},
  "paragraphs": {
-  "pta0001.pta010.1": {"words": "8117c8915f1b2f61", "starts": [0, 29, 57, 82, 105, 133]},
+  "pta0001.pta010.1": {"words": "8117c8915f1b2f61", "starts": [0, 24, 57, 82, 105, 133]},
   "pta0001.pta010.2": {"words": "99b6fcba8c30cb6b", "starts": [0, 10, 25, 65, 91, 124, 179, 201, 227, 252, 293]},
   "pta0001.pta010.3": {"words": "8103bb27304f9ef4", "starts": [0, 22, 44, 64, 80, 105, 151]},
-  "pta0001.pta010.4": {"words": "3851104aa5d3cd84", "starts": [0, 33, 54, 67, 110, 132, 159, 186, 204]},
+  "pta0001.pta010.4": {"words": "3851104aa5d3cd84", "starts": [0, 33, 54, 67, 110, 132, 159, 186, 199]},
   "pta0001.pta010.5": {"words": "d94050a251ad3998", "starts": [0, 31, 55, 68, 101, 123, 150, 167]},
   "pta0001.pta010.6": {"words": "f839bd133ce5660f", "starts": [0, 20, 56, 84, 101, 113, 131, 154]},
   "pta0001.pta010.7": {"words": "4fe9128dfac2294f", "starts": [0, 26, 49, 69, 90, 114, 137, 157, 177]},
@@ -19,7 +19,7 @@
   "pta0001.pta010.10": {"words": "c19a01f6ed755b5c", "starts": [0, 22, 34, 68, 83, 110, 128, 155, 188, 220, 248, 272, 290, 318, 335]},
   "pta0001.pta010.11": {"words": "7a83cb8a3ca015df", "starts": [0, 28, 48, 64]},
   "pta0001.pta010.12": {"words": "4ec64dd2bd92397b", "starts": [0, 34, 60, 78, 97]},
-  "pta0001.pta010.13": {"words": "de68e9687db42c8c", "starts": [0, 33, 58, 94, 129, 154, 177, 201, 222, 250, 271, 290, 321, 346]},
+  "pta0001.pta010.13": {"words": "de68e9687db42c8c", "starts": [0, 33, 58, 94, 106, 154, 177, 201, 222, 250, 271, 290, 321, 346]},
   "pta0001.pta010.14": {"words": "9727f78d3aefb7d9", "starts": [0, 43, 78, 102, 127, 142, 163, 186, 215, 248, 267]},
   "pta0001.pta010.15": {"words": "cbd7ddbde5b53359", "starts": [0, 46, 80, 100]}
  }

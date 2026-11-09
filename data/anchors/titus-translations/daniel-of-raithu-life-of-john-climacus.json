@@ -1,19 +1,19 @@
 {
  "work_id": "titus-translations/daniel-of-raithu-life-of-john-climacus",
  "anchor": "ogpg/vol-088/climacus-vita",
- "method": "e26e66e4678bcee0",
+ "method": "7c99b01da01bd8eb",
  "anchor_cuts": "b1b025560efc838c",
  "words": "e3c1308170a80f07",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 50, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 0, "one_one": 0.5857, "rounds": 4, "units": 55},
+ "stats": {"beads": 56, "calibration": [0.7687, 0.0991], "converged": false, "fallback_paragraphs": 0, "one_one": 0.7286, "rounds": 4, "units": 61},
  "paragraphs": {
-  "Clim.Vita.6": {"words": "6bc8f10ac450ba96", "starts": [0, 22, 43, 112, 120]},
-  "Clim.Vita.7": {"words": "8a9095fddd388410", "starts": [0, 4, 16, 29, 53, 82, 98, 111, 128]},
+  "Clim.Vita.6": {"words": "6bc8f10ac450ba96", "starts": [0, 22, 43, 68, 112]},
+  "Clim.Vita.7": {"words": "8a9095fddd388410", "starts": [0, 4, 16, 41, 53, 82, 98, 111, 128]},
   "Clim.Vita.8": {"words": "6d91c2c3381f2116", "starts": [0, 28, 161]},
-  "Clim.Vita.9": {"words": "83b0da53b1ab9171", "starts": [0, 19, 179, 188, 199]},
-  "Clim.Vita.10": {"words": "93f7340e5decd257", "starts": [0, 25, 67, 87, 139, 159, 189, 199]},
-  "Clim.Vita.11": {"words": "6177ad912b15be23", "starts": [0, 75, 100, 115, 136, 139, 161, 168, 192]},
-  "Clim.Vita.12": {"words": "5ffde1953c632d5f", "starts": [0, 28, 40, 81, 110, 164, 191]},
-  "Clim.Vita.13": {"words": "f349ff2bf054dd95", "starts": [0, 34, 53, 65, 117, 138, 175, 195, 203]}
+  "Clim.Vita.9": {"words": "83b0da53b1ab9171", "starts": [0, 19, 179, 188, 199, 216]},
+  "Clim.Vita.10": {"words": "93f7340e5decd257", "starts": [0, 18, 25, 42, 67, 87, 94, 111, 159, 189]},
+  "Clim.Vita.11": {"words": "6177ad912b15be23", "starts": [0, 31, 63, 100, 115, 126, 136, 139, 161, 175, 192]},
+  "Clim.Vita.12": {"words": "5ffde1953c632d5f", "starts": [0, 28, 53, 65, 81, 110, 164]},
+  "Clim.Vita.13": {"words": "f349ff2bf054dd95", "starts": [0, 8, 34, 53, 65, 117, 138, 175, 195, 203]}
  }
 }

@@ -2,11 +2,11 @@
  "format": 1,
  "group": "csel/stoa0104a/stoa011/opp-lat1",
  "pivot": "anf-works/cyprian-jealousy-and-envy",
- "groups": 154,
- "inputs": "702a33b12f0cdab6",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 153,
+ "inputs": "a24c59a55b37526c",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/cyprian-jealousy-and-envy", "units": 167, "ids": "645c9f7b2bc92666", "inputs": "5903ba0e77dba628", "spans": "+=....++=+++++++=++++=+++++++++++++++++++++++=+=+++++++++++++++++++=+=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "csel/stoa0104a/stoa011/opp-lat1", "units": 156, "ids": "90ce1185136e45f0", "inputs": "3291adb8a522904a", "spans": "+++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/cyprian-jealousy-and-envy", "units": 172, "ids": "3b90c6d3fc7a8043", "inputs": "9896ff2f08d8c9a4", "spans": "+=....++=+++++++=++++=+++++++++++++++++++++++=+=+++++++++++++++++++=+=+++=+++++++++++++++++++++++++++++++++++++++=++++++++++++++++=+++++.+++++++=++++++++++++++++++++=+++++=", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "csel/stoa0104a/stoa011/opp-lat1", "units": 156, "ids": "90ce1185136e45f0", "inputs": "3291adb8a522904a", "spans": "+++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

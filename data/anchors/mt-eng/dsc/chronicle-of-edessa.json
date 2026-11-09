@@ -1,11 +1,11 @@
 {
  "work_id": "mt-eng/dsc/chronicle-of-edessa",
  "anchor": "dsc/chronicle-of-edessa",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "a8b764844c3aa5f2",
  "words": "c8b4c374bebce550",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 188, "calibration": [0.1178, 0.5366], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 188},
+ "stats": {"beads": 188, "calibration": [0.1613, 0.5421], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 3, "units": 188},
  "paragraphs": {
   "DSC57": {"words": "c7588bdafa24760e", "starts": [0]},
   "DSC57.rubric.1": {"words": "90e930f9bfbbc7c7", "starts": [0]},
@@ -71,7 +71,7 @@
   "DSC57.60": {"words": "790cba0a5f4c6827", "starts": [0, 11]},
   "DSC57.61": {"words": "977d71483ce0836c", "starts": [0]},
   "DSC57.62": {"words": "84b345bd11d01dc9", "starts": [0]},
-  "DSC57.63": {"words": "2204c48271888728", "starts": [0, 22]},
+  "DSC57.63": {"words": "2204c48271888728", "starts": [0, 12]},
   "DSC57.64": {"words": "617ee3bae914b873", "starts": [0, 14]},
   "DSC57.65": {"words": "02fea7c55a1f4495", "starts": [0]},
   "DSC57.66": {"words": "8621be90b9a8dcb3", "starts": [0]},

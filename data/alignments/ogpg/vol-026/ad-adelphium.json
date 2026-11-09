@@ -3,10 +3,10 @@
  "group": "ogpg/vol-026/ad-adelphium",
  "pivot": "ogpg/vol-026/ad-adelphium",
  "groups": 96,
- "inputs": "9ae0fdb1faafc898",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "cdd94ffddf50c3a9",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-letter-60-to-adelphius", "units": 105, "ids": "d1898c078c2730b4", "inputs": "38c7eb76cf5fcc7f", "spans": "++++...+=+++++++++++++++++++++++=+++++=+++++++.+++++++++++++++++++++++++++++++++++++=++.+++++++++++++++++", "conf": "486499999999999999999999999999999999999999998899999999999999999999999999999999999999989799999999"},
-  {"work_id": "ogpg/vol-026/ad-adelphium", "units": 118, "ids": "35bde4a741a0b12b", "inputs": "ba75d45c1648fbe5", "spans": "..+.+=..++...+++++++++++++++++.++++++++++++++++.++++++++++++++=+++=++++++++=++++++++++++++++++++.++++.++..+=++++++=+..", "conf": "486499999999999999999999999999999999999999998899999999999999999999999999999999999999989799999999"}
+  {"work_id": "npnf-works/athanasius-letter-60-to-adelphius", "units": 106, "ids": "2b4714df797192fa", "inputs": "41799648aff17b2a", "spans": "++++...+=++++++++.++++++++++++++=++++++=+++++++.+++++++++++++++++++++++++++++++++++++=++.+++++++++++++++++", "conf": "486499999999999999999999999999999999999999997799999999999999999999999999999999999999989799999999"},
+  {"work_id": "ogpg/vol-026/ad-adelphium", "units": 118, "ids": "35bde4a741a0b12b", "inputs": "ba75d45c1648fbe5", "spans": "..+.+=..++...+++++++++++++++++.++++++++++++++++.++++++++++++++=++++++++++++=++++++++++=+++++++++.++++.++..+=++++++=+..", "conf": "486499999999999999999999999999999999999999997799999999999999999999999999999999999999989799999999"}
  ]
 }

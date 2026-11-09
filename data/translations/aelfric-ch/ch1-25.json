@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -140,20 +146,27 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.9.s1",
-      "source_sha256": "05317fde63c0edfc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "John is the end of the old law and the beginning of the new, as the Saviour said of him: \"The old law and the prophets lasted until John's coming.\""
+      "source_sha256": "532570f649c168cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "John is the end of the old law and the beginning of the new, just as the Saviour said of him,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.9.s2",
-      "source_sha256": "f76d6e8f63b8898d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "After that the preaching of the gospel began. Now his birth is honoured because of his great holiness, as the archangel promised his father in these words: \"Many will rejoice at his birth.\""
+      "source_sha256": "d7bd995dd068ae9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"The old law and the prophets lasted until John's coming.\" After that, the preaching of the gospel began."
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.9.s3",
+      "source_sha256": "13f9ff464c71ee24",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "Now, because of his great holiness, his birth is honoured, just as the archangel promised his father with these words: \"Many will rejoice at his birth.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.9.s4",
       "source_sha256": "68cead064b979474",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 20,
@@ -196,17 +209,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.11.s1",
-      "source_sha256": "8a1faefafb2602d3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Christ and John were children of the same year. On this day the barren mother gave birth to the great prophet John,"
+      "source_sha256": "4d25712f7d25caab",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "Christ and John were children of one year. On this day the barren mother gave birth to the great prophet John, who is praised with these words from Christ's mouth:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.11.s2",
-      "source_sha256": "ee50f248dd534bbd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "who is praised from Christ's own mouth in these words: \"Among those born of women no greater man has arisen than John the Baptist.\""
+      "source_sha256": "99f33feadd0ae072",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"Among the children of women no greater man has arisen than John the Baptist.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.12.s1",
@@ -301,17 +314,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.14.s1",
-      "source_sha256": "f5290d514064dd2b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Many prophets in their prophecy proclaimed that the Lord was to come, some from far off and some from near at hand, but John proclaimed his coming in words and also pointed him out with his finger, saying, \"Look now!"
+      "source_sha256": "d23c4e0b3dce9826",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "Many prophets proclaimed in their prophecy that the Lord was to come, some from far off and some from near at hand. But John proclaimed his coming with words and also pointed him out with his finger, saying:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.14.s2",
-      "source_sha256": "d1dd149e41cbe8a3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 21,
-      "text": "Behold, here goes the Lamb of God, who takes away the sins of the world.\" Christ is called by many names."
+      "source_sha256": "1addb3ccef785f5c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"Look now! Here goes the Lamb of God, who takes away the sins of the world.\" Christ is called by many names."
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.14.s3",
@@ -504,62 +517,69 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.17.s6",
-      "source_sha256": "854c38b3bac88811",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "for God the Father sent him ahead of his Son, so that he would prepare and make ready his way. So John cried out these same words to the people: \"Prepare the way of God.\""
+      "source_sha256": "4a1530c3c13e6052",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "because God the Father sent him before the face of his Son, so that he should prepare and make ready his way. So John called out these same words to people:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.17.s7",
-      "source_sha256": "73e49b94195089dd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "The preacher who preaches the true faith and good works prepares the way for God to come into the hearts of those who listen."
+      "source_sha256": "1c13f2b06499e18e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"Prepare God's way.\" The herald who preaches right faith and good works prepares the way for God to come into the hearts of those who listen."
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s1",
-      "source_sha256": "fdf6d2faca61fd81",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "God's way is prepared in people's hearts when they humbly hear the word of Truth and are ready to obey the commandments of Life;"
+      "source_sha256": "e4fe8fe4ff956375",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "God's way is prepared in people's hearts when they humbly hear the words of the Truth and are ready to keep the commandments of Life. Of this the Saviour said:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s2",
-      "source_sha256": "4b1490d925b6603e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "about this the Saviour said, \"Whoever loves me keeps my commandment, and my Father loves him, and we two will come to him and dwell with him.\""
+      "source_sha256": "84905ec8a9df1311",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"He who loves me keeps my commandment, and my Father loves him, and we two will come to him and dwell with him.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s3",
-      "source_sha256": "775f04fd3daf30b3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "His paths are made straight when, through good preaching, pure thoughts spring up in the minds of the listeners. The valleys signify the humble, and the hills the proud."
+      "source_sha256": "1220bb7bdb9d2f2a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "His paths are made straight when, through good preaching, pure thoughts spring up in the minds of those who listen."
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s4",
-      "source_sha256": "a2c6787376c545a1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 18,
-      "text": "At the Lord's coming the valleys were filled and the hills brought low, just as he himself said, \"Everyone who exalts himself will be humbled, and he who humbles himself will be exalted.\""
+      "source_sha256": "19e27f0c4306e86f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "Valleys stand for the humble, and hills for the proud. At the Lord's coming the valleys were filled and the hills brought low, just as he himself said:"
     },
     {
       "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s5",
+      "source_sha256": "fb2f792fe4daa8e3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 14,
+      "text": "\"Everyone who exalts himself will be humbled, and he who humbles himself will be exalted.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s6",
       "source_sha256": "aa2005d6534c23cf",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "Just as water runs down from the hill and settles in the valley, so the Holy Spirit flees from the hearts of the proud and makes his dwelling in the humble, as the prophet said: \"On whom does the Spirit of God rest but on the humble?\""
     },
     {
-      "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s6",
+      "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s7",
       "source_sha256": "935a07408338d85b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 18,
       "text": "The crooked places are made straight when the hearts of perverse people, which have been bent aside by the hooks of unrighteousness, are made level again by the measuring-rod of true righteousness."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s7",
+      "chunk_id": "aelfric-ch/ch1-25#AECHomI.25.18.s8",
       "source_sha256": "3ec73422c3407fe9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,

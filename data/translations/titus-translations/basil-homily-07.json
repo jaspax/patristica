@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -602,17 +608,17 @@
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.4.s2",
-      "source_sha256": "a8c67f551e2f94ca",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"Revilers will not inherit the kingdom of heaven,\" whereas your silence has prepared the kingdom of heaven for you, for: \"Whoever endures to the end will be saved.\""
+      "source_sha256": "65094289278dbbc2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"Revilers shall not inherit the kingdom of heaven,\" but silence has prepared the kingdom of heaven for you, for:"
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.4.s3",
-      "source_sha256": "63ff757e2d32e956",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "But if you retaliate and become equal to the one who insulted you, what answer will you give the Lord?"
+      "source_sha256": "7029794cbffdd83d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"He who endures to the end shall be saved.\" But if you pay back in kind and become equal to the one who reviled you, what answer will you give to the Lord?"
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.4.s4",
@@ -1155,17 +1161,17 @@
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.6.s10",
-      "source_sha256": "6345e3fb8feaff5d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And in the same place, a little later, it is written: \"Moses said,"
+      "source_sha256": "a100016162474fd3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "And in the same place, a little further on, it is written:"
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.6.s11",
-      "source_sha256": "1b859e2ffc98164d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "'Fill your hands today for the Lord, each man against his son and his brother, so that a blessing may be given upon you.'\""
+      "source_sha256": "3a9be4dc02461589",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"Moses said: Fill your hands today for the Lord, each of you against his own son and his own brother, so that a blessing may be given to you.\""
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.6.s12",
@@ -1302,111 +1308,118 @@
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s5",
-      "source_sha256": "5dce335ba762020a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "who \"upholds all things by the word of his power,\" did not send him down alive into hell by having the earth open and swallow that lawless man,"
+      "source_sha256": "9a344f07d3456481",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "He who \"upholds all things by the word of his power\" did not cast that man down alive into hell,"
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s6",
-      "source_sha256": "9113cdb12ea33d6c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "but see how meekly he teaches him: \"If I have spoken evil, testify to the evil; but if I have spoken well, why do you strike me?\""
+      "source_sha256": "58bb33ac85c5c68d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "so that the earth would open and swallow up that lawless man. Instead, see how gently he teaches him:"
     },
     {
       "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s7",
+      "source_sha256": "bb19d2cd6c53be46",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"If I have spoken evil, bear witness to the evil; but if I have spoken well, why do you strike me?\""
+    },
+    {
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s8",
       "source_sha256": "5c5a3ee7a4af2413",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "For if you too accustom yourself to count yourself the last of all, according to the Lord's commandment, when would you ever become enraged, as though you were being insulted beneath your dignity?"
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s8",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s9",
       "source_sha256": "2eb69193ba5b5d19",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "For consider this: if a little child insults you, you make the insult a cause for laughter, and if you are insulted by someone deranged and raving, you pity him all the more and do not hate him."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s9",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s10",
       "source_sha256": "11bd1035e149cefc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "Do you see that it is not the words that disturb you, but your own mind: your contempt for the speaker and the fact that you consider yourself great?"
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s10",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s11",
       "source_sha256": "81ee54cb1cbb8e6c",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "But if you wipe both of these from your mind, all those insults will scatter uselessly in the air."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s11",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s12",
       "source_sha256": "5ea71d29d5606a36",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "\"Cease, then, from wrath and forsake anger,\" so that you may be saved from that wrath which \"is revealed from heaven against all the lawlessness and wickedness of men.\""
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s12",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s13",
       "source_sha256": "451425bc50a9b63d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "For if with a mind made wise you are able to cut off that bitter root of anger, you will pull up many passions along with it."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s13",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s14",
       "source_sha256": "68157393213b6007",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "For guile and duplicity and suspicion and unbelief and malice and evil plotting and arrogance and vehemence and the whole host of all such evils are shoots of this wickedness."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s14",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s15",
       "source_sha256": "dbe27f7796bc015b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "Let us not, then, bring into ourselves so evil a sickness of the soul, a darkness of the mind, an estrangement from God,"
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s15",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s16",
       "source_sha256": "30504192f7842ea3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "an alienation of kinship, a beginning of battle, an accomplisher of trials, an evil demon that is born within our very souls,"
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s16",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s17",
       "source_sha256": "b0bfeeda75ec701f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
       "text": "and that, like a shameless resident of the household, takes possession of everything and does not allow the Holy Spirit to enter into us."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s17",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s18",
       "source_sha256": "49c540d14bbfe1ea",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 4,
       "text": "For where there is enmity, wrath, anger, envy, and strife, which give birth to unquenchable turmoil in the soul, there the Spirit of meekness cannot rest."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s18",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s19",
       "source_sha256": "a4f11e4505e96fc1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 4,
       "text": "Let us therefore listen to the command of the holy apostle Paul, and let us wipe away from ourselves all wrath and anger and clamor, together with all evils, and let us become kind and gentle toward one another."
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s19",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s20",
       "source_sha256": "b53537f3cc317d16",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 4,
       "text": "And let us await that blessed hope which the Lord promised to the meek, for \"Blessed are the meek,"
     },
     {
-      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s20",
+      "chunk_id": "titus-translations/basil-homily-07#Bas.Hom7.7.s21",
       "source_sha256": "2e2aab0e0fdebd80",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 4,

@@ -9,22 +9,28 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
     {
       "chunk_id": "aspr/precepts#Precepts.1.s1",
-      "source_sha256": "bf81385232ebc80d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Thus a wise father, a man prudent of mind, old in the virtues of men, taught his noble son with wise words, so that he would prosper well: \"Always do what is good; your deeds will serve you well;"
+      "source_sha256": "4e24097be9da4f73",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Thus a wise father, a man wise of mind, old in [?] excellences, taught his noble son with words firm in wisdom, so that he might prosper well:"
     },
     {
       "chunk_id": "aspr/precepts#Precepts.1.s2",
-      "source_sha256": "b3ec9d39fa4f439a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "God will always be to you lord and helper in every good thing, and an enemy to the other, the one of worse deeds. Hope for the better for yourself; carry this out with zeal always, as long as you live."
+      "source_sha256": "21ad77b814506f6c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Always do what is fitting, and your deeds will prosper. God will always be your lord and help in every good thing, and an enemy to the other, the man of worse deeds. Accustom yourself to the better; carry this out with courage always, as long as you live.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.9",
@@ -55,25 +61,32 @@
       "text": "Do not commit crime, and never allow wickedness to your friend or kinsman, in case the Lord accuses you of being a witness to the sin. He will repay you with punishment, just as he repays the others with prosperity.\""
     },
     {
-      "chunk_id": "aspr/precepts#Precepts.21",
-      "source_sha256": "ca4523e2b0111c49",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "A third time the thoughtful man taught his son from the thoughts of his heart: \"Never, through all your long life, make a habit of keeping company with a worse man in any counsel [?], but always take for yourself one who is wise in counsel as a companion for talk and teaching. Let it go with power as it may.\""
+      "chunk_id": "aspr/precepts#Precepts.21.s1",
+      "source_sha256": "de82d370c3515903",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A third time the man wise in thought taught his son with the thoughts of his heart:"
+    },
+    {
+      "chunk_id": "aspr/precepts#Precepts.21.s2",
+      "source_sha256": "8ad21e01ce91e7da",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Never in all your life keep company with a worse man in any [?] counsel. Instead, always take as your companion in talk one who is wise in counsel about stories and teachings. As for power, let it be as it may.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.27.s1",
-      "source_sha256": "09a60ef33625625b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "A fourth time the father again taught his beloved son that he should remember this: \"Do not betray a special friend, but always keep faith with him with proper courtesy."
+      "source_sha256": "d4b4be62e2c35c7d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A fourth time the father again taught his dearly loved son, so that he would remember this:"
     },
     {
       "chunk_id": "aspr/precepts#Precepts.27.s2",
-      "source_sha256": "bc632313004b40c6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "Carry this out with zeal, so that you never become false to your friend.\""
+      "source_sha256": "3079f1aaa39b6826",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Do not betray a close friend, but always keep faith with him with right and fitting conduct. Carry this out with courage, so that you never become false to your friend.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.32",
@@ -97,11 +110,18 @@
       "text": "There is always the prospect of sins there, of hateful disgrace, long enmity with God, and overflowing boastfulness. Always be wise in speech, wary of desire, a guardian of your words.\""
     },
     {
-      "chunk_id": "aspr/precepts#Precepts.43",
-      "source_sha256": "83c1c2d6da4d4b87",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 6,
-      "text": "A sixth time the loving father again began to teach his son with kindly thought: \"Learn carefully what is good and what is evil, and always tell them apart with a sharp mind in your heart, and always choose the better for yourself."
+      "chunk_id": "aspr/precepts#Precepts.43.s1",
+      "source_sha256": "b3d4ca715d8d5205",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A sixth time the dear one again began, with a kindly thought, to teach his son:"
+    },
+    {
+      "chunk_id": "aspr/precepts#Precepts.43.s2",
+      "source_sha256": "e4856ec9ff697099",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Learn eagerly what is good or evil, and always tell them apart with a sharp mind in your heart, and always choose the better for yourself.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.48",
@@ -111,11 +131,18 @@
       "text": "The choice is always set before you. If your mind is good, wisdom dwells within, and you clearly know what evil is. Hold out against it with courage, and always cherish good in your spirit.\""
     },
     {
-      "chunk_id": "aspr/precepts#Precepts.52",
-      "source_sha256": "663418d35f108e23",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "A seventh time the father, the wise man, taught his son and told the young one many things: \"A wise man seldom rejoices without sorrow, just as a fool seldom [drymeð ?] in sorrow over his future, unless he knows of a feud."
+      "chunk_id": "aspr/precepts#Precepts.52.s1",
+      "source_sha256": "3f97a67c3e804843",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A seventh time the father, a wise man, taught his son and told the young one many things:"
+    },
+    {
+      "chunk_id": "aspr/precepts#Precepts.52.s2",
+      "source_sha256": "b4623e6bc4a52845",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Seldom does a wise man rejoice free from sorrow; likewise a fool is seldom [?] sorrowful about his future fate, unless he knows of a feud.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.57",
@@ -125,46 +152,53 @@
       "text": "A man firm in wisdom must think in his breast and be careful in speech, not loud in clamour.\""
     },
     {
-      "chunk_id": "aspr/precepts#Precepts.59",
-      "source_sha256": "51ea46799fc3a6ee",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "An eighth time the old father began to admonish his son with gentle words: \"Learn teaching that is fit to be learned, train yourself in wisdom, hold the Creator of hosts as your hope, and the memory of the saints, and always truth for victory, when you say anything.\""
+      "chunk_id": "aspr/precepts#Precepts.59.s1",
+      "source_sha256": "4ef4de1b25ac1b2e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "An eighth time the old father began to exhort his son with gentle words:"
+    },
+    {
+      "chunk_id": "aspr/precepts#Precepts.59.s2",
+      "source_sha256": "6191020f4373b1f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Learn teaching that is fit to be learned. Accustom yourself to wisdom. Keep the Creator of hosts as your hope, and the remembrance of the saints, and always keep truth [?] for victory when you say anything.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.65.s1",
-      "source_sha256": "9ef94620fca76294",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "A ninth time the old man spoke; the old sage told his son many things: \"There are not many people now who are willing to keep the ancient writings, but their mind decays, their courage cools, and the nation grows idle;"
+      "source_sha256": "b51a8146012cdce2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A ninth time the old man spoke; the aged sage told his son many things:"
     },
     {
       "chunk_id": "aspr/precepts#Precepts.65.s2",
-      "source_sha256": "5fa38a45d4b5fceb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "they think nothing of it, though they do wrong against the Lord's command. Many will pay for it with the torment of the soul."
+      "source_sha256": "d156c0c59a65c667",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"There are not many peoples now who are willing to keep the ancient writings. Instead their mind decays, their courage cools, and the nation grows idle. They care nothing for it, even though they do wrong against the command of the Lord.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.65.s3",
-      "source_sha256": "fee522e575ff8ba9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "But let your mind keep the ancient writings and the Lord's judgments from now on, which men here in every nation let fall away further than would be right for themselves.\""
+      "source_sha256": "13a8f71abeaf1722",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Many a one will pay for it with torment of the soul. But let your mind keep from now on the ancient writings and the Lord's judgments, which here in every nation men let sink away more than would be right for themselves.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.76.s1",
-      "source_sha256": "9f2c02e7d840948e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "A tenth time, full of grievous sorrows, the old man again began to teach his son: \"He who, out of love for his soul, always guards himself in his heart against sins of word and deed, and does what is true, makes use of wisdom;"
+      "source_sha256": "ea8a907f067a452d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A tenth time, full of grievous sorrows, the old man again began to teach his son:"
     },
     {
       "chunk_id": "aspr/precepts#Precepts.76.s2",
-      "source_sha256": "c6c9ae7448d1c571",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "every one of his gifts will be increased by God, abundant in power, when he flees wickedness."
+      "source_sha256": "1568ba321bbd9aa4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"He enjoys wisdom who, for love of his soul, always guards himself in his heart against the stains of words and deeds, and does what is true. Every one of his gifts will be increased by God, and he will be rich in powers, when he flees wickedness.\""
     },
     {
       "chunk_id": "aspr/precepts#Precepts.83.s1",

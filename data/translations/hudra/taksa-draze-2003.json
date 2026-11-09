@@ -4,6 +4,12 @@
   "source_language": "syc",
   "target_language": "eng",
   "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
+    },
     "gpt-6.1-sol/bulk-2026-10-12/2026-10-12": {
       "model": "gpt-6.1-sol",
       "prompt_version": "bulk-2026-10-12",
@@ -153,97 +159,90 @@
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s5",
-      "source_sha256": "23c338b29fe4ce8c",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "5. After the rite of breaking and signing, the priest does not make the sign of the cross on the foreheads of the servers while saying, “May Christ accept ...,”"
+      "source_sha256": "90150e7ce94b4e18",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "5. After the order of the fraction and of the signing, the priest does not sign in the form of a cross between the eyes of the deacons while saying, 'May Christ accept ..."
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s6",
-      "source_sha256": "81ca1af032c586c2",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "unless they are ordained deacons.\nThe feasts of our Lord are called “Feasts of the Lord,”"
+      "source_sha256": "83ce9881f09e3eef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "'; unless they are appointed ministers. And the feasts of our Lord are called 'dominical', that is, those of the dispensation;"
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s7",
-      "source_sha256": "1447a44f9cb207f0",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "that is, those of the saving dispensation. We call those of the saints “commemorations,”"
+      "source_sha256": "0c6c1f9a56c0186d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "those of the saints we call 'commemorations', but they are called feasts when they are celebrated with solemn procession;"
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s8",
-      "source_sha256": "d182a0e3e1a0b94e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "but they are called feasts when they are celebrated solemnly. The remaining days are ordinary days."
+      "source_sha256": "4ba9d0ccb7898223",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "while the rest of the days are 'ordinary'. 7. The priest makes the sign of the cross upon himself in this way:"
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s9",
-      "source_sha256": "fee70c733bba62a3",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "7. The priest makes the sign of the cross on himself in this way:"
-    },
-    {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s10",
       "source_sha256": "34f538d59c1513e4",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "he places the palm of his right hand on his forehead, then on his chest, then on his right shoulder, and then on his left."
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s11",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s10",
       "source_sha256": "56df6c38fd895082",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "8. When the order of service says of the priest, “And he kisses the altar,” this is what it means:"
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s12",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s11",
       "source_sha256": "facec055b7062d9f",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "the priest actually kisses the altar or touches it with his forehead."
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s13",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s12",
       "source_sha256": "ea66b6ee56ef892c",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "Or he places his hands on the altar and touches his forehead with them."
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s14",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s13",
       "source_sha256": "eefaaca54e19b413",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "9. When they give the peace, the recipient holds in his hands the giver’s hands, which are joined together."
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s15",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s14",
       "source_sha256": "d60bc310f79633f7",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "They may also give the peace by having the giver and recipient turn to face each other and bow their heads slightly."
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s16",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s15",
       "source_sha256": "0d635268335c2bef",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "10. When the order of service says, “The priest opens or extends his hands or arms,” this is what it means:"
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s17",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s16",
       "source_sha256": "1dee9bddab66c599",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
       "text": "He stretches out his hands (or arms) and raises them, but not above his head, with his palms open."
     },
     {
-      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s18",
+      "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.007.s17",
       "source_sha256": "62265db1b1aa50b1",
       "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
       "group_size": 25,
@@ -293,24 +292,24 @@
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.008.s7",
-      "source_sha256": "4ec138b0e3919165",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "15. The bread and wine are prepared whenever they are brought to the altar: either while the litany is being recited or before the Eucharistic liturgy begins."
+      "source_sha256": "792f9217ed82abad",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "15. The bread and wine are prepared whenever they are brought to the altar: either while the litanies are being said,"
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.008.s8",
-      "source_sha256": "8e11b136efd6806e",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "16. The priest need not tap the paten against the chalice when he says, “At your command, our Lord and our God.”"
+      "source_sha256": "34b2fd2d6175f7bf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "or before the Qudasha begins. 16. The priest does not need to strike the pilasa [?] against the chalice, saying:"
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.008.s9",
-      "source_sha256": "5a79bd67eb489b60",
-      "provenance": "gpt-6.1-sol/bulk-2026-10-12/2026-10-26",
-      "group_size": 25,
-      "text": "17. The first three prayers of supplication are not to be omitted except out of necessity."
+      "source_sha256": "ec2a8eaa2de4f059",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "'By your command, our Lord and our God.' 17. The first three supplications (kushape) are not to be omitted except out of necessity."
     },
     {
       "chunk_id": "hudra/taksa-draze-2003#EastSyrLit.Taksa.008.s10",

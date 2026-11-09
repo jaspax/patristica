@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -938,10 +944,17 @@
     },
     {
       "chunk_id": "aspr/christ-iii#Christ.1370.s2",
-      "source_sha256": "211d6e0c23b90f95",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "The Lord almighty will himself begin to speak, as if he were speaking to one, and yet he means them all, the sin-guilty people: \"Lo, man, I first made you with my hands and gave you understanding."
+      "source_sha256": "2a8bc7190ce56b98",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "The Lord almighty himself begins to speak as though he were speaking to one person, and yet he means them all, the sin-guilty people:"
+    },
+    {
+      "chunk_id": "aspr/christ-iii#Christ.1370.s3",
+      "source_sha256": "8d58f7aa25e5c2c1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 2,
+      "text": "\"Listen, O man: I first made you with my own hands and gave you understanding."
     },
     {
       "chunk_id": "aspr/christ-iii#Christ.1381.s1",

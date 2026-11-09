@@ -1,18 +1,18 @@
 {
  "work_id": "mt-eng/dsc/life-of-jacob-of-serugh",
  "anchor": "dsc/life-of-jacob-of-serugh",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "cae8d5231b0733dd",
  "words": "609067d7a097a2c8",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 67, "calibration": [0.9086, 0.1604], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 2, "units": 67},
+ "stats": {"beads": 67, "calibration": [0.1997, 0.4826], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 67},
  "paragraphs": {
   "DSC487": {"words": "cde5ebdebd6b7844", "starts": [0]},
   "DSC487.0": {"words": "d62d82c7e9c4f50f", "starts": [0, 23, 44, 81]},
-  "DSC487.f.161173b": {"words": "705ab3186eecdc0c", "starts": [0, 32, 59, 92, 119, 146, 166, 201, 215, 252, 272, 302, 328, 368, 424, 437, 475, 493, 517]},
-  "DSC487.f.162174a": {"words": "99b381d655c75b8e", "starts": [0, 19, 51, 88, 100, 137, 167, 229, 282, 309, 344, 376]},
+  "DSC487.f.161173b": {"words": "705ab3186eecdc0c", "starts": [0, 32, 59, 92, 119, 146, 166, 201, 215, 252, 272, 302, 328, 368, 424, 437, 469, 493, 519]},
+  "DSC487.f.162174a": {"words": "99b381d655c75b8e", "starts": [0, 19, 51, 88, 100, 137, 181, 229, 257, 309, 344, 376]},
   "DSC487.f.162174b": {"words": "37e431b29a7bf61a", "starts": [0, 28, 69, 103, 149, 186, 207, 234, 298, 328]},
   "DSC487.f.163175a": {"words": "23b5dbf46918205b", "starts": [0, 27, 74, 106, 142, 171, 186, 211, 244, 276]},
-  "DSC487.f.163175b": {"words": "9fcf8539fcded8b8", "starts": [0, 17, 58, 81, 112, 135, 151, 180, 196, 237, 266]}
+  "DSC487.f.163175b": {"words": "9fcf8539fcded8b8", "starts": [0, 17, 58, 81, 112, 135, 151, 180, 196, 235, 266]}
  }
 }

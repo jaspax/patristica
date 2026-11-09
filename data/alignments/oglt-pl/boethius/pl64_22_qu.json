@@ -3,11 +3,11 @@
  "group": "oglt-pl/boethius/pl64_22_qu",
  "pivot": "perseus-eng/stoa0058/stoa025/perseus-eng1",
  "groups": 123,
- "inputs": "3030d3c1297c806f",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "aaef1b111930a6c9",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
   {"work_id": "oglt-pl/boethius/pl64_22_qu", "units": 144, "ids": "5a689943cd2d4b3c", "inputs": "6386e47a9dcb8534", "spans": "..+++..++++++++..+++++.+++++..+=++++=++=+++=++++++++.++++++++=+++++++++.++++2++++++++++++=+++++++++++++++=++++2.+=+++++++++++++++++.+=+++++++++=++", "conf": "9999999999999999999999999999999999999999999999999999999889999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "perseus-eng/stoa0058/stoa025/perseus-eng1", "units": 148, "ids": "d55013041ff5be5a", "inputs": "1c8288d39efee88b", "spans": ".+++=++++++=++.+++=++=+++++.+++++++++=++++=++++=+.++++++++++++++=++++.++++++=++=++++++=+=+++++=++++++++++++=++++.+++++++++++++++=+==++.++=++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "perseus-eng/stoa0058/stoa025/perseus-eng1", "units": 148, "ids": "d55013041ff5be5a", "inputs": "a35c6f51f996ecc7", "spans": ".+++=++++++=++.+++=++=+++++.+++++++++=++++=++++=+.++++++++++++++=++++.++++++=++=++++++=+=+++++=++++++++++++=++++.+++++++++++++++=+==++.++=++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
   {"work_id": "perseus/stoa0058/stoa025/perseus-lat1", "units": 137, "ids": "477b1e885cca00e7", "inputs": "9d31a5403e17228d", "spans": "+++=++++++=+++++=++=++++++++++++++=++++=++++=+++++++++++++++=++++++++++=++++++++=++++++=+++++++++++++++++++++++++++++++=+=++++=++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

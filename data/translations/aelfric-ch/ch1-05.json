@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -21,17 +27,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.4.s1",
-      "source_sha256": "4ff003283997e68a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "Matthew wrote in the first book of Christ, in these words, about the time of the Saviour's birth, and said: \"When the Saviour was born in Bethlehem of Judea,"
+      "source_sha256": "0ee391204484b453",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "Matthew wrote in the first book of Christ these words about the time of the Saviour's birth, and said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.4.s2",
-      "source_sha256": "02f7f026189a6949",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "in the days of King Herod, behold, there came from the eastern part of the world three astrologers to the city of Jerusalem, asking thus: Where is the King of the Jewish people, who has been born?"
+      "source_sha256": "c448f982acfa34d0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"When the Saviour was born in Bethlehem of Judea, in the days of King Herod, behold, three astrologers came from the eastern part of the world to the city of Jerusalem, asking thus: Where is the King of the Jewish people, who has been born?"
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.4.s3",
@@ -469,17 +475,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.12.s1",
-      "source_sha256": "f55b873c09540e6a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "When he despaired of his life, he summoned to him all the Jewish elders from every city and ordered them to be shut up in prison, and he called to him his sister Salome and her husband Alexander,"
+      "source_sha256": "5bebfd9647c107e6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "When he despaired of his life, he summoned to him all the Jewish elders from every city and ordered them to be shut up in prison. And he called to him his sister Salome and her husband Alexander, and said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.12.s2",
-      "source_sha256": "7126b185afd5213d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "and said, \"I know that this Jewish people will greatly rejoice at my death; but I can have honourable funeral rites from a mourning multitude, if you will obey my commands."
+      "source_sha256": "f013049d2bcaf567",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"I know that this Jewish people will greatly rejoice at my death; but I can have an honourable funeral, attended by a mourning multitude, if you will obey my commands."
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.12.s3",
@@ -518,48 +524,55 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s1",
-      "source_sha256": "167519487c071a86",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 19,
-      "text": "Then, after Herod's death, God's angel appeared to Joseph in dreams in the land of Egypt, saying: \"Arise, and take the child and his mother together, and go back to the land of Israel;"
+      "source_sha256": "899e27922a649045",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "Then, after Herod's death, behold, an angel of God appeared to Joseph in a dream in the land of Egypt, saying thus,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s2",
-      "source_sha256": "914b82583b7e39c4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 20,
-      "text": "for truly those who plotted against the child's life are dead.\" Then he arose, as the angel had commanded him, and brought the child with the mother to the land of Israel."
+      "source_sha256": "3cb46d96d0ebd336",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "\"Arise, and take the child and his mother together, and go back to the land of Israel; for truly those who plotted against the child's life are dead.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s3",
+      "source_sha256": "cf84b45355737470",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 7,
+      "text": "He then arose, as the angel had commanded him, and brought the child with his mother to the land of Israel."
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s4",
       "source_sha256": "b415f286c895dda0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 19,
       "text": "Then Joseph learned that Archelaus reigned in the land of Judea after his father Herod, and he did not dare to come near him."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s4",
+      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s5",
       "source_sha256": "7b6f4ddd6f243b1f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 2,
       "text": "Then he was again admonished in a dream that he should turn aside to Galilee, because that region was not so very near to the king, though it was in his kingdom."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s5",
+      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s6",
       "source_sha256": "616f1c18286e1bfc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 19,
       "text": "The child then lived in the town called Nazareth, so that the prophecy might be fulfilled which said that he would be called a Nazarene."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s6",
+      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s7",
       "source_sha256": "6e343337a75a927e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 19,
       "text": "The angel said to Joseph: \"Those who plotted against the child's life are dead.\""
     },
     {
-      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s7",
+      "chunk_id": "aelfric-ch/ch1-05#AECHomI.5.13.s8",
       "source_sha256": "52d339f5b45516f8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 19,

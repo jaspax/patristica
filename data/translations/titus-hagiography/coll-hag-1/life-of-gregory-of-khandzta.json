@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-04",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -413,17 +419,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.2.s11",
-      "source_sha256": "32109a7e48c27d5a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "And now there is no salvation for men from any source apart from the priesthood. This is why Paul says: 'In Christ I begot you through the gospel.'"
+      "source_sha256": "4376571e19597864",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And now there is no other source of salvation for people except the priesthood, concerning which Paul says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.2.s12",
-      "source_sha256": "2165a3b5c6ed9ee3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "And the Lord commands: 'If anyone is not born a second time and does not receive the holy mystery, he cannot enter the kingdom of heaven.' And now I see the honour, and I fear the punishment!\""
+      "source_sha256": "0bc82c1e6b928ae6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Through Christ, by the Gospel, I begot you.\" And the Lord commands:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.2.s13",
+      "source_sha256": "9d53897681b59173",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Unless someone is born a second time and receives the holy mystery, he cannot enter the kingdom of heaven.\" And now I see the honor, and I am afraid of the punishment!\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.3.s1",
@@ -448,17 +461,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.3.s4",
-      "source_sha256": "6114897db0b89e4a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "And again Job says: 'It is not those of many years who are wise, nor do the aged understand justice,' 'but truly it is the spirit,"
+      "source_sha256": "d791c01eabaf9f45",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And again Job says: \"It is not those of many years who are wise, nor do the wise know justice,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.3.s5",
-      "source_sha256": "385ac14f8a77469c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "the spirit of the Almighty, that teaches wisdom.' And Christ has given you a good old age of mind."
+      "source_sha256": "c162f777c1a4bc99",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "but it is the spirit, the spirit of the Almighty, that teaches wisdom.\" And Christ has given you a good old age of mind."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.3.3.s6",
@@ -602,17 +615,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.5.1.s7",
-      "source_sha256": "c0c464ffc747de52",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "so that this spiritual undertaking [?] of ours in a foreign land may be pleasing, and our service may be offered acceptably before him.\""
+      "source_sha256": "db935d336690c2bf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "so that this spiritual [?] of ours in exile may be pleasing, and so that our service may be offered pleasingly before him.\" And they said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.5.1.s8",
-      "source_sha256": "2cc1c936b831dfbc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And they said: \"May Christ God be among us spiritually, in our brotherhood, on our journey, and in our feeble zeal, according to your words, wise Gregory, so that divine power may dwell among us.\""
+      "source_sha256": "b1d14ebc154aee1d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"May Christ God be spiritually among us, in our brotherhood, in our mission, and in our feeble zeal, according to your words, wise Gregory, so that divine power may dwell among us.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.5.2.s1",
@@ -714,10 +727,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.5.4.s6",
-      "source_sha256": "10b495c48bc55b0a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And so, filled with spiritual teachings, he would go back to his own dwelling, for he had heard from those holy ones: \"Let the world be put to shame by our good ways of life.\""
+      "source_sha256": "30c0d573ec984916",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And so, filled with spiritual teachings, he would return to his own dwelling, for he had heard from those holy men that:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.5.4.s7",
+      "source_sha256": "13593d9e6b39ef91",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"May the world be put to shame by our good conduct.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.1.s1",
@@ -875,10 +895,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.3.s4",
-      "source_sha256": "b24e58ae113149a1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5ffda34e9a444be8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and may he give you the kingdom of heaven in return for your labours, according to the word of the apostle: 'The wage is counted to the worker not as a favour but as a debt.'\""
+      "text": "And they will give you the kingdom of heaven in return for your labors, according to the word of the Apostle:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.3.s5",
+      "source_sha256": "8de84fcdfa831c2e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"The reward is credited to the worker not as a favor but as what is owed.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.4.s1",
@@ -945,17 +972,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.6.s1",
-      "source_sha256": "47ca55f83e2ee562",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "06b30cab189b9bf1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "At dawn he showed him all the surroundings of Khandzta, and holy Gregory came to love it greatly. Then he said to the blessed elder: \"Let me go to Opiza, and let me quickly"
+      "text": "And at dawn he showed him all the surroundings of Khandzta, and holy Gregory loved it very much. Then he said to the blessed elder:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.6.s2",
-      "source_sha256": "b32d90da96c24268",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "db31fa3733480f11",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "go to my [?brothers], whom I left there, so that they may come with me and they too may be blessed by your holy prayers.\""
+      "text": "\"Let me go to Opiza and quickly return to my companions whom I left there, so that they may come with me and they too may be blessed by your holy prayers.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.6.s3",
@@ -994,17 +1021,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.6.s8",
-      "source_sha256": "d689b888cd5a89a2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ddcc68e25aec64fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "From now on may this wilderness rejoice in you, who do the will of Christ, now that you are planted in it.\""
+      "text": "From now on may this wilderness rejoice in you, who do the will of Christ, as you are planted in it.\" And they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.6.s9",
-      "source_sha256": "fc30e9de7ef1b377",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "1629f1bff00163fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And they said to him: \"Holy father, likened to holy Anthony, the honour your words give us is beyond our nature."
+      "text": "\"Holy father, you who are like holy Anthony, the honor your words give us is beyond our nature,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.6.6.s10",
@@ -1225,13 +1252,20 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.2.s6",
-      "source_sha256": "39b864801fd5b731",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "Lord, make the works of our hands prosper for us, and make the work of our hands prosper.\" \"For to these deserts and mountains we have lifted up our eyes, from where you have come to help us.\""
+      "source_sha256": "656bcedcdc9a1596",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'Prosper the works of our hands upon us, O Lord, and prosper for us the work of our hands,'"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.2.s7",
+      "source_sha256": "cbacd43df9af5c3c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "for we lifted up our eyes to these wildernesses and mountains, from where you came to help us.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.2.s8",
       "source_sha256": "989061403df9a497",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
@@ -1288,24 +1322,31 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.4.s3",
-      "source_sha256": "063d00dd89694291",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "as they grew strong in the struggle of monastic life like the holy martyrs, and even more than they did. For the martyrs bore witness in a single moment,"
+      "source_sha256": "01d6c1d23d123f2d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "When they took courage in the struggle of monastic life, like the holy martyrs and even more than they,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.4.s4",
-      "source_sha256": "92227d810073fb95",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "but these were martyred at all times for the name of Christ, as David says: \"For your sake we are killed all day long.\""
+      "source_sha256": "bab3ad4036d5ddb0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "for the martyrs bore witness at only one moment, but these bore witness at every moment for the name of Christ, as David says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.4.s5",
-      "source_sha256": "b6cf15b455293b78",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "And Paul says: \"Every day I die for Christ.\" If the struggle of the saints were not unceasing, they would not have called that struggle a daily death."
+      "source_sha256": "0c7e91c9ff807bee",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"For your sake we are being killed every day.\" And Paul says: \"Every day I die for Christ.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.4.s6",
+      "source_sha256": "1ddb62f650d7a115",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "If the struggle of the saints had not been unceasing, they would not have called that struggle a daily death."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.7.5.s1",
@@ -1365,45 +1406,45 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.1.s3",
-      "source_sha256": "505d1734ebcf2d9a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "baed7641a37f8be2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "When they had greeted him, they said to him: \"Bless us, holy father, for now you are going to the Lord.\""
+      "text": "And when they greeted him, they said to him: \"Bless us, holy father, for now you are going to the Lord.\" And he said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.1.s4",
-      "source_sha256": "8283f57faff6ee2f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5f12ce562223df91",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He said to them: \"May the God of peace, of love and of love for mankind be with you always.\""
+      "text": "\"May the God of peace, love, and love for humankind be with you always. But pray for me,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.1.s5",
-      "source_sha256": "1ec83d7559963b57",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e25f372f6bf6a453",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"But pray for me, holy fathers, for today I go to a strange camp and to the fearful thrones of God.\""
+      "text": "holy fathers, for today I am going to a strange camp and to the awesome thrones of God.\" And they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.1.s6",
-      "source_sha256": "d69da5029e9941da",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "904e813ee46373cc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They said to him: \"You are no stranger to that camp of the holy angels, with whom you always rejoice in spirit before Christ.\""
+      "text": "\"You are no stranger to that camp of the holy angels, with whom you always rejoice in spirit before Christ,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.1.s7",
-      "source_sha256": "ac47fa77b59b2ed5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "97ee36fbcdfa8b9e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"But do not forget us, the dwellers of your holy place and the plants of your grace.\""
+      "text": "\"But do not forget us, the dwellers of your holy place and the plants of your grace.\" And he said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.1.s8",
-      "source_sha256": "4eac561528aefae1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "24ba85cd93fb3cd1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He said to them: \"Into the hands of God I commit my soul, and into your hands my body. By the will of God may our joy be together forever.\""
+      "text": "\"Into the hands of God I commend my soul, and into your hands my body. And by the will of God may our joy be together forever.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.2.s1",
@@ -1463,17 +1504,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.3.s4",
-      "source_sha256": "a39058195e683751",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "6abfab0ca5f7c6f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They became like their good teacher, just as their teacher was like Christ, who says: \"It is enough for the disciple to be like his teacher.\""
+      "text": "And they resembled their good teacher, just as their teacher resembled Christ, who says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.8.3.s5",
-      "source_sha256": "00290e7be98af956",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5da10cda4295d4a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "So they lived well in the spirit, but in the body they were in great hardship."
+      "text": "\"It is enough for the disciple to be like his teacher.\" And so they lived well spiritually, but in the body they were in great hardship."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.9.1.s1",
@@ -1526,20 +1567,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.9.2.s3",
-      "source_sha256": "cd19d26acb0c0102",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5be5bca54d77562c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "She sent men with him so they could learn the way, and said: \"Holy father, show these men the way to your monastery, and do not worry about providing for your spiritual children,"
+      "text": "And he brought men with him to be taught, and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.9.2.s4",
+      "source_sha256": "c0a7f437b124bd72",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Holy father, teach these men the way of your monastery. And do not worry about providing for your spiritual children,"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.9.2.s5",
       "source_sha256": "12d076ff3b4a46e2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "For you shall lack nothing from our house; only remember my lord Gabriel and me, your handmaid, and our children in your holy prayers.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.9.2.s5",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.9.2.s6",
       "source_sha256": "b82b64969ff05d46",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -2044,34 +2092,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.3.s6",
-      "source_sha256": "29d0a2b4b870b8b2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "846b234cac9ebe3f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And may you labour for us in this, through your holy prayer before Christ and his saints.\""
+      "text": "so that you may labor for us with your holy prayer before Christ and his saints.\" But he said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.3.s7",
-      "source_sha256": "308fec3c0cba91e3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "54f54a42a5473662",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he said: \"O sovereign, you who are called the son of David, the prophet and the Lord's anointed,"
+      "text": "\"O sovereign, you who are called a son of David, the prophet and the anointed of the Lord, may Christ God make you heir to his kingship and also to his virtues. That is why I tell you this."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.3.s8",
-      "source_sha256": "230d4b2c947f15d0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "May Christ God grant you to inherit the kingdom and also his good things, for whose sake I bring this to your attention."
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.3.s9",
       "source_sha256": "b5be7275e464f9e8",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "May rule never be lacking to your sons and their descendants in these lands, for all ages to come,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.3.s10",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.3.s9",
       "source_sha256": "2eb565691f9b1118",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -2079,34 +2120,41 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s1",
-      "source_sha256": "2e37c509347fa390",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "After this that apostolic man spoke in praise of Khandzta, saying: \"That desert is good, with the brightness of the sun and a temperate air on every side."
+      "source_sha256": "99c7ce92da0f01f8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "After this, that man, the messenger, spoke in praise of Khandzta, saying:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s2",
+      "source_sha256": "43af2403fc447f3a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"That wilderness is good, with bright sun and mild air on every side."
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s3",
       "source_sha256": "e610c77d72bf0516",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "It has a spring flowing abundantly, beautiful, cool and sweet, and a countless multitude of tall trees, and a few other small comforts, as far as such a desert allows."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s3",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s4",
       "source_sha256": "97e9c4f97c192428",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "But fields for sowing and land for mowing there are none at all, nor can there be, on those craggy, harsh peaks of the Ghado mountains.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s4",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s5",
       "source_sha256": "17427a8b660ae75b",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "When the great kuropalates heard this, he donated good lands, and the site of Shatberdi as an estate for Khandzta."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s5",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.11.4.s6",
       "source_sha256": "304e74c6e1bd695f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -2184,24 +2232,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.12.2.s6",
-      "source_sha256": "a9865a08c1c990e2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "When Zenon learned of this, he armed himself, mounted his horse alone, and pursued them."
+      "source_sha256": "7603bc1367d2601a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But when Zenon learned of it, he armed himself, alone, mounted a horse and pursued him. And when he had covered a great distance, he said in his heart:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.12.2.s7",
-      "source_sha256": "e407d9d03ba81def",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "When he had covered a great distance, he said in his heart: \"I am a young man of renown, and the man I am pursuing is utterly contemptible. Even if I overtake him and kill him,"
+      "source_sha256": "6275c56505ff02ab",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"I am a renowned young man, and the one I am pursuing is utterly contemptible. Even if I overtake him and kill him, it is a snare for my soul,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.12.2.s8",
-      "source_sha256": "b3a9bafb00486f0d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "it will be a snare for my soul; and if I go back home empty-handed, it will be a shame to me. Instead, let me now fulfil my vow of monastic life to the Lord.\""
+      "source_sha256": "869de1dd33b9a615",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and if I return home empty-handed, it is a shame for me. Instead, I will now fulfill my vow of monastic life to the Lord.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.12.2.s9",
@@ -2359,17 +2407,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.14.1.s3",
-      "source_sha256": "f2454df26a65cac8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "But blessed Gregory gave thanks to God and said in lament: \"O my king, mighty and glorious,"
+      "source_sha256": "43040c865c0f03d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "But blessed Gregory gave thanks to God and said, lamenting:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.14.1.s4",
-      "source_sha256": "6337489a3a250d7b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "strength of the churches and wall of the Christians, where can I look for you now? From the east or from the west, from the north or from the south?"
+      "source_sha256": "2b8f1327139d9cc9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"O my king, mighty and glorious, strength of the churches and rampart of the Christians, from where was I to expect you: from the east or from the west, from the north or from the south?"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.14.1.s5",
@@ -2681,17 +2729,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.18.1.s5",
-      "source_sha256": "681ffe85fd4d149a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "342fe8171ba519d0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Those who did take it used only a little. Their cells had no hearth, for no fire was kindled, and they did not light a candle at night either."
+      "text": "And those whom they received ate little, and their cells had no chimney, for no fire was kindled,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.18.1.s6",
-      "source_sha256": "63e69c4b9e613f17",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "edd9ff85aadc68be",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Instead, at night there was psalmody, and by day there was reading of books and constant prayer, as David says: \"By day the Lord commanded his mercy, and at night his song.\""
+      "text": "nor did they light a candle at night. Instead, at night there was psalm-singing, and by day the reading of books, and prayer always, as David says:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.18.1.s7",
+      "source_sha256": "c6ec52c506712231",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"By day the Lord commanded his mercy, and by night his song.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.18.2.s1",
@@ -2800,10 +2855,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.1.s5",
-      "source_sha256": "5e72a07ef914fea9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Blessed Gregory took this Ephrem, worthy of God, as his disciple and commanded him thus: \"When I return from Abkhazia, I will take you with me to Khandzta.\" And he himself set out for Abkhazia."
+      "source_sha256": "af3584dffd6ccaf8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Blessed Gregory took this Ephrem, worthy of God, as his disciple and commanded him thus:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.1.s6",
+      "source_sha256": "f742f0ed5ce69623",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"When I return from Abkhazia, I will take you with me to Khandzta.\" And he himself set out for Abkhazia."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.2.s1",
@@ -2898,24 +2960,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.6.s1",
-      "source_sha256": "8d533a069abf8489",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And they went around lands considered suitable for a monastery, but none of them pleased the saint."
+      "source_sha256": "3f185a627fc2cf35",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And they went around the places thought suitable for a monastery, but none of them pleased the holy man. And he said to the king:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.6.s2",
-      "source_sha256": "e65834b2aa627d1d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "b1b7c5a3af8fd343",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he said to the king: \"There is neither soil nor water in this land where a monastery could be built,"
+      "text": "\"There is neither land nor water in this country where a monastery could be built, for a monk's talent is fasting,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.6.s3",
-      "source_sha256": "be5e1cc13c92b8cc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "f27bc6c8d8e3ad37",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for the talent of a monk is fasting, and on this soil fasting is not possible because of the deadly humid air.\""
+      "text": "and in this land fasting is impossible because of the deadly sultry air.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.20.7",
@@ -2961,20 +3023,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.22.1.s1",
-      "source_sha256": "ef8da1dbdf8ec370",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "0b1b449bcdd1b2a6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And at the time of their departure King Demetrius diligently questioned Father Gregory about the character of the deserts of Klarjeti, so that he might tell him every feature of those holy places."
+      "text": "But at the time of their departure, King Demetrius eagerly asked Father Gregory what the wilderness of Klarjeti was like,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.22.1.s2",
-      "source_sha256": "84726561e93bcf4b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8338285ef59a0c95",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And Father Gregory said to him: \"God-serving king, even if I greatly multiply words, my mind will not suffice to tell you all the goodness of those deserts,"
+      "text": "so that he would tell him every feature of those holy places. And Father Gregory said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.22.1.s3",
+      "source_sha256": "e7066e7936293472",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"O king, servant of God, even if I multiply my words greatly, my mind still cannot manage to tell you all the goodness of those deserts,"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.22.1.s4",
       "source_sha256": "861f3361742e6385",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -3220,17 +3289,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s1",
-      "source_sha256": "c1af755495e8aa6b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "acaa7ede929880c9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Now say, which of our children shall be a monk?'"
+      "text": "\"Now say, which of our sons shall become a monk?\" And he said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s2",
-      "source_sha256": "81271dfa34dbcb4e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "cafd67b42451fb52",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And she said to him: 'My lord, your children are before you. Whichever one you command, may the Lord choose him as an elect monk.'"
+      "text": "\"My lord, your sons are before you. Whichever one you command, the Lord has chosen him as a chosen monk.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s3",
@@ -3241,27 +3310,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s4",
-      "source_sha256": "7cb16e17b4275837",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "82fd8106b7e807bd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he brought the boy by his own hand and gave him to us to sign with the cross. We clothed him in monastic garments and gave him the name Arsenius,"
+      "text": "And he brought him with his own hand and gave him to us to sign with the cross, and he clothed him in the garments of monks."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s5",
-      "source_sha256": "96717c163458ad10",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9c025ce5a326807f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "and we promised that his son would be your disciple, as we are. At this Mirian rejoiced all the more. Now do as seems good to your holiness.\""
+      "text": "We gave him the name Arsenius, and we promised that his son would be your disciple, as we are. And he rejoiced all the more."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s6",
-      "source_sha256": "c6abfdfbb997aacf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "58a4b284cddb9930",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then the holy man said: \"Blessed brothers, it is God's will that by our hands he should become one of the chosen among the monks and reach a great stature.\""
+      "text": "Now do as seems good to your holiness.\" And the holy one said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s7",
+      "source_sha256": "c036a136fb76cd88",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Blessed brothers, it is God's will that by our hands he should become one of the chosen among monks and attain a great measure.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.3.s8",
       "source_sha256": "fd636dcc974d0d21",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -3360,17 +3436,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.7.s2",
-      "source_sha256": "c3a02297ffe1d31e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "40c3ee751a630af8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But there was grumbling among them about bringing the children."
+      "text": "But there was murmuring among them about the bringing of the boys. They came before Father Gregory and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.7.s3",
-      "source_sha256": "a694a3a6c383f5ae",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4e4e89a70209a29e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They came before Father Gregory and said to him: \"Holy father, the apostle says, 'Perfect love casts out fear.'"
+      "text": "\"Holy father, the apostle says, 'Perfect love casts out fear.'\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.7.s4",
@@ -3381,27 +3457,20 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.8.s1",
-      "source_sha256": "e5bd3f72730c0ddf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "27b8560c7eace936",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He said to them: \"Brothers, the love between us is truly firmly rooted, and there is no fear in it. Say whatever you wish.\""
+      "text": "And he said to them, \"Brothers, truly the love among us is firmly rooted, and there is no fear in it. Say whatever you wish.\" And they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.8.s2",
-      "source_sha256": "52fc62916221e0fe",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "93b972606def7895",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They said to him: \"Nothing you have done can be faulted except this one thing: these children have been brought here."
+      "text": "\"All your deeds are beyond reproach except this: that you bring in these boys. The rule you yourself established will be turned [?] back against you, and in times to come it will be a cause of downfall for us."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.8.s3",
-      "source_sha256": "a9684dc7646cbc1d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "You yourself are departing from the rule that you established, and in times to come this will be held against us."
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.23.8.s4",
       "source_sha256": "841134acce42b21e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -3787,17 +3856,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.26.2.s1",
-      "source_sha256": "a5a4174d3801f874",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e3683045a5c246e8",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And that beloved man of God came to them, to those who longed for him. The curopalates went out to meet him and greeted him with honor, and Saba blessed him."
+      "text": "And that beloved man of God went to them, together with those who longed for him."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.26.2.s2",
-      "source_sha256": "7f490e89efcfe159",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e15237be322f64ee",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "When they had sat down, the curopalates said to the holy man: \"Obedience is owed to rulers. Why did you not come at the first summons, holy father?\""
+      "text": "The kouropalates went out to meet him and greeted him with honour, and he blessed him. When they had sat down, the kouropalates said to the holy man:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.26.2.s3",
+      "source_sha256": "1dd9bcaf49fb2692",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"It is right to obey rulers. Why did you not come at the first summons, holy father?\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.26.3.s1",
@@ -4396,17 +4472,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.4.s3",
-      "source_sha256": "e270084ec3abe6b9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "dfe5eaa14583e25f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "but now it is fitting for me to labor on your behalf, spiritually and bodily, according to the commandment of the Lord, which He gives concerning the honor of parents."
+      "text": "But now your labour is owed [?], both spiritually and bodily, according to the commandment of the Lord, which commands honour for parents. And in Wisdom it is written:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.4.s4",
-      "source_sha256": "253109397cf2cf3d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fe5cc54acdb8f7c7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And in Wisdom it is written: 'Child, repay your parents for what they have given you, for without them you would not exist.' And again it says:"
+      "text": "\"Son, repay your parents for what they gave you, for without them you would not exist.\" And again it says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.4.s5",
@@ -4473,27 +4549,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s1",
-      "source_sha256": "659c88293c7f1433",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "6c7f3a0d1a56f74b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then the blessed mother Febronia said to that faithful old woman: \"God-loving mother, I am now your child, together with your son, my brother Gregory."
+      "text": "Then the blessed mother Febronia said to that faithful old woman:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s2",
+      "source_sha256": "e516cc2891f7aa5a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"God-loving mother, along with your son, my brother Gregory, I am now your child too."
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s3",
       "source_sha256": "5631b7dd312d4d87",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "You will lack no service from us at all, for I see you as Anna the prophetess, who did not leave the temple of the Lord day and night, with prayer and fasting."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s3",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s4",
       "source_sha256": "302589b8903ebdbd",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "So you too always stand firm in the commandments of God, and the goodness of a tree is known by its fruit.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s4",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.29.6.s5",
       "source_sha256": "4580066cf830dc86",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -4746,20 +4829,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.30.9.s1",
-      "source_sha256": "c4edd3095e28eff8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And as blessed Gregory was leaving, all the brothers said to him, weeping: \"O holy man of God, that word of the Lord is now being fulfilled in us:"
+      "source_sha256": "fc07bf0626504a87",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "As blessed Gregory was setting out, all the brothers said to him, weeping:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.30.9.s2",
-      "source_sha256": "876d0145b5b0c2be",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "'You will long to see your teacher and will not see him!' O the tyranny of your holiness! But let your will be done, and not ours."
+      "source_sha256": "9e59c0ab185d0e91",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"O holy one of God, the word of the Lord is now being fulfilled upon us: 'You will long to see your teacher and will not see him!'"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.30.9.s3",
+      "source_sha256": "ecbfa16c716693a0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "O the tyranny of your holiness! But let your will be done, and not ours."
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.30.9.s4",
       "source_sha256": "6b4bf7f89b5ee2c2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -5334,17 +5424,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.37.4.s1",
-      "source_sha256": "562abceb4b7faac5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "50c26f55f577722c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he kept true virginity, not only in body but also in soul and in speech, in hearing and in sight."
+      "text": "She kept true virginity, not only in body but also in soul and word, in hearing and in sight. For that blessed one said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.37.4.s2",
-      "source_sha256": "bcaa8e3cbd73267e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e83292f6bc1ef583",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "For the blessed man said: \"Monastic life means restraint.\" Because of this, the God-loving woman Themestia, deaconess of Mere, said:"
+      "text": "\"Monastic life is called restraint.\" Because of this the God-loving woman Temestia, deaconess of Meri, said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.37.4.s3",
@@ -5432,17 +5522,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.38.2.s3",
-      "source_sha256": "a82e61b98bcc2f86",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4565027e55ba3407",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "He was also afflicted by illness as a result of those severe labours, and he could not look after himself."
+      "text": "Illness also came upon him from those heavy labours, and he could not take care of himself. Then the blessed Matoi said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.38.2.s4",
-      "source_sha256": "e397fa50d0ae3b9c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fd534ece1bca377b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then the blessed Matoi said: \"This has become a means [?] for women to serve me. Even though these sisters do the will of God,"
+      "text": "\"This has become a means of downfall [?] for me, that women should serve me, even though these sisters act according to God's will,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.38.2.s5",
@@ -5537,17 +5627,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.39.1.s3",
-      "source_sha256": "c6d5bdbd1f8f55f7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "660577a4fe3495be",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The dean said to her: \"Why have you come? Tell me, what did you see?\""
+      "text": "And the archpriest said to him, \"Why have you come? Tell me, what did you see?\" And he said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.39.1.s4",
-      "source_sha256": "b6a558b048e7320f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "608bc90ce26a2183",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "She said to her: \"I saw something like your vision, for our blesser Matoi has now died.\""
+      "text": "\"I saw something like your vision, for our blesser Matoi has now died.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.39.1.s5",
@@ -5796,13 +5886,20 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.4.s3",
-      "source_sha256": "7a26d1ce05ab0ace",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then the bishop of Erusheti at that time said to everyone: \"When the star of the deserts comes, then the matter and everyone's deliberations will be set right.\" They said to him:"
+      "source_sha256": "56eb5b5bdd0a0f1f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then the bishop of Erusheti at that time said to everyone:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.4.s4",
+      "source_sha256": "15eb8f960fe1652b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"When the star of the deserts comes, then everyone's business and plans will be set right.\" And they said to him:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.4.s5",
       "source_sha256": "c50bdbc88d5efd21",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -5873,45 +5970,52 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s4",
-      "source_sha256": "f75038f04e56a282",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ee8753bb3bee6bf7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Holy father, it is not possible for me to quarrel with my brother bishops over what is right. Forgive me as well, for from now on I am not Arsenius's sheep, and he is not my shepherd.\""
+      "text": "\"Holy father, my brothers the bishops cannot argue for what is right, and forgive me too,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s5",
-      "source_sha256": "54b52405f0b987c0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "78c7f236ae9da5fb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then the holy man said to him sternly: \"If you do this, Ephrem, then disown me, as though I were not your teacher.\""
+      "text": "for from now on I am not Arsenius's sheep, and he is not my shepherd.\" Then the holy man said to him sternly:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s6",
+      "source_sha256": "525ae03f01249405",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"If you do this, Ephrem, then disown me, as though I were not your teacher.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s7",
       "source_sha256": "6f815fad86d68d68",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "At these words of his spiritual father and teacher, the blessed Ephrem wept and said to him:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s7",
-      "source_sha256": "e4633f9cd1f380ea",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"This command is harsh. It cuts deeper than a sword. Now let your will be done and not mine, holy man of God.\""
-    },
-    {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s8",
-      "source_sha256": "53de2aa7751ed369",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "78ed722d8ada419c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he said to him: \"Ephrem, worthy of blessing, may Christ grant you whatever you ask of him, you who are blameless in heart and upright in mind,"
+      "text": "\"This command is harsh, sharper than a sword. Now let your will be done and not mine, saint of God.\" And he said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s9",
-      "source_sha256": "a1e0629311a89d2d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "fcf01ed96eb2bbd5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "made like your teacher Christ, according to the word of David: 'For the Lord our God is upright, and there is no falsehood in him.'"
+      "text": "\"Blessed Ephrem, may Christ grant you whatever you ask of him, you who are innocent in heart and upright in mind, made like your teacher Christ, as David says:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.7.s10",
+      "source_sha256": "245bbca6ef3b7db7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'For the Lord our God is upright, and there is no falsehood in him.'\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.8.s1",
@@ -5943,17 +6047,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.9.s2",
-      "source_sha256": "f275d4ffd911e6dc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9c95f8f5e4a29253",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "When they had sat down, Guaram ordered all the monks to be gathered, and they came."
+      "text": "And when they had sat down, Guaram ordered all the monks to be gathered, and they came. Then he said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.9.s3",
-      "source_sha256": "c350f03f3a805053",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "0a3743a1a831fecf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then he said: \"Holy fathers, bishops and desert-dwellers, all of you know the canon of the law: it does not permit a bishop or a catholicos to be installed by force.\""
+      "text": "\"Holy fathers, bishops and desert-dwellers, you all know the canon of the law: it does not allow a bishop or a catholicos to be installed by force.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.9.s4",
@@ -5971,17 +6075,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.10.s1",
-      "source_sha256": "7a8c9c7645dd37a9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9a4ff4a589b68ebd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then the bishops said to Ephrem: \"Give the answer that is fitting.\""
+      "text": "Then the bishops said to Ephrem, \"Give the answer: what is right?\" And he said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.10.s2",
-      "source_sha256": "dbb4fdd62833f71d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "bbde1da2f52aef4e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "But he said: \"Where Father Gregory is present, I do not presume to speak.\" Then the sovereign said to the blessed Gregory:"
+      "text": "\"Where Father Gregory is present, I do not dare to speak.\" Then the ruler said to the blessed Gregory:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.10.s3",
@@ -6097,17 +6201,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.13.s1",
-      "source_sha256": "99ec266c288a5c0d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "0d15921ef473a453",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The ruler was shaken in mind and said to the bishops: \"It is for you to administer what is yours to administer. Now speak!\""
+      "text": "But the ruler was shaken in mind and said to the bishops, \"It is for you to manage your own affairs. Now speak!\" And they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.13.s2",
-      "source_sha256": "69f7a6578cbaa33b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "34db9a13e88ea9d3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They said to him: \"Guaram, servant of God, a miracle from Christ has made our tongues mute, for today we have seen an incomprehensible glory upon Gregory.\""
+      "text": "\"Guaram, servant of God, a sign from Christ has made us speechless, for today we have seen a glory beyond understanding upon Gregory.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.13.s3",
@@ -6279,17 +6383,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.20.s3",
-      "source_sha256": "547600e714d103c5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "bde314a4929ebf5c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "At that time they brought the good news to Arsenius, since he had not been at that assembly: \"After God, your teacher Father Gregory has confirmed your office as catholicos.\""
+      "text": "At that time they brought the good news to Arsenius, since he was not at that council:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.20.s4",
-      "source_sha256": "d70ad7a602fa1d6b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "a419071abc073bb5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he joyfully gave thanks to Christ and to that saint."
+      "text": "\"After God, your teacher Father Gregory has confirmed you as catholicos.\" And he joyfully gave thanks to Christ and to the holy man."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.42.21.s1",
@@ -6699,17 +6803,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.48.1.s2",
-      "source_sha256": "4dc893b72b0acaf2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "d34c1c126046eed6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Is there perfect humility among the brothers in your monastery, in deed and not in word?\""
+      "text": "\"Is there perfect humility among the brothers in your monastery, in deed and not just in word?\" And they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.48.1.s3",
-      "source_sha256": "f84b47ede1cc060f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "But they said to him, \"It is through your prayer, as you yourself know.\" And at the very moment they said this, the bell was rung for the liturgy."
+      "source_sha256": "97fab3a49c033bbf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"There is, through your prayers, as you yourself know.\" And at the very moment they said this, the bell was struck for the liturgy."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.48.1.s4",
@@ -6944,17 +7048,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.51.1.s3",
-      "source_sha256": "c6a02a2e7fa00409",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "025e81cd1fe41046",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And when that brother saw the log coming at him violently, he was afraid, and with no way left to escape it, he cried out with a loud voice: \"Father, help me!\""
+      "text": "And when the brother saw the log coming at him with great force, he was afraid, and he had no way to escape it. He cried out in a loud voice:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.51.1.s4",
-      "source_sha256": "c174b305b4eb1ad5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "e2a30573b6053fec",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "And he made the sign of the cross over the log and said: \"In the name of Christ, stop, log!\""
+      "text": "\"Father, help me!\" And he made the sign of the cross over the log and said, \"In the name of Christ, stop, log!\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.51.1.s5",
@@ -7308,24 +7412,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s1",
-      "source_sha256": "d56eaba8c9d3f7a5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5f59610ea26107b0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Weeping, she said to him: \"Holy one of God, I am not free over myself,"
+      "text": "And he said with tears, \"Saint of God, I am not my own master, since the curopalates has very great love for me. And now I do not know"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s2",
-      "source_sha256": "7299fb59842812f0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8003fad73fc78fb3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "because the curopalates has an excessive love for me. And now I do not know what to do, for the command in your words has made me tremble greatly.\""
+      "text": "what I should do, for the command in your words has greatly shaken me.\" And the holy man said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s3",
-      "source_sha256": "4116673b2b6f5f2c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4fa0980bb1053809",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "The saint said to her: \"Child, be wholly obedient to the words of me, a poor man, and I will become your surety before Christ, so that he himself may forgive you all your sins.\""
+      "text": "\"Son, be fully obedient to the words of poor me, and I will stand as your guarantor before Christ, so that he himself may forgive all your sins.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s4",
@@ -7350,27 +7454,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s7",
-      "source_sha256": "beab102ecd2fad5a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "508a59bf6f28efef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "She rejoiced greatly. The blessed Gregory ordered her maidservants to go back to the fortress, and he said to the woman: \"My child, set out and walk ahead of us.\""
+      "text": "And she rejoiced greatly. The blessed Gregory ordered her maidservants to go on to the fortress, and he said to the woman:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s8",
+      "source_sha256": "cfcb708e2520be78",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"My child, go on ahead and walk before us.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s9",
       "source_sha256": "e226f2111bbd21ca",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "In this way he brought her to Mere, because the blessed mother had been part of the plan from the beginning. He entrusted the woman to her and said to her:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s9",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s10",
       "source_sha256": "d80e031eefd9cdd0",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
       "text": "\"Take care of her as is fitting, take care of her, even when the curopalates makes inquiry, for you see that her heart is contrite."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s10",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.4.s11",
       "source_sha256": "69a0b2439059e62d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -7392,17 +7503,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.5.s3",
-      "source_sha256": "80ac396d90b4573b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8c95a78b2cd0c1d0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Now one of the sisters was walking near them and heard one word, but did not dare to listen to the rest,"
+      "text": "One of the sisters was walking near them and heard one word, but did not dare to listen to the rest, for holy Gregory said to the blessed Febronia:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.5.s4",
-      "source_sha256": "9db8bc2cdb889fda",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9acc9f0c0aae00e3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "for the holy Gregory said to the blessed Febronia: \"What did the angel say to you?\" For God was always among them."
+      "text": "\"What did the angel say to you?\" For God was always among them."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.55.6.s1",
@@ -7917,17 +8028,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.58.1.s1",
-      "source_sha256": "8ace221934aa8839",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "\"Lovers of Christ, who in the short time of the ways of this world, from your youth until death, were made victorious for Christ's sake, according to the word of the apostle:"
+      "source_sha256": "5f5c662dc6207f9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Lovers of Christ, who in the short time of the ways of this world, from your youth until death, have been made victorious for Christ's sake, according to the word of the Apostle:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.58.1.s2",
-      "source_sha256": "0e8182ad9030e1b1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "'For you have died, and your life is hidden with Christ in God; when that life of ours is revealed,"
+      "source_sha256": "6a1fcf114e9908c6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'For you have died, and your life is hidden with Christ in God; when that life of ours is revealed,'"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.58.1.s3",
@@ -8134,24 +8245,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.61.1.s3",
-      "source_sha256": "26fb85d8bcceeda1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "27f97a09e036ad44",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Basil lay prostrate, tormented by that bitter illness, for about four days."
+      "text": "And Basil lay stricken with that bitter illness and suffered for only about four days. Then the blessed Gregory asked:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.61.1.s4",
-      "source_sha256": "10ddabe3506c9c03",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "08ca49c5f8c871b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then blessed Gregory asked: \"Where is the youth Basil?\" The brothers told him about his illness, and he ordered that Basil be summoned."
+      "text": "\"Where is the young Basil?\" The brothers told him about his illness, and he ordered that Basil be called. But they said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.61.1.s5",
-      "source_sha256": "9adf4e1771c64955",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "0e50a4593c1f4b21",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "They said to him: \"He cannot come.\" Then he said to them: \"Tell him from me: Father Gregory commands you.\""
+      "text": "\"He cannot come.\" Then he said to them: \"Tell him from me: 'Father Gregory commands you.'\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.61.2.s1",
@@ -8701,24 +8812,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.2.s3",
-      "source_sha256": "fd34d4538e2e1482",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "d429b1ac385f7d3c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Haven't you come to kill me for three griv of wheat and five goats, you fool?\""
+      "text": "\"Or have you not come to kill me over three grivi of millet and five goats, O foolish man?\" Then the man begged him with tears:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.2.s4",
-      "source_sha256": "dae18dc4daf46f63",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "505ff92535e8b044",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then the man pleaded with him in tears: \"Have mercy, holy man of God, on me, your doomed would-be murderer, and be like Christ,"
+      "text": "\"Have mercy, holy one of God, on this wretch who would have murdered you, and be like Christ, who forgives his murderers when they repent,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.2.s5",
-      "source_sha256": "ee672bfeb149200d",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "12353d3f884eae64",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "who forgives his murderers when they repent. I have no strength left in me because of your terrible vision, which has crippled me.\""
+      "text": "for no strength is left in me because of the terrible vision of you, which struck me down.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.2.s6",
@@ -8813,24 +8924,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.6.s1",
-      "source_sha256": "50ced4deb561d3c5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then he gathered the people of Ancha and sent them to destroy Khandzta."
+      "source_sha256": "d0ac380dcf2dbe2e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then he gathered the people of Ancha and sent them to destroy Khandzta. They arrived just at sunrise, and Father Gregory said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.6.s2",
-      "source_sha256": "1e8a7a1335be462e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "They arrived just as the sun was rising, and Father Gregory said to them: \"Children, give me and my brothers time until midday,"
+      "source_sha256": "c6e53b2236102c26",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Children, give me and my brothers time until midday, so that we may pray before Christ in the holy church,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.6.s3",
-      "source_sha256": "d0bfdee68b6cb8ce",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "so that we may make supplication before Christ in the holy church and call on Saint George and all the saints for help, and the Lord will work a good sign.\""
+      "source_sha256": "b20121d34ca3d5e2",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "and call on Saint George and all the saints for help, and the Lord will work a good miracle.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.69.6.s4",
@@ -8876,10 +8987,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.70.2.s3",
-      "source_sha256": "a3700bff9db3a09c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then the blessed Gregory came out of the church full of joy and said to them: \"Do not be afraid any longer of the force of the man who sent you, for the Lord has killed him in his wrath.\""
+      "source_sha256": "1b31a05eea3d7660",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "Then the blessed Gregory came out of the church joyful and said to them:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.70.2.s4",
+      "source_sha256": "5fc905ce1274b40d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Fear no longer the tyranny of the one who sent you, for the Lord has struck him dead in his wrath.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.70.3.s1",
@@ -9156,24 +9274,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.2.s1",
-      "source_sha256": "bf4a3491427de1c4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ba5aaf81180a2804",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "\"Brothers and beloved children, tell me: why have all of you taken the trouble to come here?\""
+      "text": "\"Brothers and beloved children, tell me, what is the reason that all of you have taken the trouble to come here?\" And Epiphanius and Zeno said to the other brothers:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.2.s2",
-      "source_sha256": "e0f0c81ff0e669f9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "5523310863773fa0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then Epiphanius [?] and Zeno said to the other brothers: \"A worthy answer is required of you,"
-    },
-    {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.2.s3",
-      "source_sha256": "c5bb41b90942b92c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "so that, as wise disciples before a wise teacher, you may offer with worthy words the gift of your zeal, and so that in hope we may receive our soul's desire by the grace of God.\""
+      "text": "\"You should give a worthy answer, so that, as wise disciples speaking to a wise teacher, you may offer the gift of your zeal in worthy words, and so that, through the grace of God, we may hopefully obtain what our souls desire.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.3.s1",
@@ -9247,17 +9358,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.5.s1",
-      "source_sha256": "8ee40532bf373edb",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "8886c96d498682ec",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "Then he called all the brothers of Shatberdi and said to them: \"Come, children, join the people who live at Khandzta,"
+      "text": "Then he summoned all the brothers of Shatberdi and said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.5.s2",
-      "source_sha256": "0e6aec8ffcf7b5d4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "9315f1cce6e6b727",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 25,
-      "text": "your brothers, and bring your wills into agreement with one another, for discord flees from the wise. Then together confirm what is better.\""
+      "text": "\"Come, children, join the inhabitants of Khandzta, your brothers, and bring your wills into harmony with one another, for strife flees from the wise. Settle on what is best, in unity."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.5.s3",
@@ -9324,17 +9435,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.7.s1",
-      "source_sha256": "1d006666c256b06f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "\"But if anyone stops them unjustly, let him give account to God on the day of judgement. For it is not my will,"
+      "source_sha256": "08573a37ead540c5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"But if anyone should unjustly hinder this, he will give account to God on the Day of Judgment, for it is not my will, who am your spiritual father, according to the word of the Apostle:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.7.s2",
-      "source_sha256": "cb57677da10dcc7e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 22,
-      "text": "the will of your father in the spirit, according to the word of the apostle: 'Even if you have ten thousand tutors, you do not have many fathers.'"
+      "source_sha256": "3889b95e9793079d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "'Though you have ten thousand tutors, yet you do not have many fathers.'\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.72.7.s3",
@@ -9422,20 +9533,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.73.3.s1",
-      "source_sha256": "a97b2e1de7cac1e8",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And then he made the sign of the cross over Shatberdi and said: \"Flourish well, Shatberdi, be adorned with grace and strengthened by the flame of God,"
+      "source_sha256": "21ca913ceb6e64fd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "And then he made the sign of the cross over Shatberdi and said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.73.3.s2",
-      "source_sha256": "9f0e7549957501da",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "so that you may offer the fruit of your sacrifices to the Lord, spotless, season after season. For behold, I now leave you in peace, and you will no longer see my face in the flesh until the Lord comes in glory."
+      "source_sha256": "a1735a70ba21f5d9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 25,
+      "text": "\"Flourish well, Shatberdi, be adorned with grace, and be strengthened by the flame of God, so that from time to time you may offer to the Lord the spotless fruit of your sacrifices,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.73.3.s3",
+      "source_sha256": "027864f18bd3f405",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "For behold, I now leave you in peace, and you will no longer see my face in the flesh until the coming of the Lord in glory."
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.73.3.s4",
       "source_sha256": "12c51ee3e79904e6",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -9611,24 +9729,24 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.74.2.s5",
-      "source_sha256": "118d2326865461a5",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And after the meal they decided to stay there until the next day."
+      "source_sha256": "4e48c8f51a1de307",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "And after the meal they decided to stay there until the next day. And Father Makari, in the course of conversation, asked the blessed Gregory thus:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.74.2.s6",
-      "source_sha256": "152ebfb4dc2c452a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And during the conversation father Makari asked the blessed Grigol: \"If the child of heretics turns to the orthodox faith, must he be baptized or not?\""
+      "source_sha256": "79dad2ae51ed86a7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"If a child of heretics converts to the Orthodox faith, does he need baptism or not?\" The holy man said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.74.2.s7",
-      "source_sha256": "9744464ebece2d05",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "The holy man said to him: \"The Apostle calls 'false brethren' those who are named after their perverse teachers."
+      "source_sha256": "67ed13af5290eb9a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"The apostle calls them false brethren, those who bear the name of their perverse teachers."
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.74.2.s8",
@@ -9828,17 +9946,17 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.76.1.s3",
-      "source_sha256": "07e462be0a9463ed",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And when father Makar woke up, he said: \"How wondrously these saints appear!\""
+      "source_sha256": "bcc433a1c939b84d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "And when Father Makari awoke, he said: \"How wondrously these saints appear!\" Father Gregory said to him:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.76.1.s4",
-      "source_sha256": "9b443484ce39dca6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Father Gregory said to him: \"Brother Makar, why do you marvel at this sight? Have you not heard the scripture, 'God is wondrous among his saints'?\""
+      "source_sha256": "0f4071a9e3c57981",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Brother Makari, why do you marvel at this vision? Have you not heard the scripture: 'God is wonderful among his saints'?\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.76.1.s5",
@@ -10038,31 +10156,31 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.78.4.s1",
-      "source_sha256": "90698f2e6c0f6b85",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "\"But do not forget us, your spiritual children, when you come before the face of the good,"
+      "source_sha256": "4ac07c2f67c6b320",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"But do not forget us, your spiritual children, when you come before the face of the good, merciful and compassionate, sweet Lord;"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.78.4.s2",
-      "source_sha256": "939b95fcc677027c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "merciful, compassionate and sweet Lord. Remember your flocks, and do not stop interceding for us before Christ,"
+      "source_sha256": "a01de47e016d215f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "remember your flocks, and do not cease to labor for us before Christ, for you are fully able to help all"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.78.4.s3",
-      "source_sha256": "888c33e37cb3fcae",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "for you are fully able to help all who put their hope in your prayers and take refuge in your intercession.\""
+      "source_sha256": "47a34251e35702dc",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "who put their hope in your prayers and take refuge in your intercession.\" And the holy man said to them:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.78.4.s4",
-      "source_sha256": "fc42c31e8996efb0",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "The saint said to them: \"Although I prepared myself for the Lord and from my youth I [?] like a flame, the honour in your words is greater [than I deserve],"
+      "source_sha256": "ba14bac984a19a57",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Although I have prepared myself for the Lord and from my youth have burned [?] like a flame, yet the honor of your words is greater,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.78.4.s5",
@@ -10093,11 +10211,18 @@
       "text": "for this is how the kingdom of heaven must be sought. And pray for me, so that I may be given grace before God by the Lord to help you, my helpers.\""
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.79.1",
-      "source_sha256": "27c303ba0bcb5eb9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Then he said to the brothers who lived in Khandzta: \"Children, keep the commandment that you heard from me from the beginning, for the salvation of your souls, and always keep my memory."
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.79.1.s1",
+      "source_sha256": "25a1ecc9e6404486",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Then he said to the brothers who were in Khandzta:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.79.1.s2",
+      "source_sha256": "3e26c87faa245201",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Children, the commandment that you heard from me before, keep it for the salvation of your souls, and always keep my commemoration.\""
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.79.2.s1",
@@ -10206,20 +10331,27 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.81.1.s1",
-      "source_sha256": "9300b2d03327c835",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "3f03220ff4978e65",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 22,
-      "text": "And so he committed his soul to the Lord and was joined to the company of the angels. For the bodiless angels and the souls of men are of one nature, and the soul of man has angelic speech,"
+      "text": "And thus he committed his soul to the Lord and was joined to the company of the angels,"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.81.1.s2",
-      "source_sha256": "1c948b9b64c52c00",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "17b6d4a711021fbf",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
       "group_size": 22,
-      "text": "even though David says concerning the silencing of bodily tongues, \"On that day all their thoughts shall perish.\" Yet the same David says concerning the souls of the saints:"
+      "text": "for the bodiless angels and the souls of men are of one nature, and the soul of man has angelic speech, although concerning the ceasing of bodily tongues David says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.81.1.s3",
+      "source_sha256": "230148fa26eb05d7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"On that day all their thoughts perish\"; yet the same one says concerning the souls of the saints that:"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.81.1.s4",
       "source_sha256": "3e232925b27e0e40",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 22,
@@ -10416,69 +10548,76 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s1",
-      "source_sha256": "71a8042c32795d1f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Therefore, may the commemoration of the blessed father Gregory today always be for us a hope and an intercession for soul and body, and among all the righteous [?]"
+      "source_sha256": "b93219845227dc3f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "Therefore may the memory of the blessed Father Gregory today be for us always a hope and a refuge for soul and body, and for all"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s2",
-      "source_sha256": "8a8a0ddde66cc061",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "…into the company of the leader of monks, our father the great Anthony, in light that knows no evening, as Solomon said: \"Light is upon the righteous always.\""
+      "source_sha256": "0528f834e0c99623",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "among the righteous, in the rank of the monks of the leader, our father the great Anthony, in the light that knows no night, as Solomon said:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s3",
-      "source_sha256": "3a8a2c68c76ee913",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And again he says: \"But the souls of the righteous are in the hands of God, and they are alive.\" They are enlightened by that Sun of righteousness, whom the heavens cannot contain, and who was contained in the womb of the Virgin"
+      "source_sha256": "13d1bb6d376ec5be",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Light is upon the righteous always.\" And again he says:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s4",
-      "source_sha256": "4b67277f883bff91",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "in a way beyond words, and who shone forth for our salvation: that Light without beginning, Christ our God. For nothing is impossible before him."
+      "source_sha256": "f5b599056255c95a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"But the souls of the righteous are alive in the hand of God,\" and illumined by that Sun of Righteousness, whom the heavens cannot contain and who was contained in the virgin's womb"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s5",
+      "source_sha256": "780f056ab8179f03",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "ineffably, and who shone forth for our salvation, that light without beginning, Christ our God, for nothing is impossible before him,"
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s6",
       "source_sha256": "ca26c81bab9e46a3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "It was he who gave his creation, this disk of the sun, such brightness that it spreads over everything visible and lights it up with its light."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s6",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s7",
       "source_sha256": "57ad305a9353f348",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "And the same almighty God gave the grace of authority to all his saints, and they intercede for us with him unceasingly."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s7",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s8",
       "source_sha256": "738b1cde2224a6de",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "For this reason their memory is celebrated with praise. They always protect those who adorn their feast, they enlighten their souls, and they grant grace to all the faithful,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s8",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s9",
       "source_sha256": "eeddfdc6a1777da1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "since each one of them has the power to help those who pray to them with faith. They are always our intercessors before the Holy Trinity,"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s9",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s10",
       "source_sha256": "8bd893f9e5082065",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
       "text": "the Creator of all, to whom belong might, glory, great majesty, and a reign without beginning and without end."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s10",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.84.1.s11",
       "source_sha256": "ad88a7eec316e2fe",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -10612,27 +10751,34 @@
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s3",
-      "source_sha256": "f6a36ca1da33e7b3",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 16,
-      "text": "But during his illness, the one he died of while he was still superior, he said to me: \"Son Gabriel, bring me some hot food from the steward's kitchen, some korkoti [boiled wheat].\""
+      "source_sha256": "17108800f2b337c1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "And at the time of his illness, from which he died while he was abbot, he said to me:"
     },
     {
       "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s4",
+      "source_sha256": "63bb57f62452f2eb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 22,
+      "text": "\"Son Gabriel, bring me hot korkoti [boiled wheat] from the steward's storehouse.\""
+    },
+    {
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s5",
       "source_sha256": "6951608795450540",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 16,
       "text": "It had not been prepared that day, so I prepared something else and brought it to him, because he had not tasted anything for many days."
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s5",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s6",
       "source_sha256": "7ce2d36f2fef4b4d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 16,
       "text": "When he learned that this food had not been made for the community that day, he flung away in agitation what he had taken and said to me angrily:"
     },
     {
-      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s6",
+      "chunk_id": "titus-hagiography/coll-hag-1/life-of-gregory-of-khandzta#GrigXan.86.1.s7",
       "source_sha256": "97c77895f958cc9d",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 16,

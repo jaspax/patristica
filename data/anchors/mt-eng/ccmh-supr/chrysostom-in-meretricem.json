@@ -1,16 +1,16 @@
 {
  "work_id": "mt-eng/ccmh-supr/chrysostom-in-meretricem",
  "anchor": "ccmh-supr/chrysostom-in-meretricem",
- "method": "351020005494c156",
+ "method": "cd4ac1843c0db506",
  "anchor_cuts": "c2feaf09a7dcfe7b",
  "words": "3dc69614c355d655",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 75, "calibration": [0.1921, 0.3942], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9231, "rounds": 4, "units": 75},
+ "stats": {"beads": 75, "calibration": [0.6238, 0.2594], "converged": true, "fallback_paragraphs": 0, "one_one": 0.9231, "rounds": 2, "units": 75},
  "paragraphs": {
   "Supr.195v": {"words": "fb00bab8eb031ca7", "starts": [0, 15, 31, 46, 68, 87, 110, 132, 140, 155, 181, 202]},
   "Supr.196r": {"words": "06243ad500c5fd8a", "starts": [0, 17, 39, 57, 80, 105, 127, 148, 160, 175, 196, 211, 229]},
-  "Supr.196v": {"words": "eb8b5564261d2f48", "starts": [0, 14, 43, 66, 79, 88, 98, 110, 153, 169, 189, 197, 211, 233]},
-  "Supr.197r": {"words": "2c0368b5f1cb760d", "starts": [0, 25, 33, 60, 78, 100, 120, 144, 157, 172, 186, 203, 212]},
+  "Supr.196v": {"words": "eb8b5564261d2f48", "starts": [0, 14, 43, 66, 79, 88, 98, 110, 129, 161, 189, 197, 211, 233]},
+  "Supr.197r": {"words": "2c0368b5f1cb760d", "starts": [0, 25, 33, 60, 84, 100, 120, 144, 157, 172, 186, 203, 212]},
   "Supr.197v": {"words": "1a3ff9f57f971ac0", "starts": [0, 22, 40, 64, 88, 102, 116, 132, 147, 167, 187, 203, 226, 237]},
   "Supr.198r": {"words": "6d373a6ef39ec2cf", "starts": [0, 19, 40, 53, 74, 88, 104, 131, 140]}
  }

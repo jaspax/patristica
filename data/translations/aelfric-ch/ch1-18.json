@@ -9,6 +9,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-02",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-09": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-09",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -252,17 +258,17 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.8.s5",
-      "source_sha256": "e9f4c9b208c3ff89",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "Whatever a person gets easily is not nearly as precious as what is gained with difficulty."
+      "source_sha256": "8e1fdcdb6559a047",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Whatever is easily obtained is not as precious as what is obtained with difficulty. The Saviour said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.8.s6",
-      "source_sha256": "ab98d0dbcf309eb7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "The Saviour said, \"If he keeps on knocking, then the master of the household gets up because of the other man's calling and grants him what he asks for, not out of friendship, but because of his persistence.\""
+      "source_sha256": "86d4a21e155cb9f5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"If he keeps on knocking, then the master of the household will get up because of the other man's calling, and grant him what he asks, not out of friendship but because of his persistence.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.8.s7",
@@ -273,13 +279,20 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.8.s8",
-      "source_sha256": "98e31231c1e8c069",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "Now we must knock and cry out to Christ, because he will grant our request, just as he himself said: \"Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.\""
+      "source_sha256": "f87a706d2633d949",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Now we must knock and cry out to Christ, because he is willing to grant our requests, just as he himself said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.8.s9",
+      "source_sha256": "e6032272f8931354",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.8.s10",
       "source_sha256": "31112f15a6a874fc",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
@@ -427,55 +440,62 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s1",
-      "source_sha256": "c100a569abbbf577",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "The stone is set against the bread, because hard-heartedness is opposed to true love. Hard-hearted is the person who will not help others out of love where he is able to."
+      "source_sha256": "68c7a2b0789ac8e1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "A stone is set against the bread, because hard-heartedness is opposed to true love."
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s2",
-      "source_sha256": "94cc8299b8660d16",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "The gospel said, \"If you, who are evil, know how to give good things to your children, how much more will your heavenly Father give a good spirit to those who ask him.\""
+      "source_sha256": "99d176aae809c0ca",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Hard-hearted is the man who will not help others out of love when he is able to. The gospel said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s3",
+      "source_sha256": "03ac8a69c849c44b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"If you, who are evil, know how to give good things to your children, how much more will your heavenly Father give a good spirit to those who ask him.\""
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s4",
       "source_sha256": "ae84c6e6602d48a9",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "What are the good things that people give their children? Temporary good things, such as the gospel mentioned: bread, and fish, and an egg."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s4",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s5",
       "source_sha256": "68851ac2af5b9b06",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "These things are good in their measure, because the earthly body needs that food."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s5",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s6",
       "source_sha256": "fd764f8190a35b01",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "Now, just as you, wise people, will not give your children a serpent instead of a fish, so our heavenly Father will not give us the devil's faithlessness if we ask him to give us true faith."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s6",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s7",
       "source_sha256": "93bd7d69c9e8427a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "And just as you will not give your child a scorpion instead of an egg, so God will not give us despair instead of hope."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s7",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s8",
       "source_sha256": "ad6a9edc5c333db2",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 23,
       "text": "And just as you will not give your child a stone instead of bread, God also will not give us hardness of heart instead of true love."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s8",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.11.s9",
       "source_sha256": "a5fd6c2a9eb7eb0a",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
@@ -504,17 +524,24 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.12.s4",
-      "source_sha256": "e919b9d754dae791",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "The man Adam was created good, but through his own choice and the devil's urging he became evil, and so did all his offspring. Whoever is sinful is evil, and no one alive is without some sin."
+      "source_sha256": "963151e1a6a0e580",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Adam was created a good man, but through his own choice and the devil's enticement he became evil, and so did all his offspring."
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.12.s5",
-      "source_sha256": "0e0b9cf95cf381f1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "But our good Father cleanses and heals us, as the prophet said: \"Lord, heal me, and I shall be healed; save me, and I shall be saved.\""
+      "source_sha256": "c673139be0203f1f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "Whoever is sinful is evil, and no man alive is without some sin. But our good Father cleanses and heals us, just as the prophet said,"
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.12.s6",
+      "source_sha256": "d7515faebb15c95c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"Lord, heal me, and I shall be healed; keep me, and I shall be kept.\""
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s1",
@@ -532,83 +559,90 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s3",
-      "source_sha256": "d06823742d53e720",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 22,
-      "text": "But the man is not good because of these things unless he does good with them, as the prophet said, \"He distributed his goods and gave them to the poor, and his righteousness endures for ever.\""
+      "source_sha256": "1c976ac862a07bba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "But a man is not good through these things unless he does good with them, just as the prophet said,"
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s4",
-      "source_sha256": "b1e1e9d691e38794",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 23,
-      "text": "He lessened his wealth and increased his righteousness. He lessened what he must leave behind, and what he will have for eternity is increased."
+      "source_sha256": "54e4bbe1746f821e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"He spent his goods and distributed them to the poor, and his righteousness endures forever.\" He diminished his wealth and increased his righteousness."
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s5",
+      "source_sha256": "ad9adfc70bc06b00",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "He diminished what he must leave behind, and what he will have for eternity is increased."
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s6",
       "source_sha256": "6138b3dd5223cc16",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "You praise the merchant who gets gold in exchange for lead, but you will not praise the one who gets righteousness and the kingdom of heaven in exchange for perishable money."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s6",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s7",
       "source_sha256": "2be991ce1bdfd68f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 23,
       "text": "The rich man and the poor man are travellers in this world. Now the rich man carries a heavy burden of his possessions, and the poor man goes empty-handed."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s7",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s8",
       "source_sha256": "2d6d912df07fb112",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 23,
       "text": "The rich man carries more than he needs for his provisions on the journey; the other carries an empty bag."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s8",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s9",
       "source_sha256": "243224b944ad2672",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 6,
       "text": "Therefore the rich man must share his burden with the poor man. Then he lessens the burden of his sins and helps the poor man."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s9",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s10",
       "source_sha256": "77bae03a555ab2f4",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 6,
       "text": "We are all God's poor. Let us therefore acknowledge the poor who ask of us, so that God may acknowledge us when we ask him for what we need."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s10",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s11",
       "source_sha256": "d01aac549dd76dba",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 6,
       "text": "Who are those who ask of us? Poor men, frail and mortal. From whom do they ask?"
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s11",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s12",
       "source_sha256": "d29149e2d8a429b3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 6,
       "text": "From poor men, frail and mortal. Apart from their possessions, those who ask there and those they ask from are alike."
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s12",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s13",
       "source_sha256": "be0b80f4bea1e60e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "How can you for shame ask God for anything, if you refuse your fellow man what you could very easily grant him?"
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s13",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s14",
       "source_sha256": "623c22cab577d5a5",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
       "text": "But the rich man looks at his silken clothes and says, 'That beggar in his rags is not my equal.'"
     },
     {
-      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s14",
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.13.s15",
       "source_sha256": "33c3dd8a770af267",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
       "group_size": 22,
@@ -672,24 +706,31 @@
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.15.s2",
-      "source_sha256": "660e1c11eda8eedf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 2,
-      "text": "It is fitting for the wealthy man that he spend and share out; it is fitting for the poor man that he pray for the giver. The poor man is the way that leads us to God's kingdom."
+      "source_sha256": "274d4959e72b5ce1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "It is fitting for the wealthy man to spend and give out; it is fitting for the poor man to pray for the giver."
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.15.s3",
-      "source_sha256": "e2f610c796ab8691",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 6,
-      "text": "The poor man gives more to the rich man than he takes from him. The rich man gives him bread that is turned to dung, and the poor man gives the rich man eternal life:"
+      "source_sha256": "d86685ef3a168352",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "The poor man is the way that leads us to God's kingdom. The poor man gives more to the rich man than he takes from him."
     },
     {
       "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.15.s4",
-      "source_sha256": "85bec1f2c2c26707",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-02",
-      "group_size": 2,
-      "text": "not he, however, but Christ, who said thus: \"What you do for a poor man in my name, you do for me myself,\" who lives and reigns with the Father and with the Holy Spirit for ever without end. Amen."
+      "source_sha256": "d5e8d44f2fd2d182",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "The rich man gives him bread that is turned to dung, and the poor man gives the rich man eternal life: not he himself, however, but Christ, who said this,"
+    },
+    {
+      "chunk_id": "aelfric-ch/ch1-18#AECHomI.18.15.s5",
+      "source_sha256": "0001a14347122a0b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
+      "group_size": 17,
+      "text": "\"What you do for one poor man in my name, you do for me myself,\" who lives and reigns with the Father and with the Holy Spirit forever without end. Amen."
     }
   ]
 }

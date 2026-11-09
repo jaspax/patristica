@@ -2,12 +2,12 @@
  "format": 1,
  "group": "ogpg/vol-088/climacus-vita",
  "pivot": "ogpg/vol-088/climacus-vita",
- "groups": 45,
- "inputs": "d9fdd4802c8db8d5",
- "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 50,
+ "inputs": "5fea80789c083bef",
+ "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ccmh-supr/vita-ioannis-climaci", "units": 56, "ids": "7482bf7fbf3d6c60", "inputs": "dd354d4e5db0eb78", "spans": "+++=+++.++++++=+=++++2++=+2+++=+++.+++++++==+==+++++++=++=", "conf": "9998889349998993668669999999999999999999998"},
-  {"work_id": "ogpg/vol-088/climacus-vita", "units": 70, "ids": "813d79120cb0ca61", "inputs": "e647a04da48c7c1b", "spans": "+++=+++++=++++=.+=+++=.+++++=.++++=+++.......+++++++==..+=++++++++..+=", "conf": "999999999999899586689999999999999999999999998"},
-  {"work_id": "titus-translations/daniel-of-raithu-life-of-john-climacus", "units": 55, "ids": "8a9cab849a3e918a", "inputs": "5675c2dd4737e01b", "spans": "+++=+=+++++++....+=+2+++++2++++=++++.+++++++=+==+++++2++..", "conf": "99999999999899583699999997999999999999999"}
+  {"work_id": "ccmh-supr/vita-ioannis-climaci", "units": 54, "ids": "06f2b94517a890cb", "inputs": "16636031cb9889ea", "spans": "+++++++.++++++=+=++++2++=+3++++++++2+++++++=+=+++++++=++=", "conf": "9999778945999899366866999999999999999999999998"},
+  {"work_id": "ogpg/vol-088/climacus-vita", "units": 70, "ids": "813d79120cb0ca61", "inputs": "e647a04da48c7c1b", "spans": "+++++++++=++++=.+=++.+=++++++.++++++++.....+.++++++++=..++++++.+++..+=", "conf": "99999999999998997966869999999992999999999999999998"},
+  {"work_id": "titus-translations/daniel-of-raithu-life-of-john-climacus", "units": 61, "ids": "9be1367882aaaa9e", "inputs": "51fb849927f0ec46", "spans": "+++++=+++++++....+=+2+.+=+++++++++++++++.++++++++=++=+++++++..", "conf": "999999999999899796666999999997299999999799999999"}
  ]
 }
