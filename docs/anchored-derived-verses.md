@@ -639,6 +639,19 @@ because the scratch cache the source PR left lacks pieces its run embedded).
 
 ## 10. #200: migrating existing works
 
+**Status (2026-11-09, pilot):** the machinery is built and the pilot groups
+are migrated. Works are enrolled one by one in
+`patristica/data/anchored_works.csv`; translations are refined as above,
+same-language editions are cut by projecting the reference edition's cuts
+through #199's word alignment (`patristica/edition_projection.py`, no
+vectors). Owner decisions: pilot data PR first; the cleaner critical text is
+the reference edition and keeps its refs; old links to moved derived verses
+fall back to their paragraph. Measured on the pilot (confident 1:1 rows in
+`scripts.align_eval compare --one-one`): Tractates PL 35 ↔ NPNF 82.0 → 97.8 %,
+Basil Perseus ↔ NPNF 56.9 → 89.0 %, Perseus ↔ Migne 56.6 → 87.7 %; over all
+220 edition pairs, the projection alone raises 1:1 rows from 65.3 to 89.5 %
+(`scripts.edition_eval`). The rest of this section is the original plan.
+
 The machinery is the same; only the inputs differ:
 - **The provisional cut is today's published cut**, with vectors for every
   unit already in `data/embeddings`. The DP can always fall back to today's

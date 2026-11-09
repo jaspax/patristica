@@ -20,7 +20,8 @@ alignment groups with their text, for checking by hand.
 
 ``compare``: compare two alignment stores (``--before``, ``--after``) on the
 groups both have: for every pair of members, the share of the first one's
-units that are in a confident group with the second, summed over same-language
+units that are in a confident group with the second (with ``--one-one``, a
+confident 1:1 row: one unit of each, #200), summed over same-language
 pairs (editions, #199) and other pairs, and the pairs that changed most. It
 reads only the files (no vectors), so it measures a change to the method
 after ``scripts.align --output-dir`` has written the new files elsewhere.
@@ -358,13 +359,15 @@ def sample(args: argparse.Namespace) -> None:
             print(f"[{wid} {refs} conf {c}] {body[:args.chars]}")
 
 
-def pair_cover(a: store.Alignment) -> dict[tuple[str, str], int]:
-    """``(x, y) → units of x`` in a confident group with *y*, for every pair of members."""
+def pair_cover(a: store.Alignment, one_one: bool = False) -> dict[tuple[str, str], int]:
+    """``(x, y) → units of x`` in a confident group with *y*, for every pair of
+    members; with *one_one*, only groups where both have exactly one unit (a
+    1:1 row in parallel reading, #200)."""
     out: dict[tuple[str, str], int] = {}
     for spans in a.groups_of().values():
         for x, (s, e) in spans.items():
-            for y in spans:
-                if y != x:
+            for y, (s2, e2) in spans.items():
+                if y != x and (not one_one or (e - s == 1 and e2 - s2 == 1)):
                     out[(x, y)] = out.get((x, y), 0) + e - s
     return out
 
@@ -383,7 +386,7 @@ def compare(args: argparse.Namespace) -> None:
     for g in groups:
         b, a = before[g], after[g]
         pivots["changed" if a.pivot != b.pivot else "kept"] += 1
-        cb, ca = pair_cover(b), pair_cover(a)
+        cb, ca = pair_cover(b, args.one_one), pair_cover(a, args.one_one)
         for x in a.members:
             for y in a.members:
                 if x == y or x not in b.members or y not in b.members:
@@ -399,7 +402,8 @@ def compare(args: argparse.Namespace) -> None:
                 changes.append((d, g, x, y, cb.get((x, y), 0) / max(units, 1),
                                 ca.get((x, y), 0) / max(units, 1), units))
     print(f"{len(groups)} groups; pivot changed in {pivots['changed']}")
-    print("pairs (x, y): share of x's units in a confident group with y, summed over pairs")
+    print("pairs (x, y): share of x's units in a confident "
+          + ("1:1 row" if args.one_one else "group") + " with y, summed over pairs")
     for kind, t in totals.items():
         print(f"  {kind:14s} {t['pairs']:5d} pairs  {pct(t['before'], t['units'])} -> "
               f"{pct(t['after'], t['units'])}")
@@ -423,6 +427,8 @@ def main() -> None:
     parser.add_argument("--before", type=Path, default=store.DEFAULT_DIR,
                         help="compare: the alignment store before")
     parser.add_argument("--after", type=Path, help="compare: the alignment store after")
+    parser.add_argument("--one-one", action="store_true",
+                        help="compare: count only 1:1 rows (one unit of each member)")
     parser.add_argument("--input-dir", type=Path, default=Path("data/normalized"))
     parser.add_argument("--translations-dir", type=Path, default=tr.DEFAULT_DIR)
     parser.add_argument("--embeddings-dir", type=Path, default=Path("data/embeddings"))
