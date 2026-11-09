@@ -173,6 +173,11 @@ _LONE_QUOTE_RE = re.compile(r"\s*[\"“”„«»‹›‘’)\]}]+$")
 #: note or citation follows what it comments on.
 TRAILING_EDITORIAL_KINDS = frozenset({"note"})
 
+#: Sources whose notes the rule above leaves alone: OGLT PL's notes are
+#: Migne's footnote blocks, dropped by the OCR wherever a page ended, so they
+#: don't belong with the text before them (#623).
+NOTE_RULE_EXCLUDED_SOURCES = frozenset({"oglt-pl"})
+
 # Words: a run of non-separators with the whitespace before it, which is how
 # cl100k_base splits text (" word"), so per-word token counts add up.
 # U+1361 ETHIOPIC WORDSPACE (፡) separates Ge'ez words, often with no space;
@@ -306,6 +311,13 @@ def _attach_trailing_editorial(atoms: Sequence[str], st: list[int],
         st[i0 - 1] = WORD
 
 
+def splitting_spans(work_id: str, spans: Sequence[Sequence[object]]
+                    ) -> Sequence[Sequence[object]]:
+    """The editorial spans of a unit of *work_id* that its cut takes into
+    account: none for :data:`NOTE_RULE_EXCLUDED_SOURCES`."""
+    return () if work_id.split("/", 1)[0] in NOTE_RULE_EXCLUDED_SOURCES else spans
+
+
 def split_text(text: str, language: str,
                spans: Sequence[Sequence[object]] = ()) -> list[str]:
     """Split *text* into units about one verse long (see the module docstring).
@@ -408,8 +420,9 @@ def versify_chunks(
     (anchored derived verses, ``patristica.anchoring``, #304): contiguous
     stripped slices of the chunk's text. Every other chunk is cut by
     :func:`split_text`, with its editorial spans from *spans_of* (by chunk
-    id), except those whose ids are in *keep* (a heading that is editorial
-    material as a whole, #259), which stay whole.
+    id; none for :data:`NOTE_RULE_EXCLUDED_SOURCES`), except those whose ids
+    are in *keep* (a heading that is editorial material as a whole, #259),
+    which stay whole.
     """
     if standard and not any(
         c.work_id in UNVERSIFIED_UNITS or c.chunk_id in UNVERSIFIED_UNITS for c in chunks
@@ -428,8 +441,9 @@ def versify_chunks(
         if units_of is not None and chunk.chunk_id in units_of:
             units = units_of[chunk.chunk_id]
         else:
+            spans = (spans_of or {}).get(chunk.chunk_id, ())
             units = split_text(chunk.text, chunk.language,
-                               (spans_of or {}).get(chunk.chunk_id, ()))
+                               splitting_spans(chunk.work_id, spans))
         if len(units) == 1:
             out.append(chunk)
             continue

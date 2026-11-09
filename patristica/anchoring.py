@@ -55,7 +55,8 @@ ENROLMENT_PATH = Path(__file__).parent / "data" / "anchored_sources.csv"
 #: ``LOADER_VERSION``) when a change to ``scripts.anchor`` should re-cut: cut
 #: files made with another version are reported stale but frozen (they are
 #: re-cut only with ``scripts.anchor --recut``).
-ANCHOR_VERSION = 1
+#: 2: segments break before opening quotes and keep notes with their text (#622).
+ANCHOR_VERSION = 2
 
 
 class AnchoringError(ValueError):

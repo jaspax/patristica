@@ -68,7 +68,7 @@ from patristica.models import Chunk, Work
 from patristica.period import is_out_of_period, work_in_period
 from patristica.section_numbers import strip_section_number
 from patristica.translation_links import apply_translation_of, curated_translation_of
-from patristica.versify import is_derived_ref, split_text, versify_chunks
+from patristica.versify import is_derived_ref, split_text, splitting_spans, versify_chunks
 
 log = logging.getLogger(__name__)
 
@@ -393,8 +393,8 @@ def _heading_units(chunks: list[Chunk], marks: dict[str, list[editorial.Span]]
         start = spans[0][1]
         while start < len(c.text) and c.text[start].isspace():
             start += 1
-        body = split_text(c.text[start:], c.language,
-                          [(a - start, b - start, k) for a, b, k in spans if a >= start])
+        body = split_text(c.text[start:], c.language, splitting_spans(
+            c.work_id, [(a - start, b - start, k) for a, b, k in spans if a >= start]))
         headed[c.chunk_id] = [c.text[:start + len(body[0])], *body[1:]]
     return whole, headed
 

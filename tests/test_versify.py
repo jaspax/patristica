@@ -327,3 +327,18 @@ def test_yahya_cuts_around_quotes_and_citations():
     assert any(u.endswith('[Matthew 1:18] "') for u in units)
     assert any(u.endswith('[Galatians 4:4]') for u in units)
     assert not any(u.endswith("[He indicates here") for u in units)
+
+
+def test_oglt_pl_notes_are_left_to_the_size_cut():
+    from patristica.models import Chunk
+    from patristica.versify import versify_chunks
+
+    def chunks(work_id: str) -> list[Chunk]:
+        return [Chunk(chunk_id=f"{work_id}#P.1", work_id=work_id, canonical_ref="P.1",
+                      chunk_index=0, language="eng", text=YAHYA)]
+
+    spans = _notes(YAHYA)
+    with_notes = [c.text for c in versify_chunks(chunks("x/y"), spans_of={"x/y#P.1": spans})]
+    pl = [c.text for c in versify_chunks(chunks("oglt-pl/y"), spans_of={"oglt-pl/y#P.1": spans})]
+    assert with_notes == split_text(YAHYA, "eng", spans)
+    assert pl == split_text(YAHYA, "eng")
