@@ -1,0 +1,30 @@
+{
+ "work_id": "anf-works/cyprian-to-donatus",
+ "anchor": "csel/stoa0104a/stoa001/opp-lat1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "bebd7c97375c1256",
+ "words": "f7dd4f6fc6e5e324",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 148, "calibration": [0.6, 0.1923], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 151},
+ "paragraphs": {
+  "Cypr.Don.2": {"words": "b54e23563c0acc29", "starts": [0]},
+  "Cypr.Don.3": {"words": "88410b4bffa3d130", "starts": [0]},
+  "Cypr.Don.4": {"words": "25357e58e11caee8", "starts": [0]},
+  "Cypr.Don.5": {"words": "1c08b29adbd43e1d", "starts": [0, 7, 55, 86, 123, 147, 183, 237]},
+  "Cypr.Don.6": {"words": "90add5275514154d", "starts": [0, 41, 68, 90, 118, 154]},
+  "Cypr.Don.7": {"words": "8cb65b9770c9554f", "starts": [0, 30, 63, 123, 167, 192, 220, 242, 270]},
+  "Cypr.Don.8": {"words": "9586ddb73a502e13", "starts": [0, 45, 73, 107, 140, 173, 217, 257, 293, 328, 359, 385]},
+  "Cypr.Don.9": {"words": "a7f85055ffa6f28a", "starts": [0, 23, 61, 83, 103, 145, 189, 232, 266, 309, 333, 375]},
+  "Cypr.Don.10": {"words": "e4e5783645955b45", "starts": [0, 49, 111, 132, 156, 188]},
+  "Cypr.Don.11": {"words": "b9c7cb8287df2062", "starts": [0, 27, 41, 72, 104, 129, 169, 198, 250]},
+  "Cypr.Don.12": {"words": "05a756752d643e3c", "starts": [0, 33, 68, 101, 124, 167, 200, 243, 281, 323, 363, 393, 423]},
+  "Cypr.Don.13": {"words": "563300ec03b108fe", "starts": [0, 24, 74, 97, 142, 165, 199]},
+  "Cypr.Don.14": {"words": "2d0ecfa935ac3906", "starts": [0, 32, 86, 115, 132, 165, 188, 227, 251, 273, 294, 327, 367, 395, 434]},
+  "Cypr.Don.15": {"words": "29dca539edab5b5d", "starts": [0, 45, 72, 108, 138, 179, 196, 227, 270, 303, 335, 365]},
+  "Cypr.Don.16": {"words": "56d9e7c5ef78b3a1", "starts": [0, 33, 71, 97, 142, 188, 202, 230, 252, 300]},
+  "Cypr.Don.17": {"words": "7b37056d5a42f6aa", "starts": [0, 39, 57, 90, 130, 148]},
+  "Cypr.Don.18": {"words": "6060b6cb631c2344", "starts": [0, 19, 68, 86, 103, 145, 187, 237, 268]},
+  "Cypr.Don.19": {"words": "25cd36cca6909514", "starts": [0, 26, 56, 84, 116, 154, 173, 208, 225]},
+  "Cypr.Don.20": {"words": "bfaf4199002e7e58", "starts": [0, 25, 78, 109, 133]}
+ }
+}

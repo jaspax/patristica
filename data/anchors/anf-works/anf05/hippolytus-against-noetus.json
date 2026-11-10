@@ -1,0 +1,30 @@
+{
+ "work_id": "anf-works/hippolytus-against-noetus",
+ "anchor": "ogpg/vol-010/contra-noetum",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "f286676163779eed",
+ "words": "9b5ffebb1bd7a911",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 196, "calibration": [0.7422, 0.1257], "converged": false, "fallback_paragraphs": 1, "one_one": 0.97, "rounds": 4, "units": 202},
+ "paragraphs": {
+  "Hippo.Noet": {"words": "56bc98e46f97cede", "starts": [0]},
+  "Hippo.Noet.1": {"words": "5e0f9d2d23ed054d", "starts": [0, 26, 45, 64, 81, 115, 128, 143, 210, 226, 267]},
+  "Hippo.Noet.2": {"words": "a1782edb48fe66a0", "starts": [0, 37, 62, 93, 122, 152, 175, 210, 219, 263, 277, 301, 332, 373]},
+  "Hippo.Noet.3": {"words": "281d88ed27ed52a8", "starts": [0, 21, 41, 65, 81, 97, 117, 164, 195]},
+  "Hippo.Noet.4": {"words": "a3257fd7a4df0335", "starts": [0, 18, 60, 93, 131, 158, 166, 183, 205, 237, 272, 291, 311, 345, 372, 389, 406, 428, 449, 490, 519, 542, 565, 584, 618, 629, 672, 714, 730]},
+  "Hippo.Noet.5": {"words": "55e58adc53b65fd0", "starts": [0, 29, 58, 83, 113, 137, 150, 173, 200, 215]},
+  "Hippo.Noet.6": {"words": "65915b9b4dcd0535", "starts": [0, 39, 60, 81, 101, 121, 180, 210, 232, 263, 285, 315, 348, 371, 390, 418]},
+  "Hippo.Noet.7": {"words": "eec85f5235892708", "starts": [0, 38, 71, 125, 149, 180, 210, 243, 268, 305, 323, 359, 388, 413]},
+  "Hippo.Noet.8": {"words": "ea2265131efa13c8", "starts": [0, 85, 135, 164, 188]},
+  "Hippo.Noet.9": {"words": "6925552f0895325f", "starts": [0, 20, 93, 141]},
+  "Hippo.Noet.10": {"words": "8ae1b423d321308a", "starts": [0, 14, 39, 69, 81, 140, 160, 214, 240]},
+  "Hippo.Noet.11": {"words": "378fdff6d0024a0a", "starts": [0, 43, 99, 129, 171, 198]},
+  "Hippo.Noet.12": {"words": "1460c84380a8b57c", "starts": [0, 27, 54, 83, 121, 161, 184, 221, 240]},
+  "Hippo.Noet.13": {"words": "9db543a80fcfbe23", "starts": [0, 3, 32, 49, 72, 87]},
+  "Hippo.Noet.14": {"words": "723fd739c798bb44", "starts": [0, 36, 53, 103, 220]},
+  "Hippo.Noet.15": {"words": "235de42693276711", "starts": [0, 36, 67, 96, 124, 143, 180, 192, 208, 234, 266, 292, 324, 340, 361]},
+  "Hippo.Noet.16": {"words": "414e79abbe1dabdc", "starts": [0, 19, 55, 111, 138, 149, 207, 231, 305, 327, 347, 384]},
+  "Hippo.Noet.17": {"words": "45b594b0069bd671", "starts": [0, 16, 38, 66, 101, 118, 128, 158, 194, 224, 258, 279]},
+  "Hippo.Noet.18": {"words": "05f1ef0353a6b526", "starts": [0, 35, 48, 78, 109, 139, 173, 410, 425, 456, 491, 515, 542, 594, 656]}
+ }
+}

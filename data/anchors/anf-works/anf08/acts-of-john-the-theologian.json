@@ -1,0 +1,33 @@
+{
+ "work_id": "anf-works/acts-of-john-the-theologian",
+ "anchor": "first1k/tlg0317/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "518657468fde9e5a",
+ "words": "3b503ab34a656b13",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 132, "calibration": [0.4076, 0.2897], "converged": false, "fallback_paragraphs": 2, "one_one": 0.2076, "rounds": 4, "units": 135},
+ "paragraphs": {
+  "ActJn": {"words": "39a21147b02941d0", "starts": [0]},
+  "ActJn.1": {"words": "de0ef0fc60046ea4", "starts": [0]},
+  "ActJn.3": {"words": "865efea9bb4e313f", "starts": [0, 30, 58]},
+  "ActJn.4": {"words": "38334fdcf39e7e73", "starts": [0, 31, 62]},
+  "ActJn.5": {"words": "7562fee13b793397", "starts": [0, 35, 63, 86, 106, 135, 166, 191]},
+  "ActJn.6": {"words": "ddecae90807fa112", "starts": [0, 29]},
+  "ActJn.7": {"words": "a72d8d6fc53102a0", "starts": [0, 32, 65, 83, 93, 121, 149, 184]},
+  "ActJn.8": {"words": "8f9af1cc9bce6e8c", "starts": [0, 18, 48, 76, 116, 133, 159, 195]},
+  "ActJn.9": {"words": "37e709d1db12fa9e", "starts": [0, 28, 57, 88, 110]},
+  "ActJn.10": {"words": "57134ae4f98fec92", "starts": [0, 30, 54, 80, 109]},
+  "ActJn.11": {"words": "97970f1396336956", "starts": [0, 27, 60, 85, 113, 151, 181, 204, 228, 251, 265, 296]},
+  "ActJn.12": {"words": "e40229fbc5b8eb70", "starts": [0, 25, 48, 70, 94, 123]},
+  "ActJn.13": {"words": "06684f305235d467", "starts": [0, 37, 73]},
+  "ActJn.14": {"words": "9269ce861fddd521", "starts": [0, 33, 55, 83, 107]},
+  "ActJn.15": {"words": "b0edd599327fd246", "starts": [0, 19, 52]},
+  "ActJn.16": {"words": "6feac7a105dbe77b", "starts": [0, 17, 40, 68, 96, 127, 146, 171, 196, 223, 250, 273, 304, 321, 338]},
+  "ActJn.17": {"words": "73c5cc7551969652", "starts": [0, 20, 33, 66, 85, 112]},
+  "ActJn.18": {"words": "e4b4ca836eee70c2", "starts": [0, 28, 54, 66, 103, 111, 131]},
+  "ActJn.19": {"words": "9d1b202de48e39ee", "starts": [0, 27, 49]},
+  "ActJn.20": {"words": "cea52c389aff914b", "starts": [0, 41, 65, 92, 109, 131]},
+  "ActJn.21": {"words": "b6b65a544607b11b", "starts": [0, 27, 48, 59, 69, 82, 104, 132, 165, 206, 235, 246, 277, 304, 320, 330, 358, 390, 422, 445, 476, 504, 518]},
+  "ActJn.22": {"words": "9cc0d074d6e38e96", "starts": [0, 82]}
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "work_id": "npnf-works/athanasius-letter-60-to-adelphius",
+ "anchor": "ogpg/vol-026/ad-adelphium",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "3efba9fc878fc5be",
+ "words": "2a89100f9dea16e2",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 105, "calibration": [0.8339, 0.1082], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8729, "rounds": 4, "units": 105},
+ "paragraphs": {
+  "Ath.EpAdelph": {"words": "ee82c2421a07cf9b", "starts": [0]},
+  "Ath.EpAdelph.1": {"words": "2fee4bc130f7d6f9", "starts": [0, 17, 54, 90, 149, 184, 207, 223, 247, 285]},
+  "Ath.EpAdelph.2": {"words": "b921453667405c90", "starts": [0, 29, 46, 71, 120, 146, 175, 193, 216, 239, 268]},
+  "Ath.EpAdelph.3": {"words": "1cc978d79076755a", "starts": [0, 31, 51, 84, 108, 127, 152, 184, 236, 257, 287, 324]},
+  "Ath.EpAdelph.4": {"words": "0ed0c2fe9f700afe", "starts": [0, 57, 76, 111, 140, 153, 188, 211, 252, 275, 300, 328, 354]},
+  "Ath.EpAdelph.5": {"words": "9aa2bb372d4cc2a4", "starts": [0, 71, 96, 124, 144, 167, 181, 199, 224, 258, 289, 311, 323, 362]},
+  "Ath.EpAdelph.6": {"words": "867e4592232ad375", "starts": [0, 20, 43, 54, 83, 103, 118, 146, 173, 205, 232, 250, 280, 305]},
+  "Ath.EpAdelph.7": {"words": "2cda12e3e63ffd2c", "starts": [0, 31, 48, 65, 88, 116, 162, 191, 228, 248, 293, 328, 347]},
+  "Ath.EpAdelph.8": {"words": "35ae376462df8da9", "starts": [0, 31, 65]},
+  "Ath.EpAdelph.9": {"words": "40b5ff884b26322b", "starts": [0, 33, 44, 72, 92, 113, 156, 187, 204, 230, 280]},
+  "Ath.EpAdelph.10": {"words": "f311d7c487f8496e", "starts": [0, 8, 26]}
+ }
+}

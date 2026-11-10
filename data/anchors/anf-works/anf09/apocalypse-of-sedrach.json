@@ -1,0 +1,30 @@
+{
+ "work_id": "anf-works/apocalypse-of-sedrach",
+ "anchor": "wikisource-apocrypha/apocalypsis-sedrach",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "369c9c2789e08b5c",
+ "words": "9ade6436eaf475ed",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 135, "calibration": [0.4225, 0.251], "converged": true, "fallback_paragraphs": 1, "one_one": 1.0, "rounds": 3, "units": 136},
+ "paragraphs": {
+  "ApocSedr": {"words": "d4c513ee48e3a150", "starts": [0]},
+  "ApocSedr.2": {"words": "fd5249673924a74d", "starts": [0]},
+  "ApocSedr.3": {"words": "773d15cc80811259", "starts": [0, 23, 38]},
+  "ApocSedr.4": {"words": "f20f360dd21a1829", "starts": [0, 21]},
+  "ApocSedr.5": {"words": "1f47c1dadfc1adf4", "starts": [0, 37, 59, 80]},
+  "ApocSedr.6": {"words": "ec0e7d2b791ef764", "starts": [0, 32, 54, 62, 81, 89, 103]},
+  "ApocSedr.7": {"words": "5cf699b49f2bae58", "starts": [0, 16, 35, 55, 82, 105]},
+  "ApocSedr.8": {"words": "ab969791dd6bf80e", "starts": [0, 13, 44, 61, 76, 100, 116, 134]},
+  "ApocSedr.9": {"words": "e9f1f1b74b61823c", "starts": [0, 20, 40, 52, 63, 93, 108, 129]},
+  "ApocSedr.10": {"words": "d8c45c4f6c330929", "starts": [0, 36, 50, 70, 89, 117, 132, 145, 175, 192, 202]},
+  "ApocSedr.11": {"words": "dddbed63885246aa", "starts": [0, 37, 50, 70, 90, 98, 126, 133, 159, 199, 232, 261, 278]},
+  "ApocSedr.12": {"words": "7addb24177846309", "starts": [0, 22, 53, 62, 79]},
+  "ApocSedr.13": {"words": "585998dbf179422d", "starts": [0, 19, 48, 87, 106, 129]},
+  "ApocSedr.14": {"words": "84a955eb29eaea3c", "starts": [0, 15, 45, 60, 78, 91, 105, 123, 143, 152, 164, 192, 214, 242, 254, 265, 288, 301, 306, 321]},
+  "ApocSedr.15": {"words": "94a1a4d0c614714d", "starts": [0, 24, 51, 61, 99]},
+  "ApocSedr.16": {"words": "9dbf31ebccc1b1d1", "starts": [0, 24, 39, 71, 83, 95]},
+  "ApocSedr.17": {"words": "f1a47742c2eceefd", "starts": [0, 30, 60, 75, 95, 115, 144, 173, 218, 235, 255, 282]},
+  "ApocSedr.18": {"words": "6f3351d17291c32d", "starts": [0, 24, 36, 57, 71, 97, 123, 144]},
+  "ApocSedr.19": {"words": "aae4f94bf20fa586", "starts": [0, 12, 47, 63, 84, 110, 130, 151, 165, 178]}
+ }
+}

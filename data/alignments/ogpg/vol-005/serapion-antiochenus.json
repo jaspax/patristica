@@ -3,10 +3,10 @@
  "group": "ogpg/vol-005/serapion-antiochenus",
  "pivot": "ogpg/vol-005/serapion-antiochenus",
  "groups": 10,
- "inputs": "b3b95b8cb4390faa",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "75aef6810cd55bfc",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/serapion-of-antioch-fragments", "units": 20, "ids": "c115dc72c3d59ac2", "inputs": "b802bd1643963208", "spans": "........++..++++++++", "conf": "9999999998"},
-  {"work_id": "ogpg/vol-005/serapion-antiochenus", "units": 184, "ids": "426cab664765623c", "inputs": "220d2f34fb3bc0a8", "spans": "++++++++=+=+=...........................................................................................................................................................................", "conf": "9999999998"}
+  {"work_id": "anf-works/serapion-of-antioch-fragments", "units": 16, "ids": "9f71d994d06d329b", "inputs": "0de48f3f7edb0f44", "spans": "....++..++++++++", "conf": "9999997999"},
+  {"work_id": "ogpg/vol-005/serapion-antiochenus", "units": 184, "ids": "426cab664765623c", "inputs": "220d2f34fb3bc0a8", "spans": "+++++++.+=++............................................................................................................................................................................", "conf": "9999997999"}
  ]
 }

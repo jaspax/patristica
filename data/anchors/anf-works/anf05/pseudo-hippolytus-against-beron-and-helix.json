@@ -1,0 +1,29 @@
+{
+ "work_id": "anf-works/pseudo-hippolytus-against-beron-and-helix",
+ "anchor": "ogpg/vol-010/adversus-beronem",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "a4db6f0724c37572",
+ "words": "e073aa605c80b787",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 61, "calibration": [0.4344, 0.154], "converged": false, "fallback_paragraphs": 4, "one_one": 0.8056, "rounds": 4, "units": 70},
+ "paragraphs": {
+  "PsHippo.Beron.I": {"words": "c355cdf435a046b8", "starts": [0]},
+  "PsHippo.Beron.I.1": {"words": "581ae8a26be4f907", "starts": [0, 13, 27]},
+  "PsHippo.Beron.I.2": {"words": "b1eea193904f7afa", "starts": [0]},
+  "PsHippo.Beron.I.3": {"words": "fff38cf71c03414b", "starts": [0, 191, 414, 446, 466]},
+  "PsHippo.Beron.II": {"words": "1c793d7e19e33064", "starts": [0]},
+  "PsHippo.Beron.II.1": {"words": "e6b8fb95a2c4868e", "starts": [0, 38, 72, 104, 126, 174, 235, 275, 309, 338]},
+  "PsHippo.Beron.III": {"words": "42e723960eb93a2d", "starts": [0]},
+  "PsHippo.Beron.III.1": {"words": "3e58878fae5d129a", "starts": [0, 18, 71, 116, 148, 183, 192, 242, 283, 322, 354, 367]},
+  "PsHippo.Beron.IV": {"words": "510db686dedfce51", "starts": [0]},
+  "PsHippo.Beron.IV.1": {"words": "dd7e032a894fba61", "starts": [0]},
+  "PsHippo.Beron.V": {"words": "c3461bc336168cbc", "starts": [0]},
+  "PsHippo.Beron.V.1": {"words": "5eac3312e745fab0", "starts": [0, 162, 194, 245, 279]},
+  "PsHippo.Beron.VI": {"words": "63d28e2f8e2f6b40", "starts": [0]},
+  "PsHippo.Beron.VI.1": {"words": "860402b8b19bfcd8", "starts": [0, 45, 87, 92, 130, 156]},
+  "PsHippo.Beron.VII": {"words": "51c57d0ac99e64f0", "starts": [0]},
+  "PsHippo.Beron.VII.1": {"words": "1e97c46450bfe62c", "starts": [0, 26]},
+  "PsHippo.Beron.VIII": {"words": "515d6a5fa9e48d53", "starts": [0]},
+  "PsHippo.Beron.VIII.1": {"words": "33dd4e6e89d4b1a7", "starts": [0, 33, 57, 87, 130, 161, 208, 244, 292, 304, 348, 372, 411, 427, 437, 450, 465]}
+ }
+}

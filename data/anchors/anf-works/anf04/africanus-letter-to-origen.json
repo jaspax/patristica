@@ -1,0 +1,15 @@
+{
+ "work_id": "anf-works/africanus-letter-to-origen",
+ "anchor": "ogpg/vol-011/africanus-epistula-ad-originem",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "c359bba0929e175a",
+ "words": "537857b62f1d1df0",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 13, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 2, "one_one": 0.8667, "rounds": 2, "units": 16},
+ "paragraphs": {
+  "Afric.EpOrig": {"words": "1ec68e11e9ffb903", "starts": [0]},
+  "Afric.EpOrig.1": {"words": "4661b394b7fd7230", "starts": [0]},
+  "Afric.EpOrig.3": {"words": "ff41160a111b52f6", "starts": [0, 10, 200, 219, 235]},
+  "Afric.EpOrig.4": {"words": "acd1ba268f364221", "starts": [0, 24, 49, 80, 104, 133, 157, 187, 230]}
+ }
+}

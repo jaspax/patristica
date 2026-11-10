@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "ogpg/vol-035/oratio-3",
- "pivot": "npnf-works/gregory-nazianzen-oration-03",
- "groups": 45,
- "inputs": "bde406710dccb433",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "ogpg/vol-035/oratio-3",
+ "groups": 48,
+ "inputs": "ed07943dab00c4ac",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/gregory-nazianzen-oration-03", "units": 54, "ids": "9de272f99c61cf53", "inputs": "cac58d7680100c32", "spans": "...+++=++++++.++++++++++++++++=++++=+++.+++++++++++=++", "conf": "999977999999988994998899999999999999888999999"},
-  {"work_id": "ogpg/vol-035/oratio-3", "units": 62, "ids": "220a1d155b7ebc6e", "inputs": "6a874a539394dd77", "spans": "++.++..+++++++.++++++.+++=++++++++++.++++++=++++++...+++......", "conf": "999977999999988994998899999999999999888999999"}
+  {"work_id": "npnf-works/gregory-nazianzen-oration-03", "units": 53, "ids": "bac62a8a9b30cb00", "inputs": "62bd4ec0fb741bf9", "spans": "...++++++++++.++++++++++++++++++++++++++++++++++++++.", "conf": "999998999999999889989999999999989999999999999999"},
+  {"work_id": "ogpg/vol-035/oratio-3", "units": 62, "ids": "220a1d155b7ebc6e", "inputs": "6a874a539394dd77", "spans": "+++++..++++++++++++++.+++=++++++++++.+++++++++++++...+++......", "conf": "999998999999999889989999999999989999999999999999"}
  ]
 }

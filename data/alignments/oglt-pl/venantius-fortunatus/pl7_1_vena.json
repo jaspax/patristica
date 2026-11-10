@@ -2,11 +2,11 @@
  "format": 1,
  "group": "oglt-pl/venantius-fortunatus/pl7_1_vena",
  "pivot": "anf-works/venantius-on-easter",
- "groups": 44,
- "inputs": "cf3edeadd28dbc3d",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 41,
+ "inputs": "3c727df0e3ea5be0",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/venantius-on-easter", "units": 51, "ids": "ea5676f62fb524f0", "inputs": "b83458d4e069bc76", "spans": "+=++++=++++++++=++++++++++=+=+++++++++++=+++++++.++", "conf": "99999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/venantius-fortunatus/pl7_1_vena", "units": 72, "ids": "f586a01442a43f1b", "inputs": "cb83042ac8518138", "spans": "++=+++++......+++++++++++++++++++++++++++++++++.............++++........", "conf": "99999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/venantius-on-easter", "units": 41, "ids": "94d54ab0a583f298", "inputs": "15ea6eda6db430c2", "spans": "+++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999"},
+  {"work_id": "oglt-pl/venantius-fortunatus/pl7_1_vena", "units": 72, "ids": "f586a01442a43f1b", "inputs": "cb83042ac8518138", "spans": "++++++++......++++++++++++++++++++++++++++++++=..............+..........", "conf": "99999999999999999999999999999999999999999"}
  ]
 }

@@ -1,0 +1,15 @@
+{
+ "work_id": "npnf-works/athanasius-letter-to-rufinianus",
+ "anchor": "ogpg/vol-026/ad-rufinianum",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8202592210900955",
+ "words": "407c2ebf7d586efd",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 6, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.1333, "rounds": 2, "units": 6},
+ "paragraphs": {
+  "Ath.EpRuf": {"words": "5b458523eaa57187", "starts": [0]},
+  "Ath.EpRuf.1": {"words": "39c39ca7aaee45a9", "starts": [0]},
+  "Ath.EpRuf.2": {"words": "b39418ca45b607db", "starts": [0]},
+  "Ath.EpRuf.3": {"words": "ab4acf9f2077c7c9", "starts": [0, 35, 62]}
+ }
+}

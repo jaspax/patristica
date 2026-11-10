@@ -2,11 +2,11 @@
  "format": 1,
  "group": "first1k/tlg1271/tlg005/1st1K-grc1",
  "pivot": "anf-works/pseudo-clementine-epistle-of-clement-to-james",
- "groups": 115,
- "inputs": "68531f94926e6861",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 119,
+ "inputs": "fe0273c037b93263",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/pseudo-clementine-epistle-of-clement-to-james", "units": 145, "ids": "1adb35b15e025a8a", "inputs": "c700399a0e8409e3", "spans": "....+++++++.+++++++++.+++++++++.++=+++.+++++++=.+++++.+++++++.+=++++.++++++.+++++++.+++.+++=++.+++.+++++++.+++=+++.++++++.++++++.++++++=++=++=+=+", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "first1k/tlg1271/tlg005/1st1K-grc1", "units": 119, "ids": "eaac8bba2d30e0c3", "inputs": "dc524acd39100add", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.++++++++++++=+++++++++++++++++++++=+++=++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/pseudo-clementine-epistle-of-clement-to-james", "units": 141, "ids": "251dcc1424146878", "inputs": "337ff367548df035", "spans": "...+++++++.+++++++++.+++++++++.+++++.+++++++.+++++.+++++++.+++++.++++++.+++++++.+++.+++++.++++.+++++++.+++++++.++++++.++++++.++++++=+++++++=+", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "first1k/tlg1271/tlg005/1st1K-grc1", "units": 119, "ids": "eaac8bba2d30e0c3", "inputs": "dc524acd39100add", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -1,0 +1,25 @@
+{
+ "work_id": "anf-works/tertullian-to-scapula",
+ "anchor": "perseus/stoa0275/stoa003/opp-lat1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "aa9c4ae54635d58c",
+ "words": "e7b189a5ec562363",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 76, "calibration": [0.4528, 0.2313], "converged": false, "fallback_paragraphs": 8, "one_one": 0.974, "rounds": 4, "units": 85},
+ "paragraphs": {
+  "Tert.Scap.I": {"words": "088130a484b8130c", "starts": [0]},
+  "Tert.Scap.I.1": {"words": "61e36330f6ec8513", "starts": [0]},
+  "Tert.Scap.I.2": {"words": "512edf9fa0487477", "starts": [0]},
+  "Tert.Scap.I.4": {"words": "91e7a44cf9ce7588", "starts": [0]},
+  "Tert.Scap.I.5": {"words": "019b6864d8d1e8d2", "starts": [0, 36, 74, 103, 133, 175, 203]},
+  "Tert.Scap.1": {"words": "2e97d3349afff02d", "starts": [0]},
+  "Tert.Scap.1.1": {"words": "5611993a739b4958", "starts": [0, 28, 41, 71, 98, 138, 175, 195, 227, 248, 275, 315, 345, 426, 455, 478, 499, 527, 553, 599, 621]},
+  "Tert.Scap.2": {"words": "ba81011f0ea8a0b3", "starts": [0]},
+  "Tert.Scap.2.1": {"words": "e0c6e5bbd489ad2c", "starts": [0, 23, 76, 109, 146, 178, 199, 236, 273, 286, 306, 341, 367, 382, 416]},
+  "Tert.Scap.3": {"words": "bcb00547d2b6f589", "starts": [0]},
+  "Tert.Scap.3.1": {"words": "1533622f8bc5a3ea", "starts": [0, 28, 61, 84, 101, 138, 151, 207, 257, 308, 341, 380, 413, 437, 465, 511, 548, 575, 610, 643, 682, 734]},
+  "Tert.Scap.4": {"words": "6272b9f19aba5cb3", "starts": [0]},
+  "Tert.Scap.4.1": {"words": "7e87cbadefe2981d", "starts": [0, 50, 74, 103, 149, 181, 222, 227]},
+  "Tert.Scap.4.2": {"words": "6347f7c4d3bf67dc", "starts": [0, 6, 41, 77]}
+ }
+}

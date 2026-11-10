@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-005/claudius-apollinaris",
  "pivot": "ogpg/vol-005/claudius-apollinaris",
- "groups": 13,
- "inputs": "19a1f04779363e34",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 12,
+ "inputs": "d35372b18a9571c8",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/claudius-apollinaris-fragments", "units": 25, "ids": "5a1db07842a1c8cc", "inputs": "0fb4e7181227b189", "spans": "..+11+=+=.....-12++=+.+++.+++", "conf": "7986999999969"},
-  {"work_id": "ogpg/vol-005/claudius-apollinaris", "units": 33, "ids": "a04860e7a45f9b37", "inputs": "7089ce43cb870170", "spans": "++++....+++++......+=.....++==+..", "conf": "6999999969798"}
+  {"work_id": "anf-works/claudius-apollinaris-fragments", "units": 18, "ids": "d6f2c29568f0f979", "inputs": "0bb31511769b0208", "spans": "...+=++++.+++.++++", "conf": "599989999599"},
+  {"work_id": "ogpg/vol-005/claudius-apollinaris", "units": 33, "ids": "a04860e7a45f9b37", "inputs": "7089ce43cb870170", "spans": "+++++=..+++++......++............", "conf": "599989999599"}
  ]
 }

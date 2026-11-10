@@ -1,0 +1,19 @@
+{
+ "work_id": "anf-works/pseudo-clementine-contestatio",
+ "anchor": "first1k/tlg1271/tlg004/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "70a1ef5779f3b4b5",
+ "words": "052c1705e8788850",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 28, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 2, "one_one": 0.931, "rounds": 2, "units": 31},
+ "paragraphs": {
+  "PsClem.Hom.2.IV": {"words": "278cac8ce9aef82c", "starts": [0]},
+  "PsClem.Hom.2.IV.1": {"words": "17ca55bd7b73fb94", "starts": [0, 17, 71, 110, 146]},
+  "PsClem.Hom.2.IV.2": {"words": "c780de0868ae2dd7", "starts": [0, 52, 91, 129, 158]},
+  "PsClem.Hom.2.IV.3": {"words": "174c359e1e0bf871", "starts": [0, 52, 84, 102, 144, 191]},
+  "PsClem.Hom.2.IV.4": {"words": "c47296b06d8359df", "starts": [0, 29, 90, 118, 148]},
+  "PsClem.Hom.2.IV.5": {"words": "d9167e2cda3efaa7", "starts": [0]},
+  "PsClem.Hom.2.V": {"words": "ada30e511f682221", "starts": [0]},
+  "PsClem.Hom.2.V.1": {"words": "a4a9bd7abf6a9f88", "starts": [0, 21, 44, 74, 106, 143, 169]}
+ }
+}

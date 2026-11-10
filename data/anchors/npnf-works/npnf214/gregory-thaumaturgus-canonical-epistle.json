@@ -1,0 +1,31 @@
+{
+ "work_id": "npnf-works/gregory-thaumaturgus-canonical-epistle",
+ "anchor": "ogpg/vol-010/thaumaturgus-epistula-canonica",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "5d4735d62414a8a1",
+ "words": "87f8022773cc4176",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 34, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 4, "one_one": 0.0377, "rounds": 2, "units": 38},
+ "paragraphs": {
+  "GregThaum.EpCan": {"words": "8700067b17b3bae9", "starts": [0]},
+  "GregThaum.EpCan.1": {"words": "b0ed0b663650b851", "starts": [0, 13]},
+  "GregThaum.EpCan.2": {"words": "f4825c30ab47684a", "starts": [0]},
+  "GregThaum.EpCan.3": {"words": "9ca9f07340c9c176", "starts": [0, 10, 15, 27, 40]},
+  "GregThaum.EpCan.4": {"words": "dcc957733876f286", "starts": [0]},
+  "GregThaum.EpCan.5": {"words": "494aa9608a9d17c4", "starts": [0, 10, 12]},
+  "GregThaum.EpCan.6": {"words": "0d12852b982494c0", "starts": [0]},
+  "GregThaum.EpCan.7": {"words": "689abdc0681adb0c", "starts": [0, 7, 16]},
+  "GregThaum.EpCan.8": {"words": "b48237f37756a965", "starts": [0]},
+  "GregThaum.EpCan.9": {"words": "2bce6be6beecbe64", "starts": [0, 12, 21]},
+  "GregThaum.EpCan.10": {"words": "8bc05586a317c215", "starts": [0]},
+  "GregThaum.EpCan.11": {"words": "788598e749cda4c3", "starts": [0, 11, 18, 24]},
+  "GregThaum.EpCan.12": {"words": "fa5a87c431f3f45c", "starts": [0]},
+  "GregThaum.EpCan.13": {"words": "102759822e5ac0d5", "starts": [0]},
+  "GregThaum.EpCan.14": {"words": "0d233ab51325709e", "starts": [0]},
+  "GregThaum.EpCan.15": {"words": "81cca2188fecbad5", "starts": [0, 24]},
+  "GregThaum.EpCan.16": {"words": "28999c76b14a027b", "starts": [0]},
+  "GregThaum.EpCan.17": {"words": "3e235e480fbdd65d", "starts": [0]},
+  "GregThaum.EpCan.18": {"words": "571fbc7e572c5e6a", "starts": [0]},
+  "GregThaum.EpCan.19": {"words": "32a5fb280b48e1b3", "starts": [0, 11, 26, 37]}
+ }
+}

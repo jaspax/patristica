@@ -1,0 +1,19 @@
+{
+ "work_id": "anf-works/pseudo-clementine-epistle-of-peter-to-james",
+ "anchor": "first1k/tlg1271/tlg003/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "c04705dcbfe841c6",
+ "words": "8952e0d2c1f65b63",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 21, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 5, "one_one": 0.9091, "rounds": 1, "units": 26},
+ "paragraphs": {
+  "PsClem.Hom.2.I": {"words": "b97f536d590d41c4", "starts": [0]},
+  "PsClem.Hom.2.I.2": {"words": "1399070e68ffe1e1", "starts": [0]},
+  "PsClem.Hom.2.I.3": {"words": "61e5bc4c7825605b", "starts": [0]},
+  "PsClem.Hom.2.I.4": {"words": "8c97d15eebf607b9", "starts": [0, 50, 83, 94, 126, 160]},
+  "PsClem.Hom.2.II": {"words": "bda849cab51a69a3", "starts": [0]},
+  "PsClem.Hom.2.II.1": {"words": "901a37854762a8e2", "starts": [0, 32, 61, 80, 106, 133, 152, 189, 223, 261]},
+  "PsClem.Hom.2.III": {"words": "24afa602be58c1f3", "starts": [0]},
+  "PsClem.Hom.2.III.1": {"words": "459db76e7273ddd4", "starts": [0, 43, 81, 103, 128]}
+ }
+}

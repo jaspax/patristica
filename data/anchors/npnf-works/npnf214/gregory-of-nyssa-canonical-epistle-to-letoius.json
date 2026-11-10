@@ -1,0 +1,29 @@
+{
+ "work_id": "npnf-works/gregory-of-nyssa-canonical-epistle-to-letoius",
+ "anchor": "ogpg/vol-045/epistula-canonica",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "f7a8bd20a23327c9",
+ "words": "693547107e05d8bb",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 37, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 8, "one_one": 0.1343, "rounds": 2, "units": 46},
+ "paragraphs": {
+  "GregNyss.Let": {"words": "57194bf63895d4a7", "starts": [0]},
+  "GregNyss.Let.1": {"words": "f914a9062e62990c", "starts": [0]},
+  "GregNyss.Let.2": {"words": "f4825c30ab47684a", "starts": [0]},
+  "GregNyss.Let.3": {"words": "d5893a6f79f46862", "starts": [0, 15, 30]},
+  "GregNyss.Let.4": {"words": "dcc957733876f286", "starts": [0]},
+  "GregNyss.Let.5": {"words": "242940d37b53c05f", "starts": [0, 6, 11, 25, 36, 49]},
+  "GregNyss.Let.6": {"words": "713ab1a2d44dc8e2", "starts": [0]},
+  "GregNyss.Let.7": {"words": "4858713ba1d5e798", "starts": [0, 8, 27, 38]},
+  "GregNyss.Let.8": {"words": "b9ef49ef721e057c", "starts": [0]},
+  "GregNyss.Let.9": {"words": "e263c65d6ae2a662", "starts": [0, 20, 42]},
+  "GregNyss.Let.10": {"words": "a755e633c4f9aef4", "starts": [0]},
+  "GregNyss.Let.11": {"words": "8150fef7bc97a644", "starts": [0, 17, 40, 47, 61]},
+  "GregNyss.Let.12": {"words": "b48237f37756a965", "starts": [0]},
+  "GregNyss.Let.13": {"words": "866ae7e6b4db6b60", "starts": [0, 13, 24, 28, 37, 47, 70]},
+  "GregNyss.Let.14": {"words": "8bc05586a317c215", "starts": [0]},
+  "GregNyss.Let.15": {"words": "f905a41b227a485d", "starts": [0, 5, 15, 27]},
+  "GregNyss.Let.16": {"words": "fa5a87c431f3f45c", "starts": [0]},
+  "GregNyss.Let.17": {"words": "fa94a518173f97e4", "starts": [0, 8, 13, 22]}
+ }
+}

@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-026/ad-maximum",
  "pivot": "npnf-works/athanasius-letter-61-to-maximus",
- "groups": 44,
- "inputs": "d29b6c5c7ce26c64",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 46,
+ "inputs": "38bdafd4262e84ff",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-letter-61-to-maximus", "units": 45, "ids": "b912c6f9080591a5", "inputs": "0106d66c5280c434", "spans": "+++++++++++++++++++=+++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-026/ad-maximum", "units": 46, "ids": "f4e05c5183be92ec", "inputs": "c59d5aec44606535", "spans": "++++++++++++=++++++++++++++++++++++++++++++=++", "conf": "99999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/athanasius-letter-61-to-maximus", "units": 47, "ids": "a1cd38bb5a473c04", "inputs": "5a46c22e8f5bcc1f", "spans": "+++++++++++++++++++++++=+++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-026/ad-maximum", "units": 46, "ids": "f4e05c5183be92ec", "inputs": "c59d5aec44606535", "spans": "++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999"}
  ]
 }

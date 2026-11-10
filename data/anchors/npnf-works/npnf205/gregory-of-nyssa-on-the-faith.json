@@ -1,0 +1,17 @@
+{
+ "work_id": "npnf-works/gregory-of-nyssa-on-the-faith",
+ "anchor": "ogpg/vol-045/ad-simplicium",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "e32d644519a74216",
+ "words": "8dadae3656a7a497",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 71, "calibration": [0.2293, 0.2249], "converged": false, "fallback_paragraphs": 2, "one_one": 0.9079, "rounds": 4, "units": 73},
+ "paragraphs": {
+  "GregNyss.Fid": {"words": "5a6b10bcc8f59fdb", "starts": [0]},
+  "GregNyss.Fid.1": {"words": "4e68df8b94d0915c", "starts": [0]},
+  "GregNyss.Fid.3": {"words": "d69f0aa47b102b42", "starts": [0, 22, 48, 71, 103, 116, 146, 174, 210, 238, 262, 297, 314, 343, 376, 389, 416, 439, 468, 506, 534, 585, 615, 636, 660, 681, 717, 754, 784, 817, 865, 886, 922, 970, 1006, 1049, 1100, 1112, 1136, 1159, 1174, 1217]},
+  "GregNyss.Fid.4": {"words": "aae05d44c7ee9e50", "starts": [0, 29, 48, 85, 120, 148]},
+  "GregNyss.Fid.5": {"words": "ce33444340544aee", "starts": [0, 24, 58, 96, 105, 139, 154, 172, 211, 237, 254, 290, 302, 344, 364]},
+  "GregNyss.Fid.6": {"words": "1d47d0991bca622a", "starts": [0, 36, 62, 81, 104, 123, 139, 159]}
+ }
+}

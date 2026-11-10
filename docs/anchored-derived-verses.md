@@ -650,7 +650,20 @@ fall back to their paragraph. Measured on the pilot (confident 1:1 rows in
 `scripts.align_eval compare --one-one`): Tractates PL 35 ↔ NPNF 82.0 → 97.8 %,
 Basil Perseus ↔ NPNF 56.9 → 89.0 %, Perseus ↔ Migne 56.6 → 87.7 %; over all
 220 edition pairs, the projection alone raises 1:1 rows from 65.3 to 89.5 %
-(`scripts.edition_eval`). The rest of this section is the original plan.
+(`scripts.edition_eval`). 
+
+**Status (2026-11-10, corpus):** migrated. `scripts.anchor_enrol` proposed
+688 works (487 translations, 201 editions; 18 edition pairs kept today's cut,
+no clear gain); 28 translations whose 1:1 rows with their anchor got worse
+(mostly council canons) were taken back out, leaving 666. A first edition
+pass left thousands of scraps (Migne's leading section numbers, a stray OCR
+token shifting a cut), fixed in projection version 2 (`min_letters`, the
+unmatched-start rule). Result outside Scripture (`align_eval compare
+--one-one`): confident 1:1 rows 41.9 → 61.6 % for same-language pairs and
+54.9 → 69.1 % for the others, coverage up (70.1 → 71.0 %, 74.0 → 75.7 %);
+649 migrated works better, 17 unchanged, none worse. Voyage about $7.30.
+
+The rest of this section is the original plan.
 
 The machinery is the same; only the inputs differ:
 - **The provisional cut is today's published cut**, with vectors for every

@@ -1,0 +1,15 @@
+{
+ "work_id": "anf-works/theophilus-of-caesarea-fragment",
+ "anchor": "ogpg/vol-005/theophilus-caesariensis",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "83842356c247d979",
+ "words": "307d9b89087c6317",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 3, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 1.0, "rounds": 2, "units": 6},
+ "paragraphs": {
+  "TheophCaes": {"words": "4e53b29c3acf74dd", "starts": [0]},
+  "TheophCaes.1": {"words": "456fc8afb70869cd", "starts": [0]},
+  "TheophCaes.2": {"words": "e9aa7222ff897a53", "starts": [0]},
+  "TheophCaes.3": {"words": "ebf641d50299c452", "starts": [0, 32, 52]}
+ }
+}

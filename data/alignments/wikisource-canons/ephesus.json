@@ -2,12 +2,12 @@
  "format": 1,
  "group": "wikisource-canons/ephesus",
  "pivot": "ecumenical/ephesus",
- "groups": 31,
- "inputs": "4443612eef3f3209",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 38,
+ "inputs": "af26000ef2a12bbb",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ecumenical/ephesus", "units": 630, "ids": "d13f7d6bbeaa6615", "inputs": "078d224018c1fb1f", "spans": ".......................................................................................................................................................................................................................................................................+.............................................................................................................+=............+++=++=...........+=.+..+=+............++===....++.............+=+.+++=++=........+.+=+++++++......................................................................................................................................................", "conf": "9999999999999999999999999999999"},
-  {"work_id": "oglt-pl/dionysius-exiguus/pl67_9_con", "units": 35, "ids": "5570cc94aefc4f0c", "inputs": "a24185a8c4911d6c", "spans": "+++2+++++++++==++++++=+++++=++=+++++", "conf": "999999999999999999999999999999"},
-  {"work_id": "wikisource-canons/ephesus", "units": 44, "ids": "698cacf5a355b0bc", "inputs": "1be2fc7241064eec", "spans": ".+3+=++.++.+2+.+.+=.++.+=++++=+.+++=+=+=+=++++", "conf": "9999999999899999997999999999"}
+  {"work_id": "ecumenical/ephesus", "units": 442, "ids": "229dc4b2ea608f40", "inputs": "5539e40f86d73919", "spans": "..........+=.....................................+=......+=..................................................................................................................................+=.................+=.....................................................................+=.............+=..........+=+=..+==+==+.....++==+...++........++++++++.....++++++=+==........+=...........................+................+=......+........+=+=..", "conf": "99998899999999999999999999999999878899"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_9_con", "units": 36, "ids": "458d8c89e3ae3317", "inputs": "6fc636c0d356454d", "spans": "+++3+2++++=++++++++++++++++++++=+=+4++=", "conf": "99899999999899999999999999999899"},
+  {"work_id": "wikisource-canons/ephesus", "units": 44, "ids": "698cacf5a355b0bc", "inputs": "1be2fc7241064eec", "spans": ".+3++2++.++.+2+....+2.++.+.++++++.+2=+++++2++++++=", "conf": "9989999989899999999999998878899"}
  ]
 }

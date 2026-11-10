@@ -1,0 +1,25 @@
+{
+ "work_id": "npnf-works/gregory-nazianzen-oration-27",
+ "anchor": "first1k/tlg2022/tlg007/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8bfd0d36d69d5531",
+ "words": "0c5f9b4539028135",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 105, "calibration": [0.7478, 0.1356], "converged": false, "fallback_paragraphs": 3, "one_one": 0.9811, "rounds": 4, "units": 108},
+ "paragraphs": {
+  "GregNaz.Or27": {"words": "0c7f48cde70ead44", "starts": [0]},
+  "GregNaz.Or27.1": {"words": "de6a8147266112a9", "starts": [0]},
+  "GregNaz.Or27.2": {"words": "329cf9d5eabfcc21", "starts": [0]},
+  "GregNaz.Or27.3": {"words": "ff4e256d478847b4", "starts": [0, 48, 75, 96, 124, 150]},
+  "GregNaz.Or27.4": {"words": "f183ef690ad8cb13", "starts": [0, 29, 60, 87, 110, 147, 176, 200, 239, 272, 295]},
+  "GregNaz.Or27.5": {"words": "8bbdfaf0cc105e1b", "starts": [0]},
+  "GregNaz.Or27.6": {"words": "f30b1ba58cf365b4", "starts": [0, 26]},
+  "GregNaz.Or27.7": {"words": "2727c0d150e79bfb", "starts": [0, 39, 66, 99, 115, 150, 190]},
+  "GregNaz.Or27.8": {"words": "6df54cc4f771b681", "starts": [0, 35, 49, 69]},
+  "GregNaz.Or27.9": {"words": "d5035c91213f22fc", "starts": [0, 35, 62, 96, 130, 169, 215, 242, 279, 299, 335, 356, 377, 408, 437, 455, 470, 493, 528, 574, 601]},
+  "GregNaz.Or27.10": {"words": "4af65a3d4bea9fc5", "starts": [0, 44, 62, 87, 119, 155, 178, 211, 232]},
+  "GregNaz.Or27.11": {"words": "871ef1b60577a3b8", "starts": [0, 32, 50, 66, 83, 97, 131, 158, 182, 236, 255, 290]},
+  "GregNaz.Or27.12": {"words": "44c4d7ce6c8e69a2", "starts": [0, 30, 57, 85, 116, 136, 171, 202, 236, 277, 313, 348, 369, 388]},
+  "GregNaz.Or27.13": {"words": "521470749e393fe1", "starts": [0, 29, 57, 91, 120, 139, 165, 181, 215, 224, 251, 277, 312, 326, 373, 415, 444, 477]}
+ }
+}

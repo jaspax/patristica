@@ -1,0 +1,26 @@
+{
+ "work_id": "npnf-works/augustine-faith-of-things-not-seen",
+ "anchor": "oglt-pl/augustinus/pl40_4_s.",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8f6225f492768afc",
+ "words": "3ae0cd4e05567bfa",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 201, "calibration": [0.4351, 0.2646], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8462, "rounds": 4, "units": 202},
+ "paragraphs": {
+  "Aug.FidInvis": {"words": "6fbcd209bf6e031f", "starts": [0]},
+  "Aug.FidInvis.1": {"words": "72daf3c5142f9c68", "starts": [0]},
+  "Aug.FidInvis.2": {"words": "ca64c67ea6c1765f", "starts": [0]},
+  "Aug.FidInvis.3": {"words": "2869b98aa1d0c8db", "starts": [0]},
+  "Aug.FidInvis.1.1": {"words": "b4e4904c05f0ecc4", "starts": [0, 43, 65, 99, 132, 149, 190, 222]},
+  "Aug.FidInvis.2.1": {"words": "aca3dfb94ff7fc1a", "starts": [0, 33, 77, 104, 130, 164, 192, 222, 248, 285, 330, 368, 395, 426, 473]},
+  "Aug.FidInvis.3.1": {"words": "1ec46408d609c3dd", "starts": [0, 23, 45, 67, 84, 107, 134, 154, 189, 215, 239]},
+  "Aug.FidInvis.4": {"words": "d20f1c1089e0acd3", "starts": [0, 24, 51, 89, 121, 147, 163, 196, 213, 240, 265, 306, 330, 354, 366, 400, 431, 460, 480, 514, 532, 551]},
+  "Aug.FidInvis.5": {"words": "88294b9c8656714d", "starts": [0, 26, 46, 79, 120, 137, 156, 187, 224, 242, 269, 290, 319, 341, 361, 391, 431, 452, 475, 501, 526, 548, 577, 600, 629, 652, 687, 705, 741, 773]},
+  "Aug.FidInvis.6": {"words": "a3fcf567b9f6c6a3", "starts": [0, 12, 36, 61, 89, 123, 158, 178, 199, 208, 233, 243, 280, 298, 333, 385, 409, 439, 472, 515, 540, 558]},
+  "Aug.FidInvis.7": {"words": "3a9a1aaf382b5afb", "starts": [0, 22, 53, 71, 109, 144, 171, 193, 229, 244, 265, 298, 312, 354, 367, 392, 414, 455, 502, 522, 533, 548, 578, 611, 636, 660, 685, 719, 749, 780, 795, 818, 841, 862, 876, 904]},
+  "Aug.FidInvis.8": {"words": "ebdc0854f952d468", "starts": [0, 25, 56, 91, 136, 182, 211, 240]},
+  "Aug.FidInvis.9": {"words": "0827b13b05bebaeb", "starts": [0, 15, 54, 77, 120, 139, 169, 209, 239, 249, 270, 293, 342, 362, 381, 404, 448]},
+  "Aug.FidInvis.10": {"words": "81332b03c691c4e4", "starts": [0, 34, 58, 82, 108, 131, 162, 178, 204, 226, 238, 273, 303, 327, 358, 383, 410, 451, 480, 501]},
+  "Aug.FidInvis.11": {"words": "0025b882b9a96c2b", "starts": [0, 24, 43, 69, 121, 140, 157, 195, 223]}
+ }
+}

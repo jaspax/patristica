@@ -1,0 +1,21 @@
+{
+ "work_id": "anf-works/against-the-heresy-of-artemon",
+ "anchor": "first1k/tlg0572/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "0c9bbad4a9fda282",
+ "words": "01d92f7840019c45",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 42, "calibration": [0.4685, 0.2359], "converged": false, "fallback_paragraphs": 6, "one_one": 0.82, "rounds": 4, "units": 48},
+ "paragraphs": {
+  "LittleLab": {"words": "062bc411e30ad3c4", "starts": [0]},
+  "LittleLab.1": {"words": "a13c764cde613382", "starts": [0]},
+  "LittleLab.2": {"words": "b6e63505bdc75e87", "starts": [0, 3]},
+  "LittleLab.3": {"words": "4e5fbf6b3b6fb296", "starts": [0, 25, 48, 77, 110, 130, 152, 180, 214, 226, 251]},
+  "LittleLab.4": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "LittleLab.5": {"words": "78adeecd8130a7c9", "starts": [0]},
+  "LittleLab.6": {"words": "59b17b51db04e3c8", "starts": [0, 38, 55, 75, 101, 135, 151, 175, 204, 237, 261]},
+  "LittleLab.7": {"words": "8700067b17b3bae9", "starts": [0]},
+  "LittleLab.8": {"words": "a37aa04e1dbe9949", "starts": [0]},
+  "LittleLab.9": {"words": "e6d154eca5237a46", "starts": [0, 22, 45, 70, 101, 127, 160, 194, 210, 255, 277, 301, 329, 352, 388, 407, 437, 468]}
+ }
+}

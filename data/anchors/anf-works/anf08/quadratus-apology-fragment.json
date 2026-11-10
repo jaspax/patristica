@@ -1,0 +1,16 @@
+{
+ "work_id": "anf-works/quadratus-apology-fragment",
+ "anchor": "ogpg/vol-005/quadratus-fragmentum",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "f479f016e43b65a9",
+ "words": "34c59d3b7d0a02b3",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 5, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.4545, "rounds": 2, "units": 8},
+ "paragraphs": {
+  "Quadr": {"words": "6c8f91681fdf736d", "starts": [0]},
+  "Quadr.2": {"words": "57c70adbdd9aa8ca", "starts": [0]},
+  "Quadr.3": {"words": "bc6b377128a673dd", "starts": [0]},
+  "Quadr.4": {"words": "515ad3bf4b3bafab", "starts": [0]},
+  "Quadr.5": {"words": "aa968261fbe0110d", "starts": [0, 29, 47, 68]}
+ }
+}

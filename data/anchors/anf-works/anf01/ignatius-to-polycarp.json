@@ -1,0 +1,29 @@
+{
+ "work_id": "anf-works/ignatius-to-polycarp",
+ "anchor": "first1k/tlg1443/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8c18660c01e8785d",
+ "words": "2184c7ae5c3e68be",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 53, "calibration": [0.8546, 0.1138], "converged": false, "fallback_paragraphs": 0, "one_one": 0.2115, "rounds": 4, "span": [196, 404], "units": 60},
+ "paragraphs": {
+  "Ign.Pol": {"words": "ad585708f360a32f", "starts": [0, 17, 26]},
+  "Ign.Pol.1": {"words": "d14f738b0f9a7112", "starts": [0, 19]},
+  "Ign.Pol.i": {"words": "0d5580ac4f911be9", "starts": [0, 32, 39, 56, 88, 98, 112, 120, 135]},
+  "Ign.Pol.i.1": {"words": "65f0cce56d4e1a07", "starts": [0, 39, 77, 106, 135]},
+  "Ign.Pol.ii": {"words": "ef0f4e1f8a2143f4", "starts": [0, 25, 44, 82]},
+  "Ign.Pol.ii.1": {"words": "3afe9e2401494e60", "starts": [0, 124]},
+  "Ign.Pol.iii": {"words": "6faca8a0e5fdc223", "starts": [0]},
+  "Ign.Pol.iii.1": {"words": "1e13b67e9b229959", "starts": [0, 25, 66, 107]},
+  "Ign.Pol.iv": {"words": "d64ac56dd563ffce", "starts": [0]},
+  "Ign.Pol.iv.1": {"words": "c10115a2a830f7c7", "starts": [0, 39, 52, 91]},
+  "Ign.Pol.v": {"words": "3d9ef406f2f7c1bb", "starts": [0]},
+  "Ign.Pol.v.1": {"words": "17f59233665903e9", "starts": [0, 33, 57, 103]},
+  "Ign.Pol.vi": {"words": "b635753ec9fb6e14", "starts": [0, 42, 69, 108]},
+  "Ign.Pol.vi.1": {"words": "8b90c3bd3752c9fb", "starts": [0, 133]},
+  "Ign.Pol.vii": {"words": "0b7bf231eaabc139", "starts": [0]},
+  "Ign.Pol.vii.1": {"words": "297492a3d6427ae0", "starts": [0, 27, 56, 95, 123, 170]},
+  "Ign.Pol.viii": {"words": "19e923860e8de687", "starts": [0]},
+  "Ign.Pol.viii.1": {"words": "ff2326dc42116cd2", "starts": [0, 33, 77, 98, 121, 148]}
+ }
+}

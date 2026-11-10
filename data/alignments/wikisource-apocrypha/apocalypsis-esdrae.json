@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "wikisource-apocrypha/apocalypsis-esdrae",
- "pivot": "wikisource-apocrypha/apocalypsis-esdrae",
- "groups": 127,
- "inputs": "6fba4e9b214f69ad",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "anf-works/revelation-of-esdras",
+ "groups": 181,
+ "inputs": "8e960b26270fa656",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/revelation-of-esdras", "units": 132, "ids": "36ed52939a8b37e9", "inputs": "6a9dcd2defbb57b5", "spans": "+=+=+++=++++++++++++++++++++++.++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "wikisource-apocrypha/apocalypsis-esdrae", "units": 184, "ids": "029c796d2a7b453e", "inputs": "928d925ed40ab522", "spans": "++++=+++++++=++=+.+=++=++.++=++=+++=++=+=+=+++=+=+==+++=++=+++=++++=++=+=+=++=+=++=+.+=++=+++=+.++++=+=++++=+=+=++=++=+=+=++++++=+++=+=+++=++.++++=+=+=+=+=+=++++=++=+++++++++=.++=+++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/revelation-of-esdras", "units": 182, "ids": "f1dcc27f92972f75", "inputs": "18149c86dd520ddf", "spans": "+=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "wikisource-apocrypha/apocalypsis-esdrae", "units": 184, "ids": "029c796d2a7b453e", "inputs": "928d925ed40ab522", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++=+++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

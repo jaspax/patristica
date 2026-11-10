@@ -2,11 +2,11 @@
  "format": 1,
  "group": "oglt-pl/hieronymus/pl23_2_unknown",
  "pivot": "npnf-works/jerome-life-of-malchus",
- "groups": 115,
- "inputs": "b36ea50326eb3193",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 120,
+ "inputs": "02396c2f9c5a12fc",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/jerome-life-of-malchus", "units": 120, "ids": "af475d3249c8c372", "inputs": "82baf82cb9752971", "spans": "++++=+++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=++++++++++++++=++++++++++++=+++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999899999999"},
-  {"work_id": "oglt-pl/hieronymus/pl23_2_unknown", "units": 174, "ids": "8fa82bae36473f71", "inputs": "b47d2fa4baa2be4f", "spans": "+++++++++++..............++++++++++++......+++=++++++++++++++.....++++++++=++++=+++++++...+++++++++++=++=+++++....++++++++++++++++++++...+++++++=++.........+++=++++++........", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999899999999"}
+  {"work_id": "npnf-works/jerome-life-of-malchus", "units": 120, "ids": "e4e0ad17a05fb2b5", "inputs": "30f75d46d79b6891", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999968999999999"},
+  {"work_id": "oglt-pl/hieronymus/pl23_2_unknown", "units": 174, "ids": "8fa82bae36473f71", "inputs": "b47d2fa4baa2be4f", "spans": "+++=+===.+=.............+++++++++++++......+++++++++++++++++++....+++++++++++++++++++++...+++++++++++++++++++++...++++++++++++++++++++...+++++++++++........++++++++++........", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999968999999999"}
  ]
 }

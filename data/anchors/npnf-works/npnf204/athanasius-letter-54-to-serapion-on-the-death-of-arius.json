@@ -1,0 +1,18 @@
+{
+ "work_id": "npnf-works/athanasius-letter-54-to-serapion-on-the-death-of-arius",
+ "anchor": "ogpg/vol-025/de-morte-arii",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "dac45e66c17fd729",
+ "words": "edf26ec04a00df8a",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 47, "calibration": [0.7416, 0.1154], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 48},
+ "paragraphs": {
+  "Ath.EpSerap": {"words": "adf10e519d48f7ba", "starts": [0]},
+  "Ath.EpSerap.1": {"words": "ffd3d8e6be732713", "starts": [0]},
+  "Ath.EpSerap.2": {"words": "7c2a10f0689c69a0", "starts": [0, 27, 59, 102, 137, 165, 188, 222]},
+  "Ath.EpSerap.3": {"words": "316bfd4f6b9aa62a", "starts": [0, 23, 39, 59, 105, 127, 156, 182, 207, 214]},
+  "Ath.EpSerap.4": {"words": "5b67c4ccafcadefa", "starts": [0, 26, 41, 60, 103, 123, 150, 169, 196]},
+  "Ath.EpSerap.5": {"words": "9650c7d996d0b24a", "starts": [0, 77, 95, 109, 135, 166, 186, 222, 263]},
+  "Ath.EpSerap.6": {"words": "07bd3f16fd84b0f7", "starts": [0, 32, 52, 79, 128, 157, 176, 201, 224, 253]}
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "work_id": "anf-works/tertullian-ad-martyras",
+ "anchor": "perseus/stoa0275/stoa001/opp-lat1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b93f67758f3b2652",
+ "words": "fddb9bd6910d1083",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 77, "calibration": [0.6892, 0.1754], "converged": true, "fallback_paragraphs": 9, "one_one": 1.0, "rounds": 3, "units": 86},
+ "paragraphs": {
+  "Tert.Mart.I": {"words": "af067b1bc8dce992", "starts": [0]},
+  "Tert.Mart.I.1": {"words": "84e3ef9c8f53bdbe", "starts": [0]},
+  "Tert.Mart.I.2": {"words": "512edf9fa0487477", "starts": [0]},
+  "Tert.Mart.I.4": {"words": "91e7a44cf9ce7588", "starts": [0]},
+  "Tert.Mart.I.5": {"words": "151260bb1aec6ced", "starts": [0, 42, 56, 104, 135, 151, 186, 222, 261, 286, 321, 341]},
+  "Tert.Mart.1": {"words": "2e97d3349afff02d", "starts": [0]},
+  "Tert.Mart.1.1": {"words": "66754a1d41bcba06", "starts": [0, 26, 58, 85, 105, 126, 163, 193, 218, 253, 293, 322, 354, 395, 426, 461, 501, 534, 559, 576, 604]},
+  "Tert.Mart.2": {"words": "ba81011f0ea8a0b3", "starts": [0]},
+  "Tert.Mart.2.1": {"words": "7c5895802f54255d", "starts": [0, 31, 72, 102, 148, 173, 217, 270, 291, 309, 336]},
+  "Tert.Mart.3": {"words": "bcb00547d2b6f589", "starts": [0]},
+  "Tert.Mart.3.1": {"words": "5d0a85d6dca9efc3", "starts": [0, 33, 79, 112, 150, 179, 215, 249, 271, 288, 312, 352, 389, 443, 490, 520, 551, 565, 593, 615, 656, 671]},
+  "Tert.Mart.4": {"words": "6272b9f19aba5cb3", "starts": [0]},
+  "Tert.Mart.4.1": {"words": "d843e86604303b50", "starts": [0, 33, 72, 87, 116]},
+  "Tert.Mart.5": {"words": "f3202558cc9e5f1d", "starts": [0]},
+  "Tert.Mart.5.1": {"words": "8e05f4d17e529fd4", "starts": [0, 13, 53, 95, 130, 161]}
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "work_id": "anf-works/anonymous-against-the-montanists",
+ "anchor": "first1k/tlg1131/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "2d37463cedbd8711",
+ "words": "8366e3b2bc0351e5",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 57, "calibration": [0.7238, 0.1449], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9492, "rounds": 4, "units": 57},
+ "paragraphs": {
+  "AntiMont": {"words": "624f429686d8ff5a", "starts": [0, 39, 70, 101, 142, 174, 214, 243, 272]},
+  "AntiMont.1": {"words": "cbbb9a53af1837f6", "starts": [0, 33, 102, 115, 150, 189, 227, 256, 271, 311, 334, 377, 403, 440, 469, 489]},
+  "AntiMont.2": {"words": "07f9388a1a0102e9", "starts": [0, 41, 76, 100, 123, 159, 189, 230, 253, 289]},
+  "AntiMont.3": {"words": "586864a3c01a5359", "starts": [0, 39, 51, 99]},
+  "AntiMont.4": {"words": "2457f2178474b328", "starts": [0, 38]},
+  "AntiMont.5": {"words": "1630e30b0f57b3b4", "starts": [0, 27, 67, 103, 127]},
+  "AntiMont.6": {"words": "8a2c03827a2dee70", "starts": [0, 31, 60]},
+  "AntiMont.7": {"words": "9fbe53bf17436e54", "starts": [0]},
+  "AntiMont.8": {"words": "24f1924d53027569", "starts": [0, 40, 70, 96]},
+  "AntiMont.9": {"words": "ee3b181a039eee27", "starts": [0, 39, 62]}
+ }
+}

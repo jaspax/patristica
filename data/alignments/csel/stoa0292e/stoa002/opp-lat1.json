@@ -2,11 +2,11 @@
  "format": 1,
  "group": "csel/stoa0292e/stoa002/opp-lat1",
  "pivot": "anf-works/victorinus-on-the-creation-of-the-world",
- "groups": 64,
- "inputs": "576ee2540d6e92a6",
- "run": {"aligner": 2, "date": "2026-10-27", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 70,
+ "inputs": "a57e24628354a5f8",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/victorinus-on-the-creation-of-the-world", "units": 67, "ids": "6b296d20eca93f3b", "inputs": "406b5fe90bcf5769", "spans": "+++++++++++++++++=++++++++++++++++++++++++++++=+++++++++++=++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "csel/stoa0292e/stoa002/opp-lat1", "units": 71, "ids": "a0f91011eb1494d5", "inputs": "ac72ea1b3ad4da44", "spans": ".++++++++++=++++++++++++++=+=+++++=+++++++++++++++++++++=+++++++++=++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/victorinus-on-the-creation-of-the-world", "units": 70, "ids": "468f9c196334dec7", "inputs": "8933da811a0d7ae0", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "csel/stoa0292e/stoa002/opp-lat1", "units": 71, "ids": "a0f91011eb1494d5", "inputs": "ac72ea1b3ad4da44", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

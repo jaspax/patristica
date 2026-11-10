@@ -1,0 +1,30 @@
+{
+ "work_id": "npnf-works/vincent-of-lerins-commonitory-recapitulation",
+ "anchor": "oglt-pl/vincentius-lirinensis/pl50_8_sec",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "64cf86afa689057d",
+ "words": "d15e6a892082d1df",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 84, "calibration": [0.4414, 0.3783], "converged": false, "fallback_paragraphs": 4, "one_one": 0.3564, "rounds": 4, "units": 89},
+ "paragraphs": {
+  "Vinc.Comm.30": {"words": "e10781830f8f58bb", "starts": [0]},
+  "Vinc.Comm.30.1": {"words": "35f0155b90cb666b", "starts": [0, 5]},
+  "Vinc.Comm.30.2": {"words": "6144187ea8b024e6", "starts": [0, 41, 74]},
+  "Vinc.Comm.30.3": {"words": "018fab19f71fe939", "starts": [0, 24, 50, 79, 113, 141, 153, 168]},
+  "Vinc.Comm.30.4": {"words": "0b6192d10e6e3095", "starts": [0, 41, 70, 106, 130, 143, 169, 197, 241]},
+  "Vinc.Comm.31": {"words": "7435bddc8919d31c", "starts": [0]},
+  "Vinc.Comm.31.1": {"words": "f1f64c456f1d6965", "starts": [0, 19, 32, 47, 75, 101, 117, 144, 170, 189, 212]},
+  "Vinc.Comm.31.2": {"words": "d1a163d0811f9be8", "starts": [0, 20, 52, 67]},
+  "Vinc.Comm.32": {"words": "893929d3454eb835", "starts": [0]},
+  "Vinc.Comm.32.1": {"words": "9311ad8eb9e654be", "starts": [0, 20, 32, 71, 94, 122, 141]},
+  "Vinc.Comm.32.2": {"words": "4e7ffd65e63a6d5b", "starts": [0, 33, 75, 113]},
+  "Vinc.Comm.32.3": {"words": "daaddd7782ccc043", "starts": [0, 25, 41, 77]},
+  "Vinc.Comm.33": {"words": "8643c38df40c9650", "starts": [0]},
+  "Vinc.Comm.33.1": {"words": "a9896d8b685f93e6", "starts": [0, 31, 58]},
+  "Vinc.Comm.33.2": {"words": "ae7185f99eee2a3d", "starts": [0, 19, 53, 89, 105]},
+  "Vinc.Comm.33.3": {"words": "5b43c656f9ba2a59", "starts": [0, 15, 56, 76, 102, 112, 139, 163]},
+  "Vinc.Comm.34": {"words": "397fc0dd858ebba5", "starts": [0]},
+  "Vinc.Comm.34.1": {"words": "1245be5a54af8918", "starts": [0, 44, 71, 127, 157, 184, 192, 207, 233, 257, 290, 331, 346, 379]},
+  "Vinc.Comm.34.2": {"words": "9714986065feaf08", "starts": [0, 23]}
+ }
+}

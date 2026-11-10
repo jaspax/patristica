@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-005/quadratus-fragmentum",
  "pivot": "ogpg/vol-005/quadratus-fragmentum",
- "groups": 3,
- "inputs": "1142c68b098bf6ae",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 4,
+ "inputs": "add790bcd25e7e5b",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/quadratus-apology-fragment", "units": 8, "ids": "356eb87fecc68f7d", "inputs": "fb9566e09f033d7b", "spans": ".....+++", "conf": "998"},
-  {"work_id": "ogpg/vol-005/quadratus-fragmentum", "units": 11, "ids": "e75cc7ade80620b2", "inputs": "d59b388df618365c", "spans": "+++........", "conf": "998"}
+  {"work_id": "anf-works/quadratus-apology-fragment", "units": 8, "ids": "d4bad327f8bc5ee0", "inputs": "26a602d5cd4c0317", "spans": "....++++", "conf": "9997"},
+  {"work_id": "ogpg/vol-005/quadratus-fragmentum", "units": 11, "ids": "e75cc7ade80620b2", "inputs": "d59b388df618365c", "spans": "++..+=+....", "conf": "9997"}
  ]
 }

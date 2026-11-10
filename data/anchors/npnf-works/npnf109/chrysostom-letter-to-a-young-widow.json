@@ -1,0 +1,26 @@
+{
+ "work_id": "npnf-works/chrysostom-letter-to-a-young-widow",
+ "anchor": "ogpg/vol-048/ad-viduam-juniorem",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "eb31ce66abc05a07",
+ "words": "85e45f1e832d2b26",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 123, "calibration": [0.9767, 0.0721], "converged": false, "fallback_paragraphs": 1, "one_one": 0.7905, "rounds": 4, "span": [0, 148], "units": 131},
+ "paragraphs": {
+  "Chrys.Vid.3": {"words": "b17f45a1dd35ac02", "starts": [0]},
+  "Chrys.Vid.3.2": {"words": "606882d8217fe63a", "starts": [0, 26, 56, 87, 121, 145, 172, 199, 253, 281, 306, 339, 373, 408, 434]},
+  "Chrys.Vid.3.3": {"words": "8cee4be3612e503b", "starts": [0]},
+  "Chrys.Vid.3.4": {"words": "ed99a6fbaa8665ba", "starts": [0, 279, 303, 317, 340, 363, 383, 420, 467, 503, 536, 557, 588, 621, 661, 685, 707, 760, 799, 823]},
+  "Chrys.Vid.3.5": {"words": "86096d956619de90", "starts": [0, 201, 326, 359, 387, 411, 438]},
+  "Chrys.Vid.3.6": {"words": "cd401c1adec3f56d", "starts": [0, 31, 58, 92, 129, 148, 173, 196, 220, 251, 281, 306, 329, 365, 395, 411, 433, 564]},
+  "Chrys.Vid.3.7": {"words": "02419a853998c111", "starts": [0, 170, 474]},
+  "Chrys.Vid.3.8": {"words": "66f853166ea2f076", "starts": [0, 37, 62, 79, 113, 138, 193, 246, 284, 316, 347, 372]},
+  "Chrys.Vid.3.9": {"words": "2611f8058f718bcc", "starts": [0, 34, 64, 86, 127, 158, 204]},
+  "Chrys.Vid.3.10": {"words": "c609179319921791", "starts": [0, 226]},
+  "Chrys.Vid.3.11": {"words": "5786e1c9b380149c", "starts": [0, 142, 158]},
+  "Chrys.Vid.3.12": {"words": "328c20de3f69ddde", "starts": [0, 34, 69, 104, 155, 179, 228, 249, 280, 297, 319, 363, 388, 418, 439, 479, 514, 549, 785]},
+  "Chrys.Vid.3.13": {"words": "7f09604246f872c9", "starts": [0, 244]},
+  "Chrys.Vid.3.14": {"words": "038c8b9f30d70714", "starts": [0, 86, 116]},
+  "Chrys.Vid.3.15": {"words": "b4c95b38451e884b", "starts": [0, 11, 43, 75, 121, 147, 173, 197, 227, 244, 252, 340, 396, 420, 508, 560, 570, 592]}
+ }
+}

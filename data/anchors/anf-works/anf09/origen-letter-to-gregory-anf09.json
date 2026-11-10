@@ -1,0 +1,20 @@
+{
+ "work_id": "anf-works/origen-letter-to-gregory-anf09",
+ "anchor": "ogpg/vol-011/epistula-ad-gregorium",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "cf6812975701e2f2",
+ "words": "3ed261017534c99b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 29, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9667, "rounds": 4, "units": 34},
+ "paragraphs": {
+  "Orig.EpGreg": {"words": "b828b64effa229f7", "starts": [0]},
+  "Orig.EpGreg.2": {"words": "d8813134a1075374", "starts": [0]},
+  "Orig.EpGreg.3": {"words": "57cad61c99d94c0a", "starts": [0]},
+  "Orig.EpGreg.4": {"words": "bb1c4d26887df3cd", "starts": [0]},
+  "Orig.EpGreg.5": {"words": "5aa7e02b4c4e540b", "starts": [0, 15, 64, 87, 144, 153, 175]},
+  "Orig.EpGreg.6": {"words": "0f459b2b771c91a8", "starts": [0]},
+  "Orig.EpGreg.7": {"words": "f806e38222eee1c4", "starts": [0, 52, 79, 127, 156, 179, 209, 244, 261, 284, 317, 343, 374, 414, 439, 486, 520, 563, 587, 621]},
+  "Orig.EpGreg.8": {"words": "9a71d84e74fc62db", "starts": [0]},
+  "Orig.EpGreg.9": {"words": "9b52ab59ffdcabc9", "starts": [0]}
+ }
+}

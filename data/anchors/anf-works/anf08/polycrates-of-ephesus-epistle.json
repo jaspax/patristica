@@ -1,0 +1,18 @@
+{
+ "work_id": "anf-works/polycrates-of-ephesus-epistle",
+ "anchor": "first1k/tlg1626/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "c234843dbeedfaf0",
+ "words": "b2f0fe8997f45e5d",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 16, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 1.0, "rounds": 2, "units": 19},
+ "paragraphs": {
+  "Polycr": {"words": "7d9b644ba036d1f1", "starts": [0]},
+  "Polycr.1": {"words": "d5f5a1dd7d249d34", "starts": [0]},
+  "Polycr.2": {"words": "1e6d4aca29e31ec3", "starts": [0]},
+  "Polycr.3": {"words": "a87b058e6b371d0a", "starts": [0]},
+  "Polycr.4": {"words": "c6a461db1e8b5cb2", "starts": [0, 52, 78, 97, 122, 144, 157, 179, 196]},
+  "Polycr.5": {"words": "1e31ec5e6a6a7607", "starts": [0, 35, 53, 74]},
+  "Polycr.6": {"words": "3038364089e57672", "starts": [0, 44]}
+ }
+}

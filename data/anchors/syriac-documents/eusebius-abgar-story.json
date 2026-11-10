@@ -1,0 +1,30 @@
+{
+ "work_id": "syriac-documents/eusebius-abgar-story",
+ "anchor": "first1k/tlg2018/tlg002/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "e84683e4bdd672c8",
+ "words": "b3030e6e7dc90bdd",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 61, "calibration": [0.6784, 0.1705], "converged": false, "fallback_paragraphs": 2, "one_one": 0.8194, "rounds": 4, "span": [432, 504], "units": 64},
+ "paragraphs": {
+  "EusAbgar.1": {"words": "d35475d7efe2104b", "starts": [0]},
+  "EusAbgar.2": {"words": "eb6a47c891c16087", "starts": [0]},
+  "EusAbgar.3": {"words": "5e869d5ef7dfc1c7", "starts": [0]},
+  "EusAbgar.4": {"words": "238925e69eb3937a", "starts": [0, 24, 55, 91]},
+  "EusAbgar.5": {"words": "78e048cfa88ae12e", "starts": [0, 26, 55, 84, 107]},
+  "EusAbgar.6": {"words": "7a286483edb7a846", "starts": [0, 30, 54, 65]},
+  "EusAbgar.7": {"words": "4efb66edd161486e", "starts": [0]},
+  "EusAbgar.8": {"words": "252bf48fc9cb867d", "starts": [0, 21, 40, 61, 102, 129, 156]},
+  "EusAbgar.9": {"words": "f5ee7c3003342163", "starts": [0]},
+  "EusAbgar.10": {"words": "4ec43fd5b55dde7c", "starts": [0, 42, 51, 92]},
+  "EusAbgar.11": {"words": "d789b623848fb89b", "starts": [0]},
+  "EusAbgar.12": {"words": "9354c222b5928506", "starts": [0, 28, 54, 74, 105, 126, 162, 200, 216]},
+  "EusAbgar.13": {"words": "329a746be8a85b30", "starts": [0, 33, 65, 105, 143, 187, 210, 224, 238, 258, 289, 322]},
+  "EusAbgar.14": {"words": "f4a7c0dde3fe0ba1", "starts": [0, 22]},
+  "EusAbgar.15": {"words": "7b97cc938fa43411", "starts": [0, 31, 58, 88, 108, 124]},
+  "EusAbgar.16": {"words": "9a6196427c4ea1ba", "starts": [0, 33]},
+  "EusAbgar.17": {"words": "39e8fd3072f2c57e", "starts": [0]},
+  "EusAbgar.18": {"words": "7abbbafa3ab5c08e", "starts": [0]},
+  "EusAbgar.19": {"words": "16333dca1b9f3eaf", "starts": [0]}
+ }
+}

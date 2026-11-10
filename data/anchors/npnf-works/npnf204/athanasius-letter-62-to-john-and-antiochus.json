@@ -1,0 +1,15 @@
+{
+ "work_id": "npnf-works/athanasius-letter-62-to-john-and-antiochus",
+ "anchor": "pta/pta0022/pta011/pta-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b0fce54969427ff2",
+ "words": "0bc837eca4074651",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 10, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 1.0, "rounds": 1, "units": 11},
+ "paragraphs": {
+  "Ath.EpJoh": {"words": "fbaff65c2bdaddb9", "starts": [0]},
+  "Ath.EpJoh.1": {"words": "0d5899e50b2f5e79", "starts": [0]},
+  "Ath.EpJoh.2": {"words": "6554c7939b952200", "starts": [0, 17, 43, 74, 107, 135, 157, 183]},
+  "Ath.EpJoh.3": {"words": "305c7aa96f4b0631", "starts": [0]}
+ }
+}

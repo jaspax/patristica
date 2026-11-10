@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "wikisource-apocrypha/apocalypsis-sedrach",
- "pivot": "wikisource-apocrypha/apocalypsis-sedrach",
- "groups": 110,
- "inputs": "cfcd2909cfb3ac5a",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "anf-works/apocalypse-of-sedrach",
+ "groups": 135,
+ "inputs": "b8a64fed2c82e586",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/apocalypse-of-sedrach", "units": 111, "ids": "8766e52ba4fa688f", "inputs": "0cc78e5d4a226d5d", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "wikisource-apocrypha/apocalypsis-sedrach", "units": 135, "ids": "3b8c754c7679dec8", "inputs": "1686bb56caa168ae", "spans": "+++=+++++++++=+=++.+++++++++=++++=+++=++++=++=++=+++++=++=++++=+++=+++++++++=++=+=+=++++=++=+=+++++++++=++++++++++++=+=+++++++++++++++=", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/apocalypse-of-sedrach", "units": 136, "ids": "6ccca7a2406ba2b7", "inputs": "e923408c4a5c9bf6", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "wikisource-apocrypha/apocalypsis-sedrach", "units": 135, "ids": "3b8c754c7679dec8", "inputs": "1686bb56caa168ae", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

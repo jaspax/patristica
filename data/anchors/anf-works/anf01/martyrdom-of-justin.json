@@ -1,0 +1,17 @@
+{
+ "work_id": "anf-works/martyrdom-of-justin",
+ "anchor": "ogpg/vol-006/martyrium-justini",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "26b964d4f88df659",
+ "words": "d11198ae016198fc",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 32, "calibration": [1.0846, 0.0532], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9118, "rounds": 4, "units": 35},
+ "paragraphs": {
+  "MartJust": {"words": "6e8601c6f99d5e74", "starts": [0]},
+  "MartJust.i": {"words": "12bfb467739b3d93", "starts": [0, 21, 48, 75, 92, 155, 174]},
+  "MartJust.ii": {"words": "e6f6816f417dfa47", "starts": [0, 29]},
+  "MartJust.iii": {"words": "6642fd97d6a08a71", "starts": [0, 7, 27, 49, 63, 112, 132, 150, 169, 190, 205, 234, 254]},
+  "MartJust.iv": {"words": "05880f5a1322aa43", "starts": [0, 32, 47, 69, 87, 120, 146, 175, 196]},
+  "MartJust.v": {"words": "66a74c3cec4acf89", "starts": [0, 40, 66]}
+ }
+}

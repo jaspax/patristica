@@ -1,0 +1,20 @@
+{
+ "work_id": "anf-works/alexander-of-jerusalem-epistles",
+ "anchor": "ogpg/vol-010/alexander-hierosolymitanus",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "950dcb09d1ce2014",
+ "words": "a7343e36babaf100",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 7, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.875, "rounds": 2, "units": 14},
+ "paragraphs": {
+  "AlexHier.Ep.I": {"words": "6e4c459c5e775447", "starts": [0]},
+  "AlexHier.Ep.I.2": {"words": "5bd9c8c384c2a2e5", "starts": [0]},
+  "AlexHier.Ep.I.3": {"words": "61fd7a5b8025cf42", "starts": [0]},
+  "AlexHier.Ep.II": {"words": "cde32ca357ad561d", "starts": [0]},
+  "AlexHier.Ep.II.1": {"words": "46341900351a1199", "starts": [0, 24]},
+  "AlexHier.Ep.III": {"words": "39a056d7c3627857", "starts": [0]},
+  "AlexHier.Ep.III.1": {"words": "13a4d1b810a0f25c", "starts": [0]},
+  "AlexHier.Ep.IV": {"words": "d4b235cdd07b10c5", "starts": [0]},
+  "AlexHier.Ep.IV.1": {"words": "1bfab8ff1013b47c", "starts": [0, 24, 52, 76, 108]}
+ }
+}

@@ -2,11 +2,11 @@
  "format": 1,
  "group": "dsc/mara-bar-serapion",
  "pivot": "syriac-documents/mara-bar-serapion-letter",
- "groups": 99,
- "inputs": "dbc5c94c0dff733d",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 104,
+ "inputs": "33d4bc3022b13756",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "dsc/mara-bar-serapion", "units": 104, "ids": "4b2d05f9e1c1d526", "inputs": "1261c7dc52ec0d30", "spans": "++++++++++++=+++++++++++++++++++=++++++++++++++=++++++++++++++++++++++++++++++++++++++=+++++=+++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "syriac-documents/mara-bar-serapion-letter", "units": 115, "ids": "5558dade90b9205e", "inputs": "601e393af7bf547e", "spans": "++++.++++++++++++++++=++++++.+++++.+++=++=++++++++++++=+++++++++++=+++++++=++++++++=+++++++=+=++++=++++++++=+++=++=", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "dsc/mara-bar-serapion", "units": 104, "ids": "4b2d05f9e1c1d526", "inputs": "1261c7dc52ec0d30", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "syriac-documents/mara-bar-serapion-letter", "units": 114, "ids": "4dc51734998acc09", "inputs": "0467131be7a2a2fc", "spans": "+++++++++++++++++++++++++++++++=+++++++++++=++++++=+++=+++=+++++++++++=++++++++++++++++++++++=++++++++++++=+++=++=", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

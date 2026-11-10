@@ -1,0 +1,22 @@
+{
+ "work_id": "npnf-works/athanasius-letter-49-to-dracontius",
+ "anchor": "pta/pta0022/pta013/pta-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "0d2a9a3c08856a34",
+ "words": "9916fdf4b5ce5804",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 96, "calibration": [0.6624, 0.1677], "converged": false, "fallback_paragraphs": 1, "one_one": 1.0, "rounds": 4, "units": 97},
+ "paragraphs": {
+  "Ath.EpDrac": {"words": "11b63d092495ae14", "starts": [0]},
+  "Ath.EpDrac.1": {"words": "da920e68dd386383", "starts": [0, 30, 47, 75, 111, 137, 185, 206, 226]},
+  "Ath.EpDrac.2": {"words": "d2e59cebe23a5500", "starts": [0, 23, 47, 61, 95, 130, 155, 187, 223, 262]},
+  "Ath.EpDrac.3": {"words": "24f1a71394006a76", "starts": [0, 21, 46, 65, 89, 114, 139, 175]},
+  "Ath.EpDrac.4": {"words": "86167c4c7c89fdd1", "starts": [0, 25, 45, 65, 88, 103, 131, 179, 190, 225, 251, 274, 308, 336, 383, 414]},
+  "Ath.EpDrac.5": {"words": "bd69fe94ce705c3c", "starts": [0, 25, 46, 65, 82, 118, 147, 183, 217, 258]},
+  "Ath.EpDrac.6": {"words": "811a51080b8f0d39", "starts": [0, 28, 65, 99, 110, 144, 168, 198]},
+  "Ath.EpDrac.7": {"words": "cf2777104c907351", "starts": [0, 21, 55, 86, 131, 152, 198, 213, 238, 261]},
+  "Ath.EpDrac.8": {"words": "43d1b737eab4f22c", "starts": [0, 28, 46, 71, 89, 122]},
+  "Ath.EpDrac.9": {"words": "57cfe0e65ee134fe", "starts": [0, 35, 52, 91, 110, 136, 169, 195]},
+  "Ath.EpDrac.10": {"words": "b6e0fc33c7f92eb8", "starts": [0, 24, 42, 69, 109, 129, 154, 186, 207, 229, 254]}
+ }
+}

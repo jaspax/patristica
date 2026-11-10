@@ -2,11 +2,11 @@
  "format": 1,
  "group": "first1k/tlg1271/tlg010/1st1K-grc1",
  "pivot": "anf-works/pseudo-clement-epistles-on-virginity",
- "groups": 105,
- "inputs": "102c0d5035eb067b",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 101,
+ "inputs": "b75d78faac6f2a44",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/pseudo-clement-epistles-on-virginity", "units": 344, "ids": "d2d45c428b070593", "inputs": "a815541645d298f0", "spans": ".....+=+=+=+=+..+..+=.++++=+=+=++.+++.........+=+==.++++==+=++=++=+==++=+++=..+=+=+=+=+++.++==+..+=.++++...........+.++=+...+=+++++.+..++=++=.+++=+.+=+=.+.....++=....++++==...............................++=...+++.............+..............++=++......+=+........++++.+=+.+.+==++++....+===.+==+==.................................................", "conf": "999999999999997999999999999999999999999999999999999999999999999999999999999999999999999999999699999999999"},
-  {"work_id": "first1k/tlg1271/tlg010/1st1K-grc1", "units": 110, "ids": "2c58d5fa91f1f143", "inputs": "e07d14b8b92b2a82", "spans": ".++++=++++++.+++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++++++++++", "conf": "999999999999997999999999999999999999999999999999999999999999999999999999999999999999999999999699999999999"}
+  {"work_id": "anf-works/pseudo-clement-epistles-on-virginity", "units": 156, "ids": "bb7768858f8f2811", "inputs": "fc435cd54160b464", "spans": "....+=++++++.++++++++++.++...++++++=++++++==+++++=+++++++++.++++++..+.++++++++++++++=+++++++.+.+++++....+==.+..++....+=+=++++=..+++++=+++++=+=+=............", "conf": "99999998999999999998999999999999999999999999999999999999999999999999999999799999699889998999999999999"},
+  {"work_id": "first1k/tlg1271/tlg010/1st1K-grc1", "units": 110, "ids": "2c58d5fa91f1f143", "inputs": "e07d14b8b92b2a82", "spans": ".+++++++++++++++++++=+++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++..++++++=++++++++++=++=+=+++", "conf": "99999998999999999998999999999999999999999999999999999999999999999999999999799999699889998999999999999"}
  ]
 }

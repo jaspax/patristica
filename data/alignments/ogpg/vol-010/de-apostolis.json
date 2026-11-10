@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/de-apostolis",
  "pivot": "anf-works/pseudo-hippolytus-twelve-and-seventy-apostles",
  "groups": 16,
- "inputs": "ba03f037fbb00ced",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "575294fa4dcff642",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/pseudo-hippolytus-twelve-and-seventy-apostles", "units": 91, "ids": "c1bc2974c2b2c63d", "inputs": "79c07bd85eb1b9c0", "spans": "+==........+=+++++++=.+==.+=+=..+=.+=++....................................................", "conf": "9999999999999998"},
+  {"work_id": "anf-works/pseudo-hippolytus-twelve-and-seventy-apostles", "units": 88, "ids": "8355c5ad3d899e4f", "inputs": "ecb526ae5b83b8fb", "spans": "+==......+=+++++++=.+==.+=+=..+=.+++....................................................", "conf": "9999999999999998"},
   {"work_id": "ogpg/vol-010/de-apostolis", "units": 16, "ids": "5e6312d72b6f8d75", "inputs": "57ff48e220b62676", "spans": "++++++++++++++++", "conf": "9999999999999998"}
  ]
 }

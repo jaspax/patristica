@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "first1k/tlg2042/tlg051/1st1K-grc1",
- "pivot": "first1k/tlg2042/tlg051/1st1K-grc1",
- "groups": 65,
- "inputs": "8aecd5d9dc5d0973",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"ogpg/vol-012/selecta-in-leviticum": {"head": "first1k/tlg2042/tlg051/1st1K-grc1", "shared": 0.8494}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
+ "pivot": "ogpg/vol-012/selecta-in-leviticum",
+ "groups": 73,
+ "inputs": "60bc607cd5453706",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"first1k/tlg2042/tlg051/1st1K-grc1": {"head": "ogpg/vol-012/selecta-in-leviticum", "shared": 0.8494}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "first1k/tlg2042/tlg051/1st1K-grc1", "units": 78, "ids": "8e50b04ba8b05aba", "inputs": "3cc3eec395325305", "spans": ".++++++++=++++++++++++++++++=++++....++==+=++++++++++=++++.++++++=++++++++++++", "conf": "99999799999999999999999989999999999999999997899999999979999999999"},
-  {"work_id": "ogpg/vol-012/selecta-in-leviticum", "units": 68, "ids": "c4f8afaa07db82a6", "inputs": "919024fe59cfa70b", "spans": "+=+++++++++++++++++++++++++++++++=+++++++++++++++++++++=++++++++++++", "conf": "99999799999999999999999989999999999999999997899999999979999999999"}
+  {"work_id": "first1k/tlg2042/tlg051/1st1K-grc1", "units": 78, "ids": "8e50b04ba8b05aba", "inputs": "3cc3eec395325305", "spans": ".++++++++++++++++++++++++++++++++....+++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999899999999999999999999999999999999999979999999999"},
+  {"work_id": "ogpg/vol-012/selecta-in-leviticum", "units": 74, "ids": "613eb278c79a012f", "inputs": "4ef1d8bea88d50ea", "spans": ".+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999899999999999999999999999999999999999979999999999"}
  ]
 }

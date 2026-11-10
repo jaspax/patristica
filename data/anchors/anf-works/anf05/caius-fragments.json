@@ -1,0 +1,22 @@
+{
+ "work_id": "anf-works/caius-fragments",
+ "anchor": "first1k/tlg0572/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "0c9bbad4a9fda282",
+ "words": "fe05d314f349ed04",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 7, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 5, "one_one": 0.4286, "rounds": 1, "span": [0, 14], "units": 14},
+ "paragraphs": {
+  "Caius.Procl": {"words": "fb97c3341ae9b938", "starts": [0]},
+  "Caius.Procl.2": {"words": "5c32e53e4e8982b4", "starts": [0]},
+  "Caius.Procl.3": {"words": "a13c764cde613382", "starts": [0]},
+  "Caius.Procl.4": {"words": "f5c2a4df30999dd5", "starts": [0]},
+  "Caius.Procl.5": {"words": "532659cf44fef0ef", "starts": [0, 9]},
+  "Caius.Procl.6": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "Caius.Procl.7": {"words": "8c1d608ab8fa7bcb", "starts": [0]},
+  "Caius.Procl.8": {"words": "38603f32df0b0528", "starts": [0, 29, 59]},
+  "Caius.Procl.9": {"words": "8700067b17b3bae9", "starts": [0]},
+  "Caius.Procl.10": {"words": "bbfd56e270030535", "starts": [0]},
+  "Caius.Procl.11": {"words": "38642ddf0198e623", "starts": [0]}
+ }
+}

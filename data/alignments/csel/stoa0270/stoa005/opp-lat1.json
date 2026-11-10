@@ -2,11 +2,11 @@
  "format": 1,
  "group": "csel/stoa0270/stoa005/opp-lat1",
  "pivot": "npnf-works/sulpicius-severus-letters",
- "groups": 153,
- "inputs": "6cc7174f30e9377d",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 154,
+ "inputs": "23973bfc09b0166f",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "csel/stoa0270/stoa005/opp-lat1", "units": 154, "ids": "e01ae16a576fd044", "inputs": "5d78ae6cf41751bc", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "npnf-works/sulpicius-severus-letters", "units": 186, "ids": "b58df2b8a65dfd20", "inputs": "f937fdc212da2c4e", "spans": "++++.+=+=++=++++++++++++=+++=+=++=++=+++=+=++++++=+++=++++=++++++++++++++++=++++++++++=+++++++++++++=+++=+=++++=++++.+++++=++=+++++=++=++.++=++++++++=++.+++++++++=++++=+++++++++=++++++=+", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "csel/stoa0270/stoa005/opp-lat1", "units": 154, "ids": "e01ae16a576fd044", "inputs": "5d78ae6cf41751bc", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "npnf-works/sulpicius-severus-letters", "units": 155, "ids": "b5a72c9e81fef51d", "inputs": "f125e04ae5985294", "spans": "+++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

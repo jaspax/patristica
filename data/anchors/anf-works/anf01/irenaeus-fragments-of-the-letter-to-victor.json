@@ -1,0 +1,13 @@
+{
+ "work_id": "anf-works/irenaeus-fragments-of-the-letter-to-victor",
+ "anchor": "first1k/tlg1447/tlg009/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "243dbb802368d091",
+ "words": "35e0f0f59de071bd",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 17, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.7895, "rounds": 2, "units": 17},
+ "paragraphs": {
+  "Iren.Frag.iii": {"words": "831025c25e69f5ce", "starts": [0, 20, 41, 55, 83, 110, 143, 163, 185, 233, 248, 272, 327, 367, 403, 434]},
+  "Iren.Frag.iv": {"words": "1eb97c7903ee51f8", "starts": [0]}
+ }
+}

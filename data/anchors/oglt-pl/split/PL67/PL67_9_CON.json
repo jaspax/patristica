@@ -1,0 +1,21 @@
+{
+ "work_id": "oglt-pl/dionysius-exiguus/pl67_9_con",
+ "anchor": "wikisource-canons/ephesus",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b8f4384e1f4a7e5c",
+ "words": "22c92b2eafa8dc44",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 34, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.5455, "rounds": 2, "units": 36},
+ "paragraphs": {
+  "PL67.CON": {"words": "73dbaa4fa4cd3e85", "starts": [0]},
+  "PL67.CON.1": {"words": "0fd8f2f70ff7b06a", "starts": [0]},
+  "PL67.CON.2": {"words": "b08e7d72cddd3536", "starts": [0, 25, 51]},
+  "PL67.CON.3": {"words": "7e73918b3f185689", "starts": [0, 18]},
+  "PL67.CON.4": {"words": "60ec7328c70fcf54", "starts": [0, 20, 35]},
+  "PL67.CON.5": {"words": "d6d0c8ceceda97b3", "starts": [0]},
+  "PL67.CON.6": {"words": "bf28109420a3eb68", "starts": [0, 22]},
+  "PL67.CON.7": {"words": "21c033bd31d2f734", "starts": [0, 21]},
+  "PL67.CON.8": {"words": "545d83877e149f69", "starts": [0, 28, 54, 74, 111, 117, 136]},
+  "PL67.CON.9": {"words": "8dcc91e1edc49829", "starts": [0, 12, 32, 44, 70, 77, 90, 102, 124, 137, 149, 172, 195, 205]}
+ }
+}

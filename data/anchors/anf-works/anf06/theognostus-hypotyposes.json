@@ -1,0 +1,18 @@
+{
+ "work_id": "anf-works/theognostus-hypotyposes",
+ "anchor": "ogpg/vol-010/theognostus",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "441d58797e77d2ea",
+ "words": "d558a5d42f40dca5",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 14, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 3, "one_one": 0.5, "rounds": 2, "units": 17},
+ "paragraphs": {
+  "Theogn.Hyp.I": {"words": "ba7aa3a8183ee9ac", "starts": [0]},
+  "Theogn.Hyp.I.2": {"words": "a13c764cde613382", "starts": [0]},
+  "Theogn.Hyp.I.3": {"words": "01c50536b2209126", "starts": [0, 40, 63, 94]},
+  "Theogn.Hyp.II": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "Theogn.Hyp.II.1": {"words": "129bb86d2ce6fc6d", "starts": [0, 26, 39, 81, 114]},
+  "Theogn.Hyp.III": {"words": "8700067b17b3bae9", "starts": [0]},
+  "Theogn.Hyp.III.1": {"words": "9799f0af81c5121f", "starts": [0, 30, 71, 100]}
+ }
+}

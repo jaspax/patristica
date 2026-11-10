@@ -1,0 +1,24 @@
+{
+ "work_id": "anf-works/methodius-fragments-on-job",
+ "anchor": "first1k/tlg2959/tlg007/opp-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b652a6b20153036d",
+ "words": "b3646d49fc898c97",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 24, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 3, "one_one": 0.1266, "rounds": 4, "units": 32},
+ "paragraphs": {
+  "Meth.Frag.3.I": {"words": "a57b82b607561814", "starts": [0]},
+  "Meth.Frag.3.I.2": {"words": "a13c764cde613382", "starts": [0]},
+  "Meth.Frag.3.I.3": {"words": "36df9f56783e04c2", "starts": [0, 37, 46, 65, 254, 289, 300]},
+  "Meth.Frag.3.II": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "Meth.Frag.3.II.1": {"words": "7cc53cd61ad39149", "starts": [0, 34, 65, 97, 122]},
+  "Meth.Frag.3.III": {"words": "8700067b17b3bae9", "starts": [0]},
+  "Meth.Frag.3.III.1": {"words": "6452992eb3b602a6", "starts": [0, 22, 39, 66, 75]},
+  "Meth.Frag.3.IV": {"words": "af067b1bc8dce992", "starts": [0]},
+  "Meth.Frag.3.IV.1": {"words": "3353a607504d4286", "starts": [0, 32, 46]},
+  "Meth.Frag.3.IV.2": {"words": "8ab0ebf2b9a282ba", "starts": [0]},
+  "Meth.Frag.3.IV.3": {"words": "a7a648bc659b0dcd", "starts": [0, 29, 57]},
+  "Meth.Frag.3.V": {"words": "088130a484b8130c", "starts": [0]},
+  "Meth.Frag.3.V.1": {"words": "a2ca9c2607834e59", "starts": [0, 18]}
+ }
+}

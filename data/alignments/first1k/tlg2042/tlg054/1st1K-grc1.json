@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "first1k/tlg2042/tlg054/1st1K-grc1",
- "pivot": "first1k/tlg2042/tlg054/1st1K-grc1",
- "groups": 37,
- "inputs": "1411fbecac02618b",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"ogpg/vol-012/selecta-in-jesum-nave": {"head": "first1k/tlg2042/tlg054/1st1K-grc1", "shared": 0.8511}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
+ "pivot": "ogpg/vol-012/selecta-in-jesum-nave",
+ "groups": 45,
+ "inputs": "a54b82ed60c33542",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"first1k/tlg2042/tlg054/1st1K-grc1": {"head": "ogpg/vol-012/selecta-in-jesum-nave", "shared": 0.8511}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "first1k/tlg2042/tlg054/1st1K-grc1", "units": 52, "ids": "d3529937589ec8f4", "inputs": "abc650653ecf1184", "spans": ".+.....++=++=+++++=++=++++++=+++++++==+++=++++++=+++", "conf": "9999999999999999999999999899999999999"},
-  {"work_id": "ogpg/vol-012/selecta-in-jesum-nave", "units": 42, "ids": "7f820f87d3eef9a2", "inputs": "e6017cf352d58437", "spans": "++++++++++=++=+++++++++++++=+++=++++++=+++", "conf": "9999999999999999999999999899999999999"}
+  {"work_id": "first1k/tlg2042/tlg054/1st1K-grc1", "units": 52, "ids": "d3529937589ec8f4", "inputs": "abc650653ecf1184", "spans": ".+.....++++++++.++++++++++++++++++++++++++++++++++++", "conf": "999999997999999999999999999999989999999999999"},
+  {"work_id": "ogpg/vol-012/selecta-in-jesum-nave", "units": 47, "ids": "f2fb83cdced7fa3c", "inputs": "b3b9cfbe17bda976", "spans": ".+++++++++++=++++++++++++++++++++++++++++++++++", "conf": "999999997999999999999999999999989999999999999"}
  ]
 }

@@ -1,0 +1,26 @@
+{
+ "work_id": "anf-works/tertullian-souls-testimony",
+ "anchor": "perseus/stoa0275/stoa028/opp-lat1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "40d0e9c67ca38dd8",
+ "words": "2b6b381e74293901",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 112, "calibration": [0.5358, 0.1913], "converged": false, "fallback_paragraphs": 9, "one_one": 0.9823, "rounds": 4, "units": 121},
+ "paragraphs": {
+  "Tert.TestAn.I": {"words": "d0968841cddc7299", "starts": [0]},
+  "Tert.TestAn.I.1": {"words": "2d8a75967a4f66c1", "starts": [0]},
+  "Tert.TestAn.I.2": {"words": "512edf9fa0487477", "starts": [0]},
+  "Tert.TestAn.I.4": {"words": "91e7a44cf9ce7588", "starts": [0]},
+  "Tert.TestAn.I.5": {"words": "694b911ef0662f73", "starts": [0, 77, 109, 159, 171, 205, 234, 291, 319, 374, 394, 415, 452, 486, 521, 576, 598, 626, 640, 685, 705]},
+  "Tert.TestAn.1": {"words": "2e97d3349afff02d", "starts": [0]},
+  "Tert.TestAn.1.1": {"words": "19d85d747282916c", "starts": [0, 42, 106, 148, 178, 208, 234, 269, 301, 325, 371, 403, 435, 489, 512, 535, 553, 602, 635, 665]},
+  "Tert.TestAn.2": {"words": "ba81011f0ea8a0b3", "starts": [0]},
+  "Tert.TestAn.2.1": {"words": "7de506e241fb9625", "starts": [0, 37, 97, 145, 176]},
+  "Tert.TestAn.3": {"words": "bcb00547d2b6f589", "starts": [0]},
+  "Tert.TestAn.3.1": {"words": "8a67a348f4ac290d", "starts": [0, 28, 67, 92, 134, 165, 204, 220, 262, 298, 344, 389, 415, 473, 510, 549, 598, 629, 659, 726, 760, 786, 820, 867, 897, 932, 985]},
+  "Tert.TestAn.4": {"words": "6272b9f19aba5cb3", "starts": [0]},
+  "Tert.TestAn.4.1": {"words": "581a494f2ce7e5ba", "starts": [0, 21, 48, 76, 94, 116, 142, 175, 208, 230, 256, 287, 312, 339, 354, 413, 443, 477, 506, 529, 565, 611, 632]},
+  "Tert.TestAn.5": {"words": "f3202558cc9e5f1d", "starts": [0]},
+  "Tert.TestAn.5.1": {"words": "f0ac6ffff7f0cca0", "starts": [0, 32, 58, 78, 117, 147, 199, 229, 256, 281, 305, 332, 381, 398, 458, 486]}
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "work_id": "anf-works/pseudo-hippolytus-on-the-theophany",
+ "anchor": "ogpg/vol-010/in-theophaniam",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "4e995be6de848a82",
+ "words": "4f54b1e61bb09cff",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 92, "calibration": [0.601, 0.1734], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9192, "rounds": 4, "span": [0, 99], "units": 94},
+ "paragraphs": {
+  "PsHippo.Theoph": {"words": "1f1d36faef89c924", "starts": [0]},
+  "PsHippo.Theoph.1": {"words": "9d34c247124b18b9", "starts": [0, 21, 36, 62, 85, 107, 124, 149, 162, 174, 210, 238, 264]},
+  "PsHippo.Theoph.2": {"words": "759ecaa6b4cde940", "starts": [0, 54, 77, 96, 116, 141, 162, 195, 237]},
+  "PsHippo.Theoph.3": {"words": "3294905471978470", "starts": [0, 34, 66, 102, 131, 164, 191, 216, 239, 260, 285]},
+  "PsHippo.Theoph.4": {"words": "6870000ef01d5edb", "starts": [0, 39, 73, 105, 133, 146, 178, 202, 237, 266]},
+  "PsHippo.Theoph.5": {"words": "789d6a9030a257cd", "starts": [0, 250, 269, 290]},
+  "PsHippo.Theoph.6": {"words": "7591d85b139ef7f3", "starts": [0, 27, 66, 81, 89, 124, 145, 165, 199]},
+  "PsHippo.Theoph.7": {"words": "be617a5649942b4d", "starts": [0, 29, 54, 72, 120, 152, 186, 206, 228, 251, 261]},
+  "PsHippo.Theoph.8": {"words": "2f895b1210a12ca4", "starts": [0, 10, 30, 57, 83, 94, 127, 161, 189, 217]},
+  "PsHippo.Theoph.9": {"words": "7fc5d4f41ea10868", "starts": [0, 29, 58, 92, 108, 126]},
+  "PsHippo.Theoph.10": {"words": "3ec4cd17ff5ece3b", "starts": [0, 37, 64, 84, 110, 136, 168, 189, 201, 243]}
+ }
+}

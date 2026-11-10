@@ -1,0 +1,22 @@
+{
+ "work_id": "npnf-works/rufinus-apology-to-anastasius",
+ "anchor": "oglt-pl/rufinus-aquileiensis/pl21_6_apo",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "365da4e815de9678",
+ "words": "fbca00d891e06feb",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 56, "calibration": [0.5542, 0.272], "converged": false, "fallback_paragraphs": 0, "one_one": 0.4787, "rounds": 4, "units": 58},
+ "paragraphs": {
+  "Ruf.ApolAnast": {"words": "fafdb3cd6fd0515d", "starts": [0]},
+  "Ruf.ApolAnast.2": {"words": "a4208409715d6ec0", "starts": [0]},
+  "Ruf.ApolAnast.4": {"words": "9b3579ca9739c0a2", "starts": [0, 188]},
+  "Ruf.ApolAnast.5": {"words": "592bda33d6535d56", "starts": [0, 40, 97, 148, 173, 190, 226]},
+  "Ruf.ApolAnast.6": {"words": "4fc4cb55f440188d", "starts": [0, 35, 63, 82, 116]},
+  "Ruf.ApolAnast.7": {"words": "7f6a40b5c8b59c55", "starts": [0, 23, 49, 67]},
+  "Ruf.ApolAnast.8": {"words": "0edcd33c418f21e5", "starts": [0, 33, 52, 86, 109, 129, 141, 165]},
+  "Ruf.ApolAnast.9": {"words": "9706c3571c5444f3", "starts": [0, 34, 70, 85, 117, 133]},
+  "Ruf.ApolAnast.10": {"words": "edf4b2c8144cdb0a", "starts": [0, 41, 75, 110, 130, 153, 194, 223, 284]},
+  "Ruf.ApolAnast.11": {"words": "1559cbddf835ece7", "starts": [0, 36, 79, 107, 146, 164, 201, 217, 263, 289, 299, 322]},
+  "Ruf.ApolAnast.12": {"words": "4465b63a850243fe", "starts": [0, 51, 75]}
+ }
+}

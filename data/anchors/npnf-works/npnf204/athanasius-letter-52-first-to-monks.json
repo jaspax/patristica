@@ -1,0 +1,16 @@
+{
+ "work_id": "npnf-works/athanasius-letter-52-first-to-monks",
+ "anchor": "ogpg/vol-025/ad-monachos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "2e6b5afb682c00a1",
+ "words": "5f180f5794cc29a4",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 30, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.875, "rounds": 2, "units": 31},
+ "paragraphs": {
+  "Ath.EpMon1": {"words": "0496980806f2023a", "starts": [0]},
+  "Ath.EpMon1.1": {"words": "f782721b38b0ae6b", "starts": [0, 26]},
+  "Ath.EpMon1.2": {"words": "d144c4f99795348d", "starts": [0, 30, 52, 86, 114, 145, 183]},
+  "Ath.EpMon1.3": {"words": "cdef25aceb0d5aa6", "starts": [0, 37, 65, 88, 131, 158, 184, 216, 236, 281, 307]},
+  "Ath.EpMon1.4": {"words": "56715f830c8cebc8", "starts": [0, 30, 65, 101, 138, 148, 181, 221, 265, 298]}
+ }
+}

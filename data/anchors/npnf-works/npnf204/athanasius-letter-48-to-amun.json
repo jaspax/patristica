@@ -1,0 +1,14 @@
+{
+ "work_id": "npnf-works/athanasius-letter-48-to-amun",
+ "anchor": "ogpg/vol-026/ad-amunem",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "d08d7e60a11c0837",
+ "words": "72b6db668128a20d",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 49, "calibration": [0.7446, 0.122], "converged": false, "fallback_paragraphs": 0, "one_one": 0.7833, "rounds": 4, "span": [0, 60], "units": 49},
+ "paragraphs": {
+  "Ath.EpAmun": {"words": "0cbb9a62c6c82529", "starts": [0]},
+  "Ath.EpAmun.1": {"words": "2caca95109e62de5", "starts": [0, 20, 47, 77, 101, 122, 159, 182, 205, 245, 264, 291, 311, 326, 348, 385, 405, 418, 454, 480, 495, 513, 528, 550, 579, 610, 654, 673, 711, 732, 750, 770, 795, 832, 845]},
+  "Ath.EpAmun.2": {"words": "bd4240c27037d39f", "starts": [0, 28, 69, 109, 127, 152, 173, 197, 224, 251, 274, 305, 334]}
+ }
+}

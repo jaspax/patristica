@@ -1,0 +1,32 @@
+{
+ "work_id": "npnf-works/athanasius-encyclical-letter",
+ "anchor": "ogpg/vol-025/epistula-encyclica",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b7189697a043e6ed",
+ "words": "f6bbc7845d6cb3c3",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 132, "calibration": [0.8319, 0.1072], "converged": false, "fallback_paragraphs": 5, "one_one": 0.9701, "rounds": 4, "units": 141},
+ "paragraphs": {
+  "Ath.EpEnc.2.1": {"words": "9b372fe75133e715", "starts": [0]},
+  "Ath.EpEnc.2.1.2": {"words": "67e13a6d49e48f7f", "starts": [0]},
+  "Ath.EpEnc.2.1.3": {"words": "c46e56274e302797", "starts": [0]},
+  "Ath.EpEnc.2.1.4": {"words": "f764c41434e2498e", "starts": [0, 17, 51, 66, 87, 124, 161, 191, 219, 262, 279, 294, 324, 390, 424, 446, 483, 516, 538, 574, 612, 639, 696, 715, 775]},
+  "Ath.EpEnc.2.1.5": {"words": "92b594860278d758", "starts": [0]},
+  "Ath.EpEnc.2.1.6": {"words": "9018ad97d7dace53", "starts": [0, 15, 44, 73, 95, 125, 149, 181, 205]},
+  "Ath.EpEnc.2.1.7": {"words": "5008decff2217807", "starts": [0, 11, 23, 57, 69, 105, 131, 166, 208]},
+  "Ath.EpEnc.2.2": {"words": "7c2ee06549123fe0", "starts": [0]},
+  "Ath.EpEnc.2.2.1": {"words": "ee143778c299e0d6", "starts": [0, 19, 57, 92, 114, 144, 170]},
+  "Ath.EpEnc.2.2.2": {"words": "3b8c672e8deff064", "starts": [0, 41, 70, 91, 122, 150, 171, 211, 231, 248, 273, 300]},
+  "Ath.EpEnc.2.3": {"words": "176a68c7c157e068", "starts": [0]},
+  "Ath.EpEnc.2.3.1": {"words": "a8bb0bad20fa6ee2", "starts": [0, 23, 60, 83, 123, 160, 190, 203, 234, 251, 283, 315, 346]},
+  "Ath.EpEnc.2.4": {"words": "245b95652be98679", "starts": [0]},
+  "Ath.EpEnc.2.4.1": {"words": "ec16309d9bdc1fd2", "starts": [0, 32, 54, 85, 112, 134, 168, 196, 228, 241]},
+  "Ath.EpEnc.2.4.2": {"words": "4555cab3c18f3237", "starts": [0, 23, 42, 74, 101, 126, 140, 220, 246, 283, 319, 351]},
+  "Ath.EpEnc.2.5": {"words": "25fbac669a8327e4", "starts": [0]},
+  "Ath.EpEnc.2.5.1": {"words": "f53b3bc591601cfa", "starts": [0, 13, 20, 53, 82, 105, 129, 149, 181, 210, 245, 267, 295, 344, 365, 427, 456]},
+  "Ath.EpEnc.2.6": {"words": "4b42504c0296cc7e", "starts": [0]},
+  "Ath.EpEnc.2.6.1": {"words": "16832c060fddc9a7", "starts": [0, 24, 43, 124, 158, 191]},
+  "Ath.EpEnc.2.6.2": {"words": "7fdd5b20bcb232a5", "starts": [0, 21, 55, 93, 132, 155, 180, 218, 242]},
+  "Ath.EpEnc.2.6.3": {"words": "c0d8b8d98e3a5155", "starts": [0, 27, 63]}
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "work_id": "anf-works/narrative-of-events-in-persia",
+ "anchor": "ogpg/vol-010/narratio-de-rebus-persicis",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "1cad9e8ee866325d",
+ "words": "8ef2b0a22db52f61",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 73, "calibration": [0.8142, 0.1212], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9733, "rounds": 4, "units": 79},
+ "paragraphs": {
+  "PsAfric.Pers": {"words": "0fb562f8848ec8a3", "starts": [0]},
+  "PsAfric.Pers.2": {"words": "2d023bb5a0eba440", "starts": [0, 139]},
+  "PsAfric.Pers.3": {"words": "20b50edb251ae279", "starts": [0]},
+  "PsAfric.Pers.4": {"words": "2310a157ebbca0a8", "starts": [0, 25, 67, 89, 122, 156, 335, 426]},
+  "PsAfric.Pers.5": {"words": "d868f1fee7ee0435", "starts": [0, 35]},
+  "PsAfric.Pers.6": {"words": "ce2c14f3e139c1f5", "starts": [0, 26, 43, 67]},
+  "PsAfric.Pers.7": {"words": "8171b328312cc6bf", "starts": [0, 30, 75]},
+  "PsAfric.Pers.8": {"words": "c2b30339db2e8d20", "starts": [0, 18]},
+  "PsAfric.Pers.9": {"words": "9ed6447f5cc1f010", "starts": [0, 22, 37, 63, 83, 115, 146, 167]},
+  "PsAfric.Pers.10": {"words": "27a252abbad5c298", "starts": [0, 21, 46, 79, 115, 149, 184, 210, 234, 252, 276]},
+  "PsAfric.Pers.11": {"words": "15772da5ec29a486", "starts": [0]},
+  "PsAfric.Pers.12": {"words": "c7430e3d2550d216", "starts": [0, 15, 63, 100, 130, 151, 178, 218, 255, 293, 336]},
+  "PsAfric.Pers.13": {"words": "3d2911582cb02938", "starts": [0, 27, 54, 72, 102, 139, 158]},
+  "PsAfric.Pers.14": {"words": "287d00da42076e24", "starts": [0, 17]},
+  "PsAfric.Pers.15": {"words": "0927ff35b7769042", "starts": [0, 25, 57, 100]},
+  "PsAfric.Pers.16": {"words": "ad510b4fba5470ed", "starts": [0, 27, 45, 74, 115]},
+  "PsAfric.Pers.17": {"words": "623860ab8c6d381c", "starts": [0, 11, 47, 73, 92]},
+  "PsAfric.Pers.18": {"words": "95bc4c24c1e4dc2a", "starts": [0, 32]}
+ }
+}

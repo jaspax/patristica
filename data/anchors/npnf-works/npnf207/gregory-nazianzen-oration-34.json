@@ -1,0 +1,29 @@
+{
+ "work_id": "npnf-works/gregory-nazianzen-oration-34",
+ "anchor": "ogpg/vol-036/oratio-34",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8a78496e84a2f844",
+ "words": "4d4ed722c17272ae",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 107, "calibration": [0.7671, 0.1224], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8125, "rounds": 4, "units": 111},
+ "paragraphs": {
+  "GregNaz.Or34": {"words": "e78b0b225d4dfe2a", "starts": [0]},
+  "GregNaz.Or34.1": {"words": "fca27713b501203c", "starts": [0]},
+  "GregNaz.Or34.2": {"words": "c20862333b320714", "starts": [0]},
+  "GregNaz.Or34.3": {"words": "d0fec72d22f2fc6b", "starts": [0, 131]},
+  "GregNaz.Or34.4": {"words": "b59026c02c6bd4a7", "starts": [0, 27, 62, 89, 113, 138]},
+  "GregNaz.Or34.5": {"words": "2777f44fd7580ba1", "starts": [0, 35, 48, 78, 98, 116, 155, 181]},
+  "GregNaz.Or34.6": {"words": "6bce7bde54b3d718", "starts": [0, 26, 44, 79, 115, 130, 137]},
+  "GregNaz.Or34.7": {"words": "338877ae1c35ed78", "starts": [0, 28, 61, 87, 108]},
+  "GregNaz.Or34.8": {"words": "f58909b91b75f8e4", "starts": [0, 43, 63, 88, 117, 145, 191, 220, 234, 295, 327, 366, 380]},
+  "GregNaz.Or34.9": {"words": "c0d6c87e8c80ab56", "starts": [0, 27, 60, 94, 135, 154, 179, 194, 220, 248, 274, 296, 328, 378]},
+  "GregNaz.Or34.10": {"words": "4126fb28a27db9b7", "starts": [0, 105, 125, 152, 177]},
+  "GregNaz.Or34.11": {"words": "bcf9e8605a7eef51", "starts": [0, 26, 48, 82, 109]},
+  "GregNaz.Or34.12": {"words": "30ba7182694a4281", "starts": [0, 21, 42, 74, 110, 150, 191, 228]},
+  "GregNaz.Or34.13": {"words": "cac29d1396660c22", "starts": [0, 26, 48, 63, 111]},
+  "GregNaz.Or34.14": {"words": "3adb7ffc06803fcf", "starts": [0, 40, 74, 101, 114, 173, 202, 237]},
+  "GregNaz.Or34.15": {"words": "eeecc30f8811d635", "starts": [0, 32, 66, 99, 106, 134, 156]},
+  "GregNaz.Or34.16": {"words": "2760d775dbb944ca", "starts": [0, 13, 41, 65, 103, 122, 156]},
+  "GregNaz.Or34.17": {"words": "ede0116aa3f7aa27", "starts": [0, 27, 49, 74, 102, 121, 135, 170]}
+ }
+}

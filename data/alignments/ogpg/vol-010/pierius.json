@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-010/pierius",
  "pivot": "ogpg/vol-010/pierius",
- "groups": 2,
- "inputs": "b021338ab3a40d66",
- "run": {"aligner": 2, "date": "2026-10-28", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 4,
+ "inputs": "f63cd14bd8f0c00e",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/pierius-fragment", "units": 4, "ids": "f867da78c33a223b", "inputs": "518a6f0916af1443", "spans": "+=+.", "conf": "99"},
-  {"work_id": "ogpg/vol-010/pierius", "units": 16, "ids": "02055f42e9d5fe5e", "inputs": "d58f4103ff49a501", "spans": "+==.....+==.....", "conf": "99"}
+  {"work_id": "anf-works/pierius-fragment", "units": 5, "ids": "3b850685b7c8600d", "inputs": "c88d4e5319c42090", "spans": "+=+++", "conf": "9963"},
+  {"work_id": "ogpg/vol-010/pierius", "units": 16, "ids": "02055f42e9d5fe5e", "inputs": "d58f4103ff49a501", "spans": "+==...+==+.+....", "conf": "9963"}
  ]
 }

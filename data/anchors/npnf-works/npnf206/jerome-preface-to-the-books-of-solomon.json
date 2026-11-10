@@ -1,0 +1,16 @@
+{
+ "work_id": "npnf-works/jerome-preface-to-the-books-of-solomon",
+ "anchor": "oglt-pl/hieronymus/pl28_18_unknown",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "98ef67314d9569ad",
+ "words": "1d1158ec149f28e5",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 15, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.1404, "rounds": 3, "units": 16},
+ "paragraphs": {
+  "Jer.Praef.iii.x": {"words": "2cd3c981e5ad60be", "starts": [0]},
+  "Jer.Praef.iii.x.1": {"words": "772c23e216dac9c9", "starts": [0]},
+  "Jer.Praef.iii.x.2": {"words": "8e534a738d7ff00e", "starts": [0, 34, 60, 89, 141, 169]},
+  "Jer.Praef.iii.x.3": {"words": "d19cfe557daf348f", "starts": [0]},
+  "Jer.Praef.iii.x.4": {"words": "d98c166845f62cd8", "starts": [0, 6, 21, 43, 55, 63, 77]}
+ }
+}
