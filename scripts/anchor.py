@@ -771,6 +771,25 @@ def cut_by_text(c: Candidate, norm: Path, raw: Path, anchors_dir: Path) -> None:
     log.debug("%s: projected from %s (%s)", c.work_id, c.anchor, json.dumps(proj.stats))
 
 
+def keep_current(c: Candidate, norm: Path, raw: Path, anchors_dir: Path, reason: str) -> None:
+    """Record that *c* keeps its current cut: a cut file whose cuts are the
+    ones it has now, with ``stats.kept`` (#638). No vectors and no requests;
+    the work is re-normalized only so its fingerprint records the cut file
+    (its units don't change)."""
+    paras = anchoring.paragraphs(_chunks(norm, c.path))
+    cut = anchor_store.CutFile(
+        work_id=c.work_id, anchor=c.anchor, method=method_hash(c),
+        anchor_cuts=anchoring.chunks_cuts_hash(_chunks(norm, c.anchor_path)),
+        words=paragraph_words(paras), model="",
+        paragraphs={p.ref: anchor_store.ParagraphCut(p.words_hash, p.starts) for p in paras},
+        stats={"kept": "provisional", "reason": reason})
+    before = _chunks(norm, c.path)
+    anchor_store.save(anchors_dir, c.path, cut)
+    renormalize(c, norm, raw, anchors_dir)
+    if _chunks(norm, c.path) != before:
+        raise AnchorError(f"{c.work_id}: keeping its cut changed its units (a bug)")
+
+
 def restore(c: Candidate, previous: anchor_store.CutFile | None, norm: Path, raw: Path,
             anchors_dir: Path) -> None:
     """Put back the cut file a failed run replaced (none: remove the new one) and
@@ -800,6 +819,11 @@ def main() -> None:
                    help="only works whose id starts with PREFIX (repeatable)")
     p.add_argument("--recut", action="append", default=[], metavar="WORK_ID",
                    help="re-cut this frozen (or current) work; 'all' for every frozen one")
+    p.add_argument("--keep", action="append", default=[], metavar="WORK_ID",
+                   help="record that this work keeps its current cut (a cut file with "
+                        "stats.kept; no requests); repeatable")
+    p.add_argument("--keep-reason", default="owner",
+                   help="--keep: why, recorded in the cut file")
     p.add_argument("--dry-run", action="store_true", help="report the works and the cost only")
     p.add_argument("--pay", action="store_true", help="send Voyage requests (paid)")
     p.add_argument("--max-cost", type=float, metavar="USD",
@@ -816,6 +840,17 @@ def main() -> None:
                 print(describe(s))
                 bad += s.status in FAILING
         sys.exit(1 if bad else 0)
+
+    if args.keep:
+        by_id = {c.work_id: c for c in candidates(args.normalized_dir, args.anchors_dir)[0]}
+        unknown = sorted(set(args.keep) - set(by_id))
+        if unknown:
+            sys.exit(f"--keep: not works the rule anchors: {', '.join(unknown)}")
+        for work_id in args.keep:
+            keep_current(by_id[work_id], args.normalized_dir, args.raw_dir, args.anchors_dir,
+                         args.keep_reason)
+        log.info("recorded %d works keeping their current cut", len(args.keep))
+        return
 
     pl = plan(args.normalized_dir, args.anchors_dir, args.recut, args.work)
     for s in pl.frozen:

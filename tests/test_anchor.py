@@ -635,3 +635,18 @@ def test_an_edition_projection_that_does_not_win_keeps_the_provisional_cut(corpu
     states = {s.candidate.work_id: s.status for s in anchor.check_works(
         corpus["normalized"], corpus["anchors"]) if s.candidate}
     assert states["ed/x"] == anchor.CURRENT
+
+
+def test_keep_records_the_current_cut(corpus) -> None:
+    """``--keep`` records that a work keeps its cut: no requests, same units,
+    and the work counts as decided (#638)."""
+    before = units(corpus, "tr/w.json")
+    [c] = [c for c in anchor.candidates(corpus["normalized"], corpus["anchors"])[0]
+           if c.work_id == "tr/w"]
+    anchor.keep_current(c, corpus["normalized"], corpus["raw"], corpus["anchors"], "test")
+    cut = anchor_store.load(corpus["anchors"], "tr/w.json")
+    assert cut.stats == {"kept": "provisional", "reason": "test"} and cut.anchor == "orig/w"
+    assert units(corpus, "tr/w.json") == before
+    states = {s.candidate.work_id: s.status for s in anchor.check_works(
+        corpus["normalized"], corpus["anchors"]) if s.candidate}
+    assert states["tr/w"] == anchor.CURRENT
