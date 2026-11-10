@@ -1,0 +1,30 @@
+{
+ "work_id": "ecumenical/carthage-cyprian",
+ "anchor": "oglt-pl/concilia-carthaginiensia/pl3_24_ann",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "f3c1c916a75fc376",
+ "words": "7f131dfa1dd8fdd9",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 94, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 1, "one_one": 0.0482, "rounds": 4, "span": [37, 556], "units": 100},
+ "paragraphs": {
+  "CarthageCyp.Section.1": {"words": "7246ca198a19bc44", "starts": [0]},
+  "CarthageCyp.Section.1.1": {"words": "e12102ee45690536", "starts": [0]},
+  "CarthageCyp.Section.1.2": {"words": "1de92027b4932d1b", "starts": [0, 53]},
+  "CarthageCyp.Section.1.3": {"words": "8f429b6ed02a6255", "starts": [0, 38, 65, 106]},
+  "CarthageCyp.Section.1.4": {"words": "99fb788931465b0a", "starts": [0, 27, 55]},
+  "CarthageCyp.Section.1.5": {"words": "97cec81fd459c593", "starts": [0]},
+  "CarthageCyp.Section.1.6": {"words": "c4ca35a6fa504737", "starts": [0, 8, 23, 33, 57, 65]},
+  "CarthageCyp.Section.1.7": {"words": "af1438f362d8a9df", "starts": [0, 28, 51, 57, 58, 59, 75, 83]},
+  "CarthageCyp.Section.1.8": {"words": "29dcf0dabffc492a", "starts": [0, 21, 42, 48]},
+  "CarthageCyp.Section.1.9": {"words": "5327a314c4799fca", "starts": [0, 25]},
+  "CarthageCyp.Section.1.10": {"words": "7ef259cc2d2a545e", "starts": [0, 30]},
+  "CarthageCyp.Section.1.11": {"words": "94667aa3dcd63ae1", "starts": [0, 14, 19]},
+  "CarthageCyp.Section.2": {"words": "37c6fc34b7d86e74", "starts": [0, 9]},
+  "CarthageCyp.Section.2.1": {"words": "2dbfee11a8dc8787", "starts": [0, 8, 30, 44, 58, 60, 97, 127, 155, 205, 230, 239, 256, 276, 291]},
+  "CarthageCyp.Section.2.2": {"words": "848c654bfc687f52", "starts": [0, 15, 19, 46, 59, 77]},
+  "CarthageCyp.Section.2.3": {"words": "f44aa95b1129878d", "starts": [0, 10, 16, 24, 49, 63, 72, 88, 99, 109, 119, 122, 130, 153, 158, 163]},
+  "CarthageCyp.Section.2.4": {"words": "4b3220530a989c26", "starts": [0, 8, 22, 45, 49, 59, 85]},
+  "CarthageCyp.Section.2.5": {"words": "390305103618d8d4", "starts": [0, 13, 24, 33, 43, 50, 57, 78, 81, 110, 125, 134, 142, 161, 276, 293]},
+  "CarthageCyp.Section.2.6": {"words": "2c0c7af70c66e625", "starts": [0]}
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "work_id": "anf-works/hippolytus-against-the-jews",
+ "anchor": "ogpg/vol-010/adversus-judaeos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "76deb56b7eb928fd",
+ "words": "a3e36a049a5421d3",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 64, "calibration": [0.7086, 0.1373], "converged": false, "fallback_paragraphs": 1, "one_one": 0.8873, "rounds": 4, "units": 70},
+ "paragraphs": {
+  "Hippo.Jud": {"words": "875b7d00f94f6e47", "starts": [0]},
+  "Hippo.Jud.1": {"words": "e38fe0709f5f521a", "starts": [0, 16, 50, 66]},
+  "Hippo.Jud.2": {"words": "88d8f200ac286137", "starts": [0, 20, 55, 73, 106, 139]},
+  "Hippo.Jud.3": {"words": "0c6a88d17d6407d2", "starts": [0, 20, 44, 77, 96, 128, 152, 182, 218, 246, 265, 288]},
+  "Hippo.Jud.4": {"words": "75667dd70c6c269d", "starts": [0, 31, 54]},
+  "Hippo.Jud.5": {"words": "b3f02334a4176f4e", "starts": [0, 36, 55, 73]},
+  "Hippo.Jud.6": {"words": "326893372b0920fe", "starts": [0, 14, 32, 63, 102, 115, 151, 177, 193]},
+  "Hippo.Jud.7": {"words": "41a18ee257fb4f51", "starts": [0, 26, 53, 90, 119, 141, 173, 196]},
+  "Hippo.Jud.8": {"words": "29c951d8ff94300e", "starts": [0, 7, 48]},
+  "Hippo.Jud.9": {"words": "8a992c8950ad67f4", "starts": [0, 20, 75, 100, 123, 157, 176, 195, 232, 253, 276]},
+  "Hippo.Jud.10": {"words": "8827498d75507ba2", "starts": [0, 13, 58, 86, 126, 142, 170, 190]},
+  "Hippo.Jud.11": {"words": "370beae1874b9751", "starts": [0]}
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "work_id": "npnf-works/athanasius-letter-53-second-to-monks",
+ "anchor": "ogpg/vol-026/ad-monachos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "1229821b177eb2b9",
+ "words": "0ad82af2846e3e67",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 11, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 2, "one_one": 0.8333, "rounds": 2, "units": 13},
+ "paragraphs": {
+  "Ath.EpMon2": {"words": "22efb264417e13aa", "starts": [0]},
+  "Ath.EpMon2.1": {"words": "c25678febb64a7bf", "starts": [0]},
+  "Ath.EpMon2.2": {"words": "ccf6454cb6e6fc63", "starts": [0]},
+  "Ath.EpMon2.3": {"words": "d6a6dce3923956b5", "starts": [0, 23, 58, 81, 124, 161, 197, 244, 275, 306]}
+ }
+}

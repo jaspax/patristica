@@ -16,9 +16,15 @@ folded (``textfold.fold``) into zero or more tokens, which are aligned. Only
 tokens in matched runs of ``Params.min_run`` count, as in the text aligner.
 
 **Projection.** A reference unit start (paragraph starts included: editions
-divide paragraphs differently) is projected through its first token, or the
-first matched token within ``Params.window`` tokens after it, shifted back by
-the distance (an OCR-damaged word at the start of a sentence). A start that
+divide paragraphs differently) is projected through its first token. If that
+token is unmatched (an OCR-damaged or differently spelled word), the cut goes
+right after the counterpart of the token before it, when that one is
+matched; else before the first matched token within ``Params.window`` tokens
+after it, shifted back by the distance. No cut may leave a piece with fewer
+than ``Params.min_letters`` letters (a section number Migne prints at the
+start of a paragraph, whose critical edition keeps it in the refs): such a
+piece is joined to the next one (the last piece of a paragraph to the
+previous one). A start that
 lands inside one of the edition's paragraphs, not at its first word, is a cut
 there. A paragraph of the edition gets the projected cuts only when at least
 ``Params.min_cover`` of its tokens are matched; any other paragraph (text only
@@ -44,7 +50,9 @@ from patristica.textfold import fold
 
 #: Bump when a change to the projection should re-cut (cut files made with
 #: another version are frozen, like ``anchoring.ANCHOR_VERSION``).
-PROJECTION_VERSION = 1
+#: 2: a start whose word is unmatched is placed after the previous word's
+#: counterpart first; no cut leaves a piece with fewer than ``min_letters`` letters.
+PROJECTION_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -54,6 +62,9 @@ class Params:
     min_run: int = 3  # matched tokens count only in runs of this many (as #199)
     window: int = 3  # tokens after a start searched for a matched one
     min_cover: float = 0.5  # share of a paragraph's tokens matched to take projected cuts
+    #: A piece with fewer letters (a section number the edition prints in its
+    #: text, a stray OCR token) is joined to its neighbour: its cut is dropped.
+    min_letters: int = 8
     text: TextParams = field(default_factory=TextParams)
 
     def to_dict(self) -> dict:
@@ -88,6 +99,27 @@ def _tokens(paras: Sequence[Paragraph]) -> tuple[list[str], list[tuple[int, int]
     return toks, where, first
 
 
+def _letters(words: Sequence[str]) -> int:
+    return sum(ch.isalpha() for w in words for ch in w)
+
+
+def _no_scraps(words: Sequence[str], cuts: list[int], min_letters: int) -> tuple[int, ...]:
+    """``(0, *cuts)`` without the cuts that leave a piece of fewer than
+    *min_letters* letters: a short piece joins the next one, the last piece of
+    the paragraph the one before it."""
+    starts = [0, *cuts]
+    k = 0
+    while k < len(starts):
+        end = starts[k + 1] if k + 1 < len(starts) else len(words)
+        if _letters(words[starts[k]:end]) >= min_letters or len(starts) == 1:
+            k += 1
+        elif k + 1 < len(starts):
+            del starts[k + 1]  # join with the next piece
+        else:
+            del starts[k]  # the last piece joins the previous one
+    return tuple(starts)
+
+
 def project(reference: Sequence[Paragraph], edition: Sequence[Paragraph],
             params: Params = Params()) -> Projection:
     """Cut *edition*'s paragraphs where *reference*'s units start."""
@@ -109,11 +141,16 @@ def project(reference: Sequence[Paragraph], edition: Sequence[Paragraph],
             k = first_r.get((pi, s))
             hit = None
             if k is not None:
-                for d in range(params.window + 1):
-                    if k + d in to_e:
-                        hit = to_e[k + d] - d
-                        break
-            if hit is None or hit < 0:
+                if k in to_e:
+                    hit = to_e[k]
+                elif k - 1 in to_e:
+                    hit = to_e[k - 1] + 1
+                else:
+                    for d in range(1, params.window + 1):
+                        if k + d in to_e:
+                            hit = to_e[k + d] - d
+                            break
+            if hit is None or not 0 <= hit < len(te):
                 lost += 1
                 continue
             pe, we = where_e[hit]
@@ -125,7 +162,8 @@ def project(reference: Sequence[Paragraph], edition: Sequence[Paragraph],
     kept = covered = 0
     for pi, p in enumerate(edition):
         if tokens_e[pi] and matched_e[pi] >= params.min_cover * tokens_e[pi]:
-            starts.append((0, *sorted(c for c in cuts[pi] if c < len(p.words))))
+            starts.append(_no_scraps(p.words, sorted(c for c in cuts[pi] if c < len(p.words)),
+                                     params.min_letters))
             covered += 1
         else:
             starts.append(None)

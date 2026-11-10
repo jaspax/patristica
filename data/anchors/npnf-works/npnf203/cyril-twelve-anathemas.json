@@ -1,0 +1,25 @@
+{
+ "work_id": "npnf-works/cyril-twelve-anathemas",
+ "anchor": "ogpg/vol-077/epistula-17",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b1e2f61bc6cf7309",
+ "words": "6e6ef4e95191ca52",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 27, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.1538, "rounds": 2, "span": [26, 156], "units": 28},
+ "paragraphs": {
+  "CyrAlex.Anath": {"words": "66409ab560ef755f", "starts": [0]},
+  "CyrAlex.Anath.2": {"words": "fad36d23bc4da280", "starts": [0, 10]},
+  "CyrAlex.Anath.3": {"words": "fb1fd81e28c9dd10", "starts": [0, 25]},
+  "CyrAlex.Anath.4": {"words": "cb4307f0a29fbab5", "starts": [0, 20]},
+  "CyrAlex.Anath.5": {"words": "e502fcb1c3a49694", "starts": [0, 31]},
+  "CyrAlex.Anath.6": {"words": "13d978e50cd169a0", "starts": [0, 32]},
+  "CyrAlex.Anath.7": {"words": "976afd14e24a3cc9", "starts": [0, 26]},
+  "CyrAlex.Anath.8": {"words": "2e262857779d4345", "starts": [0, 21]},
+  "CyrAlex.Anath.9": {"words": "df15053620401a6c", "starts": [0]},
+  "CyrAlex.Anath.10": {"words": "252956c0370c81cb", "starts": [0, 50]},
+  "CyrAlex.Anath.11": {"words": "b2be77835e631ee0", "starts": [0, 45]},
+  "CyrAlex.Anath.12": {"words": "41c882aaed872929", "starts": [0, 29, 71]},
+  "CyrAlex.Anath.13": {"words": "bfe6587cb18206ca", "starts": [0, 22, 44]},
+  "CyrAlex.Anath.14": {"words": "4377871386d5eb0e", "starts": [0, 24]}
+ }
+}

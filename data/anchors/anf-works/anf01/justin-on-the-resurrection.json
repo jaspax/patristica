@@ -1,0 +1,24 @@
+{
+ "work_id": "anf-works/justin-on-the-resurrection",
+ "anchor": "ogpg/vol-006/fragmenta-justini",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "047d598f5d3108f9",
+ "words": "8822e6bf743f8112",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 143, "calibration": [0.6151, 0.1624], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9221, "rounds": 4, "span": [0, 154], "units": 146},
+ "paragraphs": {
+  "Just.Res": {"words": "6e8601c6f99d5e74", "starts": [0]},
+  "Just.Res.i": {"words": "ef38035bc610bef1", "starts": [0, 27, 55, 97, 136, 173, 197, 240, 282, 297, 329, 354, 383, 401]},
+  "Just.Res.ii": {"words": "c9214dfecc32243c", "starts": [0, 39, 61, 77, 96, 114, 151, 173, 205, 228, 253, 277]},
+  "Just.Res.iii": {"words": "234629fce727ebf1", "starts": [0, 54, 76, 143, 176, 222, 252, 282, 307, 331, 349, 367, 405, 430, 452, 486]},
+  "Just.Res.iv": {"words": "a91421abf4e4ccfa", "starts": [0, 28, 47, 77, 116, 131, 165]},
+  "Just.Res.v": {"words": "a10b500b284aa117", "starts": [0, 37, 49, 88, 103, 129, 166, 184, 213, 255, 278, 300, 332, 354, 386, 403, 416, 437, 470, 495, 512]},
+  "Just.Res.vi": {"words": "44d787c1bf5bd880", "starts": [0, 30, 42, 69, 113, 147, 172, 191, 233, 284, 312, 346, 362, 393, 420, 445, 470, 507, 543, 565, 608, 626]},
+  "Just.Res.vii": {"words": "d7a594ccbddfc1cc", "starts": [0, 23, 54, 113, 152, 176, 201, 223, 254]},
+  "Just.Res.viii": {"words": "0b56d6f70ad9acaf", "starts": [0, 39, 87, 103, 137]},
+  "Just.Res.viii.1": {"words": "b8d79cd81df6c9b6", "starts": [0, 42, 70, 85, 117, 170]},
+  "Just.Res.viii.2": {"words": "10a3b151faf4c06a", "starts": [0, 33, 52, 82, 95, 120, 150, 183, 227, 253]},
+  "Just.Res.ix": {"words": "2007b004a177520a", "starts": [0, 158, 175, 215, 238, 280, 304]},
+  "Just.Res.x": {"words": "98da9d564bf15f99", "starts": [0, 28, 54, 72, 120, 148, 178, 210, 227, 267, 278, 314, 338, 372, 409, 431]}
+ }
+}

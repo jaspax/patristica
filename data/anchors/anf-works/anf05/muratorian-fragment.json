@@ -1,0 +1,17 @@
+{
+ "work_id": "anf-works/muratorian-fragment",
+ "anchor": "oglt-pl/anonymus/pl3_1_unkn",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "dcbea884a79c57ce",
+ "words": "1dd69aaf787989c9",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 32, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 0, "one_one": 0.0378, "rounds": 4, "span": [60, 430], "units": 34},
+ "paragraphs": {
+  "MuratFrag": {"words": "1538a5d39db4e52d", "starts": [0]},
+  "MuratFrag.1": {"words": "12e6fca7c3d771c2", "starts": [0]},
+  "MuratFrag.2": {"words": "1bc4f7526e960846", "starts": [0, 59, 77, 97, 123, 154, 177, 219, 234, 257, 278]},
+  "MuratFrag.3": {"words": "6f7517bea87e2339", "starts": [0, 22, 33, 69]},
+  "MuratFrag.4": {"words": "e458b31c1de864dc", "starts": [0, 33, 59, 105, 117, 152, 183, 200, 222, 250, 255]},
+  "MuratFrag.5": {"words": "7146d1def681b91d", "starts": [0, 1, 6, 23, 61, 91]}
+ }
+}

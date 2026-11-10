@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-025/in-illud-omnia",
  "pivot": "npnf-works/athanasius-on-luke-x-22",
- "groups": 97,
- "inputs": "13fbd7d0078d9435",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 102,
+ "inputs": "52fa07eb26748d3f",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-on-luke-x-22", "units": 121, "ids": "5b820a5dbd271c8c", "inputs": "9af604f97e2843e8", "spans": "..+++++.+=+=+++++++.+++=++=++=++=++++.++++++++=+.+=++++=+++++++++++.+++++=++=++++++++++=++=++=++++++++++.++++=++++=++++++", "conf": "9999999999996499999999999979999889999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-025/in-illud-omnia", "units": 105, "ids": "d5bd1f3944f84aa1", "inputs": "48393a39e7a660b6", "spans": "+=++++=+++++++++++++++++++++++++++++++=++++++++++++++=+++++++++++++++++++++=++++++++++++++++++++++=++++..", "conf": "9999999999996499999999999979999889999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "npnf-works/athanasius-on-luke-x-22", "units": 111, "ids": "453641f8a14dd89f", "inputs": "12e3c4a89683bef6", "spans": "..+++++++++++++++=.++++++++++++++++++++++++=.+++++++++++++++++.+++++++++++++++++++=++++++++++++.+++++++++++++++", "conf": "999999999999998599999999999999999889999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-025/in-illud-omnia", "units": 105, "ids": "d5bd1f3944f84aa1", "inputs": "48393a39e7a660b6", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++..", "conf": "999999999999998599999999999999999889999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -15,6 +15,12 @@
       "prompt_version": "bulk-2026-10-12",
       "date": "2026-11-09",
       "script": "__main__"
+    },
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-10": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-10",
+      "script": "__main__"
     }
   },
   "translations": [
@@ -34,17 +40,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.15.s1",
-      "source_sha256": "395886976a5b4557",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "f16fdb4c9fd4c43e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "This holy and God-clothed father became a monk in his own country, and he lived in all humility and ascetic struggle,"
+      "text": "This holy and God-clothed father began his life as a monk in his own land,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.15.s2",
-      "source_sha256": "5fb1fdce6d81148e",
+      "source_sha256": "22ac792ed1577012",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "in fasting and vigil, and in tears and supplication to God, as it says: \"Knock, and it will be opened to you; ask, and it will be given to you; seek, and you will find.\""
+      "text": "He lived in all humility and struggle, in fasting and vigils, and in tears and prayers to God, as it says:"
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.15.s3",
+      "source_sha256": "ecf60c91f27d3133",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 25,
+      "text": "\"Knock and it will be opened to you; ask and it will be given to you; seek and you will find.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.16.s1",
@@ -62,17 +75,17 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.17.s1",
-      "source_sha256": "b8438034a440b16a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2770197cb356ef2a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "But he left the place where he was living and went far off into the desert, because he was fleeing this vain glory. He found a cave in that desert and settled in it with his disciples."
+      "text": "But he left the place where he was living and went into the distant wilderness, for he was fleeing this vain glory,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.17.s2",
-      "source_sha256": "1154120787b6b8a9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ca0ae9a5a8dc0001",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "For a long time no one knew that place. From time to time he would send one of the disciples to fetch food, and so he lived in hiding."
+      "text": "and he found a cave in that wilderness and settled in it with his disciples. And for a long time no one knew of that place. From time to time he would send one of the disciples to fetch food, and while he was living thus in secret,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.18.s1",
@@ -223,31 +236,31 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.28.s2",
-      "source_sha256": "97e4161be22b154c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ca9699574aaf6d40",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "And he crossed the Aragvi and went up to venerate the precious Cross."
+      "text": "And he crossed the Aragvi and went up to venerate the precious Cross. And when they had prayed there, he went up with his disciples onto that mountain,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.28.s3",
-      "source_sha256": "29a540dabcfd47a2",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "112afd7a6c39b389",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "And when they had prayed, he went up that mountain with his disciples. When he had looked around, he said to his disciples: \"Here I will dwell, for this place pleases me.\""
+      "text": "and when he had looked around, he said to his disciples: \"Here I will settle, for this place pleases me.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.30.s1",
-      "source_sha256": "4ca249916aa5b9b6",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2cc41e6e16c061b7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "God did this for these reasons. First, so that he would become an adornment to the churches and to the Georgian peoples round about. Second, he settled in that place for this reason,"
+      "text": "Now God did this for these reasons: first, so that he might become an adornment for the churches and for the Georgian peoples round about,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.30.s2",
-      "source_sha256": "0f50bdd1acf16317",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "168f908af6410c11",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "because the pagans had built a tower there, and demons had firmly settled in it, and the pagans served them with the smoke of sacrifices,"
+      "text": "and second, he settled as a recluse in that place because the pagans had built a tower there, and demons had firmly established themselves there, and the pagans served them with the smoke of sacrifices."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.30.s3",
@@ -259,9 +272,9 @@
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.30.s4",
       "source_sha256": "3701cc9243dc80df",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "When this God-clad father of ours, holy John, had gone up the mountain, he began to pray and make supplication to God, and he mightily endured all the assaults of the demons."
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "This God-clad father of ours, Saint John, when he had gone up the mountain, began to pray and make supplication to God, and he endured all the assaults of the demons with great strength."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.31.s1",
@@ -272,34 +285,41 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.31.s2",
-      "source_sha256": "852736d431431f52",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Do you not know that my Lord Jesus Christ sent us forth and led us here for the benefit of this land?"
+      "source_sha256": "3babafd88b74b5b9",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "Do you not know that my Lord Jesus Christ has sent us forth for the benefit of this land and has led us here? For this land is a new planting,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.31.s3",
-      "source_sha256": "38023cd60521cd4b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "For this land is a new planting. Therefore it is fitting that each of you go out and strengthen the brethren who have confessed Christ."
+      "source_sha256": "209f683f79598d57",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "and for this reason it is fitting that each one of you should go forth and strengthen the brethren who have confessed Christ."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.32.s1",
-      "source_sha256": "9b3ad0466ba26084",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "ea953dba17d97c0a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "And love nothing more than God, brothers. Keep away from pleasure and gluttony, for that disobedience of Adam was born of pleasure and food, and it has remained upon his offspring."
+      "text": "And love nothing more than God, brethren; keep away from luxury and gluttony,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.32.s2",
-      "source_sha256": "ecd675be5a37a18c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "This is what drove him out of paradise. If he had kept that commandment of fasting, corruption and death would not have gained dominion over us,"
+      "source_sha256": "021cfc8fc3297e6e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "For it was from pleasure and food that the disobedience of Adam was born, which has remained upon his offspring. It was this that drove him out of paradise."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.32.s3",
+      "source_sha256": "c93ef9a77e2c96cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "Had he kept that commandment of fasting, corruption and death would not have gained dominion over us,"
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.32.s4",
       "source_sha256": "09cb7ac2523b043f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -314,38 +334,38 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s2",
-      "source_sha256": "7fe1f714f391ebb1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
-      "group_size": 8,
-      "text": "\"And do not get drunk with wine, in which there is debauchery.\""
+      "source_sha256": "8b732fd55efc3771",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "'And do not be drunk with wine, in which is debauchery.' For wine is a deadly poison and the mother of evil desires,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s3",
-      "source_sha256": "f1d71f6ca3b22fc1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "29c7f180be76ea71",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "It is a deadly poison and the mother of evil desires. Do not touch it at all, for it lures [?] us into eternal punishment."
+      "text": "and do not touch at all that which lures us into eternal punishment. My brethren, always remember death, and where we are going."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s4",
-      "source_sha256": "c7f75415581eadac",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "4847b16a5ae8fc7a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "My brothers, always remember death and where we are going. For this body is mortal and passing away, but the soul is forever immortal."
+      "text": "For this flesh is mortal and passing, but the soul is immortal forever. Let us strive for our souls here and now, for all of this life belongs to tribulation, but the eternal life belongs to rest."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s5",
-      "source_sha256": "203da03ad460ddbc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "2ad59619e1bb2974",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "Let us struggle here and now for our souls, for all this life belongs to affliction, but the eternal life belongs to rest."
+      "text": "Let us be on our guard for that terrible hour when the soul is separated from the body,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.33.s6",
-      "source_sha256": "c71ac171cc661549",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "f17c886ff5ae88f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "Let us be on guard for that terrible hour when the soul is separated from the body. For great is the fear when they lead the soul away and render to it the recompense of its deeds.\""
+      "text": "for great is the fear when the soul is led away and is given the reward for its deeds.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.39.s1",
@@ -356,13 +376,20 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.39.s2",
-      "source_sha256": "b6dd8f126a45c5d1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "source_sha256": "733d34a8e471301e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
       "group_size": 25,
-      "text": "And he sent some of them to Kakheti, some to Kukheti, and others to the upper country. He sent the blessed David to the desert of Gareja, and others to the area around our city."
+      "text": "And he sent some of them to Kakheti, some to Kukheti, and others to the Upper Country,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.39.s3",
+      "source_sha256": "f37bd7e91f5ab2ec",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
+      "group_size": 24,
+      "text": "And he sent the blessed David to the desert of Gareja, and others to the area around our city."
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.39.s4",
       "source_sha256": "5beac957fec332b7",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
@@ -371,9 +398,9 @@
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.39-a",
       "source_sha256": "35c14dfa09aea465",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "And Isidore went to the city of Samtavisi. In this way they separated from one another and lived as recluses, as was pleasing to the Holy Spirit."
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "and Ezderios to the city of Samtavisi. And so they parted from one another and settled in seclusion, as was pleasing to the Holy Spirit."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.40.s1",
@@ -406,9 +433,9 @@
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.41.s3",
       "source_sha256": "3b0082b495761229",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "He also kept some with himself, so that he could always look upon them, and in his mind be martyred together with them at all times, and have them as a comfort for soul and body."
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "And he also kept some with himself, so that he might watch over them at all times, and suffer together with them in his mind at every hour, and have them as a comfort for soul and body."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.42.s1",
@@ -426,38 +453,31 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.42.s3",
-      "source_sha256": "0d3325db1c40677f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "One day they rose up and fell upon the holy John, and began to fight him with many schemes of every kind."
+      "source_sha256": "c8a5af9ffa6d7c5d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "But one day they were stirred up and came against the holy John, and began to wage war on him with many and various kinds of schemes. They surrounded him, harassed him, and said to him:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.42.s4",
-      "source_sha256": "b51a60b6636ad608",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "They surrounded him, caused a disturbance, and said to him: \"Who are you, and where are you from? For this place is ours."
-    },
-    {
-      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.42.s5",
-      "source_sha256": "8ba4ba0160b4bdfc",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "And if you do not leave here, we will bring great and astonishing trials upon you.\""
+      "source_sha256": "e32f83d51a9821f4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "\"Who are you, and where are you from? This place is ours. If you do not leave here, we will bring great and astonishing trials upon you.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.43.s1",
       "source_sha256": "6e890188c049ea75",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "But he sealed himself with the cross of Christ and said to them: \"Here I am. And if you have received permission from Christ,"
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "But he sealed himself with the cross of Christ and said: \"Behold, here I am. If you have received permission from Christ,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.43.s2",
       "source_sha256": "38899be2f3e5c61b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "do whatever you wish, for I am a servant of our Lord Jesus Christ, and I am not afraid of your snares.\""
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "do whatever you wish, for I am a servant of our Lord Jesus Christ, and I do not fear your terrors.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.44.s1",
@@ -517,52 +537,66 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s2",
-      "source_sha256": "93bb37113f07f689",
+      "source_sha256": "d1229e2b1d7beba3",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "But God, who is gentle and loves good, again showed mercy to the one created in his image. The one you had brought to dishonor and buried in the depths of hell, he raised up again in his mercy, brought him up on high, and granted him the kingdom."
+      "group_size": 25,
+      "text": "But the sweet and good-loving God again had mercy on the one created in his image, and the one whom you had brought to dishonour and who was buried in the depths"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s3",
-      "source_sha256": "ec1f26a562caae4f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 23,
-      "text": "And what you deceitfully promised him when you told him, 'You will be given divinity,' we have now received through our Lord Jesus Christ."
+      "source_sha256": "d73e87ef9c7e838f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "[?] …the one buried in hell he raised up again by his mercy, brought up on high, and granted the kingdom. And what you deceitfully promised, when you said,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s4",
+      "source_sha256": "ee665de79e4c99e0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "'You will be given divinity,' behold, we have now received it through our Lord Jesus Christ."
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s5",
       "source_sha256": "8fe289fc51fcc36e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 23,
       "text": "And now, see, you are driven out on every side by the children of Adam, and there is no place for you except that outer darkness, for you yourself hated the light and loved the darkness.\""
     },
     {
-      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s5",
-      "source_sha256": "96836c1cdfe20595",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "For you were an angel, and you became a rebel and fell because of your wickedness. Now, by the power of our Lord Jesus Christ, flee from this mountain, for Christ has granted me this."
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s6",
+      "source_sha256": "535d1f6a9f45ff16",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "For you were an angel, and you became arrogant and fell because of your wickedness."
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.46.s7",
+      "source_sha256": "2bc971992a6e83dd",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "Now, by the power of our Lord Jesus Christ, flee from this mountain, for Christ has granted it to me.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.47.s1",
       "source_sha256": "b8f67ae0b3e911b7",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "When holy John had said all this, all those demons let out a cry of lamentation and woe and said:"
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "When Saint John had said all this, all those demons raised a cry of lamentation and woe, and they said:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.47.s2",
-      "source_sha256": "e38d5aced650625e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "\"For by the calling on of the name of Jesus we are driven out of every place, and he gives power to all who follow him."
+      "source_sha256": "e0d992c838ef2ea6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "\"For by the invoking of the name of Jesus we are driven out of every place, and he gives power to all"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.47.s3",
-      "source_sha256": "e9a964f844d93148",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Woe, woe! Let us go to the innermost lands of the pagans and settle there.\""
+      "source_sha256": "28b04adbe8c4aa95",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "who follow him. Woe, woe! Let us go away to the innermost lands of the heathen and dwell there.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.47.s4",
@@ -573,17 +607,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.48.s1",
-      "source_sha256": "ecad0de8ade6c221",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "When all who lived around that mountain heard what God had done through the prayer of our holy father John, they all gave glory to God,"
+      "source_sha256": "7a957c6afd3cc717",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "When all who lived around that mountain heard of what God had done through the prayer of our holy father John,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.48.s2",
-      "source_sha256": "bebaedd17446b30f",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "for they knew the wickedness of those demons who had dwelt on that mountain. And they said: \"Truly God does the will of those who fear him.\""
+      "source_sha256": "5dfcebab51e509bb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "they all gave glory to God, for they knew the wickedness of those demons who had dwelt on that mountain, and they said:"
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.48.s3",
+      "source_sha256": "d56523cce6303570",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "\"Truly God does the will of those who fear him.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.49.s1",
@@ -616,16 +657,16 @@
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.51.s1",
       "source_sha256": "59bfc1465310d29c",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "And he who long ago gave water to the Israelites in the wilderness through his servant Moses, when waters sprang from the dry rock and satisfied the twelve tribes,"
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "And he who long ago gave water to the Israelites in the desert through his servant Moses, when waters sprang from the dry rock and satisfied the twelve tribes,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.51.s2",
       "source_sha256": "4c7797bd202a416e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "that same good God heard the entreaty of the holy elder and made sweet, cool water spring up from the dry ground on that mountain,"
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "that same good God heard the supplication of the holy elder and made sweet, cool water spring up from the dry ground upon that mountain,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.51.s3",
@@ -636,24 +677,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.52.s1",
-      "source_sha256": "2a054351c44c1f3b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "When this miracle took place, it was spread abroad by those who lived around that mountain, for they all knew"
+      "source_sha256": "37b5981e549087ba",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "And when this miracle had taken place and was spread abroad by those who lived around that mountain,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.52.s2",
-      "source_sha256": "1224ed831112b860",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "that there had been no water at all on that mountain. For this reason people came from every side and brought the sick, and when they drank and anointed themselves,"
+      "source_sha256": "04cd86dc8d213230",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "since all knew that there had been no water at all on that mountain, people therefore came from every side"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.52.s3",
-      "source_sha256": "5e3500714cbb9a4e",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "they were all healed. And those who come with faith still receive benefit to this day."
+      "source_sha256": "8ffcc1d2044acf18",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "and brought the sick, and when they drank and anointed themselves, all were healed. And those who come with faith receive benefit from it even to this day."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.53.s1",
@@ -664,27 +705,41 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.53.s2",
-      "source_sha256": "db7967f12d26ab10",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He lived afflicted and ill-treated, a man of whom this world was not worthy. And by his deeds he shone forth like the morning star."
+      "source_sha256": "6841dc4562b530cb",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "And he lived afflicted and ill-treated, one of whom this world was not worthy."
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.53.s3",
+      "source_sha256": "a25871c1094438d5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "But by his deeds he shone forth like the morning star."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.54.s1",
-      "source_sha256": "f1085149c417e52a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "News of him spread through the land of Kartli, for it is not possible that one who has lit a lamp should put it under a bushel; he puts it on a lampstand, so that it may give light to people."
+      "source_sha256": "2be105059b84bad7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 25,
+      "text": "And his fame spread through the land of Kartli, for it is not possible for one who has lit a lamp to set it under a bushel,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.54.s2",
-      "source_sha256": "7fc67385e78eafd9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "Although he wished to hide himself, he still could not stay hidden. It was as when a perfumer fills a flask with ointment, puts it in another vessel, seals it, and thinks he has hidden it,"
+      "source_sha256": "e2825c7a288219ef",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "but on a lampstand, so that it might give light to people. Although he wished to hide himself,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.54.s3",
+      "source_sha256": "7e31fe335323b185",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 16,
+      "text": "even so he could not stay hidden, just as when a perfumer fills a flask with ointment, puts it inside another vessel, wraps it up, and thinks he has hidden it."
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.54.s4",
       "source_sha256": "52f0eee09c6fcf2e",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 24,
@@ -699,24 +754,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.55.s2",
-      "source_sha256": "ac0cf6689c752efd",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 24,
-      "text": "He was afraid, turned back, and told the elder. The elder went and said to the bear: \"If you have not drunk, drink and go away, and I tell you:"
+      "source_sha256": "776b82ac5d86b013",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "He was afraid, turned back and told the elder. The elder went and said to the bear: \"If you have not drunk, drink and go away,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.55.s3",
-      "source_sha256": "873989102316e865",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"From now on do not harm anyone among men when a man meets you on this mountain.\" And so it has been until now: the bear harms no one at all."
+      "source_sha256": "93344af76dca5c9b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "and I tell you: from now on, do not harm any human being whenever you meet a person on this mountain.\" And so it has remained to this day: the bear harms no one at all."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.55.s4",
       "source_sha256": "b0d33fad9b1e4b69",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "And when the elder had said this to the bear, it obeyed him like a servant, and went away with its head bowed, quietly."
+      "text": "When the elder said this to the bear, it obeyed like a servant and went away quietly with its head bowed."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.56.s1",
@@ -748,24 +803,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.58.s2",
-      "source_sha256": "113e02c85aa7f285",
+      "source_sha256": "98b75981f69693a1",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "while we have shown ourselves worse than wild beasts and dumb animals. For day after day we read aloud the things that happened, and we hear the commandments that were given, and yet we do not stop harming our neighbours."
+      "text": "while we have shown ourselves more wicked than wild beasts and dumb animals,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.58.s3",
-      "source_sha256": "809abdf25a7a2745",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "We abstain from eating meat, yet we gnaw the flesh of our neighbours. We have received the commandment"
+      "source_sha256": "767610c2863c5526",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "For every day we read aloud the things that happened, and we hear the commandments that were given, yet we do not stop harming our neighbours. We abstain from eating meat, yet we chew the flesh of our neighbours."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.58.s4",
-      "source_sha256": "839cafd018adcf6a",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "that we should love one another, but we have neglected that command of the Lord. Know, then, that we are liable to judgment."
+      "source_sha256": "36386b1ebdf5bb28",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "We have received the commandment to love one another, but we have neglected this command of the Lord. Let us know that we are liable to judgment."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.59",
@@ -783,17 +838,17 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.61.s1",
-      "source_sha256": "75a7591ad8214e83",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Once they brought to this holy father of ours, John, a man on a bed who was bent over and paralysed."
+      "source_sha256": "4adeb8d1e02d48e6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "Once a man who was bent over and paralysed was brought on a bier to our holy father John. All his limbs had gone slack."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.61.s2",
-      "source_sha256": "b332dff1304c4060",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "All his limbs had gone slack. They brought him in before him and pleaded with holy John:"
+      "source_sha256": "b30980fb471c714e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "They brought him before John and begged the holy man:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.61.s3",
@@ -818,17 +873,24 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.62.s2",
-      "source_sha256": "64dfb62d05a10df1",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "\"You who are strong, bear the weak.\" Therefore he said to him, \"Our Lord Jesus Christ heals you.\""
+      "source_sha256": "71a6c655bd88e4f3",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "\"You who are strong, bear the weak.\" So he said to him:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.62.s3",
-      "source_sha256": "6becf77cb8bf9c34",
+      "source_sha256": "d6e12d878bce2421",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "\"Our Lord Jesus Christ heals you.\" At that very moment the man stood up on his feet, and his slack limbs were quickly healed."
+    },
+    {
+      "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.62.s4",
+      "source_sha256": "b83b6877634e393f",
       "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
       "group_size": 25,
-      "text": "At that very moment he stood up on his feet, and his slack limbs were quickly healed. Those who saw it gave thanks to God and to holy John."
+      "text": "Those who saw it gave thanks to God and to holy John."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s1",
@@ -846,52 +908,52 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s3",
-      "source_sha256": "978b36f27f9e5560",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
-      "group_size": 8,
-      "text": "\"I tell you in the name of our Lord Jesus Christ: come out of this man.\" And at his very command it came out."
+      "source_sha256": "875c88c6d1162d58",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "\"I tell you in the name of our Lord Jesus Christ: come out of that man.\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s4",
-      "source_sha256": "7f918f38967ddcaf",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
-      "group_size": 8,
-      "text": "And the man was healed, and everyone marveled. And the elder said this to them: \"Why are you amazed? For I am not a healer,"
+      "source_sha256": "4cad8aa7f71eaffa",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "At his command it came out. The man was healed, and everyone was amazed. And the elder said to them:"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s5",
-      "source_sha256": "61ebab8da9ac7bd9",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
-      "group_size": 8,
-      "text": "but by calling on the name of our Lord Jesus Christ every disease and every power of darkness flees, for he himself declared,"
+      "source_sha256": "0cfeb5bcac6fd5e0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "\"Why are you amazed? I am not a physician. Every illness and every power of darkness flees when the name of our Lord Jesus Christ is called upon."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.63.s6",
-      "source_sha256": "4b34a540df5dba70",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-09",
-      "group_size": 8,
-      "text": "'Whoever believes in me will also do what I do, and he will do greater things than mine.'\""
+      "source_sha256": "731881e0cf1eaa83",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "For he himself said: 'Whoever believes in me will also do what I do, and will do greater things than mine.'\""
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.64.s1",
-      "source_sha256": "c2453ec2ddcd1f8b",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "These few out of his many great deeds we have written down, so as not to draw out the time too long. But they are enough to give a taste of that God-clothed man."
+      "source_sha256": "baa1705ea49a715f",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "We have written down only these few of his many great deeds, so as not to take up too much time [?]."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.64.s2",
-      "source_sha256": "6190380e556369c4",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Just as a single bucket shows what the water of a great river tastes like, so it is with blessed John, for those who wish [to know him]."
+      "source_sha256": "ba66db3d4657a708",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "But this is enough to taste the God-clothed man. Just as a single cup from a great river shows"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.64.s3",
-      "source_sha256": "f90de40da00f3054",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "Many are the miracles that our holy father John performed."
+      "source_sha256": "bf6c19e13b9d98e7",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "what it tastes like, so too with blessed John, for anyone who wishes to know. But the miracles that our holy father John performed are many."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.65.s1",
@@ -909,17 +971,17 @@
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.65.s3",
-      "source_sha256": "0b064d388f99c5ff",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "One of the disciples, named Tata, built a monastery below, at the foot of that mountain. In it the monks increased in number and lived in complete good order."
+      "source_sha256": "1cfed0e3b6d89176",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "One of his disciples, named Tata, built a monastery below, at the foot of that mountain,"
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.65.s4",
-      "source_sha256": "3d87a4049cc48043",
-      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-04",
-      "group_size": 25,
-      "text": "We will remember the others later, and let us glorify God, to whom be glory for ever and ever. Amen."
+      "source_sha256": "583d4a7e8d1c8b4e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-10",
+      "group_size": 21,
+      "text": "and there the monks grew in number and lived in complete good order. We will remember the others after this. Let us glorify God, to whom belongs glory for ever and ever. Amen."
     },
     {
       "chunk_id": "titus-hagiography/asureli-b/life-of-john-of-zedazeni-b#AsIoZedB.66.s1",

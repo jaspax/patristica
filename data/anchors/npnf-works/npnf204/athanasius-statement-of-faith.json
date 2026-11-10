@@ -1,0 +1,16 @@
+{
+ "work_id": "npnf-works/athanasius-statement-of-faith",
+ "anchor": "ogpg/vol-025/expositio-fidei",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "c5471a6ff5458a89",
+ "words": "cc0b136b8be0877b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 52, "calibration": [0.4825, 0.168], "converged": false, "fallback_paragraphs": 1, "one_one": 0.963, "rounds": 4, "units": 53},
+ "paragraphs": {
+  "Ath.ExpFid.2": {"words": "1afbb17b15f471ce", "starts": [0]},
+  "Ath.ExpFid.2.2": {"words": "e534584ee38916a9", "starts": [0, 23, 38, 59, 84, 106, 132, 147, 184, 217, 254, 278, 300, 327, 356, 390, 405, 408]},
+  "Ath.ExpFid.2.3": {"words": "820f696725b535ff", "starts": [0, 30, 50, 81, 105, 132, 166, 195, 226, 276, 312, 350]},
+  "Ath.ExpFid.2.4": {"words": "1bc57da9a0b7c763", "starts": [0, 18, 43, 76, 109, 136, 154, 170, 213, 241, 263, 308]},
+  "Ath.ExpFid.2.5": {"words": "d56cadf447001f3b", "starts": [0, 39, 55, 107, 125, 148, 175, 210, 241, 254]}
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "work_id": "npnf-works/dionysius-of-alexandria-letter-to-basilides",
+ "anchor": "ogpg/vol-010/dionysius-alexandrinus",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "5dc1efbd48564bba",
+ "words": "a72674a33f663e9b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 32, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 4, "one_one": 0.0667, "rounds": 2, "span": [234, 399], "units": 40},
+ "paragraphs": {
+  "DionAlex.Basil": {"words": "a13c764cde613382", "starts": [0]},
+  "DionAlex.Basil.1": {"words": "d02d6b0b09e1e4e0", "starts": [0, 20, 28]},
+  "DionAlex.Basil.2": {"words": "1ebe90763d09fd4b", "starts": [0]},
+  "DionAlex.Basil.3": {"words": "7c28c31dc5ca39cd", "starts": [0]},
+  "DionAlex.Basil.4": {"words": "a12b04a86a669145", "starts": [0]},
+  "DionAlex.Basil.5": {"words": "f4825c30ab47684a", "starts": [0]},
+  "DionAlex.Basil.6": {"words": "cfd11a281e639334", "starts": [0, 17, 29, 39, 43, 54, 62, 83]},
+  "DionAlex.Basil.7": {"words": "dcc957733876f286", "starts": [0]},
+  "DionAlex.Basil.8": {"words": "6a59a136a9e3ca71", "starts": [0]},
+  "DionAlex.Basil.9": {"words": "7c28c31dc5ca39cd", "starts": [0]},
+  "DionAlex.Basil.10": {"words": "96825775da159df7", "starts": [0, 38, 45, 63, 71]},
+  "DionAlex.Basil.11": {"words": "713ab1a2d44dc8e2", "starts": [0]},
+  "DionAlex.Basil.12": {"words": "b3e4ca909b3bc249", "starts": [0, 12, 18]},
+  "DionAlex.Basil.13": {"words": "7c28c31dc5ca39cd", "starts": [0]},
+  "DionAlex.Basil.14": {"words": "751d9bbb8aefb2b2", "starts": [0]},
+  "DionAlex.Basil.15": {"words": "b9ef49ef721e057c", "starts": [0]},
+  "DionAlex.Basil.16": {"words": "34c5dbc668489077", "starts": [0]},
+  "DionAlex.Basil.17": {"words": "7c28c31dc5ca39cd", "starts": [0]},
+  "DionAlex.Basil.18": {"words": "025fbf5ef961812c", "starts": [0, 8, 25, 39, 44, 48, 69]}
+ }
+}

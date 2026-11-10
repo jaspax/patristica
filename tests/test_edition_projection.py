@@ -83,3 +83,42 @@ def test_unrelated_texts_project_nothing() -> None:
 def test_method_hash_changes_with_the_parameters() -> None:
     assert ep.method_hash() == ep.method_hash(ep.Params())
     assert ep.method_hash() != ep.method_hash(ep.Params(min_cover=0.6))
+
+
+def test_a_leading_section_number_is_not_left_alone() -> None:
+    """Migne prints "2." before the text the critical edition starts its unit
+    with: the number joins the unit instead of becoming a unit of its own."""
+    ws = _words(40)
+    ref = _paras([_cut(ws, [20, 20])])
+    ed = _paras([_cut(["2.", *ws], [41])])
+    assert ep.project(ref, ed).starts == [(0, 21)]
+    ed_units = _units(ed, ep.project(ref, ed))
+    assert ed_units[0].startswith("2. ")
+
+
+def test_an_unmatched_start_word_is_placed_after_its_predecessor() -> None:
+    """The reference's first word of a unit is spelled differently and the
+    edition has a stray OCR token after it: the cut goes right after the
+    previous word's counterpart, not onto the stray token."""
+    ws = _words(40)
+    ref_words = list(ws)
+    ed_words = ws[:20] + ["Saepe", "I"] + ws[21:]
+    ref_words[20] = "Saepe-x"
+    ref = _paras([_cut(ref_words, [20, 20])])
+    ed = _paras([_cut(ed_words, [41])])
+    assert ep.project(ref, ed).starts == [(0, 20)]
+
+
+def test_no_scraps_joins_short_pieces() -> None:
+    assert ep._no_scraps(["2.", "alphabetically"], [1], 8) == (0,)
+    assert ep._no_scraps(["alphabetically", "3."], [1], 8) == (0,)
+    assert ep._no_scraps(["alphabetically", "longerwordhere"], [1], 8) == (0, 1)
+
+
+def test_an_unmatched_start_after_the_last_match_projects_nothing() -> None:
+    """The reference's last unit starts with a word the edition lacks, right
+    after the edition's last matched word: there is nothing left to cut."""
+    ws = _words(30)
+    ref = _paras([_cut(ws + ["extraword"], [30, 1])])
+    ed = _paras([_cut(ws, [30])])
+    assert ep.project(ref, ed).starts == [(0,)]

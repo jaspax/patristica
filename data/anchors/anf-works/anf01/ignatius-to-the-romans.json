@@ -1,0 +1,32 @@
+{
+ "work_id": "anf-works/ignatius-to-the-romans",
+ "anchor": "first1k/tlg1443/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8c18660c01e8785d",
+ "words": "cb02c7e0bd5a33bb",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 69, "calibration": [0.5583, 0.1597], "converged": false, "fallback_paragraphs": 0, "one_one": 0.2879, "rounds": 4, "span": [90, 288], "units": 78},
+ "paragraphs": {
+  "Ign.Rom": {"words": "4927a7ef831931d1", "starts": [0, 6, 24, 27, 69, 91, 100, 104, 114, 119, 137]},
+  "Ign.Rom.1": {"words": "feee248c2ac474a0", "starts": [0, 6, 27, 30, 61, 99, 134]},
+  "Ign.Rom.i": {"words": "03b0e95498174aa6", "starts": [0]},
+  "Ign.Rom.i.1": {"words": "25b2a7712d9b05ab", "starts": [0, 24, 54, 90]},
+  "Ign.Rom.ii": {"words": "d188d59853065daf", "starts": [0, 23, 55, 83, 108]},
+  "Ign.Rom.ii.1": {"words": "afb514fd77cde8db", "starts": [0]},
+  "Ign.Rom.iii": {"words": "ac885e4696775714", "starts": [0, 30, 66, 115, 135]},
+  "Ign.Rom.iii.1": {"words": "a19f58f68b5cfd63", "starts": [0]},
+  "Ign.Rom.iv": {"words": "80a1efe2f85c1765", "starts": [0]},
+  "Ign.Rom.iv.1": {"words": "5aa9975ea8a7d773", "starts": [0, 22, 55, 81, 117, 138, 166, 196]},
+  "Ign.Rom.v": {"words": "f2501794ed48cd1d", "starts": [0, 41, 63, 74]},
+  "Ign.Rom.v.1": {"words": "cfc2dcdf2986f8ba", "starts": [0, 161, 184]},
+  "Ign.Rom.vi": {"words": "43901d3305edca1c", "starts": [0, 57, 86, 103, 139]},
+  "Ign.Rom.vi.1": {"words": "bfb9d0c5690098ab", "starts": [0]},
+  "Ign.Rom.vii": {"words": "d2973c054d1796e1", "starts": [0, 16, 54, 110, 145, 159]},
+  "Ign.Rom.vii.1": {"words": "6981f5fd9941c92d", "starts": [0]},
+  "Ign.Rom.viii": {"words": "ac363c9b3f2fb776", "starts": [0, 32, 77]},
+  "Ign.Rom.viii.1": {"words": "fb457ed6290a0673", "starts": [0]},
+  "Ign.Rom.ix": {"words": "c300715831521aa0", "starts": [0, 31, 78, 104]},
+  "Ign.Rom.ix.1": {"words": "ff0b20a0045a7681", "starts": [0]},
+  "Ign.Rom.x": {"words": "b33f2176c761f59b", "starts": [0, 17, 69, 92, 118]}
+ }
+}

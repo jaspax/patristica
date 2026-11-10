@@ -1,0 +1,20 @@
+{
+ "work_id": "npnf-works/anastasius-letter-to-john-of-jerusalem",
+ "anchor": "oglt-pl/anastasius-i/pl21_7_epi",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "ebf95e3270aa7f3e",
+ "words": "4156a60180e4590f",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 38, "calibration": [1.0, 0.0], "converged": false, "fallback_paragraphs": 2, "one_one": 0.2348, "rounds": 4, "units": 40},
+ "paragraphs": {
+  "Anast.EpJoh": {"words": "73311e5c8268a2bf", "starts": [0]},
+  "Anast.EpJoh.1": {"words": "4a8a0c9a032b76be", "starts": [0]},
+  "Anast.EpJoh.3": {"words": "8931586f16e7a9b7", "starts": [0, 155, 196]},
+  "Anast.EpJoh.4": {"words": "79f0db4a5894d2d2", "starts": [0, 26, 52, 85, 91, 111, 138, 163, 171, 208, 249]},
+  "Anast.EpJoh.5": {"words": "6ea07a717140db1c", "starts": [0, 34]},
+  "Anast.EpJoh.6": {"words": "e0ef5f1c49d9e76e", "starts": [0, 38, 91]},
+  "Anast.EpJoh.7": {"words": "4cf3a7ee930072bb", "starts": [0, 19, 65, 121]},
+  "Anast.EpJoh.8": {"words": "e6c60a23f675685a", "starts": [0, 39, 77, 106, 149, 171, 178, 214, 255, 290]},
+  "Anast.EpJoh.9": {"words": "5ded85cb882f06a4", "starts": [0, 45, 82, 117, 159]}
+ }
+}

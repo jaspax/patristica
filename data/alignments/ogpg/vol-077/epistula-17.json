@@ -2,12 +2,12 @@
  "format": 1,
  "group": "ogpg/vol-077/epistula-17",
  "pivot": "ogpg/vol-077/epistula-17",
- "groups": 132,
- "inputs": "b853e25579a622b5",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 142,
+ "inputs": "aefd402e567f9d2d",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/cyril-twelve-anathemas", "units": 29, "ids": "5b06c7f8f269b62a", "inputs": "d5c5c1d90a131c4d", "spans": "+6+21+3=+5+2+11+2+64+++++++=++++++=+++++", "conf": "85978789999999888899988997"},
-  {"work_id": "oglt-pl/dionysius-exiguus/pl67_0_ann", "units": 163, "ids": "65bded665b769f8a", "inputs": "322f288a4c866e20", "spans": ".........+==+==++=....+=+++++++++.+=+++++++++++++++2+++++++++++++++++++=+=+.++++++++++++++++++++.++=+.+++++++++++++++++++++++++++..+++++=++++++...+++++2++++=++++++++", "conf": "998899999999999999999999999998899999999999999999999999999999999999999999999999998888999999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-077/epistula-17", "units": 156, "ids": "0fe228046e10ebef", "inputs": "9f7e8dd8bb64765b", "spans": "++=.+++=+++++++=++++++++++++=+=++++=....+=+++++++=+++.++++++++++=+=++++=++=++++++++++++++++=++.+++++++++++=++=++++++++++++=+++.+++++++++++++++++++++++++++++", "conf": "998899999999999999999999999999889999999999999999999999999999999999999999999999999888899999999999999999999999999999999999999999999997"}
+  {"work_id": "npnf-works/cyril-twelve-anathemas", "units": 28, "ids": "e432c01d69cdbd3c", "inputs": "19a7da927f7e5252", "spans": "+4+24+4=+4+2+13+13+59+++++++++++++++++++", "conf": "859787889999999888899988987"},
+  {"work_id": "oglt-pl/dionysius-exiguus/pl67_0_ann", "units": 156, "ids": "e527e78849add1f9", "inputs": "601b3681681493ed", "spans": "...+.+==+=..+=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++==.+++++++++++++++++++", "conf": "5999999999999999999999999999999899999999999999999999999999999999999999999999999999999999998899999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-077/epistula-17", "units": 156, "ids": "0fe228046e10ebef", "inputs": "9f7e8dd8bb64765b", "spans": "+....++.++++++++++++++++++++++++++++....+==++++++++++++++++++++++++++++++++=+++++++++++++++++++++++++++++++++++++++++=++++++++++++++++++=+++++++++++++++++++", "conf": "5999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998899999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -1,0 +1,27 @@
+{
+ "work_id": "npnf-works/chrysostom-correspondence-with-innocent",
+ "anchor": "ogpg/vol-052/epistulae",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "647f3d5172929480",
+ "words": "a85064633527409b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 113, "calibration": [0.8964, 0.0999], "converged": false, "fallback_paragraphs": 2, "one_one": 0.1712, "rounds": 4, "span": [0, 584], "units": 119},
+ "paragraphs": {
+  "Chrys.EpInnoc.3": {"words": "53a77fa5b89f8211", "starts": [0]},
+  "Chrys.EpInnoc.3.2": {"words": "ea40e49e2bbee1ba", "starts": [0]},
+  "Chrys.EpInnoc.3.3": {"words": "4186712b2fdeb6ea", "starts": [0]},
+  "Chrys.EpInnoc.3.4": {"words": "786e97b2ba1c4e39", "starts": [0, 21, 64, 92, 109, 133, 335, 342, 364, 382, 413, 430, 464, 476, 512, 542, 562, 586, 612]},
+  "Chrys.EpInnoc.3.5": {"words": "456013175c4882a4", "starts": [0, 34, 60, 94, 130, 163, 199, 383]},
+  "Chrys.EpInnoc.3.6": {"words": "5c91a933b117c1f0", "starts": [0, 196]},
+  "Chrys.EpInnoc.3.7": {"words": "15e376bafbdf5e80", "starts": [0, 125, 173, 221, 239, 278, 309, 333, 363, 391, 426, 458, 494, 524, 553, 573, 608, 645, 674]},
+  "Chrys.EpInnoc.3.8": {"words": "88e2d2f62eb0c8d9", "starts": [0]},
+  "Chrys.EpInnoc.3.9": {"words": "0f84e7ca3cec8781", "starts": [0, 199, 428, 435, 459, 502]},
+  "Chrys.EpInnoc.3.10": {"words": "01769e3f463d4dcd", "starts": [0]},
+  "Chrys.EpInnoc.4": {"words": "f9632848afc90edc", "starts": [0]},
+  "Chrys.EpInnoc.4.1": {"words": "954fadfe1db21dec", "starts": [0, 24, 50, 82, 114, 160, 173, 196, 240, 276, 297, 332, 362, 566]},
+  "Chrys.EpInnoc.5": {"words": "1811c8f95c810cea", "starts": [0]},
+  "Chrys.EpInnoc.5.1": {"words": "a0c732e97ae906b4", "starts": [0, 21, 33, 51, 96, 230]},
+  "Chrys.EpInnoc.6": {"words": "734919290efbc96b", "starts": [0, 18]},
+  "Chrys.EpInnoc.6.1": {"words": "9e571f4733f7348e", "starts": [0, 38, 73, 96, 126, 143, 163, 197, 227, 257, 277, 316, 324, 364, 406, 417, 431, 467, 486, 503, 517, 537, 550, 562, 586, 606, 638, 653, 677, 682, 705, 721, 755, 762, 786, 820]}
+ }
+}

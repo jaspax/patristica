@@ -1,0 +1,16 @@
+{
+ "work_id": "npnf-works/athanasius-letter-to-ammus",
+ "anchor": "ogpg/vol-026/ad-amunem",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "d08d7e60a11c0837",
+ "words": "b654a89daaab0c91",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 10, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.3182, "rounds": 1, "span": [0, 22], "units": 12},
+ "paragraphs": {
+  "Ath.EpAmun": {"words": "af067b1bc8dce992", "starts": [0]},
+  "Ath.EpAmun.1": {"words": "18036da74fcd16ec", "starts": [0]},
+  "Ath.EpAmun.2": {"words": "f99068943111723d", "starts": [0]},
+  "Ath.EpAmun.3": {"words": "d2fc14f2b54d2d71", "starts": [0, 10]},
+  "Ath.EpAmun.4": {"words": "429be01242f2796d", "starts": [0, 16, 28, 51, 70, 100, 124]}
+ }
+}

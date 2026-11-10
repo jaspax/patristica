@@ -1,0 +1,23 @@
+{
+ "work_id": "npnf-works/gregory-of-nyssa-letter-to-peter",
+ "anchor": "ogpg/vol-045/ad-petrum",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "d863df63cec7ddf5",
+ "words": "b5d4958fd0048d72",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 41, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 3, "one_one": 0.7917, "rounds": 3, "units": 44},
+ "paragraphs": {
+  "GregNyss.Eun.I": {"words": "83d510004328a23a", "starts": [0]},
+  "GregNyss.Eun.I.1": {"words": "c17ad8c30fa02b21", "starts": [0]},
+  "GregNyss.Eun.I.2": {"words": "645e98e47d4b196a", "starts": [0]},
+  "GregNyss.Eun.I.3": {"words": "0bf93ef51c8a1ad5", "starts": [0, 21, 55, 87, 101]},
+  "GregNyss.Eun.I.4": {"words": "2842eda0c8cdafd2", "starts": [0, 29, 68, 82, 103, 138, 159, 179, 196, 230, 262]},
+  "GregNyss.Eun.I.5": {"words": "922784c6464d420e", "starts": [0, 31, 89, 114, 147, 183, 203]},
+  "GregNyss.Eun.1": {"words": "8041209c22114a37", "starts": [0]},
+  "GregNyss.Eun.1.1": {"words": "df72313ce380ed01", "starts": [0, 6]},
+  "GregNyss.Eun.1.2": {"words": "3a7b0644a341a13e", "starts": [0, 30, 63, 77, 96, 113, 137, 171]},
+  "GregNyss.Eun.1.3": {"words": "95b4bcda9e823920", "starts": [0, 30, 66, 84]},
+  "GregNyss.Eun.1.4": {"words": "689eb078c8fdf67b", "starts": [0, 17]},
+  "GregNyss.Eun.1.5": {"words": "e15c33d53373740a", "starts": [0]}
+ }
+}

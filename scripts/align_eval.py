@@ -391,21 +391,24 @@ def compare(args: argparse.Namespace) -> None:
             for y in a.members:
                 if x == y or x not in b.members or y not in b.members:
                     continue
-                units = a.members[x].units
+                # Each side as a share of its own units: a re-cut (#200)
+                # changes a member's unit count.
+                units, units_b = a.members[x].units, b.members[x].units
                 kind = "same language" if lang.get(x) == lang.get(y) else "other"
                 t = totals[kind]
                 t["units"] += units
+                t["units_before"] += units_b
                 t["before"] += cb.get((x, y), 0)
                 t["after"] += ca.get((x, y), 0)
                 t["pairs"] += 1
-                d = (ca.get((x, y), 0) - cb.get((x, y), 0)) / units if units else 0.0
-                changes.append((d, g, x, y, cb.get((x, y), 0) / max(units, 1),
-                                ca.get((x, y), 0) / max(units, 1), units))
+                sb = cb.get((x, y), 0) / max(units_b, 1)
+                sa = ca.get((x, y), 0) / max(units, 1)
+                changes.append((sa - sb, g, x, y, sb, sa, units))
     print(f"{len(groups)} groups; pivot changed in {pivots['changed']}")
     print("pairs (x, y): share of x's units in a confident "
           + ("1:1 row" if args.one_one else "group") + " with y, summed over pairs")
     for kind, t in totals.items():
-        print(f"  {kind:14s} {t['pairs']:5d} pairs  {pct(t['before'], t['units'])} -> "
+        print(f"  {kind:14s} {t['pairs']:5d} pairs  {pct(t['before'], t['units_before'])} -> "
               f"{pct(t['after'], t['units'])}")
     for title, rows in (("most improved", sorted(changes, reverse=True)),
                         ("most worsened", sorted(changes))):

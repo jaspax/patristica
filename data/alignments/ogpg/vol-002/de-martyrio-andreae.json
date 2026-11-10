@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-002/de-martyrio-andreae",
  "pivot": "ogpg/vol-002/de-martyrio-andreae",
- "groups": 143,
- "inputs": "b72b55f27bfeebb3",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 161,
+ "inputs": "fd1dfde2f8526783",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/acts-and-martyrdom-of-andrew", "units": 168, "ids": "d99b633b5d0fe9c2", "inputs": "e9eff811f49196dc", "spans": "++++++++++++++++++++++++=+++=++++++++++++++=++++++++++++++++++++++++++=+..+++++++++=+++++++++=+++=++++=+++++....+.+++..++=+++=+++=+=++=+++++=+++++++++++++++++=+++=+++++", "conf": "99999999999999999999999999999999999999999899999999999999999999999999999999999979999999999999999939858999999999999999999999999999999999999999999"},
-  {"work_id": "ogpg/vol-002/de-martyrio-andreae", "units": 241, "ids": "8c6cea28c8ccbf20", "inputs": "605551be3a30db9e", "spans": "........................++=+++.+++++++=++=...+=++++++++.+++++++++.+++=++=++++...++=+++++++++==...++++++++++..++++=++++.............+=+++=+++++.....................+++++++++++++.+++=+...++++++++++++=+++++++=...+++++++++++++++++=+++++++++=+=.+", "conf": "99999999999999999999999999999999999999999899999999999999999999999999999999999979999999999999999939858999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/acts-and-martyrdom-of-andrew", "units": 179, "ids": "792c78aed42424e2", "inputs": "a22d71baa3134dd2", "spans": "++++++++++++++++++++++=++++++=++++=+=+=+++++=++=+++++++++=+++++=+++++++++++++++++++++++.+=.+++++++++++++++++++++++++++=++++.+.++++++++++=+++++++++++++=++++++++++++++++++++++=+++++", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999979999999999999999999966699999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-002/de-martyrio-andreae", "units": 241, "ids": "8c6cea28c8ccbf20", "inputs": "605551be3a30db9e", "spans": "........................++++++++++++++++++...++++++++++.+++++++++.+++++++++++...++++++++++++.+=..++++++++++..+++++++++..+=..........++++++++++.....................+++++++++++++++++++.+..++++++++++++++++++++...+++++++++++++++++++++++++++++=.+", "conf": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999979999999999999999999966699999999999999999999999999999999999999999999999"}
  ]
 }

@@ -1,0 +1,14 @@
+{
+ "work_id": "anf-works/photius-on-pierius",
+ "anchor": "ogpg/vol-103/bibliotheca-1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8f21e9c2b10db2da",
+ "words": "5b1ee52d7cfb64d5",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 15, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.0034, "rounds": 2, "span": [2900, 5856], "units": 15},
+ "paragraphs": {
+  "Phot.Bibl119": {"words": "65b161f17fc2c92f", "starts": [0]},
+  "Phot.Bibl119.2": {"words": "faa9808374963871", "starts": [0]},
+  "Phot.Bibl119.3": {"words": "94ace406906467ad", "starts": [0, 22, 38, 53, 89, 122, 147, 184, 219, 258, 282, 309, 343]}
+ }
+}

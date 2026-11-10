@@ -1,0 +1,33 @@
+{
+ "work_id": "anf-works/gospel-of-the-nativity-of-mary",
+ "anchor": "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "55bcbd445c82165c",
+ "words": "00a8b4500465e024",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 118, "calibration": [0.5689, 0.2942], "converged": false, "fallback_paragraphs": 9, "one_one": 0.5396, "rounds": 4, "units": 127},
+ "paragraphs": {
+  "NatMar.1": {"words": "687cb7fdfec48d6b", "starts": [0]},
+  "NatMar.1.2": {"words": "e8b906f9842ae678", "starts": [0]},
+  "NatMar.1.3": {"words": "a85a5f33a86bf253", "starts": [0, 32, 58, 82, 113, 138]},
+  "NatMar.2": {"words": "dba3df420ea33b26", "starts": [0]},
+  "NatMar.2.1": {"words": "79be6b67ca7f9f70", "starts": [0, 28, 37, 56, 91, 110, 146, 172]},
+  "NatMar.3": {"words": "0cfb1d20de1486d7", "starts": [0]},
+  "NatMar.3.1": {"words": "a547ba9cb2b77158", "starts": [0, 29, 57, 90, 110, 141, 161, 180, 202, 218, 245, 267, 304, 322, 350, 379, 424, 454, 468, 485]},
+  "NatMar.4": {"words": "55ebf25fde026637", "starts": [0]},
+  "NatMar.4.1": {"words": "c5f853fd04b97f31", "starts": [0, 21, 35, 67, 91, 114, 133, 157, 184, 202, 218]},
+  "NatMar.5": {"words": "25fb371cb434e0fd", "starts": [0]},
+  "NatMar.5.1": {"words": "d62bfb0e2895bf92", "starts": [0, 21, 40, 67, 86]},
+  "NatMar.6": {"words": "19430b6f049824e9", "starts": [0]},
+  "NatMar.6.1": {"words": "362443f82843b1c4", "starts": [0, 30, 47, 73, 88, 107, 161, 189]},
+  "NatMar.7": {"words": "ad7f707b956c5400", "starts": [0]},
+  "NatMar.7.1": {"words": "b78385e3bc777f0c", "starts": [0, 14, 32, 60, 86, 115, 141, 162, 200, 232, 266, 302, 327, 365, 406, 432, 462]},
+  "NatMar.8": {"words": "40c8bc1287f5aa34", "starts": [0]},
+  "NatMar.8.1": {"words": "01b0eb85f58d2821", "starts": [0, 33, 55, 85, 122, 154]},
+  "NatMar.9": {"words": "be1d145ae9373673", "starts": [0]},
+  "NatMar.9.1": {"words": "9ad25a4e6c926f33", "starts": [0, 33, 45, 68, 99, 119, 142, 167, 192, 218, 241, 266, 299, 318, 344, 365, 404, 429, 458]},
+  "NatMar.9.2": {"words": "f010172bb6d98e07", "starts": [0, 31]},
+  "NatMar.10": {"words": "64f7609670dbbccd", "starts": [0]},
+  "NatMar.10.1": {"words": "45c5172119ba6d3e", "starts": [0, 18, 59, 87, 109, 121, 153, 180, 207, 231, 263, 293, 326, 362]}
+ }
+}

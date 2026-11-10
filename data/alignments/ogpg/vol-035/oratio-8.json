@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-035/oratio-8",
  "pivot": "npnf-works/gregory-nazianzen-oration-08",
- "groups": 167,
- "inputs": "fc1eb90c1700fbaa",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 181,
+ "inputs": "6dc912840ea45d52",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/gregory-nazianzen-oration-08", "units": 209, "ids": "267137974a7e18a7", "inputs": "c8f9b33b2aa07e8a", "spans": "..........+===++=++=+++++++=+++..+=+++++++=++++++++++++++=.++++++......++++++++=+++++++++++++++++++++++++=+++++++++++++.+++=+=++++++++++++=+++=++=+++++++++++++++++++++++++++=...+=+++++++++++++++++++++++++++++=", "conf": "99999999999999899999999999999997999978999999999999999889999999999999999999899999999877978999999999999899999999999999999999999999999999999799999999999889999999999999999"},
-  {"work_id": "ogpg/vol-035/oratio-8", "units": 190, "ids": "6630e5af22757ddc", "inputs": "380f29703b622aef", "spans": "+++=++++++++++++++++=++++++++++==++.++++++.+++++++++=+.++++++++++=++++.++=+++++++++++.++++++++++=+++=+..++++.+++++++++.+++=++=++++.+++++++++++++++++=+++++++++++++++++=+++++++++++++++++++++++", "conf": "99999999999999899999999999999997999978999999999999999889999999999999999999899999999877978999999999999899999999999999999999999999999999999799999999999889999999999999999"}
+  {"work_id": "npnf-works/gregory-nazianzen-oration-08", "units": 188, "ids": "9fb974b82faf652f", "inputs": "d1fad3ebb8ca3a1d", "spans": ".+===+++++++++++++++++++++++++++++++++++++++++++++..++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999899992899999999999999988999999999999999999999899999999999999889999999999999999999999999999999999999999999999999999993999999999999889999999999999998"},
+  {"work_id": "ogpg/vol-035/oratio-8", "units": 190, "ids": "6630e5af22757ddc", "inputs": "380f29703b622aef", "spans": "+++++++++++++++++++++++++++++++.+++.++++++.+++++++=+++.+++++++++++++++.++++++++++++++.+++++++++++++++++.++++++++++++++.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999899992899999999999999988999999999999999999999899999999999999889999999999999999999999999999999999999999999999999999993999999999999889999999999999998"}
  ]
 }

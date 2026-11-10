@@ -1,0 +1,16 @@
+{
+ "work_id": "anf-works/lactantius-fragments",
+ "anchor": "oglt-pl/lactantius/pl7_0_lact",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "346722a56dcaf7f9",
+ "words": "05362359909821a6",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 15, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.5, "rounds": 1, "span": [0, 24], "units": 15},
+ "paragraphs": {
+  "Lact.Frag": {"words": "bd93a2c990b5980c", "starts": [0, 28, 55, 79, 107]},
+  "Lact.Frag.1": {"words": "098e916e1024a01f", "starts": [0]},
+  "Lact.Frag.2": {"words": "006c3e3e5fb81ff7", "starts": [0, 25, 58, 82]},
+  "Lact.Frag.3": {"words": "bc507c615e24fa9c", "starts": [0, 24]},
+  "Lact.Frag.4": {"words": "db9f8fc46db7a572", "starts": [0, 26, 43]}
+ }
+}

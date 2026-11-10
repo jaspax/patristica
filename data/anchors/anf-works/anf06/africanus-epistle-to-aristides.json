@@ -1,0 +1,25 @@
+{
+ "work_id": "anf-works/africanus-epistle-to-aristides",
+ "anchor": "ogpg/vol-010/julius-africanus",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "df50a7dfc9a81eba",
+ "words": "de947b75429d6f66",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 66, "calibration": [0.4416, 0.2422], "converged": false, "fallback_paragraphs": 5, "one_one": 0.6327, "rounds": 4, "span": [0, 98], "units": 72},
+ "paragraphs": {
+  "Afric.EpArist.I": {"words": "4891b75d6a96976c", "starts": [0]},
+  "Afric.EpArist.I.2": {"words": "61cbe579905c37a3", "starts": [0]},
+  "Afric.EpArist.I.4": {"words": "a13c764cde613382", "starts": [0]},
+  "Afric.EpArist.I.5": {"words": "f4858eb1812aa4ae", "starts": [0, 32, 74, 96, 123, 147, 162, 185, 202, 243, 269, 310, 351, 376, 385, 450, 471, 510, 530, 577]},
+  "Afric.EpArist.II": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "Afric.EpArist.II.1": {"words": "fa96e34a62096707", "starts": [0, 22, 45, 80, 108, 129, 161, 214]},
+  "Afric.EpArist.III": {"words": "8700067b17b3bae9", "starts": [0]},
+  "Afric.EpArist.III.1": {"words": "1a68084690413389", "starts": [0, 20, 46, 88, 123, 155, 175, 197, 214, 247, 261, 290, 318, 339, 350, 368, 386]},
+  "Afric.EpArist.IV": {"words": "af067b1bc8dce992", "starts": [0]},
+  "Afric.EpArist.IV.1": {"words": "470cd572726c45dd", "starts": [0, 47, 88, 112, 136, 164, 182]},
+  "Afric.EpArist.V": {"words": "088130a484b8130c", "starts": [0]},
+  "Afric.EpArist.V.1": {"words": "e1c5c99d655d4b67", "starts": [0, 30, 51, 77, 115, 154, 176, 205, 232]},
+  "Afric.EpArist.VI": {"words": "57194bf63895d4a7", "starts": [0]},
+  "Afric.EpArist.VI.1": {"words": "f9afea7000384920", "starts": [0, 6, 25]}
+ }
+}

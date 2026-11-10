@@ -1,0 +1,29 @@
+{
+ "work_id": "syriac-documents/ambrose-memorial",
+ "anchor": "dsc/hypomnemata",
+ "method": "cd4ac1843c0db506",
+ "anchor_cuts": "d9dfb25d6538d005",
+ "words": "855d509eb276686a",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 75, "calibration": [0.4022, 0.2788], "converged": false, "fallback_paragraphs": 1, "one_one": 0.9737, "rounds": 4, "units": 81},
+ "paragraphs": {
+  "AmbrMem.1": {"words": "e82cd08444989158", "starts": [0]},
+  "AmbrMem.2": {"words": "5ee154cc12aa96c6", "starts": [0]},
+  "AmbrMem.3": {"words": "60dd3ccfbc15b942", "starts": [0]},
+  "AmbrMem.4": {"words": "fd917910a78f6380", "starts": [0, 20, 68, 95]},
+  "AmbrMem.5": {"words": "7385d9ec59898712", "starts": [0, 36, 51, 72, 127, 146, 183]},
+  "AmbrMem.6": {"words": "4cf18307519258bf", "starts": [0, 18, 42, 75]},
+  "AmbrMem.7": {"words": "15a703da3220163c", "starts": [0, 29]},
+  "AmbrMem.8": {"words": "8c633bacdc86c711", "starts": [0, 31, 69, 104]},
+  "AmbrMem.9": {"words": "3839a13204556d8a", "starts": [0, 27, 52, 80, 103]},
+  "AmbrMem.10": {"words": "2b93cae06812d459", "starts": [0, 32, 65, 85, 134, 151, 165]},
+  "AmbrMem.11": {"words": "57aac0423748ccba", "starts": [0, 27, 64]},
+  "AmbrMem.12": {"words": "99190faec8920209", "starts": [0, 45, 72, 112, 137, 176, 200, 221]},
+  "AmbrMem.13": {"words": "2e8b7f538021afd5", "starts": [0, 22, 59, 89, 98, 131, 152]},
+  "AmbrMem.14": {"words": "cf6aecf6872f7c5a", "starts": [0, 39, 66, 113, 135, 174, 208, 228, 253, 279]},
+  "AmbrMem.15": {"words": "8e66509310f962e4", "starts": [0, 13, 51, 87, 106]},
+  "AmbrMem.16": {"words": "401ac0475e5c580b", "starts": [0, 5, 27]},
+  "AmbrMem.17": {"words": "5e12de7c0df55a73", "starts": [0, 24]},
+  "AmbrMem.18": {"words": "2a7473bce281bcb0", "starts": [0, 19, 35, 86, 122, 144, 176]}
+ }
+}

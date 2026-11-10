@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-033/timotheus-responsa-canonica",
  "pivot": "ogpg/vol-033/timotheus-responsa-canonica",
- "groups": 31,
- "inputs": "6f41abc0c1c195d1",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 39,
+ "inputs": "85df65a8e9be054b",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/timothy-of-alexandria-canonical-answers", "units": 57, "ids": "d0832b18e51f668c", "inputs": "90bcf2cac68d4e03", "spans": "...++.++.++.++.+++++.++.+..+++.+.++=.++.++.++.++.....+=..", "conf": "9999799789399599999929599997937"},
-  {"work_id": "ogpg/vol-033/timotheus-responsa-canonica", "units": 86, "ids": "35d14af57b8914df", "inputs": "e24244e09489a152", "spans": ".++=...........+....+..++===.+..+++.+.+.+.+++......+++==+=++++=.....+..+..+==+...+++=.", "conf": "9999799789399599999929599997937"}
+  {"work_id": "npnf-works/timothy-of-alexandria-canonical-answers", "units": 67, "ids": "9bdbb71a827c4788", "inputs": "acc6876aac5eabf8", "spans": "...+++.++.++.+++++.+++++=+..+.+..++++.+.+++=.++++.++.++.++.....+=..", "conf": "999996999977893999999779929927899997937"},
+  {"work_id": "ogpg/vol-033/timotheus-responsa-canonica", "units": 86, "ids": "35d14af57b8914df", "inputs": "e24244e09489a152", "spans": ".++..+=........+....+..++==+++=++++.+.++==+++......+++.++.+++=++.++=+..+..+==+...+++=.", "conf": "999996999977893999999779929927899997937"}
  ]
 }

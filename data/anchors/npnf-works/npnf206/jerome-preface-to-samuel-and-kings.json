@@ -1,0 +1,19 @@
+{
+ "work_id": "npnf-works/jerome-preface-to-samuel-and-kings",
+ "anchor": "oglt-pl/hieronymus/pl28_9_",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "24b0c4dfaa8cf6bf",
+ "words": "2733066cecc4ddef",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 58, "calibration": [-0.0069, 0.7127], "converged": false, "fallback_paragraphs": 0, "one_one": 0.1338, "rounds": 4, "span": [26, 295], "units": 60},
+ "paragraphs": {
+  "Jer.Praef.iii.iv": {"words": "a7047aa420242852", "starts": [0]},
+  "Jer.Praef.iii.iv.1": {"words": "e838c435d95957b4", "starts": [0]},
+  "Jer.Praef.iii.iv.2": {"words": "1b8c4b0ea6fc4841", "starts": [0, 72, 111, 137, 158, 177, 202, 229, 242, 275, 301, 338]},
+  "Jer.Praef.iii.iv.3": {"words": "1310e46dadecdafa", "starts": [0, 24, 37]},
+  "Jer.Praef.iii.iv.4": {"words": "2fb5dbab1d864b0c", "starts": [0, 39, 58, 68, 86, 102, 135, 139]},
+  "Jer.Praef.iii.iv.5": {"words": "b1e4624903238e0a", "starts": [0, 15, 41, 52, 72, 74, 92, 102]},
+  "Jer.Praef.iii.iv.6": {"words": "319e1ef866ba5873", "starts": [0, 24, 44, 65, 90]},
+  "Jer.Praef.iii.iv.7": {"words": "768238301a938c7c", "starts": [0, 43, 57, 73, 96, 123, 152, 176, 206, 227, 238, 271, 280, 298, 317, 335, 364, 397, 426, 440, 465, 479]}
+ }
+}

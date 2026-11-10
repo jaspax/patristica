@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "ogpg/vol-005/papias-fragmenta",
- "pivot": "anf-works/papias-fragments",
- "groups": 24,
- "inputs": "ddb81fda6214e3b2",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "ogpg/vol-005/papias-fragmenta",
+ "groups": 23,
+ "inputs": "b659c774e309ae11",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/papias-fragments", "units": 65, "ids": "5c98fd66450ce2b5", "inputs": "3b05fb2110e12e4e", "spans": "..++=++++++...+.......................+==+=.+=+=+++=++++.+++..+..", "conf": "999999994999999999997926"},
-  {"work_id": "ogpg/vol-005/papias-fragmenta", "units": 48, "ids": "880297a906180e49", "inputs": "224f70082704ab2e", "spans": ".+++++++++++=+++++++...++......+...+.......++...", "conf": "999999994999999999997926"}
+  {"work_id": "anf-works/papias-fragments", "units": 32, "ids": "ec63bd617e38a368", "inputs": "48c68e77ce840994", "spans": ".++++++++....+.+=+++++++++++++=.", "conf": "99999999999999999999799"},
+  {"work_id": "ogpg/vol-005/papias-fragmenta", "units": 48, "ids": "880297a906180e49", "inputs": "224f70082704ab2e", "spans": ".+++++++++=+=++++++++==++......+...+.......+==..", "conf": "99999999999999999999799"}
  ]
 }

@@ -1,0 +1,23 @@
+{
+ "work_id": "anf-works/epistle-to-diognetus",
+ "anchor": "first1k/tlg0646/tlg004/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "bce8ce1d523c2893",
+ "words": "185131ea166aef58",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 144, "calibration": [0.504, 0.2251], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9862, "rounds": 4, "units": 144},
+ "paragraphs": {
+  "DiogNet.i": {"words": "e62dd389bfe75e17", "starts": [0, 33, 76, 108, 137]},
+  "DiogNet.ii": {"words": "7c660b3cdf4f95ca", "starts": [0, 31, 58, 85, 127, 177, 208, 238, 262, 289, 318, 336, 352, 377, 404, 429, 490, 503, 551]},
+  "DiogNet.iii": {"words": "b2a51950116355e2", "starts": [0, 31, 59, 75, 128, 172, 240]},
+  "DiogNet.iv": {"words": "ac68a695c67bf17d", "starts": [0, 28, 48, 80, 103, 137, 166, 195, 229]},
+  "DiogNet.v": {"words": "7748793fc7b8e7be", "starts": [0, 19, 45, 79, 86, 137, 175, 191, 201, 214, 226, 242, 251, 265, 284, 304, 309, 335]},
+  "DiogNet.vi": {"words": "9112ac907dd44b6b", "starts": [0, 19, 41, 65, 89, 124, 144, 176, 200, 228]},
+  "DiogNet.vii": {"words": "b452964a1c02348f", "starts": [0, 45, 86, 130, 173, 196, 230, 267, 286, 317, 348, 359, 384, 407, 426]},
+  "DiogNet.viii": {"words": "e62cf2ec128dd766", "starts": [0, 13, 50, 63, 89, 101, 117, 133, 168, 200, 218, 244, 264]},
+  "DiogNet.ix": {"words": "7b1d3f50b773af80", "starts": [0, 29, 69, 98, 126, 150, 199, 223, 254, 267, 290, 324, 362]},
+  "DiogNet.x": {"words": "d898f4636fe9769a", "starts": [0, 20, 63, 96, 125, 157, 194, 216, 246, 276, 320, 355, 389]},
+  "DiogNet.xi": {"words": "a9e233f79296e48f", "starts": [0, 51, 91, 121, 157, 187, 215, 247, 286, 309]},
+  "DiogNet.xii": {"words": "ee4c42063f2851e4", "starts": [0, 49, 81, 113, 136, 155, 183, 213, 230, 245, 287, 317]}
+ }
+}

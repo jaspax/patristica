@@ -1,0 +1,32 @@
+{
+ "work_id": "anf-works/anonymous-against-novatian",
+ "anchor": "oglt-pl/pseudo-cyprian/pl3_36_ano",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "d6a827ee0e7382b8",
+ "words": "7edc7bb610c87008",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 208, "calibration": [0.3681, 0.2941], "converged": false, "fallback_paragraphs": 1, "one_one": 0.981, "rounds": 4, "units": 209},
+ "paragraphs": {
+  "AdNovat": {"words": "13c92fa9803127c7", "starts": [0]},
+  "AdNovat.2": {"words": "6cb73b95d066ed33", "starts": [0]},
+  "AdNovat.3": {"words": "0e37848cf90b4419", "starts": [0, 54, 73, 93, 127, 153, 182, 201, 222, 251, 277, 310, 349]},
+  "AdNovat.4": {"words": "dca1e7cbe7b05aff", "starts": [0, 32, 60, 75, 117, 143, 170, 185, 205, 238, 277, 312, 374, 394, 423, 455, 485, 509, 522, 553, 604, 631]},
+  "AdNovat.5": {"words": "96bc690b856ce998", "starts": [0, 18, 49, 93, 106, 130, 173]},
+  "AdNovat.6": {"words": "220d1016b01722ed", "starts": [0, 33, 60, 90, 125]},
+  "AdNovat.7": {"words": "e2e77ab126037454", "starts": [0, 28, 52, 80, 96, 128, 168, 184, 220]},
+  "AdNovat.8": {"words": "aac6eb1e41c925c6", "starts": [0, 42, 62, 77, 103, 132, 181, 208, 244, 293]},
+  "AdNovat.9": {"words": "bc4e447d02a56f96", "starts": [0, 23, 50, 126]},
+  "AdNovat.10": {"words": "4ae64bf5b6c4f4e0", "starts": [0, 21, 43, 88, 112, 144, 170, 209, 231, 251]},
+  "AdNovat.11": {"words": "7938481b866253b8", "starts": [0, 26, 39, 48, 70]},
+  "AdNovat.12": {"words": "49c033b810d55190", "starts": [0, 22, 46, 69, 103, 148, 180, 206, 240, 276, 308, 327, 350, 367, 388, 428, 449]},
+  "AdNovat.13": {"words": "5a28c896f6e44514", "starts": [0, 35, 74, 95, 123, 161, 187, 206, 238, 268]},
+  "AdNovat.14": {"words": "43dfd901c063cee0", "starts": [0, 27, 59, 74, 110, 136, 156, 187, 213, 233, 262, 293]},
+  "AdNovat.15": {"words": "aa4e0db98f4df034", "starts": [0, 23, 52, 68, 99, 115, 145, 166, 187, 210, 237, 281, 320, 361, 378, 399]},
+  "AdNovat.16": {"words": "c342f821d6dd81ee", "starts": [0, 32, 57, 80, 97, 115, 158, 188, 206, 241, 266]},
+  "AdNovat.17": {"words": "e8547b4ce16aa948", "starts": [0, 18, 36, 75, 98, 149, 184, 217, 237]},
+  "AdNovat.18": {"words": "dba0d9721319783d", "starts": [0, 32, 56, 79, 103, 136, 163, 185, 212, 239, 261, 275, 300]},
+  "AdNovat.19": {"words": "7d9cfc0797b62c11", "starts": [0, 34, 74, 101, 129, 162, 197, 233, 275]},
+  "AdNovat.20": {"words": "eafda9f512e3e08b", "starts": [0, 21, 52, 80, 115, 132, 174, 215, 260, 278, 305, 321, 357, 376]},
+  "AdNovat.21": {"words": "30a7b6763b688fb6", "starts": [0, 30, 59, 77, 101, 124, 161, 185, 204, 248, 272]}
+ }
+}

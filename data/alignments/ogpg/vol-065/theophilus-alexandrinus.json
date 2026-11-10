@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-065/theophilus-alexandrinus",
  "pivot": "ogpg/vol-065/theophilus-alexandrinus",
- "groups": 33,
- "inputs": "24f3e5c3e7ac086a",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 52,
+ "inputs": "8c454b759288f5e8",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/theophilus-of-alexandria-canonical-writings", "units": 42, "ids": "5d643f01f68c98f9", "inputs": "8e8fee9394a01d31", "spans": ".+.+++.++++++++.++.+.++++.++++.+.+++++++++", "conf": "999999999999999999999899989999878"},
-  {"work_id": "ogpg/vol-065/theophilus-alexandrinus", "units": 234, "ids": "584cdd0d2d6c71ae", "inputs": "0a5a96ad5c8d534a", "spans": "+=+=+=++++.+=....+===.+.+...+=.......+=+=....+=......+=......+..+=+.+..+..++=.....+===...+......+=.....+=....+=...+.+==.+.......................................+=.............................................+=.........................", "conf": "999999999999999999999899989999878"}
+  {"work_id": "npnf-works/theophilus-of-alexandria-canonical-writings", "units": 61, "ids": "3b76383985eedd3b", "inputs": "3a102e97aa4943d9", "spans": ".+.++++.++++++++++.++++++.+.+++++++++.++++++.++.+++++++++++++", "conf": "9999999999999999999999999998999999997999798976899993"},
+  {"work_id": "ogpg/vol-065/theophilus-alexandrinus", "units": 234, "ids": "584cdd0d2d6c71ae", "inputs": "0a5a96ad5c8d534a", "spans": "+=+=++++++.+=+==..+==.+++...+=..+=+++==++....+=.++==+=....+..+.++++.+..+..+++..+..+=+=...++......+..+....+=++.+...++=+=.+.................................................................................................+...............", "conf": "9999999999999999999999999998999999997999798976899993"}
  ]
 }

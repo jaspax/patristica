@@ -1,0 +1,15 @@
+{
+ "work_id": "anf-works/hippolytus-against-plato",
+ "anchor": "ogpg/vol-010/adversus-graecos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "7b71da63d2eb04a5",
+ "words": "58ca886bd9eb4a22",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 49, "calibration": [1.0683, 0.0561], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9074, "rounds": 4, "units": 51},
+ "paragraphs": {
+  "Hippo.Plat": {"words": "0d8dddd52ff9bb70", "starts": [0]},
+  "Hippo.Plat.1": {"words": "6407a65c1c6c5a2a", "starts": [0, 7, 27, 68, 102, 131, 154, 187, 214, 235, 263, 304, 334, 382, 415, 467, 482, 523, 541]},
+  "Hippo.Plat.2": {"words": "83bae8f5ae8070c2", "starts": [0, 45, 90, 117, 158, 187, 227, 255, 287, 324, 353, 379]},
+  "Hippo.Plat.3": {"words": "657d0fa89a757474", "starts": [0, 15, 39, 83, 104, 123, 144, 168, 205, 231, 263, 292, 326, 364, 399, 435, 457, 478, 505]}
+ }
+}

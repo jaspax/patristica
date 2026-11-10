@@ -1,0 +1,12 @@
+{
+ "work_id": "anf-works/venantius-on-easter",
+ "anchor": "oglt-pl/venantius-fortunatus/pl7_1_vena",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "71c23bee5bcbe57c",
+ "words": "50c39a002e04f139",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 41, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.717, "rounds": 2, "span": [0, 53], "units": 41},
+ "paragraphs": {
+  "VenFort.Pasch": {"words": "5b61f56d686ce118", "starts": [0, 43, 62, 77, 96, 117, 158, 183, 202, 220, 236, 264, 282, 318, 349, 372, 392, 411, 436, 456, 474, 505, 539, 567, 613, 661, 689, 725, 748, 772, 792, 814, 832, 854, 876, 925, 945, 964, 984, 1018, 1044]}
+ }
+}

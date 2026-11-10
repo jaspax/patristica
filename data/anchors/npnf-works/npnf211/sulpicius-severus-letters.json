@@ -1,0 +1,22 @@
+{
+ "work_id": "npnf-works/sulpicius-severus-letters",
+ "anchor": "csel/stoa0270/stoa005/opp-lat1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "5ff22f806465d249",
+ "words": "75d8c6e9dc163afa",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 154, "calibration": [0.2663, 0.3105], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 155},
+ "paragraphs": {
+  "SulpSev.Ep.1": {"words": "783f1522a0740264", "starts": [0]},
+  "SulpSev.Ep.1.1": {"words": "1189342d4ded5e09", "starts": [0, 15, 54, 121, 154, 212, 233, 280, 311, 342, 363, 408, 440, 471, 508, 537, 558, 595, 611, 669, 702, 741, 787]},
+  "SulpSev.Ep.1.2": {"words": "edfd7fbe7573fdca", "starts": [0, 27, 71, 110, 149, 169, 193, 240, 287, 327, 351, 373, 409, 439, 486, 532]},
+  "SulpSev.Ep.2": {"words": "e1f358a73943b4b7", "starts": [0]},
+  "SulpSev.Ep.2.1": {"words": "84db2778e12a244d", "starts": [0]},
+  "SulpSev.Ep.2.2": {"words": "42d240b7119ed496", "starts": [0, 40, 77, 103, 153, 191, 230, 254, 284, 306, 339, 373, 402, 420, 461, 481, 513, 539, 566, 588, 636, 684, 723, 754, 803, 811, 849, 881, 940, 954, 1005, 1034, 1064, 1088, 1112, 1145, 1179, 1203, 1241, 1275, 1294, 1322, 1365, 1380, 1422, 1457, 1499, 1548, 1579, 1621, 1653, 1692]},
+  "SulpSev.Ep.3": {"words": "66450a786726bce2", "starts": [0]},
+  "SulpSev.Ep.3.1": {"words": "a6af0553cb64231a", "starts": [0]},
+  "SulpSev.Ep.3.2": {"words": "3ac40aea876c65a5", "starts": [0, 52, 87, 133, 153, 196, 244, 271, 322, 364, 393, 426, 471]},
+  "SulpSev.Ep.3.3": {"words": "6ff14df1c16ce31a", "starts": [0, 49, 80, 123, 173, 214, 263, 304, 327, 360, 397, 418, 452, 474, 507, 540, 584, 607, 641, 667, 698, 728, 763, 786, 816, 851, 880, 906, 940]},
+  "SulpSev.Ep.3.4": {"words": "905e9dabf8678c40", "starts": [0, 33, 65, 97, 116, 150, 160, 194, 234, 261, 301, 334, 355, 388, 419, 444, 487]}
+ }
+}

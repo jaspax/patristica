@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "ogpg/vol-036/oratio-34",
- "pivot": "npnf-works/gregory-nazianzen-oration-34",
- "groups": 94,
- "inputs": "43b98cabd7881140",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "ogpg/vol-036/oratio-34",
+ "groups": 107,
+ "inputs": "ec44a95d4f73d59e",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/gregory-nazianzen-oration-34", "units": 117, "ids": "43b2749d3480a377", "inputs": "bbddcfa8b3edafe9", "spans": "..........++++++++++++++++++++=++++++=+++++=++=++=+++++++++++++..+=++++++++++=+++++++++=++=+++=+++++++++++++=++++++++", "conf": "9999999999999999999989999999999999999999999999999999999999997999999999999998999999999999999999"},
-  {"work_id": "ogpg/vol-036/oratio-34", "units": 128, "ids": "4fefbc01cbfe9abe", "inputs": "3d9ea7a56458a4dd", "spans": "+++++++.++++=+++++++++.+................++++=++++++=++++..+++++++=+++=++++++=+++++++=+++..+++++++++++=++++.++++=++++++++++++=++=", "conf": "9999999999999999999989999999999999999999999999999999999999997999999999999998999999999999999999"}
+  {"work_id": "npnf-works/gregory-nazianzen-oration-34", "units": 111, "ids": "07119dafd3f40b08", "inputs": "3e1380261bf997cb", "spans": "...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++", "conf": "79999999999999999999947999999999999999959999999999999999999999999999979999999999999998999999999999999999999"},
+  {"work_id": "ogpg/vol-036/oratio-34", "units": 128, "ids": "4fefbc01cbfe9abe", "inputs": "3d9ea7a56458a4dd", "spans": "+++++++.++++++++++++++...........++.....+++++++++++++++++.++++++++++++++++++++++++++++++..++++++++++++++++.+++++++++++++++++++++", "conf": "79999999999999999999947999999999999999959999999999999999999999999999979999999999999998999999999999999999999"}
  ]
 }

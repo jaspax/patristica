@@ -1,0 +1,15 @@
+{
+ "work_id": "npnf-works/jerome-preface-to-the-four-gospels",
+ "anchor": "oglt-pl/hieronymus/pl29_11_s.",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "97f78e6b50ca296b",
+ "words": "5f20a36be5d284fe",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 24, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.5588, "rounds": 3, "span": [0, 34], "units": 25},
+ "paragraphs": {
+  "Jer.Praef.ii.viii": {"words": "0e1adcd0c0e04099", "starts": [0]},
+  "Jer.Praef.ii.viii.1": {"words": "87a1ea616640196a", "starts": [0]},
+  "Jer.Praef.ii.viii.2": {"words": "bcf188a7d20853b1", "starts": [0, 31, 52, 108, 138, 172, 220, 254, 255, 286, 310, 336, 377, 415, 448, 476, 496, 523, 534, 565, 588, 603]},
+  "Jer.Praef.ii.viii.3": {"words": "edaef56738be9f71", "starts": [0]}
+ }
+}

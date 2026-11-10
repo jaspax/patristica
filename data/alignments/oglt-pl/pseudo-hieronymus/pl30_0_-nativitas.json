@@ -2,11 +2,11 @@
  "format": 1,
  "group": "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas",
  "pivot": "anf-works/gospel-of-the-nativity-of-mary",
- "groups": 106,
- "inputs": "3df0881b25a834ed",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 117,
+ "inputs": "a0a273bd89bf63db",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/gospel-of-the-nativity-of-mary", "units": 117, "ids": "4dfdb206732fad9e", "inputs": "cb9a6773b7773437", "spans": "+=++++++.++++++.+++++++++++++++++++.+++++++++.++++.++++++++.+++++++++++++++.++++++.+++++++++++++++++++.++=+++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
-  {"work_id": "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas", "units": 202, "ids": "5189e050f5c57fc8", "inputs": "9e0446866d2f75f8", "spans": "+=..........+++++++=........++=+++++++++++++++++++++=+++=+++++........................+=++=++++++++++++=+++=+++++++.......................+++++++++++.+++=+++++++++++++++++...................++=+++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+  {"work_id": "anf-works/gospel-of-the-nativity-of-mary", "units": 127, "ids": "430c4967b52a73dc", "inputs": "70c047a2d0052159", "spans": "+=++++++.++++++++.++++++++++++++++++++.+++++++++++.+++++.+++++++++=++++++++++++++++.++++++.+++++++++++++++++++++.++++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "oglt-pl/pseudo-hieronymus/pl30_0_-nativitas", "units": 202, "ids": "5189e050f5c57fc8", "inputs": "9e0446866d2f75f8", "spans": "+=..........++++++++........++++++++++++++++++++++++++++++++++........................+++++++++++++++++++++++++++++.......................+++++++++++++++++++++++++++++++++...................++++++++++++", "conf": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
  ]
 }

@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-045/ad-petrum",
  "pivot": "ogpg/vol-045/ad-petrum",
- "groups": 34,
- "inputs": "1b6d4490582320da",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 40,
+ "inputs": "64377b2c1071fbd7",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/gregory-of-nyssa-letter-to-peter", "units": 39, "ids": "4d405ab493108732", "inputs": "b0e6216a1975e242", "spans": "..+++=++++++++++++++++++++++=+++++=++++", "conf": "9999999889998888999999999999999999"},
-  {"work_id": "ogpg/vol-045/ad-petrum", "units": 48, "ids": "bd1036f2930910ad", "inputs": "952f9b83fc34b7e4", "spans": "++=+=++++=+++=++++++++++++++=+=+++=+=+.++=++....", "conf": "9999999889998888999999999999999999"}
+  {"work_id": "npnf-works/gregory-of-nyssa-letter-to-peter", "units": 44, "ids": "568fdd92493acfb1", "inputs": "6b48961487ae3c97", "spans": "..++++++++++++++++++++++++.++++=++++++++++++", "conf": "9999999999888999999999999999999999999999"},
+  {"work_id": "ogpg/vol-045/ad-petrum", "units": 48, "ids": "bd1036f2930910ad", "inputs": "952f9b83fc34b7e4", "spans": "++++++++++++++++++++=+++++++=+++++++=++++=++....", "conf": "9999999999888999999999999999999999999999"}
  ]
 }

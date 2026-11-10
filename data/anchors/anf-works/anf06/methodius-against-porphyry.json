@@ -1,0 +1,18 @@
+{
+ "work_id": "anf-works/methodius-against-porphyry",
+ "anchor": "first1k/tlg2959/tlg006/opp-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "4d518ff88665d4e2",
+ "words": "6fd992553adbbe07",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 7, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 3, "one_one": 0.3158, "rounds": 1, "span": [40, 59], "units": 10},
+ "paragraphs": {
+  "Meth.Frag.1.III": {"words": "f70416a962d2fb18", "starts": [0]},
+  "Meth.Frag.1.III.1": {"words": "a13c764cde613382", "starts": [0]},
+  "Meth.Frag.1.III.2": {"words": "2f016c7d220ad329", "starts": [0]},
+  "Meth.Frag.1.III.3": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "Meth.Frag.1.III.4": {"words": "baff7e0fdaa80b6f", "starts": [0, 29]},
+  "Meth.Frag.1.III.5": {"words": "8700067b17b3bae9", "starts": [0]},
+  "Meth.Frag.1.III.6": {"words": "7b571ef6f827b19a", "starts": [0, 32, 61]}
+ }
+}

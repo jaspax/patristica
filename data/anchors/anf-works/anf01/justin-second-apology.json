@@ -1,0 +1,26 @@
+{
+ "work_id": "anf-works/justin-second-apology",
+ "anchor": "first1k/tlg0645/tlg002/perseus-grc2",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "54b5630be97c8dfe",
+ "words": "4d27c6f0136c8064",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 164, "calibration": [0.6087, 0.2005], "converged": false, "fallback_paragraphs": 0, "one_one": 0.92, "rounds": 4, "units": 166},
+ "paragraphs": {
+  "Just.2Apol.i": {"words": "fd6747c66ebc1be8", "starts": [0, 35, 66, 93, 145, 157, 188]},
+  "Just.2Apol.ii": {"words": "7c9f9535aecf9744", "starts": [0, 15, 40, 69, 84, 128, 170, 188, 229, 262, 296, 315, 335, 356, 377, 407, 430, 444, 465, 490, 531, 562, 587, 608, 631, 652, 669, 694]},
+  "Just.2Apol.iii": {"words": "7079003662e6339e", "starts": [0, 113, 219]},
+  "Just.2Apol.iv": {"words": "319038da351b1115", "starts": [0, 42, 62, 92, 130, 147, 176]},
+  "Just.2Apol.v": {"words": "4eced38ee338daef", "starts": [0, 35, 64, 94, 117, 148, 166, 179, 216, 255]},
+  "Just.2Apol.vi": {"words": "5f2a33daa5e25a13", "starts": [0, 33, 57, 90, 114, 140, 151, 185, 198, 222, 228]},
+  "Just.2Apol.vii": {"words": "4103f3650598b642", "starts": [0, 12, 43, 68, 100, 119, 150, 182, 208, 222, 239, 269, 305, 335, 369, 405, 445]},
+  "Just.2Apol.viii": {"words": "5b73c891c48fdd35", "starts": [0, 16, 41, 58, 83, 128, 144, 159]},
+  "Just.2Apol.ix": {"words": "ebf114f205f771fc", "starts": [0, 15, 31, 51, 67, 96, 125, 148, 176, 198, 224]},
+  "Just.2Apol.x": {"words": "43f232fbc12c1ee1", "starts": [0, 29, 48, 66, 97, 119, 140, 173, 196, 221, 244, 266, 297, 317]},
+  "Just.2Apol.xi": {"words": "4b484f8d2cc975ba", "starts": [0, 19, 40, 67, 91, 114, 149, 159, 184, 213, 253, 264, 297]},
+  "Just.2Apol.xii": {"words": "d66e92555651856a", "starts": [0, 18, 47, 75, 106, 120, 148, 164, 195, 233, 271, 296, 324, 361, 377, 411]},
+  "Just.2Apol.xiii": {"words": "0fc8574ea06d6e65", "starts": [0, 29, 46, 76, 97, 119, 145, 177, 198, 219]},
+  "Just.2Apol.xiv": {"words": "f5459ede5eddd171", "starts": [0, 42, 52, 91, 109]},
+  "Just.2Apol.xv": {"words": "7289fb82040eeebf", "starts": [0, 14, 44, 64, 105, 134]}
+ }
+}

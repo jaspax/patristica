@@ -1,0 +1,32 @@
+{
+ "work_id": "npnf-works/augustine-on-the-creed",
+ "anchor": "oglt-pl/augustinus/pl40_8_s.",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b6ec8b37cf766eec",
+ "words": "16fb1791856ee6ec",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 232, "calibration": [0.7402, 0.1666], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8805, "rounds": 4, "units": 232},
+ "paragraphs": {
+  "Aug.Symb": {"words": "e62665f441ca2b47", "starts": [0]},
+  "Aug.Symb.1": {"words": "a50a830de02cb205", "starts": [0]},
+  "Aug.Symb.2": {"words": "ad58ba443783df3a", "starts": [0]},
+  "Aug.Symb.3": {"words": "182b433099465828", "starts": [0]},
+  "Aug.Symb.1.1": {"words": "ee172a048d9d7f2c", "starts": [0, 14, 44, 77, 103, 123, 153, 184]},
+  "Aug.Symb.2.1": {"words": "8b87edf8eeaca662", "starts": [0, 26, 49, 70, 98, 122, 149, 184, 204, 217, 254, 296, 329, 355, 394, 427]},
+  "Aug.Symb.3.1": {"words": "a9a991cf38c4b251", "starts": [0, 18, 23, 65, 91, 102, 114, 125, 153, 175, 194, 229, 266, 294]},
+  "Aug.Symb.4": {"words": "b870ae061c80fa11", "starts": [0, 29, 55, 66, 105, 128, 155, 188, 209, 218, 253, 281, 302, 321]},
+  "Aug.Symb.5": {"words": "f39670883ca654ad", "starts": [0, 24, 63, 80, 100, 134, 151, 166, 188, 209, 222, 238, 257, 304, 324, 347, 368]},
+  "Aug.Symb.6": {"words": "79b7065834ea96b5", "starts": [0, 32, 59, 86, 95, 125, 148]},
+  "Aug.Symb.7": {"words": "5598b84f6594db7e", "starts": [0, 25, 52, 69, 77]},
+  "Aug.Symb.8": {"words": "92f712913af94bb0", "starts": [0, 19, 39, 64, 91, 109, 131, 151, 172, 204, 240, 277, 311, 331, 366, 382, 405, 421, 467, 498, 517, 551, 583, 599, 616, 645, 672, 689]},
+  "Aug.Symb.9": {"words": "5c94e8fe80ade50b", "starts": [0, 27, 65, 86, 118, 135]},
+  "Aug.Symb.10": {"words": "c8f31b8eb2dacbfe", "starts": [0, 18, 50, 83, 113, 138, 178, 209, 239, 262, 290, 328, 346, 365, 390, 407, 438, 469, 488, 516, 537, 561, 588, 607, 627, 659, 683, 714, 760, 793, 821, 858, 885, 902, 943, 964, 991, 1015, 1036, 1069, 1097, 1123, 1143, 1167, 1216, 1244]},
+  "Aug.Symb.11": {"words": "e0df300f977acd1f", "starts": [0, 15, 35, 54, 94, 121, 150, 176, 202]},
+  "Aug.Symb.12": {"words": "cbe3742b588ee6cf", "starts": [0, 25, 48, 75, 103, 128, 151, 190]},
+  "Aug.Symb.13": {"words": "9ca8e6b6555edfcc", "starts": [0, 10, 30, 48, 71, 90, 112, 132, 167, 183, 212, 236, 254, 275, 299, 324, 344, 370, 388, 420]},
+  "Aug.Symb.14": {"words": "9f9f34cc409a90d5", "starts": [0, 10, 27, 58, 87]},
+  "Aug.Symb.15": {"words": "4cf141b63720be0c", "starts": [0, 3, 37, 69, 94, 117, 142, 164, 191, 216, 237, 260]},
+  "Aug.Symb.16": {"words": "dc4139527e22ee6b", "starts": [0, 10, 30, 49, 76, 98, 118, 149]},
+  "Aug.Symb.17": {"words": "e8bbe2a5675e973d", "starts": [0, 13, 40, 62, 88]}
+ }
+}

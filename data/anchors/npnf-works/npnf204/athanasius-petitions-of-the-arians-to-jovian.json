@@ -1,0 +1,20 @@
+{
+ "work_id": "npnf-works/athanasius-petitions-of-the-arians-to-jovian",
+ "anchor": "pta/pta0022/pta017/pta-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "5bb927f219bc4815",
+ "words": "a09bcea7b4518bc3",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 44, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 5, "one_one": 0.8723, "rounds": 2, "units": 49},
+ "paragraphs": {
+  "Ath.EpJov.9": {"words": "eb1736e124f0535a", "starts": [0]},
+  "Ath.EpJov.10": {"words": "842561096f0eab82", "starts": [0]},
+  "Ath.EpJov.11": {"words": "447fb8a8e5e204fe", "starts": [0]},
+  "Ath.EpJov.12": {"words": "6e4b6399d301043a", "starts": [0, 16, 22, 28, 34, 36, 41, 55, 77, 88, 94, 130]},
+  "Ath.EpJov.13": {"words": "43d757b6feda4755", "starts": [0]},
+  "Ath.EpJov.14": {"words": "e36fa68dd7a852bf", "starts": [0, 25, 37]},
+  "Ath.EpJov.15": {"words": "89a979a3a74eb9ee", "starts": [0]},
+  "Ath.EpJov.16": {"words": "5ff1e298a9852f5e", "starts": [0, 11, 47, 75, 88, 104, 124, 142, 160, 199, 224, 228, 242, 255, 276, 309, 340, 371, 398, 411, 422, 433]},
+  "Ath.EpJov.17": {"words": "21ab57de1dc60877", "starts": [0, 26, 40, 48, 80, 100, 126]}
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "work_id": "anf-works/dionysius-of-corinth-fragments",
+ "anchor": "first1k/tlg1329/tlg001/1st1K-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "b389abe457734bc1",
+ "words": "2a9febc457a3d9bd",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 15, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.3438, "rounds": 2, "units": 26},
+ "paragraphs": {
+  "DionCor": {"words": "c1b9ee6f7e8620cb", "starts": [0]},
+  "DionCor.1": {"words": "14c1e582d97f3836", "starts": [0, 14, 22, 44, 58, 76, 91, 101, 114, 138, 147, 158, 192]},
+  "DionCor.2": {"words": "31f569b226cc9d3b", "starts": [0]},
+  "DionCor.3": {"words": "a13c764cde613382", "starts": [0]},
+  "DionCor.4": {"words": "9b5cf9d370b0fa55", "starts": [0]},
+  "DionCor.5": {"words": "2fe6bc502c856a6a", "starts": [0]},
+  "DionCor.6": {"words": "79482908115773a1", "starts": [0]},
+  "DionCor.7": {"words": "8737f8576515eca3", "starts": [0]},
+  "DionCor.8": {"words": "8700067b17b3bae9", "starts": [0]},
+  "DionCor.9": {"words": "b38819f417d3c492", "starts": [0]},
+  "DionCor.10": {"words": "b6208b4db25c59ea", "starts": [0]},
+  "DionCor.11": {"words": "af067b1bc8dce992", "starts": [0]},
+  "DionCor.12": {"words": "b38819f417d3c492", "starts": [0]},
+  "DionCor.13": {"words": "0bd835cf0437dac0", "starts": [0]}
+ }
+}

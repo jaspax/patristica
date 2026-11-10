@@ -2,11 +2,11 @@
  "format": 1,
  "group": "oglt-pl/anonymus/pl66_13_aliaregulaincerti",
  "pivot": "oglt-pl/anonymus/pl66_13_aliaregulaincerti",
- "groups": 23,
- "inputs": "9d338927bba6e7c7",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"oglt-pl/augustinus/pl32_14_re": {"head": "oglt-pl/anonymus/pl66_13_aliaregulaincerti", "shared": 0.7574}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
+ "groups": 25,
+ "inputs": "35000b0abd9850d4",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"oglt-pl/augustinus/pl32_14_re": {"head": "oglt-pl/anonymus/pl66_13_aliaregulaincerti", "shared": 0.7574}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
-  {"work_id": "oglt-pl/anonymus/pl66_13_aliaregulaincerti", "units": 25, "ids": "ca041fa70561024f", "inputs": "a03fb384a05fae30", "spans": "+=++++++++++++++=++++++++", "conf": "88999999997969999999999"},
-  {"work_id": "oglt-pl/augustinus/pl32_14_re", "units": 25, "ids": "4f7a3596785666bd", "inputs": "312897a494f8de56", "spans": "+++++=++++++++++=++++++++", "conf": "88999999997969999999999"}
+  {"work_id": "oglt-pl/anonymus/pl66_13_aliaregulaincerti", "units": 25, "ids": "ca041fa70561024f", "inputs": "a03fb384a05fae30", "spans": "+++++++++++++++++++++++++", "conf": "9699999999979799999999999"},
+  {"work_id": "oglt-pl/augustinus/pl32_14_re", "units": 25, "ids": "4f7a3596785666bd", "inputs": "25d89d61fc803db0", "spans": "+++++++++++++++++++++++++", "conf": "9699999999979799999999999"}
  ]
 }

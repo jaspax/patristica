@@ -1,0 +1,27 @@
+{
+ "work_id": "syriac-documents/metaphrastes-shamuna-guria-habib",
+ "anchor": "ogpg/vol-116/menologium-3",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "d783bdc2c9c9faa2",
+ "words": "392c272f5016a6c7",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 174, "calibration": [0.7807, 0.1244], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9301, "rounds": 4, "span": [1191, 1377], "units": 176},
+ "paragraphs": {
+  "MartShamuna.1": {"words": "97ad2901c541436a", "starts": [0]},
+  "MartShamuna.2": {"words": "45a5ef4a1af51458", "starts": [0, 30, 44, 64, 111, 138, 163]},
+  "MartShamuna.3": {"words": "18d7366b50ca7430", "starts": [0, 43, 74, 116, 165, 187, 235, 268, 282, 320, 342, 385, 402, 437, 448, 466, 492]},
+  "MartShamuna.4": {"words": "b2d63ebbdba61d42", "starts": [0, 6, 28, 51, 69, 99, 111, 147, 166, 185, 205, 240, 261, 274, 288]},
+  "MartShamuna.5": {"words": "1d09df2ff67db3bb", "starts": [0, 18, 42, 69, 105, 120, 144, 172, 202, 220]},
+  "MartShamuna.6": {"words": "289435f27d49c147", "starts": [0, 25, 63, 86, 110, 138, 171, 198, 222, 257, 269, 319, 342, 368, 382, 412]},
+  "MartShamuna.7": {"words": "ccfb94fb8a1baaaf", "starts": [0, 38, 64, 95, 128, 163, 199, 235]},
+  "MartShamuna.8": {"words": "bc1cc09ccb22e2a0", "starts": [0, 18, 45, 86, 104, 139, 184, 197, 227, 266, 292, 329, 355, 383]},
+  "MartShamuna.9": {"words": "b57c7360f6ecd07b", "starts": [0, 23, 57, 89, 130, 162, 209, 232, 251, 272]},
+  "MartShamuna.10": {"words": "7be10a62854cb553", "starts": [0, 13, 49, 74, 108, 144, 179, 204, 239, 260, 290, 316]},
+  "MartShamuna.11": {"words": "d3cb9bd6e8f638c1", "starts": [0, 24, 52, 81, 118, 141, 165, 193, 228, 262, 286]},
+  "MartShamuna.12": {"words": "0d7949ed93a48783", "starts": [0, 25, 46, 89, 144, 174, 213, 239, 285]},
+  "MartShamuna.13": {"words": "e0a4d58722b91f13", "starts": [0, 33, 68, 105, 136, 177, 219, 234, 248]},
+  "MartShamuna.14": {"words": "081243d2d88398a9", "starts": [0, 24, 57, 92, 123, 147, 164, 208, 300, 329]},
+  "MartShamuna.15": {"words": "be38817862255546", "starts": [0, 28, 64, 90, 128, 153, 201, 223, 251, 281, 321]},
+  "MartShamuna.16": {"words": "78c948829e3631bf", "starts": [0, 39, 66, 88, 109, 153, 215, 252, 290, 307, 346, 366, 393, 421, 462, 484]}
+ }
+}

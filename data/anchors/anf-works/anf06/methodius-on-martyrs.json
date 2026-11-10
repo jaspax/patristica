@@ -1,0 +1,13 @@
+{
+ "work_id": "anf-works/methodius-on-martyrs",
+ "anchor": "first1k/tlg2959/tlg008/opp-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "5acba192ad061f8d",
+ "words": "7b4bb4e9a82ce4f5",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 2, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.25, "rounds": 1, "units": 3},
+ "paragraphs": {
+  "Meth.Frag.1.IV": {"words": "253913f52a91e36b", "starts": [0]},
+  "Meth.Frag.1.IV.1": {"words": "bbe1c5c55bec1ea4", "starts": [0, 18]}
+ }
+}

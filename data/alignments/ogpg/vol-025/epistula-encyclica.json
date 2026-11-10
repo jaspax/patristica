@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-025/epistula-encyclica",
  "pivot": "npnf-works/athanasius-encyclical-letter",
- "groups": 112,
- "inputs": "c4c415bf5210ebfc",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 130,
+ "inputs": "7a4f1c17802b9e80",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/athanasius-encyclical-letter", "units": 142, "ids": "f61a67058932133c", "inputs": "063994c709fd5c64", "spans": ".+.++++=+++=+++=+++.+++.++=++=++=+++=++++=+=++++.++++++++++=++=++++.++++=++=+++++=.+++++=+++++++++=.+++++=+++++++++=+++=+++=.++++++++++++++++=", "conf": "9999999999999999899999999999999998899999999999999999999999999999999999999999999999999999999999999999999998899995"},
-  {"work_id": "ogpg/vol-025/epistula-encyclica", "units": 134, "ids": "65e71340b9b0294f", "inputs": "eaf6b5e91ed405fa", "spans": "+++.+++=+++=++++++=++++++++++=+.++++=.+++++++++++=++++=+++=+++++++++.+=+++++++++=++=.+++++++=++++++=+++=+=++=++++++=++++++++++++++++++", "conf": "9999999999999999899999999999999998899999999999999999999999999999999999999999999999999999999999999999999998899995"}
+  {"work_id": "npnf-works/athanasius-encyclical-letter", "units": 141, "ids": "4627bf86067e03de", "inputs": "3c2192097832f320", "spans": ".+.+++++++++++++++++++++++++.+++++++++=++++++++.+++++++++++++++++++.++++++=++++++.++++++++++++++++++++++=+++++++++++++++++=+=++++++++++++++++", "conf": "9999999999999999999999999979999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999993"},
+  {"work_id": "ogpg/vol-025/epistula-encyclica", "units": 134, "ids": "65e71340b9b0294f", "inputs": "eaf6b5e91ed405fa", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++=++++++++++++++++++=++++++++++++=+++++++++++++++++", "conf": "9999999999999999999999999979999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999993"}
  ]
 }

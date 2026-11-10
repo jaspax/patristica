@@ -1,0 +1,14 @@
+{
+ "work_id": "anf-works/gregory-thaumaturgus-declaration-of-faith",
+ "anchor": "ogpg/vol-010/thaumaturgus-expositio-fidei",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "2a2943a6acd0cf0b",
+ "words": "28d698e9d8f3bf88",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 8, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.5714, "rounds": 2, "span": [67, 81], "units": 8},
+ "paragraphs": {
+  "GregThaum.Fid": {"words": "91d782225b641b5e", "starts": [0]},
+  "GregThaum.Fid.2": {"words": "dcd420e7060b3d47", "starts": [0]},
+  "GregThaum.Fid.4": {"words": "2578b03d8c1b4e9a", "starts": [0, 31, 57, 84, 106, 130]}
+ }
+}

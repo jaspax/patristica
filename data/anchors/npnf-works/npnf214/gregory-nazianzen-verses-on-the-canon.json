@@ -1,0 +1,14 @@
+{
+ "work_id": "npnf-works/gregory-nazianzen-verses-on-the-canon",
+ "anchor": "ogpg/vol-037/carmina-dogmatica",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "a9fffeb8b3ead8b5",
+ "words": "89f3cbf57df9b99c",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 7, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.08, "rounds": 3, "span": [200, 250], "units": 8},
+ "paragraphs": {
+  "GregNaz.Carm": {"words": "be070d2c55c26d52", "starts": [0]},
+  "GregNaz.Carm.1": {"words": "933a976c55fce61e", "starts": [0]},
+  "GregNaz.Carm.2": {"words": "e09bad8c42f2be5e", "starts": [0, 14, 47, 62, 82, 103]}
+ }
+}

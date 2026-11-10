@@ -1,0 +1,21 @@
+{
+ "work_id": "anf-works/methodius-on-things-created",
+ "anchor": "first1k/tlg2959/tlg005/opp-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "0772e3f3b43c4e2e",
+ "words": "a86ad8fff033df8b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 110, "calibration": [0.6787, 0.1708], "converged": false, "fallback_paragraphs": 1, "one_one": 0.7323, "rounds": 4, "units": 111},
+ "paragraphs": {
+  "Meth.Frag.1.II": {"words": "29395912b2ad12b4", "starts": [0]},
+  "Meth.Frag.1.II.1": {"words": "d63f4e337cda2f9c", "starts": [0, 60, 98, 117, 140, 161, 180, 201, 220, 239, 253, 280, 293, 321, 346, 365, 389]},
+  "Meth.Frag.1.II.2": {"words": "6ef4b731e83b13ff", "starts": [0, 22, 38, 77, 104, 134, 156, 174, 201, 237, 240, 251, 267, 281, 302, 306, 327, 341, 357, 372, 388, 408, 410, 426, 448, 472, 480, 497, 526, 553, 571, 579]},
+  "Meth.Frag.1.II.3": {"words": "873bfcccb9c26ddc", "starts": [0, 25, 48, 51, 60, 71, 97, 120, 143]},
+  "Meth.Frag.1.II.4": {"words": "3f5fd19e40e29e20", "starts": [0, 20, 37, 69, 98, 106, 132, 158, 166, 191, 226, 254]},
+  "Meth.Frag.1.II.5": {"words": "ad15f410ebdcfa69", "starts": [0, 29, 57, 95, 115, 156, 191, 204, 247, 289, 320, 340, 374, 400, 425, 450]},
+  "Meth.Frag.1.II.6": {"words": "35698f9dd280af85", "starts": [0]},
+  "Meth.Frag.1.II.7": {"words": "907f043df6f0b56c", "starts": [0, 46, 69]},
+  "Meth.Frag.1.II.8": {"words": "0986c10bc7b21bdd", "starts": [0, 17, 39, 74, 103, 120, 136, 167, 201]},
+  "Meth.Frag.1.II.9": {"words": "eb45ecd29f265ff3", "starts": [0, 40, 56, 98, 104, 133, 177, 212, 241, 264, 293]}
+ }
+}

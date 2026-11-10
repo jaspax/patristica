@@ -1,0 +1,31 @@
+{
+ "work_id": "npnf-works/gregory-nazianzen-oration-33",
+ "anchor": "ogpg/vol-036/oratio-33",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "0e8aa4b9a14f55f9",
+ "words": "5c494e5de6e52605",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 159, "calibration": [0.6949, 0.1412], "converged": false, "fallback_paragraphs": 3, "one_one": 0.9231, "rounds": 4, "span": [0, 169], "units": 164},
+ "paragraphs": {
+  "GregNaz.Or33": {"words": "606687a05e18bf17", "starts": [0]},
+  "GregNaz.Or33.1": {"words": "66eae4edab9bd74e", "starts": [0]},
+  "GregNaz.Or33.2": {"words": "f819e540f889a1d9", "starts": [0]},
+  "GregNaz.Or33.3": {"words": "24f8309f873f4939", "starts": [0, 17, 49, 55, 86, 115, 142, 159]},
+  "GregNaz.Or33.4": {"words": "3c849af6897dbe12", "starts": [0, 236]},
+  "GregNaz.Or33.5": {"words": "824f357a616054a2", "starts": [0, 14, 46, 71, 101, 129, 158, 167, 185, 210, 226, 259]},
+  "GregNaz.Or33.6": {"words": "d8a11448d9ca22d3", "starts": [0, 60, 93, 122, 147, 175, 219, 248]},
+  "GregNaz.Or33.7": {"words": "b94193caf70b5eaf", "starts": [0, 38, 61, 80, 100, 119, 154, 182, 211, 244, 262, 297, 315]},
+  "GregNaz.Or33.8": {"words": "0a15585134110089", "starts": [0, 32, 69, 96, 124, 163, 178, 204, 221, 230]},
+  "GregNaz.Or33.9": {"words": "e78c41448c3c9c99", "starts": [0, 40, 61, 89, 112, 143, 181, 203, 231, 276]},
+  "GregNaz.Or33.10": {"words": "6b96371202a2fdba", "starts": [0, 41, 64, 109, 137, 157, 193]},
+  "GregNaz.Or33.11": {"words": "893be1adb2958191", "starts": [0, 21, 56, 82, 114, 141, 158]},
+  "GregNaz.Or33.12": {"words": "7e62948982e55b71", "starts": [0, 37, 60, 76, 91, 106, 147, 159, 195, 224, 239, 277, 300, 321]},
+  "GregNaz.Or33.13": {"words": "66f22673c29becf4", "starts": [0, 23, 50, 86, 111, 148, 174]},
+  "GregNaz.Or33.14": {"words": "26efdf0cbefd3c02", "starts": [0, 1, 40, 76, 91, 113, 129, 162, 198, 235, 256]},
+  "GregNaz.Or33.15": {"words": "2266c38bd0d93beb", "starts": [0, 31, 65, 101, 131, 155, 178, 194, 210, 236]},
+  "GregNaz.Or33.16": {"words": "55111a27a7f61846", "starts": [0, 45, 57, 133, 159, 216, 234, 267]},
+  "GregNaz.Or33.17": {"words": "97a3765f3f4c76dc", "starts": [0, 29, 74, 102, 125, 159, 183, 212, 234, 268, 299]},
+  "GregNaz.Or33.18": {"words": "6af9900078c06785", "starts": [0, 24, 49, 77, 119, 136, 158, 201, 211, 225]},
+  "GregNaz.Or33.19": {"words": "bb2ad16a2bac22c4", "starts": [0, 18, 57, 84, 102, 140, 159, 198, 227, 247, 273, 288, 303]}
+ }
+}

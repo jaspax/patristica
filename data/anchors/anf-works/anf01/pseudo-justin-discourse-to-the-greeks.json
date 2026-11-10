@@ -1,0 +1,17 @@
+{
+ "work_id": "anf-works/pseudo-justin-discourse-to-the-greeks",
+ "anchor": "ogpg/vol-006/oratio-ad-graecos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "1da1c022dd095a82",
+ "words": "e163c7272500aaf6",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 49, "calibration": [0.6683, 0.1426], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8727, "rounds": 4, "units": 52},
+ "paragraphs": {
+  "PsJust.OrGr": {"words": "6e8601c6f99d5e74", "starts": [0]},
+  "PsJust.OrGr.i": {"words": "63304ea6a5eeac7b", "starts": [0, 15, 41, 68, 106, 136, 143, 163, 195, 223, 234, 273]},
+  "PsJust.OrGr.ii": {"words": "2fb805533a46d370", "starts": [0, 17, 59, 86, 104, 126, 158, 182, 202, 240, 262, 286, 319]},
+  "PsJust.OrGr.iii": {"words": "294d29ada8635297", "starts": [0, 46, 75, 105, 155, 197, 224, 256, 291, 328]},
+  "PsJust.OrGr.iv": {"words": "b7893db8481af517", "starts": [0, 9, 31, 65, 98, 113, 151]},
+  "PsJust.OrGr.v": {"words": "23127143bc382147", "starts": [0, 35, 66, 90, 129, 158, 186, 221, 248]}
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "work_id": "npnf-works/athanasius-letter-56-to-jovian",
+ "anchor": "pta/pta0022/pta016/pta-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "58f76073110ff55e",
+ "words": "53c42620724c6650",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 31, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.8108, "rounds": 3, "units": 35},
+ "paragraphs": {
+  "Ath.EpJov": {"words": "72cb7a81d61b8127", "starts": [0]},
+  "Ath.EpJov.1": {"words": "3df152346dcfede0", "starts": [0]},
+  "Ath.EpJov.2": {"words": "10e69ca5648ade9f", "starts": [0]},
+  "Ath.EpJov.3": {"words": "8f1317b1b96cfcc4", "starts": [0]},
+  "Ath.EpJov.4": {"words": "402e6b1ccc4608d1", "starts": [0]},
+  "Ath.EpJov.5": {"words": "645f52098447f03f", "starts": [0, 31, 72, 107, 130, 149, 181, 206, 228, 258, 285, 321, 353, 381]},
+  "Ath.EpJov.6": {"words": "b5a9f0c6959eacf9", "starts": [0, 53, 74, 104, 122, 152, 169, 192]},
+  "Ath.EpJov.7": {"words": "f95cc8d0e6a1bd18", "starts": [0]},
+  "Ath.EpJov.8": {"words": "a20e43add5472838", "starts": [0, 24, 59, 81, 108, 127, 142]}
+ }
+}

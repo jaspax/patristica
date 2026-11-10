@@ -1,0 +1,19 @@
+{
+ "work_id": "anf-works/martyrdom-of-ignatius",
+ "anchor": "ogpg/vol-005/martyrium-ignatii",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "ab0cabd135d96c81",
+ "words": "25d9b5a7ccb92391",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 66, "calibration": [0.6156, 0.1741], "converged": false, "fallback_paragraphs": 0, "one_one": 0.8904, "rounds": 4, "span": [0, 73], "units": 67},
+ "paragraphs": {
+  "MartIgn.i": {"words": "61df84dea21487db", "starts": [0, 19, 37, 63, 104, 128, 148, 172]},
+  "MartIgn.ii": {"words": "2229e9d433ca6301", "starts": [0, 25, 50, 83, 109, 146, 168, 188, 232, 249, 274, 307, 333, 376, 390, 452, 464, 496, 525]},
+  "MartIgn.iii": {"words": "29be7009c15143a2", "starts": [0, 24, 48, 70, 103, 135]},
+  "MartIgn.iv": {"words": "7ff7163f05aa20db", "starts": [0, 28, 53, 76, 100]},
+  "MartIgn.iv.1": {"words": "6fa832ee9cba678e", "starts": [0]},
+  "MartIgn.v": {"words": "1f405df182925ba8", "starts": [0, 23, 47, 76, 112, 133, 157, 192, 223, 255]},
+  "MartIgn.vi": {"words": "942e8ca7ede0f235", "starts": [0, 34, 59, 91, 129, 163, 189, 234, 279, 325]},
+  "MartIgn.vii": {"words": "9051cf3613d4d6bb", "starts": [0, 35, 64, 105, 136, 175, 204, 240]}
+ }
+}

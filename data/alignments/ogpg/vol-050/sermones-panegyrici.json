@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "ogpg/vol-050/sermones-panegyrici",
- "pivot": "npnf-works/chrysostom-homilies-on-ignatius-and-babylas",
- "groups": 82,
- "inputs": "d1fef79df2a9505e",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "ogpg/vol-050/sermones-panegyrici",
+ "groups": 71,
+ "inputs": "c56e03dec51af1e5",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "npnf-works/chrysostom-homilies-on-ignatius-and-babylas", "units": 280, "ids": "5db5c25fba9d8061", "inputs": "2a3c0aa2ff69274f", "spans": "+...........+......+=.....+=.........+.+.+..+....++=..+=++..+...++.+++.+=+=.+==............++==............+.+..........+.+=.........++=++.+=.+=....++=........++.+.+........++=.+++...+=++..+.++=.++++.+=+=+=++==+=++..+=.+.+..+.....+..+=...+=+....+.+...+=.....+==.+=..+==+..+=..+.++", "conf": "7888335868957327889989999677396388599885696758335487948979998538564799745899935439"},
-  {"work_id": "ogpg/vol-050/sermones-panegyrici", "units": 166, "ids": "4c5a8a82ede8d9d0", "inputs": "93c71258d67f386a", "spans": "++=++=++.++..++=.+=.++..++....+.+=++=+=++=+++=+++++++++=++...++=++++=.....+.....+=...+..+=..++....++.+=+....+=.++=....+=..+...+=+=+=.++.+++++.++=+=++++.+=+=+=+.+..+++", "conf": "7888335868957327889989999677396388599885696758335487948979998538564799745899935439"}
+  {"work_id": "npnf-works/chrysostom-homilies-on-ignatius-and-babylas", "units": 121, "ids": "a9954632ab43c913", "inputs": "caaa8d98b0346ccc", "spans": "+..........++..+++++=++.++.+++=+++..++=+=.++.++.+.+++.++++..+++++++..+=+=.++++++=+++=++=+++=+=+++=.+=++...+++=+=..+=..+++", "conf": "77565339783888999499733895999958495895529937899838899677889898782799379"},
+  {"work_id": "ogpg/vol-050/sermones-panegyrici", "units": 166, "ids": "4c5a8a82ede8d9d0", "inputs": "93c71258d67f386a", "spans": "+...+....++..++..++.++..+.....+.+=++=+=+=+++..+.++++=++=+++=.+..+++=+.....+.+==+.+..++......+==...++...+....+=.+=.+=..++.+=....+==.+.+++=+++=+=+=+=+.++.+=++==....++=+", "conf": "77565339783888999499733895999958495895529937899838899677889898782799379"}
  ]
 }

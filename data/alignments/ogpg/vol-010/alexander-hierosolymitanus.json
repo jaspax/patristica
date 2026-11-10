@@ -3,10 +3,10 @@
  "group": "ogpg/vol-010/alexander-hierosolymitanus",
  "pivot": "anf-works/alexander-of-jerusalem-epistles",
  "groups": 7,
- "inputs": "2c1879bd81f4e6c8",
- "run": {"aligner": 2, "date": "2026-11-03", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "f1e4b0aa62449613",
+ "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/alexander-of-jerusalem-epistles", "units": 21, "ids": "7f2d82126497470c", "inputs": "ed93040cb8eac1c2", "spans": "..+.....+=......+++++", "conf": "9969998"},
-  {"work_id": "ogpg/vol-010/alexander-hierosolymitanus", "units": 8, "ids": "cb69b6ae349b5c0c", "inputs": "2e833fb2a0ffb44f", "spans": "+++++++=", "conf": "9969998"}
+  {"work_id": "anf-works/alexander-of-jerusalem-epistles", "units": 14, "ids": "ce0b5a5f3c36876c", "inputs": "ede75492802ead2e", "spans": "+...+=...+++++", "conf": "8979999"},
+  {"work_id": "ogpg/vol-010/alexander-hierosolymitanus", "units": 8, "ids": "cb69b6ae349b5c0c", "inputs": "2e833fb2a0ffb44f", "spans": "+++++++.", "conf": "8979999"}
  ]
 }

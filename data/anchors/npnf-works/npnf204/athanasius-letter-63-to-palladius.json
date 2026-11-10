@@ -1,0 +1,14 @@
+{
+ "work_id": "npnf-works/athanasius-letter-63-to-palladius",
+ "anchor": "pta/pta0022/pta012/pta-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "992f33a43565a1df",
+ "words": "c57befb853ad0f23",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 14, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 1.0, "rounds": 2, "units": 15},
+ "paragraphs": {
+  "Ath.EpPall": {"words": "c91f3ab13dcfe2eb", "starts": [0]},
+  "Ath.EpPall.1": {"words": "14bc2ed8af306326", "starts": [0]},
+  "Ath.EpPall.2": {"words": "c9d347b796822793", "starts": [0, 25, 53, 81, 112, 144, 160, 190, 223, 238, 274, 293, 314]}
+ }
+}

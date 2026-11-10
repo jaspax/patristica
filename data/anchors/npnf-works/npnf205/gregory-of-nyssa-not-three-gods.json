@@ -1,0 +1,31 @@
+{
+ "work_id": "npnf-works/gregory-of-nyssa-not-three-gods",
+ "anchor": "ogpg/vol-045/ad-ablabium",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "4cf4ed9790645bdd",
+ "words": "d6790ec3e37f7a93",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 189, "calibration": [0.6817, 0.1473], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "rounds": 4, "units": 190},
+ "paragraphs": {
+  "GregNyss.Abl": {"words": "95b84f0acedcf19c", "starts": [0]},
+  "GregNyss.Abl.1": {"words": "8f1e2bee81acf763", "starts": [0]},
+  "GregNyss.Abl.3": {"words": "81a9a3dc592fd3ad", "starts": [0, 32, 55, 79, 107, 132]},
+  "GregNyss.Abl.4": {"words": "e8fed4c7b75d3d6c", "starts": [0, 26, 48]},
+  "GregNyss.Abl.5": {"words": "63f95ac1f7c52c7f", "starts": [0, 21, 51, 83, 122, 152, 199, 213, 245]},
+  "GregNyss.Abl.6": {"words": "bf67bc78c9419a41", "starts": [0, 40, 71, 109, 143, 193, 224]},
+  "GregNyss.Abl.7": {"words": "53a2cc5293dc5990", "starts": [0, 35, 57, 98, 137, 162, 185, 210, 220, 272, 306, 335, 357, 387, 398, 433, 474, 506, 545, 557, 578, 615]},
+  "GregNyss.Abl.8": {"words": "d78634682b96ff4f", "starts": [0, 46, 78, 118, 151, 177, 206, 248, 276, 299, 331, 355, 384, 418, 456, 477, 517, 564, 588, 603, 626, 679, 715, 736, 761, 791, 795, 817, 848, 868, 890]},
+  "GregNyss.Abl.9": {"words": "c4e5eb85aeda609e", "starts": [0, 17, 80, 101, 119, 163, 200, 231]},
+  "GregNyss.Abl.10": {"words": "3407862c4f047a20", "starts": [0]},
+  "GregNyss.Abl.11": {"words": "a0eb8289efcaaacc", "starts": [0, 23, 55, 92, 136, 156, 180, 193, 219, 247, 261, 299, 338, 377, 411, 440, 468, 493, 523, 564, 591, 620, 657, 666, 696, 726, 755, 801, 819, 861, 893]},
+  "GregNyss.Abl.12": {"words": "200aaa781430feed", "starts": [0, 26, 50, 81, 107, 132, 167, 198, 221, 232]},
+  "GregNyss.Abl.13": {"words": "0acc6428b32966e5", "starts": [0, 44, 63, 97, 117, 150, 174, 197]},
+  "GregNyss.Abl.14": {"words": "ec0bd8b3c6fdf1c3", "starts": [0, 38, 68, 107, 140]},
+  "GregNyss.Abl.15": {"words": "5494cfd2d835f3f8", "starts": [0, 27, 39, 82, 119, 139, 159, 182, 205, 234]},
+  "GregNyss.Abl.16": {"words": "aa52d4cb4b3fff11", "starts": [0, 40, 59, 105, 134]},
+  "GregNyss.Abl.17": {"words": "4404b71993c63bbd", "starts": [0, 30, 58, 91, 114, 151, 169, 198, 206, 229, 273, 303, 327]},
+  "GregNyss.Abl.18": {"words": "dd7db2d162773f34", "starts": [0, 29, 83, 102, 134, 148]},
+  "GregNyss.Abl.19": {"words": "9d306aa963ae099d", "starts": [0, 39, 54, 82, 107, 146, 165, 199, 216, 259]},
+  "GregNyss.Abl.20": {"words": "69e1cd810acc7ddd", "starts": [0, 17, 30]}
+ }
+}
