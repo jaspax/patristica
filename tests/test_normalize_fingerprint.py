@@ -125,7 +125,7 @@ def test_first_run_records_fingerprints(corpus, code, built) -> None:
     assert nz.read_step_fingerprints(norm) == {"normalize": {"code": "code-1"}}
     fps = nz.read_work_fingerprints(norm)
     assert sorted(fps) == ALL
-    assert all(set(fp) == {"raw", "curated"} for fp in fps.values())
+    assert all(set(fp) == {"raw", "curated", "anchor"} for fp in fps.values())  # #638
     assert all(set(json.loads(line)) == {"path", "work"}
                for line in manifest_text(norm).splitlines())
 

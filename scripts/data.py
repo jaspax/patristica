@@ -119,21 +119,28 @@ def translated_paths(norm: Path) -> set[str]:
 
 
 def anchored_paths(norm: Path) -> set[str]:
-    """Works of sources enrolled for anchored derived verses and their originals
-    (``tests/test_anchor_fingerprint.py`` and ``scripts.status``'s anchor row read
-    both, #304)."""
-    from patristica import anchoring
+    """Works the anchoring rule anchors and their anchors (``tests/test_anchor_fingerprint.py``
+    and ``scripts.status``'s anchor row read both, #304, #638)."""
+    from patristica import anchor_rule
 
     works = _works(norm)
     by_id = {e["work"]["work_id"]: e["path"] for e in works}
+    recorded = anchor_rule.recorded_anchors(norm.parent / "anchors")
+    standard = set()  # never anchored: normalize's fingerprint records "anchor": null
+    fps = norm / "_fingerprints.jsonl"
+    if fps.exists():
+        for line in fps.read_text(encoding="utf-8").splitlines():
+            rec = json.loads(line) if line.strip() else {}
+            if "anchor" in rec and rec["anchor"] is None:
+                standard.add(rec["path"])
     out: set[str] = set()
-    for e in works:
-        if anchoring.is_enrolled(e["work"]["source_id"], e["work"].get("language"),
-                                 e["work"]["work_id"]):
-            out.add(e["path"])
-            target = anchoring.anchor_id(e["work"])
-            if target in by_id:
-                out.add(by_id[target])
+    for work_id, target in anchor_rule.anchors({e["work"]["work_id"]: e["work"] for e in works},
+                                               recorded).items():
+        if by_id[work_id] in standard:
+            continue
+        out.add(by_id[work_id])
+        if target in by_id:
+            out.add(by_id[target])
     return out
 
 

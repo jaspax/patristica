@@ -15,21 +15,13 @@ its derived verses start. ``scripts.normalize`` applies a current cut file
 without a current record (no cut file yet, or its words changed) is cut as
 today (``versify.split_text``, the *provisional* cut).
 
-**Enrolment** is per source (``patristica/data/anchored_sources.csv``,
-``source_id,language,reason``): a source is enrolled before its first
-normalize, never after (that would re-cut published refs: #200's migration).
-A row with a ``language`` enrols only that source's works in that language
-(#335: PTA's one Slavonic text, while PTA's published Greek, Latin, Armenian
-and Syriac works keep their derived verses); a row without one enrols the whole source.
-**#200** re-cuts published works one by one: ``patristica/data/anchored_works.csv``
-(``work_id,anchor,reason``) enrols a single work, anchored on the named work
-(another edition) or, with ``anchor`` empty, on its ``translation_of``. Only prose works
-are anchored: Scripture and works ingested as verses keep their verses.
-
-**The anchor** of an enrolled work is its ``translation_of``. A work without
-one, with an anchor not in the corpus, or with an anchor in its own language
-(another edition, :func:`same_language`) is cut by projecting the anchor's
-cuts through the two texts (``patristica.edition_projection``, #200).
+**Which works are anchored** is decided by ``scripts.anchor`` (#638), by a
+rule, not a list: a translation is anchored on (the preferred edition of) its
+``translation_of``; another edition of a text on the preferred edition of its
+language in its version group (a critical text before OCR'd Migne). The
+decision is recorded in the work's cut file, also when it is to keep the
+provisional cut, so it is made once. normalize applies any work's cut file and
+needs nothing else. Scripture and works ingested as verses are never anchored.
 
 This module is part of normalize's code (no numpy). ``ANCHOR_VERSION`` and
 :class:`RefineParams` live here too: like ``VERSE_TOKENS`` they are frozen,
@@ -38,24 +30,16 @@ since changing them re-cuts every anchored work.
 
 from __future__ import annotations
 
-import csv
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
-from functools import cache
-from pathlib import Path
-from typing import TYPE_CHECKING, get_args
+from typing import TYPE_CHECKING
 
 from patristica import fingerprint
-from patristica.models import Language
 from patristica.versify import _atoms, is_derived_ref
 
 if TYPE_CHECKING:
     from patristica.anchor_store import CutFile
     from patristica.models import Chunk
-
-ENROLMENT_PATH = Path(__file__).parent / "data" / "anchored_sources.csv"
-#: Single published works enrolled by #200's migration (``work_id,anchor,reason``).
-WORKS_PATH = Path(__file__).parent / "data" / "anchored_works.csv"
 
 #: The method version of the refinement. Bump it (deliberately, like
 #: ``LOADER_VERSION``) when a change to ``scripts.anchor`` should re-cut: cut
@@ -67,113 +51,8 @@ ANCHOR_VERSION = 3
 
 
 class AnchoringError(ValueError):
-    """The enrolment table is malformed, or anchors form a cycle."""
+    """Anchors form a cycle."""
 
-
-# ---------------------------------------------------------------- enrolment
-
-
-def load_enrolment(path: Path = ENROLMENT_PATH) -> dict[tuple[str, str | None], str]:
-    """``{(source_id, language): reason}`` from the enrolment table; the
-    language is None for a row that enrols the whole source. The ``language``
-    column is optional."""
-    rows: dict[tuple[str, str | None], str] = {}
-    languages = set(get_args(Language))
-    with path.open(encoding="utf-8", newline="") as f:
-        for line, row in enumerate(csv.DictReader(f), start=2):
-            source = (row.get("source_id") or "").strip()
-            language = (row.get("language") or "").strip() or None
-            reason = (row.get("reason") or "").strip()
-            where = f"{path}:{line}"
-            if not source or "/" in source:
-                raise AnchoringError(f"{where}: bad source_id {source!r}")
-            if language is not None and language not in languages:
-                raise AnchoringError(f"{where}: {source}: unknown language {language!r}")
-            if not reason:
-                raise AnchoringError(f"{where}: {source}: no reason given")
-            if (source, language) in rows:
-                raise AnchoringError(f"{where}: {source} {language or ''} is listed twice")
-            if (source, None) in rows or (language is None
-                                          and any(s == source for s, _ in rows)):
-                raise AnchoringError(
-                    f"{where}: {source} is enrolled both as a whole and by language")
-            rows[(source, language)] = reason
-    return rows
-
-
-@cache
-def enrolled_sources() -> dict[str, str]:
-    """``{source_id: reason}`` of the sources enrolled as a whole."""
-    return {s: r for (s, lang), r in load_enrolment().items() if lang is None}
-
-
-@cache
-def enrolled_languages() -> dict[tuple[str, str], str]:
-    """``{(source_id, language): reason}`` of the sources enrolled by language."""
-    return {(s, lang): r for (s, lang), r in load_enrolment().items() if lang is not None}
-
-
-def enrols_by_language(source_id: str) -> bool:
-    """True if some of *source_id*'s works are enrolled by their language, so
-    :func:`is_enrolled` needs the work's language to decide."""
-    return any(s == source_id for s, _ in enrolled_languages())
-
-
-def load_works_enrolment(path: Path = WORKS_PATH) -> dict[str, str | None]:
-    """``{work_id: anchor}`` from the work enrolment table (#200); the anchor is
-    None for a row that leaves it to the work's ``translation_of``."""
-    rows: dict[str, str | None] = {}
-    if not path.exists():
-        return rows
-    with path.open(encoding="utf-8", newline="") as f:
-        for line, row in enumerate(csv.DictReader(f), start=2):
-            work = (row.get("work_id") or "").strip()
-            anchor = (row.get("anchor") or "").strip() or None
-            where = f"{path}:{line}"
-            if "/" not in work:
-                raise AnchoringError(f"{where}: bad work_id {work!r}")
-            if not (row.get("reason") or "").strip():
-                raise AnchoringError(f"{where}: {work}: no reason given")
-            if work in rows:
-                raise AnchoringError(f"{where}: {work} is listed twice")
-            if anchor == work:
-                raise AnchoringError(f"{where}: {work} is anchored on itself")
-            if work.split("/", 1)[0] in enrolled_sources():
-                raise AnchoringError(f"{where}: {work}'s source is enrolled as a whole")
-            rows[work] = anchor
-    return rows
-
-
-@cache
-def enrolled_works() -> dict[str, str | None]:
-    """``{work_id: anchor or None}`` of the works enrolled one by one (#200)."""
-    return load_works_enrolment()
-
-
-def enrols_by_work(source_id: str) -> bool:
-    """True if some works of *source_id* are enrolled one by one, so
-    :func:`is_enrolled` needs the work id to decide."""
-    return any(w.split("/", 1)[0] == source_id for w in enrolled_works())
-
-
-def is_enrolled(source_id: str, language: str | None = None,
-                work_id: str | None = None) -> bool:
-    """True if the works of *source_id* (in *language*) get anchored derived
-    verses: the source is enrolled as a whole, or for *language*, or the work
-    *work_id* is enrolled on its own (#200's migration of published works)."""
-    return (source_id in enrolled_sources()
-            or (language is not None and (source_id, language) in enrolled_languages())
-            or (work_id is not None and work_id in enrolled_works()))
-
-
-def anchor_id(work: Mapping[str, object]) -> str | None:
-    """The work an enrolled work is anchored on: the anchor its row in the work
-    enrolment table names, else its ``translation_of``, or None."""
-    named = enrolled_works().get(str(work.get("work_id")))
-    if named:
-        return named
-    target = work.get("translation_of")
-    return target if isinstance(target, str) and target else None
 
 
 def same_language(work_language: str, anchor_language: str) -> bool:

@@ -1,0 +1,26 @@
+{
+ "work_id": "anf-works/acts-and-records-baptism-of-heretics",
+ "anchor": "oglt-pl/concilium-romanum/pl3_19_unk",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "3fbd478f858d8da8",
+ "words": "f951998b249dc890",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 5, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 4, "one_one": 0.6667, "one_one_anchored": 0.6667, "one_one_provisional": 0.0, "rounds": 2, "units": 18},
+ "paragraphs": {
+  "BaptHaerActa": {"words": "04566487734a805f", "starts": [0]},
+  "BaptHaerActa.2": {"words": "4bb36663f313daa5", "starts": [0]},
+  "BaptHaerActa.3": {"words": "d0f53b636e3b7bc0", "starts": [0]},
+  "BaptHaerActa.4": {"words": "111088f6c6ace354", "starts": [0, 6, 12, 28]},
+  "BaptHaerActa.5": {"words": "d7d7b5785d7b6000", "starts": [0]},
+  "BaptHaerActa.6": {"words": "4b8ab80088dc1e8c", "starts": [0]},
+  "BaptHaerActa.7": {"words": "d3d3cde15c562bc6", "starts": [0]},
+  "BaptHaerActa.8": {"words": "f5859602f5bac03b", "starts": [0]},
+  "BaptHaerActa.9": {"words": "6eb1c70e19bb1970", "starts": [0]},
+  "BaptHaerActa.10": {"words": "5a30932bde9199dd", "starts": [0]},
+  "BaptHaerActa.11": {"words": "fa880f011c5dc066", "starts": [0]},
+  "BaptHaerActa.12": {"words": "0c49c3866eea7e3b", "starts": [0]},
+  "BaptHaerActa.13": {"words": "bc37aa526e39936b", "starts": [0]},
+  "BaptHaerActa.14": {"words": "ebb91ac786721256", "starts": [0]},
+  "BaptHaerActa.15": {"words": "2e8e7bc79a434610", "starts": [0]}
+ }
+}

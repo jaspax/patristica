@@ -14,7 +14,6 @@ from pathlib import Path
 
 import pytest
 
-from patristica import anchoring
 from scripts import anchor, status
 from scripts import normalize as nz
 
@@ -26,19 +25,14 @@ RERUN = ("run `uv run --extra embed python -m scripts.anchor --pay` (paid, cents
          "output is stale, re-run scripts.normalize")
 
 
-def test_every_enrolled_work_has_a_current_cut_file() -> None:
+def test_every_anchored_work_has_a_current_cut_file() -> None:
     bad = [anchor.describe(s) for s in anchor.check_works(NORMALIZED, ANCHORS)
            if s.status in anchor.FAILING]
     assert not bad, f"missing or stale cut files ({RERUN}): " + ", ".join(bad[:10])
 
 
-def test_nothing_is_enrolled_without_a_reason() -> None:
-    assert all(anchoring.load_enrolment().values())
-
-
 @pytest.fixture
 def corpus(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
-    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: {"tr": "test"})
     raw, norm = tmp_path / "raw", tmp_path / "normalized"
     for rel, lang, extra in (("orig/w.json", "lat", {}),
                              ("tr/w.json", "eng", {"translation_of": "orig/w"}),
@@ -63,8 +57,10 @@ def test_status_fails_on_a_missing_cut_file(corpus: Path) -> None:
     assert [s.candidate.work_id for s in p.todo] == ["tr/w"]
 
 
-def test_status_is_ok_with_nothing_enrolled(corpus: Path, monkeypatch) -> None:
-    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: {})
+def test_status_is_ok_with_nothing_to_anchor(corpus: Path, monkeypatch) -> None:
+    from patristica import anchor_rule
+
+    monkeypatch.setattr(anchor_rule, "anchors", lambda works, recorded: {})
     [row] = status.anchor_rows(corpus, corpus.parent / "anchors")
     assert row.level == "ok"
     assert anchor.pending(corpus, corpus.parent / "anchors") == (0, 0.0)

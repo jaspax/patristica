@@ -1,0 +1,26 @@
+{
+ "work_id": "first1k/tlg1701/tlg002/1st1K-grc1",
+ "anchor": "first1k/tlg1701/tlg001/1st1K-grc1",
+ "method": "b411e365fd53a195",
+ "anchor_cuts": "e892576590c3331d",
+ "words": "47792b8700519616",
+ "model": "",
+ "stats": {"kept": "provisional", "one_one_anchored": 1.0, "one_one_provisional": 1.0, "paragraphs": 15, "projected_paragraphs": 0, "provisional_paragraphs": 15, "shared": 0.0496, "starts_lost": 315, "starts_projected": 12},
+ "paragraphs": {
+  "tlg1701.tlg002": {"words": "a534af1981bd41d9", "starts": [0]},
+  "tlg1701.tlg002.1": {"words": "0648aa693f774797", "starts": [0, 22]},
+  "tlg1701.tlg002.2": {"words": "147c3c9c50b60d96", "starts": [0, 30, 50, 69, 97, 123, 138, 156, 176, 201, 217, 239, 257, 272]},
+  "tlg1701.tlg002.3": {"words": "b8a6ab4f6e8454ed", "starts": [0, 21, 37, 60, 71, 96, 113, 136, 156, 183, 194]},
+  "tlg1701.tlg002.4": {"words": "436f36649c119c12", "starts": [0, 25, 49, 58, 79, 96, 113, 130, 153, 172, 193, 220, 250]},
+  "tlg1701.tlg002.5": {"words": "a55736f752a3afe2", "starts": [0, 24, 47, 67, 89]},
+  "tlg1701.tlg002.6": {"words": "5e35f7a18671896c", "starts": [0, 33, 54, 71, 90, 107, 121, 140, 165, 186, 215, 239, 263]},
+  "tlg1701.tlg002.7": {"words": "df87d307ccc28a6a", "starts": [0, 27, 47, 69, 100, 128, 146, 163, 186, 214, 236, 260, 283, 308, 335]},
+  "tlg1701.tlg002.8": {"words": "9f585140cd796c5b", "starts": [0, 18, 40, 58, 82, 102, 120, 143, 162, 186, 212, 227, 247]},
+  "tlg1701.tlg002.9": {"words": "a58ad0b76c7789ba", "starts": [0, 28, 52, 74, 96, 122, 149, 169, 188]},
+  "tlg1701.tlg002.10": {"words": "86c40555b992cb27", "starts": [0, 22, 35, 63, 84, 104, 126, 150, 172, 194, 207, 225, 245]},
+  "tlg1701.tlg002.11": {"words": "7da42c9faaf9e979", "starts": [0, 21, 44, 61, 74, 90, 108, 130, 148, 167]},
+  "tlg1701.tlg002.12": {"words": "e62880c90cc156b5", "starts": [0, 18, 29, 48, 69, 86, 105, 124, 145, 171, 195, 208]},
+  "tlg1701.tlg002.13": {"words": "1ca153ba37836156", "starts": [0, 16, 32, 53, 74, 100, 120, 152, 179, 197, 224, 245, 267, 281, 307, 327]},
+  "tlg1701.tlg002.14": {"words": "af89f7c917423ebd", "starts": [0, 23, 51, 74, 96, 113]}
+ }
+}

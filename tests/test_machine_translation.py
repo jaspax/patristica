@@ -374,8 +374,14 @@ def test_tracked_machine_translations_name_an_original_in_the_corpus():
 def test_machine_translation_raw_files_are_plain_git():
     attrs = (REPO / ".gitattributes").read_text(encoding="utf-8")
     assert "data/raw/mt-eng/** !filter !diff !merge !text" in attrs
-    rows = (REPO / "patristica/data/anchored_sources.csv").read_text(encoding="utf-8")
-    assert "\nmt-eng,," in rows   # derived verses cut on the original (#304)
+    # Its derived verses are cut on the original: an MT has a translation_of in
+    # another language, so the anchoring rule (#638) anchors it.
+    from patristica.anchor_rule import anchors
+
+    works = {"pta/x": {"work_id": "pta/x", "source_id": "pta", "language": "grc"},
+             "mt-eng/pta/x": {"work_id": "mt-eng/pta/x", "source_id": "mt-eng",
+                              "language": "eng", "translation_of": "pta/x"}}
+    assert anchors(works, {}) == {"mt-eng/pta/x": "pta/x"}
 
 
 # --- export and search context ----------------------------------------------------

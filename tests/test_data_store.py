@@ -137,9 +137,6 @@ def test_needs_lists_paths_under_the_repo():
 
 
 def test_needs_includes_anchored_works_and_their_originals(tmp_path, monkeypatch):
-    from patristica import anchoring
-
-    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: {"tr": "test"})
     lines = [{"path": "tr/w.json", "work": {"work_id": "tr/w", "source_id": "tr",
                                              "language": "eng", "translation_of": "orig/w"}},
              {"path": "orig/w.json", "work": {"work_id": "orig/w", "source_id": "orig",
