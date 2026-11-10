@@ -119,3 +119,10 @@ MACHINE_TRANSLATION_SOURCES: frozenset[str] = frozenset({"mt-eng"})
 def source_label(source_id: str) -> str:
     """Return the readable label for *source_id*, or the id itself if unknown."""
     return SOURCE_LABELS.get(source_id, source_id)
+
+
+#: Sources of OCR'd Migne (PG, PL): when a text also has an edition from a
+#: critical text, that edition is the one the others are anchored on (#638,
+#: ``scripts.anchor.preferred_edition``), and translations naming the OCR'd
+#: edition are anchored on it instead.
+OCR_SOURCES: frozenset[str] = frozenset({"ogpg", "oglt-pl"})

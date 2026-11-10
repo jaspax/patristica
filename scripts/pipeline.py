@@ -11,7 +11,7 @@ tools for targeted work (``scripts.embed --work â€¦``, ``scripts.align --group â
 Ingestors are not run: re-ingest by hand, then run this with
 ``--accept-raw-change``.
 
-Paid steps (anchor: Voyage, for the derived verses of enrolled translations,
+Paid steps (anchor: Voyage, for derived verses anchored on the original,
 #304; translate: Claude Opus on the subscription, see below; embed: Voyage)
 send requests only with ``--pay``. Without it the run
 stops before the first paid step that has paid work, prints the estimate and

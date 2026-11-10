@@ -96,10 +96,10 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
 - [ ] **`VERSE_TOKENS` in `patristica/versify.py`** (**frozen**). It needs a value for the language, or normalize raises `ValueError` on the first long chunk. The value is the mean cl100k tokens per Scripture verse in that language. Measure it on the language's first Scripture source, in the script you store. With no Scripture, use the mean over a verse-numbered text and record how in the decision record. After it is set, a change renumbers every derived verse of the language and invalidates their translations.
   - Adding the key is a **rebuild**: `versify` is in the normalize hash, so every work is re-normalized, unchanged, and `data/normalized/_fingerprint.json` must be committed.
 - [ ] **Punctuation in `patristica/versify.py`** (**frozen**, like `VERSE_TOKENS`). Add the language to `_SENTENCE_MARKS`, `_CLAUSE_MARKS` and `_COMMA_MARKS` when the defaults (`.!?`, `;:··—…`, `,،`) are wrong. Count the marks the sources actually use and what they do (a `;` may be a question mark, a raised dot a clause or sentence end, a multi-dot sign a section end). Check the result on a long text: the mean derived verse should be about one verse and end at a stop. Also check word separators in `_ATOM_RE` (as for Ge'ez `፡`); a stop with no space after it doesn't break, so ingestors keep a space after punctuation.
-- [ ] **Derived verses anchored on the original (#292, #304).** New sources whose works translate an original already in the corpus are enrolled: a row in `patristica/data/anchored_sources.csv` (`source_id,language,reason`), in the PR that adds the source; for a new language in an existing source, a row with that `language`, so the source's published works keep their derived verses. Their derived verses follow the original's boundaries within each source paragraph (`scripts.anchor`, from Voyage vectors; `docs/anchored-derived-verses.md`), and `VERSE_TOKENS` is only the fallback. This is the go-forward standard, so their works never need re-splitting (or re-translating) when #200 migrates the rest.
-  - Set `translation_of` first (section 6): it is the anchor. A work whose original isn't in the corpus, or is in its own language (another edition, #199), is cut by size.
-  - Anchoring uses the language's native text vectors, so check in section 3 that they align at all. A language whose vectors are too weak to align shouldn't be enrolled.
-  - After normalize, run `scripts.anchor` in the PR (section 8): `tests/test_anchor_fingerprint.py` fails while an enrolled work has no current cut file.
+- [ ] **Derived verses anchored on the original (#292, #304, #638).** Nothing to enrol: a work whose `translation_of` is in the corpus in another language is anchored by rule (`patristica/anchor_rule.py`), and so is another edition of a text the corpus has. Its derived verses follow the original's boundaries within each source paragraph (`scripts.anchor`, from Voyage vectors; `docs/anchored-derived-verses.md`), unless the anchored cut doesn't win, in which case the work keeps its size cut and its cut file says so. `VERSE_TOKENS` is the fallback.
+  - Set `translation_of` first (section 6): it is the anchor. A work whose original isn't in the corpus is cut by size (and cut on its original once that is added).
+  - Anchoring uses the language's native text vectors, so check in section 3 that they align at all. If they don't, the anchored cuts won't win and the works keep their size cuts; consider translation vectors (`TRANSLATED_LANGUAGES`) first.
+  - After normalize, run `scripts.anchor` in the PR (section 8): `tests/test_anchor_fingerprint.py` fails while a work the rule anchors has no current cut file.
 - [ ] **Editorial material is marked, not stripped (#236).** Mark titles, supplements, headings, apparatus and chant metadata as editorial spans with #236's mechanism, so the reader shows them and embed, translate and alignment leave them out. Don't add a new per-source stripping rule.
 
 ## 6. Cross-language links
@@ -131,7 +131,7 @@ Voyage `voyage-4-large` reaches Greek, Latin and Hebrew natively. Syriac, Coptic
   - Translation: units × $0.0014, plus the translation vectors, if the language is enrolled.
 - [ ] **Reload size.** `build_index` loads only new works: their chunks and vectors. It updates metadata-only changes in place. A `FOLD_VERSION` bump refolds every work locally but rewrites only the chunks it changes; a `LOADER_VERSION` bump reloads everything (avoid). `scripts.status --db --vectors` on the pipeline machine lists the works a run would load, update or delete.
 - [ ] **Paid steps run only in `scripts.pipeline --pay`** on master, after merge, by the owner. A PR never sends translate or embed requests, with one exception:
-- [ ] **Anchored derived verses are cut in the PR** (#304), so master never holds provisional cuts of enrolled works and refs don't change between the PR and the publish. After normalize:
+- [ ] **Anchored derived verses are cut in the PR** (#304), so master never holds undecided anchored works and refs don't change between the PR and the publish. After normalize:
   1. `uv run --extra embed python -m scripts.anchor --dry-run`: the works to cut and the cost (an upper bound; usually cents per source);
   2. if an original lacks vectors (the step refuses it), `scripts.embed --work {original}` (paid);
   3. **ask the owner**, with the dry run's numbers, and wait for a yes. An agent never sends these requests without that permission, asked each time, **unless the dry runs of steps 1–2 total under $1.00** (#604): then it goes on without asking, with `--max-cost` capping anchor at what is left of the $1.00;
@@ -158,8 +158,8 @@ uv run python -m scripts.ingest.{source}        # first run into an empty dir st
 #    sources.py SOURCE_LABELS, authors.csv / author_strings.csv, genre_overrides.csv,
 #    versification.py SOURCE_SCHEMES + scripture_translation_of.csv for Scripture books.
 
-# 3. Structure: VERSE_TOKENS["{code}"] (measure first) and punctuation marks; enroll
-#    translations of corpus originals in anchored splitting (anchored_sources.csv, #304).
+# 3. Structure: VERSE_TOKENS["{code}"] (measure first) and punctuation marks; works with a
+#    translation_of in the corpus are anchored by rule (#638), nothing to enrol.
 uv run python -m scripts.normalize               # rebuilds all works once (versify hash)
 uv run python -m scripts.validate
 uv run python -m scripts.status --raw
@@ -206,7 +206,7 @@ Copy into the PR description and tick:
 - [ ] `scripts.status` is clean apart from the pending paid steps.
 - [ ] `scripts.pipeline --dry-run` output is summarized in the PR (agents add `--skip build_index --skip upload_library`, so nothing connects to production): the stale steps, the translate and embed estimates, and the new works and units (the reload size).
 - [ ] No paid requests were sent, apart from `scripts.anchor --pay` (and the embed of its originals) with the owner's permission (or under $1.00 in all, #604), its cost stated. An "After merge" section lists what `scripts.pipeline --pay` will do and cost (as in #262).
-- [ ] `tests/test_anchor_fingerprint.py` passes: every enrolled work has a current cut file in `data/anchors/`.
+- [ ] `tests/test_anchor_fingerprint.py` passes: every work the rule anchors has a current cut file in `data/anchors/`.
 - [ ] Reader checked in light and dark themes (and RTL if relevant), with a screenshot of one work and of a parallel view.
 - [ ] Decision record posted or updated on the language's issue (not in this file), and `docs/embedding-eval.md` if measured.
 - [ ] Docs updated (section 7) and the `lang:` label description updated.

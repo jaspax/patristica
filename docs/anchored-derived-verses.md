@@ -1,9 +1,14 @@
 # Anchored derived verses through vectors (design, #304)
 
 **Status: implemented** (#304, #292), with the owner's decisions of
-2026-10-28 (§13) and the deviations listed below. Enrolled sources are listed in
-`patristica/data/anchored_sources.csv` (the English sources of #343, #344, #346 first). The code is
-`patristica/anchoring.py` (enrolment, applying cut files, `RefineParams`),
+2026-10-28 (§13) and the deviations listed below. **Since #638 there is no
+enrolment:** which works are anchored, and on what, is a rule
+(`patristica/anchor_rule.py`; CLAUDE.md "Anchored derived verses"), and every
+decision, including "keep the provisional cut" when the anchored cut doesn't
+win (`stats.kept`), is recorded once in the work's cut file. The tables
+`anchored_sources.csv` and `anchored_works.csv` this document mentions are
+gone. The code is
+`patristica/anchoring.py` (applying cut files, `RefineParams`),
 `patristica/anchor_store.py` (cut files), `patristica/anchor_refine.py` (the
 refinement of §4), `scripts/anchor.py` (the step) and `scripts/anchor_eval.py`
 (the evaluation of §8). The prototype this document was written from
@@ -359,7 +364,7 @@ maps onto the DP like this:
 
 | what | where | tracked | size |
 |---|---|---|---|
-| enrolment | `patristica/data/anchored_sources.csv` (`source_id,language,reason`, #303's file and loader; the optional `language` enrols one language of a source, #335) | yes | a row per source, or per source and language |
+| which works | a rule in `patristica/anchor_rule.py` (#638; before it, the enrolment tables `anchored_sources.csv` and, for #200, `anchored_works.csv`) | code | – |
 | cut files | `data/anchors/{normalized path}.json`, one per anchored work | yes (plain git, small) | ~30 bytes per unit |
 | fingerprint | `data/anchors/_fingerprint.json`: method version, params and, per work, its inputs (§6) | yes | small |
 | segment and candidate vectors | `data/anchor_vectors/{normalized path}.npz` (`sha`, `vec` float16 1024) | no (gitignored, regenerable; in #156's archive with the embeddings) | ~2 KB per segment |

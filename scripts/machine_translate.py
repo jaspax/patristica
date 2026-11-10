@@ -7,7 +7,7 @@ whole work per request**, for a fluent text a reader can follow. The result is
 a new work of the derived source ``mt-eng``, written as a raw file:
 ``data/raw/mt-eng/{the original's normalized path}``, tracked in plain git (not
 git-lfs), so a PR shows the translation itself. ``scripts.pipeline`` then
-normalizes it, cuts its derived verses on the original (``anchored_sources.csv``,
+normalizes it, cuts its derived verses on the original (``scripts.anchor``'s rule,
 #304), aligns it, and indexes and exports it as a machine translation: it gets
 no search vectors and doesn't match keyword search. Which works qualify is
 ``patristica.machine_translation``; the whole design is

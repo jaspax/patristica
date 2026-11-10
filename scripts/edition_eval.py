@@ -68,8 +68,7 @@ def main() -> None:
     for _, a in store.iter_store(args.alignments_dir):
         for wid, info in a.run.get("text", {}).get("editions", {}).items():
             w = works[wid]["work"]
-            if (anchoring.is_enrolled(w["source_id"], w["language"]) or w.get("translation_of")
-                    or (args.work and wid not in args.work)):
+            if w.get("translation_of") or (args.work and wid not in args.work):
                 continue
             jobs.append((args.normalized_dir, wid, info["head"], works[wid]["path"],
                          works[info["head"]]["path"]))

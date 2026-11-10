@@ -1,4 +1,4 @@
-"""Anchored derived verses (#304): enrolment, cut files and normalize applying
+"""Anchored derived verses (#304, #638): cut files and normalize applying
 them. No vectors and no numpy; the refinement is ``tests/test_anchor.py``."""
 
 from __future__ import annotations
@@ -13,126 +13,8 @@ from patristica.models import Chunk
 from patristica.versify import split_text
 from scripts import normalize as nz
 
-# ---------------------------------------------------------------- enrolment
-
-
 ROOT = Path(__file__).resolve().parents[1]
 NORMALIZED = ROOT / "data" / "normalized"
-
-
-def test_enrolment_table() -> None:
-    """PTA is enrolled only for its Slavonic (#335) and ReA only for its Old High
-    German (#567, its Latin sides have no original in the corpus); every other row
-    enrols a whole source."""
-    table = anchoring.load_enrolment()
-    assert {key for key in table if key[0] == "pta"} == {("pta", "chu")}
-    assert {key for key in table if key[1] is not None} == {("pta", "chu"), ("rea", "goh")}
-
-
-def test_no_published_pta_work_is_enrolled() -> None:
-    """Enrolling PTA's Slavonic re-cuts no other PTA work (#335): of PTA's works
-    in the manifest, only the Slavonic one and the works #200's migration
-    enrols one by one (``anchored_works.csv``) are enrolled, and every other
-    PTA work's fingerprint has no anchor record (it is cut as before)."""
-    manifest = NORMALIZED / "_works.jsonl"
-    entries = [json.loads(line) for line in manifest.read_text(encoding="utf-8").splitlines()]
-    by_work = {e["work"]["work_id"]: e["path"] for e in entries
-               if e["work"]["work_id"] in anchoring.enrolled_works()}
-    enrolled = sorted(e["work"]["work_id"] for e in entries
-                      if e["work"]["source_id"] == "pta" and anchoring.is_enrolled(
-                          e["work"]["source_id"], e["work"]["language"], e["work"]["work_id"]))
-    assert enrolled == sorted(["pta/pta0001/pta028/pta-chu1",
-                               *(w for w in by_work if w.startswith("pta/"))])
-    fps = nz.read_work_fingerprints(NORMALIZED)
-    anchored = sorted(path for path, fp in fps.items()
-                      if path.startswith("pta/") and "anchor" in fp)
-    assert anchored == sorted(["pta/pta0001/pta028/pta0001.pta028.pta-chu1.json",
-                               *(p for w, p in by_work.items() if w.startswith("pta/"))])
-
-
-def test_enrolment_of_single_works(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    path = tmp_path / "w.csv"
-    path.write_text("work_id,anchor,reason\nogpg/vol-032/epistulae,perseus/x/y,edition\n"
-                    "npnf-works/basil-letters,,translation\n", encoding="utf-8")
-    table = anchoring.load_works_enrolment(path)
-    assert table == {"ogpg/vol-032/epistulae": "perseus/x/y", "npnf-works/basil-letters": None}
-    monkeypatch.setattr(anchoring, "enrolled_works", lambda: table)
-    assert anchoring.is_enrolled("ogpg", "grc", "ogpg/vol-032/epistulae")
-    assert not anchoring.is_enrolled("ogpg", "grc", "ogpg/vol-033/other")
-    assert not anchoring.is_enrolled("ogpg", "grc")
-    assert anchoring.enrols_by_work("ogpg") and not anchoring.enrols_by_work("csel")
-    assert anchoring.anchor_id({"work_id": "ogpg/vol-032/epistulae"}) == "perseus/x/y"
-    assert anchoring.anchor_id({"work_id": "npnf-works/basil-letters",
-                                "translation_of": "perseus/x/y"}) == "perseus/x/y"
-
-
-@pytest.mark.parametrize("rows", ["ogpg,,x\n", "a/b,,\n", "a/b,,x\na/b,,y\n", "a/b,a/b,x\n",
-                                  "ccmh-supr/x,,whole source enrolled\n"])
-def test_bad_work_enrolment_rows(tmp_path: Path, rows: str) -> None:
-    path = tmp_path / "w.csv"
-    path.write_text("work_id,anchor,reason\n" + rows, encoding="utf-8")
-    with pytest.raises(anchoring.AnchoringError):
-        anchoring.load_works_enrolment(path)
-
-
-def test_enrolled_works_exist_with_their_anchors() -> None:
-    """Every work enrolled one by one, and its named anchor, is in the corpus;
-    the anchor of a translation (no named anchor) is its translation_of."""
-    manifest = NORMALIZED / "_works.jsonl"
-    works = {json.loads(line)["work"]["work_id"]: json.loads(line)["work"]
-             for line in manifest.read_text(encoding="utf-8").splitlines()}
-    for work_id, anchor in anchoring.enrolled_works().items():
-        assert work_id in works, work_id
-        target = anchor or works[work_id].get("translation_of")
-        assert target in works, (work_id, target)
-
-
-def test_enrolment_by_language(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    path = tmp_path / "e.csv"
-    path.write_text("source_id,language,reason\nall,,x\npta,chu,y\npta,hye,z\n",
-                    encoding="utf-8")
-    table = anchoring.load_enrolment(path)
-    assert table == {("all", None): "x", ("pta", "chu"): "y", ("pta", "hye"): "z"}
-    monkeypatch.setattr(anchoring, "load_enrolment", lambda: table)
-    for f in (anchoring.enrolled_sources, anchoring.enrolled_languages):
-        monkeypatch.setattr(anchoring, f.__name__, f.__wrapped__)
-    assert anchoring.is_enrolled("all") and anchoring.is_enrolled("all", "eng")
-    assert anchoring.is_enrolled("pta", "chu") and anchoring.is_enrolled("pta", "hye")
-    assert not anchoring.is_enrolled("pta") and not anchoring.is_enrolled("pta", "eng")
-    assert anchoring.enrols_by_language("pta") and not anchoring.enrols_by_language("all")
-    assert not anchoring.enrols_by_language("other")
-
-
-def test_the_language_column_is_optional(tmp_path: Path) -> None:
-    path = tmp_path / "e.csv"
-    path.write_text("source_id,reason\ntorot,x\n", encoding="utf-8")
-    assert anchoring.load_enrolment(path) == {("torot", None): "x"}
-
-
-def test_enrolled_sources_are_known_sources() -> None:
-    """Every enrolled source is a real source (it has a label), with a reason."""
-    from patristica.sources import SOURCE_LABELS
-
-    enrolled = anchoring.load_enrolment()
-    assert ("ccmh-supr", None) in enrolled  # the first Slavonic source enrolled (#333)
-    assert {source for source, _ in enrolled} <= set(SOURCE_LABELS)
-    assert all(reason.strip() for reason in enrolled.values())
-
-
-@pytest.mark.parametrize("body, message", [
-    ("source_id,reason\ntorot,\n", "no reason"),
-    ("source_id,reason\ntorot,x\ntorot,y\n", "twice"),
-    ("source_id,reason\na/b,x\n", "bad source_id"),
-    ("source_id,language,reason\npta,chu,x\npta,chu,y\n", "twice"),
-    ("source_id,language,reason\npta,xx,x\n", "unknown language"),
-    ("source_id,language,reason\npta,,x\npta,chu,y\n", "both"),
-    ("source_id,language,reason\npta,chu,x\npta,,y\n", "both"),
-])
-def test_enrolment_errors(tmp_path: Path, body: str, message: str) -> None:
-    path = tmp_path / "e.csv"
-    path.write_text(body, encoding="utf-8")
-    with pytest.raises(anchoring.AnchoringError, match=message):
-        anchoring.load_enrolment(path)
 
 
 def test_anchor_order_puts_anchors_first_and_finds_cycles() -> None:
@@ -233,14 +115,7 @@ def write_work(raw: Path, rel: str, language: str, text: str, genre: str = "patr
 
 
 @pytest.fixture
-def enrolled(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
-    table = {"tr": "test"}
-    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: table)
-    return table
-
-
-@pytest.fixture
-def corpus(tmp_path: Path, enrolled: dict[str, str]) -> tuple[Path, Path, Path]:
+def corpus(tmp_path: Path) -> tuple[Path, Path, Path]:
     raw, norm, anchors = tmp_path / "raw", tmp_path / "normalized", tmp_path / "anchors"
     write_work(raw, "orig/w.json", "lat", LONG)
     write_work(raw, "tr/w.json", "eng", LONG, translation_of="orig/w")
@@ -252,13 +127,15 @@ def refs(norm: Path, rel: str) -> list[str]:
     return [c["canonical_ref"] for c in json.loads((norm / rel).read_text(encoding="utf-8"))]
 
 
-def test_enrolled_work_without_a_cut_file_gets_the_provisional_cut(corpus) -> None:
+def test_a_work_without_a_cut_file_gets_the_provisional_cut(corpus) -> None:
+    """Every work records its anchoring (#638): no cut file yet for prose, never
+    anchored for works ingested as verses."""
     raw, norm, anchors = corpus
     nz.normalize_all(raw, norm, anchors_dir=anchors)
     fps = nz.read_work_fingerprints(norm)
     assert fps["tr/w.json"]["anchor"] == {"cuts": None}
+    assert fps["orig/w.json"]["anchor"] == {"cuts": None}
     assert fps["tr/v.json"]["anchor"] is None  # verses: never anchored
-    assert "anchor" not in fps["orig/w.json"]
     n = len(split_text(LONG, "eng"))
     assert refs(norm, "tr/w.json") == [f"P.1.s{i}" for i in range(1, n + 1)] + ["P.2"]
 
@@ -298,36 +175,16 @@ def test_a_cut_file_rebuilds_exactly_its_work(corpus, monkeypatch) -> None:
         f"P.1.s{i}" for i in range(1, len(split_text(LONG + " An added sentence.", "eng")) + 1)]
 
 
-def test_a_language_row_enrols_only_that_language(tmp_path: Path, monkeypatch) -> None:
-    """A source enrolled by language (#335): its works in other languages keep
-    their cut and record no anchor, the enrolled language's works are anchored."""
-    monkeypatch.setattr(anchoring, "enrolled_sources", lambda: {})
-    monkeypatch.setattr(anchoring, "enrolled_languages", lambda: {("tr", "chu"): "test"})
-    raw, norm, anchors = tmp_path / "raw", tmp_path / "normalized", tmp_path / "anchors"
-    write_work(raw, "orig/w.json", "lat", LONG)
-    write_work(raw, "tr/w.json", "eng", LONG, translation_of="orig/w")
-    write_work(raw, "tr/c.json", "chu", LONG, translation_of="orig/w")
+def test_a_cut_file_is_ignored_for_a_standard_work(corpus) -> None:
+    """Works ingested as verses keep their verses even beside a cut file."""
+    raw, norm, anchors = corpus
     nz.normalize_all(raw, norm, anchors_dir=anchors)
-    fps = nz.read_work_fingerprints(norm)
-    assert "anchor" not in fps["tr/w.json"] and "anchor" not in fps["orig/w.json"]
-    assert fps["tr/c.json"]["anchor"] == {"cuts": None}
-    before = refs(norm, "tr/w.json")
-    # A cut file beside a work that isn't enrolled is ignored.
-    anchor_store.save(anchors, "tr/w.json",
+    before = refs(norm, "tr/v.json")
+    anchor_store.save(anchors, "tr/v.json",
                       cut_file({"P.1": (LONG, (0, 9)), "P.2": ("A short one.", (0,))}))
     nz.normalize_all(raw, norm, anchors_dir=anchors)
-    assert refs(norm, "tr/w.json") == before
-    assert "anchor" not in nz.read_work_fingerprints(norm)["tr/w.json"]
-
-
-def test_enrolling_a_source_rebuilds_its_works(corpus, enrolled, monkeypatch) -> None:
-    raw, norm, anchors = corpus
-    enrolled.clear()
-    nz.normalize_all(raw, norm, anchors_dir=anchors)
-    assert "anchor" not in nz.read_work_fingerprints(norm)["tr/w.json"]
-    enrolled["tr"] = "test"
-    nz.normalize_all(raw, norm, anchors_dir=anchors)
-    assert nz.read_work_fingerprints(norm)["tr/w.json"]["anchor"] == {"cuts": None}
+    assert refs(norm, "tr/v.json") == before
+    assert nz.read_work_fingerprints(norm)["tr/v.json"]["anchor"] is None
 
 
 def test_only_never_prunes_other_works(corpus) -> None:

@@ -77,7 +77,7 @@ The default translator is `local-opus`, Claude Opus through `claude -p` on the s
 An MT PR adds only the raw file, so it needs no issue (CLAUDE.md, "Branches and pull requests"). The next `scripts.pipeline` run takes it like any new work:
 
 1. **normalize** builds it as a new work of `mt-eng`.
-2. **anchor** cuts its derived verses where the original's are (`mt-eng` is in `patristica/data/anchored_sources.csv`, #304). It embeds the MT's segments with Voyage, a few cents a work, and writes their vectors to `data/embeddings`. The original needs current vectors (or, for a rare language, its translation vectors).
+2. **anchor** cuts its derived verses where the original's are (an MT has a `translation_of`, so the anchoring rule anchors it, #304, #638). It embeds the MT's segments with Voyage, a few cents a work, and writes their vectors to `data/embeddings`. The original needs current vectors (or, for a rare language, its translation vectors).
 3. **embed** keeps its vectors current. They exist for alignment, never for search.
 4. **align** aligns it with its original. Their derived verses are cut alike, so the passages pair 1:1 for parallel reading.
 5. **build_index** loads its work and chunks but **no vectors**, so vector search never returns it. **Keyword search** skips it too (`api/keyword.py`). Under a hit on its original, the search context may show it as the English after every published version, as `machine: true`, with its `work_id` and `canonical_ref` (`api/context.py`).

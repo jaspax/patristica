@@ -1,21 +1,28 @@
 """
-Anchor the derived verses of enrolled translations on their originals (#304).
+Anchor derived verses on the original (#304, #638).
 
 The paid step between ``scripts.normalize`` and ``scripts.translate``
-(``docs/anchored-derived-verses.md``). For each work of a source enrolled in
-``patristica/data/anchored_sources.csv`` whose ``translation_of`` (its
-*anchor*, in another language) is in the corpus, it finds the cut of the
-translation's derived verses that pairs each of the original's derived verses
-with a run of whole sentence/clause segments, from Voyage vectors
-(``patristica.anchor_refine``), and:
+(``docs/anchored-derived-verses.md``). Which works are anchored, and on what,
+is a rule (``patristica.anchor_rule``), not a list: a translation on (the
+preferred edition of) its ``translation_of``, another edition of a text on the
+preferred edition of its language in its version group (a critical text
+before OCR'd Migne). For each such work without a current cut file it finds
+the cut of its derived verses that pairs each of the anchor's derived verses
+with a run of whole sentence/clause segments: from Voyage vectors for a
+translation (``patristica.anchor_refine``), by projecting through the two
+texts' word alignment for an edition (``patristica.edition_projection``). If
+the anchored cut has no more 1:1 rows with the anchor than the provisional one,
+the work keeps its provisional cut (also on a tie), and the cut file records that
+(``stats.kept``), so each decision is made once. Then it:
 
 1. writes the tracked cut file ``data/anchors/{normalized path}`` (word
    positions only, ``patristica.anchor_store``);
 2. re-normalizes the work from ``data/raw`` with it (``scripts.normalize``'s
    own code path, so a later normalize writes the same bytes);
-3. writes the final units' text vectors into ``data/embeddings`` (ordinary
-   ``KIND_TEXT`` rows with the production run record), so ``scripts.embed``
-   has nothing left to send for them.
+3. for a translation, writes the final units' text vectors into
+   ``data/embeddings`` (ordinary ``KIND_TEXT`` rows with the production run
+   record), so ``scripts.embed`` has nothing left to send for them; an
+   edition's new units are embedded by ``scripts.embed``.
 
 Segment and candidate vectors are kept in ``data/anchor_vectors/`` (gitignored
 scratch, regenerable): a re-run hits it for free.
@@ -38,7 +45,7 @@ one falls back to its text vector (logged). A translation of only part of its
 original is refined on the span it covers (#394,
 ``anchor_refine.covered_span``). normalize's code must be current, and the
 work's raw file present. Works are cut originals first (an English translation
-of an enrolled Slavonic translation waits for the Slavonic cut).
+of a Slavonic translation waits for the Slavonic cut).
 
 **Paid.** Requests are sent only with ``--pay`` (Voyage). Without it a run
 that needs vectors stops with the estimate (``--dry-run`` prints it per work:
@@ -66,7 +73,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from patristica import anchor_store, anchoring, console, fingerprint
+from patristica import anchor_rule, anchor_store, anchoring, console, fingerprint
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES, load_works
@@ -102,7 +109,7 @@ CURRENT = "current"
 MISSING = "missing"  # no cut file: cut it
 WORDS = "words"  # the translation's words changed: cut it again
 OUTPUT = "output"  # the normalized output doesn't match the cut file: run normalize
-UNNORMALIZED = "unnormalized"  # enrolled, but normalize hasn't run since: run normalize
+UNNORMALIZED = "unnormalized"  # anchored, but normalize hasn't fingerprinted it: run normalize
 ORPHAN = "orphan"  # a cut file for a work that isn't anchored
 ANCHOR = "anchor"  # translation_of changed (frozen)
 ANCHOR_CUTS = "anchor_cuts"  # the original's cuts changed (frozen)
@@ -123,7 +130,7 @@ class AnchorError(RuntimeError):
 
 @dataclass
 class Candidate:
-    """An enrolled work with an anchor in the corpus in another language."""
+    """A work the anchoring rule anchors (#638), with its anchor."""
 
     path: str
     work_id: str
@@ -156,28 +163,29 @@ def _model() -> str:
     return f"voyage/{MODEL}"
 
 
-def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
-    """(anchorable works, enrolled works normalize hasn't built since enrolment).
+def candidates(norm: Path, anchors_dir: Path = ANCHORS) -> tuple[list[Candidate], list[str]]:
+    """(anchorable works, works normalize hasn't fingerprinted since #638).
 
-    A work of an enrolled source is anchorable when normalize cut it as prose
-    (its fingerprint's ``anchor`` record isn't null) and its ``translation_of``
-    is in the corpus (a work enrolled one by one, #200, may name its anchor:
-    another edition in its own language, cut by text projection). Works whose
-    licence keeps them out of the index (``corpus.EXCLUDED_LICENSES``), and
-    works whose original's does, aren't anchored: neither is embedded
-    (``scripts.embed``), so their text is never sent and they keep the size
-    cut.
+    The works :func:`anchor_rule` anchors, when normalize cut them as prose
+    (their fingerprint's ``anchor`` record isn't null). Works whose licence
+    keeps them out of the index (``corpus.EXCLUDED_LICENSES``), and works whose
+    anchor's does, aren't anchored: neither is embedded (``scripts.embed``), so
+    their text is never sent and they keep the size cut. An anchor in the
+    work's own language is another edition, cut by text projection.
     """
     from scripts import normalize as nz
 
     entries = load_works(norm)
     by_id = {e["work"]["work_id"]: e for e in entries}
     fps = nz.read_work_fingerprints(norm)
+    recorded = anchor_rule.recorded_anchors(anchors_dir)
+    rule = anchor_rule.anchors({w: e["work"] for w, e in by_id.items()}, recorded)
     out: list[Candidate] = []
     unbuilt: list[str] = []
     for e in entries:
         work, path = e["work"], e["path"]
-        if not anchoring.is_enrolled(work["source_id"], work.get("language"), work["work_id"]):
+        target = rule.get(work["work_id"])
+        if target is None:
             continue
         fp = fps.get(path)
         if fp is None or "anchor" not in fp:
@@ -185,9 +193,6 @@ def candidates(norm: Path) -> tuple[list[Candidate], list[str]]:
             continue
         if fp["anchor"] is None:
             continue  # a standard versification: never anchored
-        target = anchoring.anchor_id(work)
-        if target is None or target not in by_id:
-            continue
         orig = by_id[target]["work"]
         if work.get("license") in EXCLUDED_LICENSES or orig.get("license") in EXCLUDED_LICENSES:
             continue
@@ -238,9 +243,9 @@ def check_work(c: Candidate, norm: Path, anchors_dir: Path,
 
 
 def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS) -> list[State]:
-    """Every anchorable work's state, plus enrolled works normalize hasn't built
+    """Every anchorable work's state, plus works normalize hasn't fingerprinted
     and cut files of works that aren't anchored (orphans). Needs no vectors."""
-    cands, unbuilt = candidates(norm)
+    cands, unbuilt = candidates(norm, anchors_dir)
     states = [State(None, UNNORMALIZED, p) for p in unbuilt]
     states += [check_work(c, norm, anchors_dir) for c in cands]
     known = {c.path for c in cands}
@@ -643,7 +648,11 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
         seconds = time.monotonic() - started
         stats = result.stats(len(orig.texts))  # no timings: the file must be repeatable
         paras = anchoring.paragraphs(_chunks(norm, c.path))
-        starts = result.starts()
+        before_1to1 = one_one_share(orig, _cache_vecs(today.source_texts(), cache))
+        after_1to1 = one_one_share(orig, _cache_vecs(result.embed_texts(), cache))
+        keep = after_1to1 <= before_1to1  # the anchored cut must win
+        stats = {**stats, **decision(before_1to1, after_1to1, keep)}
+        starts = [pp.starts for pp in paras] if keep else result.starts()
         cut = anchor_store.CutFile(
             work_id=c.work_id, anchor=c.anchor, method=method_hash(c, params),
             anchor_cuts=anchoring.chunks_cuts_hash(_chunks(norm, c.anchor_path)),
@@ -678,6 +687,52 @@ def run(norm: Path = NORMALIZED, raw: Path = RAW, anchors_dir: Path = ANCHORS,
     return done
 
 
+def one_one_share(orig: Units, vecs: object) -> float:
+    """Share of *orig*'s units in a confident 1:1 bead with a cut whose unit
+    vectors are *vecs*: the measure that decides whether a cut wins (#638)."""
+    from patristica.alignment import Version, align_pair
+
+    beads = align_pair(Version("original", orig.vecs), Version("cut", vecs))
+    one = sum(1 for b in beads if b.i1 - b.i0 == 1 and b.j1 - b.j0 == 1 and b.conf >= 0.5)
+    return one / max(len(orig.texts), 1)
+
+
+def _cache_vecs(texts: list[str], cache: VectorCache) -> object:
+    """Normalized vectors of *texts* from *cache* (zero rows where there is none)."""
+    import numpy as np
+
+    from patristica.anchor_refine import normalize_rows
+
+    vecs = np.zeros((len(texts), DIMS), dtype=np.float32)
+    for u, t in enumerate(texts):
+        v = cache.get(t) if wants_vector(t) else None
+        if v is not None:
+            vecs[u] = v
+    return normalize_rows(vecs)
+
+
+def text_one_one(anchor_units: list[str], units: list[str]) -> float:
+    """Share of the anchor edition's units, of those the edition shares, in a
+    confident 1:1 bead of #199's text alignment (``scripts.edition_eval``'s
+    measure): whether a projected cut wins (#638)."""
+    from patristica.text_alignment import align_texts
+
+    r = align_texts(anchor_units, units)
+    one = sum(1 for t in r.beads if t.i1 - t.i0 == 1 and t.j1 - t.j0 == 1 and t.conf >= 0.5)
+    return one / max(sum(t.i1 - t.i0 for t in r.beads if t.conf >= 0.5), 1)
+
+
+def decision(before: float, after: float, keep: bool) -> dict[str, object]:
+    """What a cut file records of the decision to cut (#638): the 1:1 share of
+    the provisional cut and of the anchored one, and ``kept: "provisional"``
+    when the anchored cut didn't win and the work keeps its provisional cut."""
+    out: dict[str, object] = {"one_one_provisional": round(before, 4),
+                              "one_one_anchored": round(after, 4)}
+    if keep:
+        out["kept"] = "provisional"
+    return out
+
+
 def cut_by_text(c: Candidate, norm: Path, raw: Path, anchors_dir: Path) -> None:
     """Cut an edition where its anchor (another edition, same language) cuts
     (``patristica.edition_projection``, #200), write its cut file and
@@ -688,14 +743,23 @@ def cut_by_text(c: Candidate, norm: Path, raw: Path, anchors_dir: Path) -> None:
 
     paras = anchoring.paragraphs(_chunks(norm, c.path))
     anchor_chunks = _chunks(norm, c.anchor_path)
-    proj = project(anchoring.paragraphs(anchor_chunks), paras)
+    anchor_paras = anchoring.paragraphs(anchor_chunks)
+    proj = project(anchor_paras, paras)
+    starts = [st if st else p.starts for p, st in zip(paras, proj.starts)]
+    anchor_units = [u for p in anchor_paras for u in p.units]
+    before = text_one_one(anchor_units, [u for p in paras for u in p.units])
+    after = text_one_one(anchor_units, [u for p, st in zip(paras, starts)
+                                        for u in anchoring.cut_at(" ".join(p.units), st)])
+    keep = after <= before  # the projected cut must win
+    if keep:
+        starts = [p.starts for p in paras]
     cut = anchor_store.CutFile(
         work_id=c.work_id, anchor=c.anchor, method=method_hash(c),
         anchor_cuts=anchoring.chunks_cuts_hash(anchor_chunks),
         words=paragraph_words(paras), model="",
-        paragraphs={p.ref: anchor_store.ParagraphCut(p.words_hash, st if st else p.starts)
-                    for p, st in zip(paras, proj.starts)},
-        stats=proj.stats)
+        paragraphs={p.ref: anchor_store.ParagraphCut(p.words_hash, tuple(st))
+                    for p, st in zip(paras, starts)},
+        stats={**proj.stats, **decision(before, after, keep)})
     previous = anchor_store.load(anchors_dir, c.path)
     anchor_store.save(anchors_dir, c.path, cut)
     try:

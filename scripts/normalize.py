@@ -17,10 +17,10 @@ Staleness (#130) is decided by fingerprints, not file times.
 (``patristica.fingerprint.code_hash``), and ``_fingerprints.jsonl`` records,
 per work, the hash of its raw file and of its curation (genre override, author
 ids, the authors' birth year and the curated ``translation_of``, #153), and
-for a work of a source enrolled for anchored derived verses
-(``patristica.anchoring``, #304) the hash of its cut file in ``data/anchors``
-(``{"anchor": {"cuts": hash or null}}``; ``{"anchor": null}`` for an enrolled
-work with a standard versification, which is never anchored).  A work is
+the hash of its cut file in ``data/anchors`` (anchored derived verses,
+``patristica.anchoring``, #304, #638: ``{"anchor": {"cuts": hash or null}}``;
+``{"anchor": null}`` for a work with a standard versification, which is never
+anchored).  A work is
 rebuilt when any of them changed, so a code or curation change re-runs exactly
 the affected works without ``--force``.  The code hash is recorded only once
 every work in the manifest was rebuilt with that code; a run that couldn't (raw
@@ -501,17 +501,10 @@ def curated_hash(work: dict) -> str:
     return fingerprint.value_hash(curation)
 
 
-#: ``work_fingerprint``'s *anchor* for a work of a source that isn't enrolled.
-NOT_ENROLLED = object()
-
-
-def work_fingerprint(raw_bytes: bytes, work: dict, anchor: object = NOT_ENROLLED) -> dict:
-    """The per-work inputs of a normalized work: its raw file and curation, and
-    for a work of an enrolled source its *anchor* record (:func:`anchor_record`)."""
-    fp: dict = {"raw": fingerprint.sha16(raw_bytes), "curated": curated_hash(work)}
-    if anchor is not NOT_ENROLLED:
-        fp["anchor"] = anchor
-    return fp
+def work_fingerprint(raw_bytes: bytes, work: dict, anchor: dict | None) -> dict:
+    """The per-work inputs of a normalized work: its raw file, its curation and
+    its *anchor* record (:func:`anchor_record`)."""
+    return {"raw": fingerprint.sha16(raw_bytes), "curated": curated_hash(work), "anchor": anchor}
 
 
 def source_of(rel: str) -> str:
@@ -519,28 +512,12 @@ def source_of(rel: str) -> str:
     return rel.split("/", 1)[0]
 
 
-def is_enrolled(rel: str, raw_bytes: bytes) -> bool:
-    """True if the work at *rel* is enrolled for anchored derived verses: its
-    source as a whole, its source for the work's language (#335), or the work
-    itself (#200); the raw file is read only for a source enrolled by language
-    or with works enrolled one by one."""
-    source = source_of(rel)
-    if anchoring.is_enrolled(source):
-        return True
-    if not (anchoring.enrols_by_language(source) or anchoring.enrols_by_work(source)):
-        return False
-    try:
-        work = json.loads(raw_bytes)["work"]
-        language, work_id = work["language"], work["work_id"]
-    except (json.JSONDecodeError, KeyError, TypeError):
-        return False  # not a work: normalize skips it below
-    return anchoring.is_enrolled(source, language, work_id)
-
-
 def anchor_record(cut: anchor_store.CutFile | None, standard: bool) -> dict | None:
-    """What ``_fingerprints.jsonl`` records of an enrolled work: None when it keeps
-    a standard versification (never anchored), else the hash of its cut file
-    (None while it has none: the provisional cut)."""
+    """What ``_fingerprints.jsonl`` records of a work's anchoring (#304, #638):
+    None when it keeps a standard versification (never anchored), else the hash
+    of its cut file (None while it has none: the provisional cut). Every work
+    with a cut file in ``data/anchors`` is cut as it says; ``scripts.anchor``
+    decides which works get one."""
     return None if standard else {"cuts": cut.sha if cut is not None else None}
 
 
@@ -670,8 +647,9 @@ def normalize_all(
     (``data/raw`` is gitignored, so on a fresh clone without raw data
     nothing is pruned).
 
-    Works of sources enrolled for anchored derived verses are cut at the
-    positions their cut file in *anchors_dir* (default ``data/anchors``) records
+    A work with a cut file in *anchors_dir* (default ``data/anchors``; which
+    works have one is ``scripts.anchor``'s decision, #638) is cut at the
+    positions it records
     (``patristica.anchoring``, #304).  With *only* (normalized paths), just
     those works are considered (``scripts.anchor`` re-normalizes the works it
     re-cut).
@@ -715,15 +693,12 @@ def normalize_all(
         if prev and prev["raw"] != fingerprint.sha16(raw_bytes) and not accept_raw_change:
             refused.append(rel)
             continue
-        enrolled = is_enrolled(rel, raw_bytes)
-        cut = anchor_store.load(anchors_dir, rel) if enrolled else None
-        anchor: object = NOT_ENROLLED
-        if enrolled and prev and "anchor" in prev:
-            anchor = anchor_record(cut, prev["anchor"] is None)
+        cut = anchor_store.load(anchors_dir, rel)
         if (
             not force and code_current and prev and rel in works and (output_dir / rel).exists()
-            and (not enrolled or "anchor" in prev)
-            and prev == work_fingerprint(raw_bytes, works[rel], anchor)
+            and "anchor" in prev
+            and prev == work_fingerprint(raw_bytes, works[rel],
+                                         anchor_record(cut, prev["anchor"] is None))
         ):
             fingerprints[rel] = prev
             continue
@@ -743,7 +718,7 @@ def normalize_all(
         total += written
         fingerprints[rel] = work_fingerprint(
             raw_bytes, raw_record["work"],
-            anchor_record(cut, is_standard(raw_record)) if enrolled else NOT_ENROLLED)
+            anchor_record(cut, is_standard(raw_record)))
 
     log.info("Normalization complete: %d total chunks written", total)
     if only is None:  # a partial rebuild (scripts.anchor) never deletes other works
