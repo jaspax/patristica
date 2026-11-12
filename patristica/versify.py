@@ -35,6 +35,7 @@ from functools import lru_cache
 import tiktoken
 
 from patristica.models import Chunk
+from patristica.textfold import IDEOGRAPH_RE, IDEOGRAPHS
 
 #: Mean ``cl100k_base`` tokens per Scripture verse, per language (measured
 #: 2026-10-14 over every scripture source in the corpus; Hebrew: OSHB,
@@ -86,6 +87,17 @@ VERSE_TOKENS: dict[str, int] = {
     # (Royal MS 1 A XIV, 284 verses of Mt 1, 5, 13, 26 and Jn 1, 3, 17) have
     # 45.3 tokens a verse where the KJV has 27.9: × 31/27.9 = 50.
     "ang": 55,
+    # Literary Chinese (#648): there is no Chinese Scripture in period, so
+    # (owner's decision, 2026-11-12) this is the mean over a modern Chinese
+    # Bible in traditional characters, whose tokens per character are about
+    # those of Literary Chinese: the Chinese Union Version (和合本, 1919, public
+    # domain; eBible.org cmn-cu89t, footnotes and markup stripped as
+    # _ebible_usfm does), counted ideograph by ideograph as split_text counts
+    # them: 50.6 over all 31,021 verses (median 47; OT 51.5, NT 48.0; 34.8
+    # characters a verse; 50.4 counting each verse whole). Cross-check: the
+    # Xi'an stele (zh.wikisource) against Wylie's English gives 0.897 × the
+    # English verse (31) = 27.8, the stele being terser than the vernacular.
+    "lzh": 51,
     "grc": 130,
     "syc": 155,
     "hbo": 177,
@@ -135,6 +147,11 @@ _SENTENCE_MARKS: dict[str, str] = {
     # as the defaults have it); manuscripts and diplomatic texts end a
     # sentence or section with the three-dot ჻ (U+10FB).
     "oge": ".!?჻",
+    # Literary Chinese (#648): the full stop 。 and the exclamation and question
+    # marks, full-width or not. The Taishō (CBETA) has only its 句讀 。, a
+    # pause every few characters; where a text has no marks at all, it is
+    # cut by size (between characters).
+    "lzh": "。！？!?",
 }
 _DEFAULT_SENTENCE_MARKS = ".!?"
 
@@ -149,12 +166,18 @@ _CLAUSE_MARKS: dict[str, str] = {
     "chu": ":\u00b7\u0387⁚⸪—…",  # · (middle dot) and · (ano teleia)
     # Arabic: the Arabic semicolon ؛ besides the default marks.
     "arb": "؛;:—…",
+    # Literary Chinese: ；：, ︰ (zh.wikisource's colon before speech) and the
+    # default marks.
+    "lzh": "；：︰;:—…",
 }
 _DEFAULT_CLAUSE_MARKS = ";:··—…"
 
 _COMMA_MARKS: dict[str, str] = {
     "hye": ",՝`",  # Armenian comma, typed as "`" in some sources
     "gez": "፣,",  # ፣
+    # Literary Chinese: ， and the enumeration comma 、; the Taishō separates
+    # the items of a list with the full-width ．(火浣布．返魂香．明月珠).
+    "lzh": "，、．,",
 }
 _DEFAULT_COMMA_MARKS = ",،"
 
@@ -182,7 +205,26 @@ NOTE_RULE_EXCLUDED_SOURCES = frozenset({"oglt-pl"})
 # cl100k_base splits text (" word"), so per-word token counts add up.
 # U+1361 ETHIOPIC WORDSPACE (፡) separates Ge'ez words, often with no space;
 # it stays with the word before it.
-_ATOM_RE = re.compile(r"\s*[^\s፡]+፡*|\s*፡+|\s+$")
+#
+# Chinese (#648) is written without spaces, so every ideograph is a word of
+# its own: with the opening brackets and quotes before it and the
+# punctuation after it (天地開。」), so a break falls after a mark, never
+# between a character and its mark. A run of other characters is a word as
+# before, ending where an ideograph starts. Text with no ideograph (the whole
+# corpus before Chinese) is split exactly as by the old pattern: the first
+# branch needs an ideograph, and the second is the old first branch.
+# (CJK ideographs: ``textfold.IDEOGRAPHS``.)
+_IDEOGRAPHS = IDEOGRAPHS
+_IDEOGRAPH_RE = IDEOGRAPH_RE
+# Opening brackets and quotes, which go with the ideograph after them.
+_CJK_OPENERS = "「『（《〈【〔〖〘〚＜［｛“‘([{<"
+# Closing brackets after an ideograph's punctuation (天地開。」).
+_CJK_CLOSERS = "」』）》〉】〕〗〙〛＞］｝"
+_OPEN = re.escape(_CJK_OPENERS)
+_ATOM_RE = re.compile(
+    f"\\s*[{_OPEN}]*[{_IDEOGRAPHS}](?:(?![{_OPEN}])[^\\s\\w])*"
+    f"|\\s*[^\\s፡{_IDEOGRAPHS}]+፡*|\\s*፡+|\\s+$"
+)
 _DERIVED_RE = re.compile(r"\.s\d+$")
 
 
@@ -222,6 +264,8 @@ def _atoms(text: str) -> list[str]:
 def _strength(word: str, next_word: str | None, language: str) -> int:
     """How strong a break after *word* is."""
     core = word.rstrip("፡").rstrip(_CLOSERS)
+    if _IDEOGRAPH_RE.search(word):
+        core = core.rstrip(_CLOSERS + _CJK_CLOSERS)
     if not core:
         return WORD
     mark = core[-1]

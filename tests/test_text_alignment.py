@@ -144,3 +144,26 @@ def test_choose_pivot_prefers_editions_then_the_cleaner_text() -> None:
     assert al.choose_pivot(members, weights) == "migne"  # the longer of the two
     # A small overlap in English doesn't outweigh the Greek editions.
     assert al.choose_pivot(members, {**weights, "eng": 30}) == "migne"
+
+
+# --- Chinese (#648) ----------------------------------------------------------
+
+# The same passage of the Xi'an stele in zh.wikisource (punctuated, the stone's
+# variant characters) and in the Taishō (T2144: only 。, standard forms).
+WIKISOURCE = ["粵若常然真寂，先先而无元；窅然靈虗，後後而妙有。惣玄摳而造化，妙衆聖以元尊者，",
+              "其唯我三一妙身无元真主阿羅訶歟！判十字以㝎四方，皷元風而生二氣。",
+              "暗空易而天地開，日月運而晝夜作。"]
+TAISHO = ["粵若。常然真寂。先先而無元。窅然靈虛。後後而妙有。總玄摳而造化。妙眾聖以元尊者。"
+          "其唯我三一妙身無元真主阿羅訶歟判。十字以定四方。鼓元風而生二氣。",
+          "暗空易而天地開。日月運而晝夜作。"]
+
+
+def test_chinese_tokens_are_characters() -> None:
+    assert ta.tokens("大秦㬌教，流行 Syriac") == ["大", "秦", "景", "教", "流", "行", "syriac"]
+    assert ta.tokens("In the beginning, God") == ["in", "the", "beginning", "god"]
+
+
+def test_chinese_editions_align_by_text() -> None:
+    r = ta.align_texts(WIKISOURCE, TAISHO)
+    assert r.shared > 0.9
+    assert [(b.i0, b.i1, b.j0, b.j1) for b in r.beads] == [(0, 2, 0, 1), (2, 3, 1, 2)]

@@ -11,8 +11,9 @@ carried through the word alignment of the two texts
 with, and cuts the edition's paragraph there.
 
 **Words.** Both editions' source paragraphs (``anchoring.paragraphs``) are
-split into the words cut positions index (``anchoring.words``); each word is
-folded (``textfold.fold``) into zero or more tokens, which are aligned. Only
+split into the words cut positions index (``anchoring.words``: an ideograph
+is a word of its own, #648); each word is folded into zero or more tokens
+(``text_alignment.tokens``), which are aligned. Only
 tokens in matched runs of ``Params.min_run`` count, as in the text aligner.
 
 **Projection.** A reference unit start (paragraph starts included: editions
@@ -45,8 +46,7 @@ from dataclasses import asdict, dataclass, field
 from patristica import fingerprint
 from patristica.anchoring import Paragraph
 from patristica.text_alignment import Params as TextParams
-from patristica.text_alignment import align_words, in_runs
-from patristica.textfold import fold
+from patristica.text_alignment import align_words, in_runs, tokens
 
 #: Bump when a change to the projection should re-cut (cut files made with
 #: another version are frozen, like ``anchoring.ANCHOR_VERSION``).
@@ -93,7 +93,7 @@ def _tokens(paras: Sequence[Paragraph]) -> tuple[list[str], list[tuple[int, int]
     for pi, p in enumerate(paras):
         for wi, w in enumerate(p.words):
             first[(pi, wi)] = len(toks)
-            for t in fold(w).split():
+            for t in tokens(w):
                 toks.append(t)
                 where.append((pi, wi))
     return toks, where, first
