@@ -20,9 +20,10 @@ Saltair na Rann (``SnR.{poem}.{line}``), section or paragraph numbers for prose.
 Poems are written as ``verses`` (a stanza is never cut into derived verses),
 prose as ``paragraphs``.
 
-Licence: ``_celt.CELT_LICENSE`` (``unknown`` until CELT grants permission,
-#542): the works are ingested and normalized but never translated, embedded,
-indexed or published.
+Licence: ``_celt.CELT_LICENSE`` (``used-with-permission``: CELT's consent for
+Patristica, non-commercial, with attribution, #542). The edition line credits
+CELT and the printed edition and says the text is used with permission; the
+provenance URL is the text's CELT page.
 """
 
 from __future__ import annotations
@@ -927,7 +928,7 @@ def parse(text: Text, page: str) -> list[dict[str, Any]]:
 
 def edition_line(text: Text, header: C.Header) -> str:
     used = header.edition or "the edition named in CELT's header"
-    return f"CELT {text.celt_id} (University College Cork), from {used}"
+    return f"CELT {text.celt_id} (University College Cork), from {used}, used with permission"
 
 
 def make_work(text: Text, header: C.Header) -> Work:

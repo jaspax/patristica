@@ -36,10 +36,7 @@ period flags. In particular:
   only and is not a licence for others: anyone else who wants to reuse the text,
   including from Patristica's data, needs the rights holder's own permission.
 - **`unknown`**: not cleared for redistribution. These are being verified (#32)
-  and must be excluded from public distribution until then. One source is
-  ingested this way while its permission is asked for: CELT's Old Irish texts,
-  whose pages are "available with prior consent of the CELT programme for
-  purposes of academic research and teaching only" (#542).
+  and must be excluded from public distribution until then.
 
 The corpus breaks down as follows (late October 2026, by chunks):
 
@@ -52,7 +49,7 @@ The corpus breaks down as follows (late October 2026, by chunks):
 | CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr), the Old Irish *Félire Óengusso* (Gloss Corpus, P. Moran), the Old Georgian texts of TITUS (#514; see "Licences stated in correspondence") |
 | Academic, non-commercial | 0.3% | SBL Greek New Testament, Wulfila Gothic Bible |
 | CC BY-NC-SA 3.0 | <0.1% | PTA's Anonymus of Cyzicus, *Historia ecclesiastica* (`pta/pta0036/pta001/pta-grc1`), the Referenzkorpus Altdeutsch (Old High German and Old Saxon, #567) |
-| Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works) |
+| Used with permission | <0.1% | Hudra and Taksa d'Raze (hudra.day, Hendo Academy; 2 works), CELT's Old Irish texts (University College Cork; 48 works) |
 | CC BY-SA 3.0 | <0.1% | Coptic Scriptorium's Canons of Apa Johannes |
 
 Each work's licence is read from the source's own per-file statement where
@@ -90,6 +87,36 @@ index, so it stays current as the corpus changes.
 hudra.day's own terms grant personal viewing only (#32); this permission is
 what lets Patristica include the texts.
 
+#### CELT Old Irish texts (`celt`)
+
+- **Texts:** the Old and early Middle Irish religious texts of CELT, the Corpus
+  of Electronic Texts (University College Cork, https://celt.ucc.ie/), listed
+  by CELT id in the request (#541): the Félire Óengusso, Bethu Brigte, Betha
+  Adamnáin, Saltair na Rann, the rules, the tracts, the Vision of Laisrén, Baile
+  Bricín, the Irish Bede and the religious poems, with CELT's English
+  translations of Bethu Brigte and the Vision of Laisrén. CELT's pages say
+  "Available with prior consent of the CELT programme for purposes of academic
+  research and teaching only".
+- **Granted by:** the CELT programme, on 2026-11-12, in reply to Patristica's
+  request of November 2026 (#542). The request described Patristica as a free,
+  non-commercial library and asked to show the listed texts in its reader and
+  make them searchable across the original languages and English, with credit
+  to CELT and to each printed edition and a link to the CELT page. The reply:
+  *"Permission is granted for the texts that you have listed, in the manner you
+  outlined, for your non-commercial Patristica project."* The project owner
+  keeps the correspondence.
+- **Covers:** including the listed texts in Patristica's library, reader and
+  search, with our machine translations and embeddings of them.
+- **Conditions:** non-commercial use; attribution to CELT (University College
+  Cork) and the printed edition, with a link to the text's CELT page. Each
+  work's edition line reads "CELT {id} (University College Cork), from {printed
+  edition}, used with permission" and its source link is the CELT page. As the
+  request undertook, the texts are not offered as a downloadable dataset, and
+  any text is removed at CELT's request.
+- **Not transferable:** like the Hudra's, this permission is Patristica's only,
+  not a licence: anyone reusing Patristica's data needs CELT's own consent for
+  these texts.
+
 ### Licences stated in correspondence
 
 #### TITUS Old Georgian texts (`titus-*`)
@@ -123,7 +150,7 @@ what lets Patristica include the texts.
 
 The non-commercial texts mean that **Patristica as a whole may only be used and
 served non-commercially**: no ads, paid tiers or API fees. If that ever changes,
-remove or replace those texts first. That includes the Hudra texts, which are
+remove or replace those texts first. That includes the Hudra and CELT texts, which are
 used with permission for non-commercial use (`used-with-permission`), and the TITUS Old Georgian texts (CC BY-NC-SA). For the Septuagint, `pta-lxx` is a
 CC BY-SA alternative to Rahlfs.
 
