@@ -137,10 +137,11 @@ TEXTS: tuple[Text, ...] = (
             slug="t2142-xuting-mishisuo-jing",
             title="序聽迷詩所經 (Xuting Mishisuo jing, the Sutra of Jesus the Messiah)",
             author=ANON,
-            # Traditionally of Aluoben's mission (635) or soon after; the
-            # manuscript (Haneda 459, "Takakusu manuscript") is Tang by its
-            # owner's account, but its authenticity is debated (Lin Wushu).
-            date_range=(635, 650),
+            # Traditionally of Aluoben's mission: from his arrival in 635 to
+            # c. 641 (Saeki; as in #656). The manuscript (Haneda 459, the
+            # "Takakusu manuscript") is Tang by its owner's account, but its
+            # authenticity is debated (Lin Wushu), hence "uncertain".
+            date_range=(635, 641),
             date_confidence="uncertain",
             genre="patristic",
             note="a Dunhuang manuscript of the Tang dynasty owned by Takakusu Junjirō, its end "
@@ -157,11 +158,12 @@ TEXTS: tuple[Text, ...] = (
                 slug="t2143-sanwei-mengdu-zan",
                 title="景教三威蒙度讚 (Jingjiao Sanwei mengdu zan, Hymn to the Holy Trinity)",
                 author=ANON,
-                # A version of the Syriac Gloria in excelsis; of the Tang
-                # mission, before the persecution of 845 (often ascribed to
-                # Jingjing, fl. 781). Manuscript Pelliot chinois 3847.
+                # A version of the Syriac Gloria in excelsis, of the Tang
+                # mission in its 8th-century prime and before the persecution
+                # of 845 (often ascribed to Jingjing, fl. 781). Manuscript
+                # Pelliot chinois 3847. As in #656.
                 date_range=(720, 845),
-                date_confidence="uncertain",
+                date_confidence="approximate",
                 genre="liturgical",
                 note="the Dunhuang manuscript Pelliot chinois 3847",
                 divs=(0, 1),
@@ -170,10 +172,11 @@ TEXTS: tuple[Text, ...] = (
                 slug="t2143-zunjing",
                 title="尊經 (Zunjing, the Book of the Honoured)",
                 author=ANON,
-                # Its closing note speaks of Jingjing (fl. 781) in the past;
-                # the manuscript, P. 3847, is of the 10th century.
-                date_range=(800, 1000),
-                date_confidence="uncertain",
+                # Its closing note names Jingjing (fl. 781) as translator of
+                # the books it lists, so 781 at the earliest; the manuscript,
+                # P. 3847, is of the 10th century. As in #656.
+                date_range=(781, 1000),
+                date_confidence="approximate",
                 genre="liturgical",
                 note="the Dunhuang manuscript Pelliot chinois 3847, after the hymn 景教三威蒙度讚",
                 divs=(1, None),
