@@ -110,7 +110,7 @@ def test_unexpected_heading_raises() -> None:
 
 def test_pages() -> None:
     assert PAGES == (NESTORIAN_STELE,)
-    assert NESTORIAN_STELE.translation_of in (None, "wikisource-lzh/xian-stele")
+    assert NESTORIAN_STELE.translation_of == "wikisource-lzh/xian-stele"
 
 
 @pytest.mark.parametrize("page", PAGES, ids=lambda p: p.slug)

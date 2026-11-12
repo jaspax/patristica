@@ -87,7 +87,7 @@ NESTORIAN_STELE = Page(
              "The Nestorian Monument: An Ancient Record of Christianity in China "
              "(Chicago: Open Court, 1909), 11–20; English Wikisource transcription"),
     # The Chinese stele on zh.wikisource (#650).
-    translation_of=None,  # wikisource-lzh/xian-stele once its anchor cut is decided
+    translation_of="wikisource-lzh/xian-stele",  # the Chinese stele (#650)
     date_composed=781,
     date_range=(781, 781),
     date_confidence="established",
