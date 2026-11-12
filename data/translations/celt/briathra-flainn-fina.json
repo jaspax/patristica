@@ -1,0 +1,51 @@
+{
+  "work_id": "celt/briathra-flainn-fina",
+  "source_path": "celt/briathra-flainn-fina.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/briathra-flainn-fina#BrFlainn.1.s1",
+      "source_sha256": "ec9d3711a4d22c44",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 5,
+      "text": "Good is the craft of learning: it makes a king of a poor man, it makes a noble of a landless outcast, it makes a well-born man of a low-born one, it makes a wise man of a fool."
+    },
+    {
+      "chunk_id": "celt/briathra-flainn-fina#BrFlainn.1.s2",
+      "source_sha256": "1b71c79b0150a3d0",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 5,
+      "text": "Good is its beginning, better is its end; it is honoured in this world, precious in the other world; it is not wretched at its end, that is, in bringing heaven to the soul."
+    },
+    {
+      "chunk_id": "celt/briathra-flainn-fina#BrFlainn.2.s1",
+      "source_sha256": "a9ed3b92518db586",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 5,
+      "text": "Hard is the craft of the warrior's life. It is not illustrious, and its fire is [?]."
+    },
+    {
+      "chunk_id": "celt/briathra-flainn-fina#BrFlainn.2.s2",
+      "source_sha256": "9bad790dfad78747",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 5,
+      "text": "Its [?] is busy and fleeting, that is, its living are pierced with wounds, its dead are in hell."
+    },
+    {
+      "chunk_id": "celt/briathra-flainn-fina#BrFlainn.2.s3",
+      "source_sha256": "c23370dfa2096007",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 5,
+      "text": "A father does not hand it down to his son. Woe to the one whose craft is the warrior's life, unless repentance comes."
+    }
+  ]
+}

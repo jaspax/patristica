@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "celt/vision-of-laisren",
+ "pivot": "celt/vision-of-laisren-eng",
+ "groups": 52,
+ "inputs": "caa631691297c2d6",
+ "run": {"aligner": 2, "date": "2026-11-12", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "celt/vision-of-laisren", "units": 52, "ids": "86ab8ffc4436de4c", "inputs": "95e07a20104027e4", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999"},
+  {"work_id": "celt/vision-of-laisren-eng", "units": 52, "ids": "eeddd6e3a6976b95", "inputs": "f40a4a83e0bdd38c", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999"}
+ ]
+}

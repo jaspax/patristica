@@ -1,0 +1,44 @@
+{
+  "work_id": "celt/spruch-adamnans",
+  "source_path": "celt/spruch-adamnans.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/spruch-adamnans#SprAdamn.0",
+      "source_sha256": "94107cd08972dda4",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "Adomnán sang [this]."
+    },
+    {
+      "chunk_id": "celt/spruch-adamnans#SprAdamn.1",
+      "source_sha256": "90d9be0b8bbce89b",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "Three certain steps for everyone, the best that anyone will take until Doomsday: a step to visit a sick person at his dwelling [?], a step of pilgrimage, a step to church."
+    },
+    {
+      "chunk_id": "celt/spruch-adamnans#SprAdamn.2",
+      "source_sha256": "8f003460e82d2f26",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "If one goes to a servant of God (a Céle Dé), he eats and moves about along with him; everything that he does in the cell where he is would be good in everyone's eyes [?]."
+    },
+    {
+      "chunk_id": "celt/spruch-adamnans#SprAdamn.3",
+      "source_sha256": "2bf1372d923b771c",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "Woe to him who is on the path of danger, and woe to him who is reared without a rule. It is time to give up follies: people do not go in order of their age."
+    }
+  ]
+}

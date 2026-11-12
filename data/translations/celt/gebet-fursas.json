@@ -1,0 +1,30 @@
+{
+  "work_id": "celt/gebet-fursas",
+  "source_path": "celt/gebet-fursas.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/gebet-fursas#GebFursa.0",
+      "source_sha256": "c9fc60e799133bc6",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 2,
+      "text": "Fursa sang this."
+    },
+    {
+      "chunk_id": "celt/gebet-fursas#GebFursa.1",
+      "source_sha256": "bb631cdd9940ab59",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 2,
+      "text": "May the yoke of God's law be on this shoulder; may the visitation of the Holy Spirit be on this head; may the sign of Christ be on this forehead; may the hearing of the Holy Spirit be in these ears; may the smelling of the Holy Spirit be in this nose; may the vision of the people of heaven be in these eyes; may the speech of the people of heaven be in this mouth; may the work of God's Church be in these hands; may the good of God and of one's neighbour be in these feet; may this heart be a dwelling for God; may this whole person belong to God the Father! The Creed and the Our Father."
+    }
+  ]
+}

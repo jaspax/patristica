@@ -1,0 +1,44 @@
+{
+  "work_id": "celt/colum-cilles-lieblingsstatten",
+  "source_path": "celt/colum-cilles-lieblingsstatten.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/colum-cilles-lieblingsstatten#ColLieb.0",
+      "source_sha256": "bc85f9f3434df0e1",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "Columba sang:"
+    },
+    {
+      "chunk_id": "celt/colum-cilles-lieblingsstatten#ColLieb.1",
+      "source_sha256": "52049ec7e5909150",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "The three dearest things I have left behind in the populous world: Durrow, Derry, the high hill of angels, and the land of Lugaid."
+    },
+    {
+      "chunk_id": "celt/colum-cilles-lieblingsstatten#ColLieb.2",
+      "source_sha256": "1944b886b864e85e",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "Gartan, Tulach and Tory, and Derry of Ethne, the dwelling of the saints; truly dear is the other Derry."
+    },
+    {
+      "chunk_id": "celt/colum-cilles-lieblingsstatten#ColLieb.3",
+      "source_sha256": "8d1c675a1e559593",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 4,
+      "text": "If the King of the angels and of the sun permitted it, I would like to make my home in Gartan rather than in any of the three. Three [i.e. the refrain \"Three dearest things…\" is repeated]."
+    }
+  ]
+}

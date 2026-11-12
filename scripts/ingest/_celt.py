@@ -31,10 +31,10 @@ availability, sources, the edition used, the date of composition), then, after
 
 Licence (#541, #542): every CELT text says "Availability [RESTRICTED]:
 Available with prior consent of the CELT programme for purposes of academic
-research and teaching only". Until CELT grants permission, every CELT work is
-``unknown`` (in ``EXCLUDED_LICENSES``: never translated, embedded, indexed or
-published). :data:`CELT_LICENSE` is the one place to change when permission
-arrives.
+research and teaching only". CELT granted Patristica that consent for the
+ingested texts, non-commercial (2026-11-12, #542), so every CELT work is
+``used-with-permission``; the grant and its conditions are recorded in
+``DATA_LICENSE.md``.
 """
 
 from __future__ import annotations
@@ -51,9 +51,9 @@ from scripts.ingest._common import download_file, offline
 
 log = logging.getLogger(__name__)
 
-# Licence of every CELT work. "unknown" until CELT grants permission to
-# republish (#542); then "used-with-permission" plus a DATA_LICENSE.md record.
-CELT_LICENSE = "unknown"
+# Licence of every CELT work: CELT's permission for Patristica (#542), recorded
+# in DATA_LICENSE.md.
+CELT_LICENSE = "used-with-permission"
 
 BASE_URL = "https://celt.ucc.ie/published/"
 CACHE_SUBDIR = Path("_cache") / "celt"

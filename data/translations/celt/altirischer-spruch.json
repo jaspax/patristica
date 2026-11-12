@@ -1,0 +1,23 @@
+{
+  "work_id": "celt/altirischer-spruch",
+  "source_path": "celt/altirischer-spruch.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/altirischer-spruch#Spruch.1",
+      "source_sha256": "e481a155611d082a",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 1,
+      "text": "Great is the lust, great the folly, great the frenzy, great the loss of reason, great the madness, of being under the displeasure of Mary's Son, since it is certain that one must die."
+    }
+  ]
+}

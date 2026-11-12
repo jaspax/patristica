@@ -212,11 +212,11 @@ class TestBuilders:
 
 
 class TestSelection:
-    def test_every_text_in_period_and_unpublished(self) -> None:
+    def test_every_text_in_period_and_used_with_permission(self) -> None:
         for t in celt.ALL_TEXTS:
             assert t.date_range is not None
             assert work_in_period(t.date_range), t.celt_id
-        assert C.CELT_LICENSE == "unknown"
+        assert C.CELT_LICENSE == "used-with-permission"  # #542
 
     def test_owner_exclusions_stay_out(self) -> None:
         assert not set(celt.OWNER_EXCLUDED) & {t.celt_id for t in celt.ALL_TEXTS}
@@ -245,4 +245,5 @@ class TestRawData:
             if u["ref"].count(".") == 2 and u["ref"].split(".")[1] not in ("Prol", "Epil")
         ]
         assert len(days) == 365
-        assert data["work"]["license"] == "unknown"
+        assert data["work"]["license"] == "used-with-permission"
+        assert data["work"]["edition"].endswith(", used with permission")
