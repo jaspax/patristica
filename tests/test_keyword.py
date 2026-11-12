@@ -50,6 +50,27 @@ def test_match_spans() -> None:
     assert [latin[a:b] for a, b in kw.match_spans(latin, ["mihi adjutor"])] == ["michi adiutor"]
 
 
+def test_chinese_is_indexed_as_a_sequence_of_characters() -> None:
+    # No space between two ideographs (#648): a phrase matches across punctuation.
+    assert kw.index_text("大秦㬌教，流行中國。 Syriac 碑") == " 大秦景教流行中國 syriac 碑 "
+    assert kw.phrase_pattern("景教流行") == "%景教流行%"
+    assert kw.phrase_pattern("教，流行") == "%教流行%"
+    assert kw.phrase_pattern("中國 Syriac") == "%中國 syriac %"
+    assert kw.phrase_pattern("景教") == "%景教%"  # two characters are a word
+    assert kw.is_short("景教") and not kw.is_short("景教流") and not kw.is_short("the")
+    with pytest.raises(kw.PhraseError):
+        kw.phrase_pattern("景")
+    with pytest.raises(kw.PhraseError):
+        kw.phrase_pattern("ab")  # still three letters outside Chinese
+
+
+def test_match_spans_chinese() -> None:
+    text = "粵若常然真寂，先先而无元；窅然靈虗。"
+    spans = kw.match_spans(text, ["真寂先先", "無元"])
+    assert [text[a:b] for a, b in spans] == ["真寂，先先", "无元"]
+    assert kw.match_spans(text, ["寂寞"]) == []
+
+
 # --- loading --------------------------------------------------------------
 
 psycopg = pytest.importorskip("psycopg")
@@ -303,6 +324,45 @@ def test_phrase_search_uses_the_trigram_index(corpus) -> None:
             "EXPLAIN SELECT chunk_id FROM chunks WHERE text_folded LIKE %s",
             (kw.phrase_pattern("in the beginning"),), prepare=False))
     assert build_index.TRGM_INDEX in plan
+
+
+def _add_chinese(conn) -> str:
+    """A Chinese chunk in the loaded corpus (in an existing work), as build_index folds it."""
+    work_id = conn.execute("SELECT work_id FROM works ORDER BY work_id LIMIT 1").fetchone()[0]
+    text = "粵若常然真寂，先先而无元；窅然靈虗，後後而妙有。三一妙身无元真主阿羅訶歟！"
+    cid = f"{work_id}#Lzh.1"
+    conn.execute(
+        "INSERT INTO chunks (chunk_id, work_id, canonical_ref, chunk_index, language, text,"
+        " date_confidence, out_of_period, text_folded)"
+        " VALUES (%s, %s, 'Lzh.1', 9999, 'lzh', %s, 'uncertain', false, %s)",
+        (cid, work_id, text, kw.index_text(text)))
+    conn.execute("ANALYZE chunks")
+    return cid
+
+
+def test_chinese_phrases(corpus) -> None:
+    conn, *_ = corpus
+    cid = _add_chinese(conn)
+    assert _search(conn, "無元真主阿羅訶") == ([cid], 1)  # variant 无, no punctuation
+    assert _search(conn, "真寂先先") == ([cid], 1)  # across a comma
+    assert _search(conn, "阿羅訶") == ([cid], 1)
+    assert _search(conn, "真主") == ([cid], 1)  # two characters
+    assert _search(conn, "主阿羅訶歟後") == ([], None)
+
+
+def test_chinese_phrases_use_an_index(corpus) -> None:
+    conn, *_ = corpus
+    _add_chinese(conn)
+    with conn.transaction():
+        conn.execute("SET LOCAL enable_seqscan = off")
+        plan = "\n".join(r[0] for r in conn.execute(
+            "EXPLAIN SELECT chunk_id FROM chunks WHERE text_folded LIKE %s",
+            (kw.phrase_pattern("阿羅訶"),), prepare=False))
+        assert build_index.TRGM_INDEX in plan
+        plan = "\n".join(r[0] for r in conn.execute(
+            "EXPLAIN SELECT chunk_id FROM chunks c WHERE c.text_folded LIKE %s"
+            " AND c.language IN ('lzh')", (kw.phrase_pattern("真主"),), prepare=False))
+        assert "chunks_ideographic" in plan
 
 
 def test_short_and_broad_phrases(corpus, monkeypatch: pytest.MonkeyPatch) -> None:

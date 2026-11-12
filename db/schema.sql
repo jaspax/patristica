@@ -79,6 +79,9 @@ ALTER TABLE chunks ADD COLUMN IF NOT EXISTS text_folded text;
 CREATE INDEX IF NOT EXISTS chunks_work ON chunks (work_id, chunk_index);
 -- Finds the works still to fold without scanning the table (empty once all are).
 CREATE INDEX IF NOT EXISTS chunks_unfolded ON chunks (work_id) WHERE text_folded IS NULL;
+-- Chinese phrases of two characters have no trigram: api/keyword.py searches
+-- them in these chunks only (patristica.keyword.IDEOGRAPHIC_LANGUAGES, #648).
+CREATE INDEX IF NOT EXISTS chunks_ideographic ON chunks (work_id) WHERE language IN ('lzh');
 -- The trigram index on text_folded (chunks_text_folded_trgm) is created by
 -- build_index after the folding, like the HNSW indexes.
 CREATE INDEX IF NOT EXISTS chunks_translation_group ON chunks (translation_group_id)

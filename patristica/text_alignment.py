@@ -8,7 +8,8 @@ not where inside near-identical sentences two editions cut their units.
 
 **Words.** Each unit's source text (``editorial.source_text``) is folded
 (``textfold.fold``: diacritics, spelling variants, case) and split on
-whitespace; a word remembers its unit.
+whitespace (``tokens``); a word remembers its unit. Chinese has no spaces,
+so each ideograph is a word of its own (#648); other text is split as before.
 
 **Word alignment** (``align_words``) is monotonic, in the style of patience
 diff: within a range of both word lists, the word n-grams that occur exactly
@@ -42,11 +43,14 @@ from __future__ import annotations
 
 import bisect
 import difflib
+import re
 from collections import Counter
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 
-from patristica.textfold import fold
+from patristica.textfold import IDEOGRAPH_RE, IDEOGRAPHS, fold
+
+_IDEOGRAPH_SPLIT = re.compile(f"([{IDEOGRAPHS}])")
 
 
 @dataclass(frozen=True)
@@ -97,12 +101,21 @@ class TextAlignment:
         return self.matched / self.words_b if self.words_b else 0.0
 
 
+def tokens(text: str) -> list[str]:
+    """The folded words of *text*: ``fold(text).split()``, with every ideograph
+    a word of its own (Chinese is written without spaces, #648)."""
+    folded = fold(text)
+    if not IDEOGRAPH_RE.search(folded):
+        return folded.split()
+    return _IDEOGRAPH_SPLIT.sub(r" \1 ", folded).split()
+
+
 def unit_words(texts: Sequence[str]) -> tuple[list[str], list[int]]:
     """The folded words of *texts* in order, and the unit of each word."""
     words: list[str] = []
     unit: list[int] = []
     for u, text in enumerate(texts):
-        for w in fold(text).split():
+        for w in tokens(text):
             words.append(w)
             unit.append(u)
     return words, unit

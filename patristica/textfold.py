@@ -13,7 +13,8 @@ seats and tatweel, and with dotless or dotted final yāʾ (``_ARABIC_LETTERS``),
 and Old Georgian in any of its three scripts and in old or modern spelling
 (``_GEORGIAN_LETTERS``, ``_fold_georgian``), and the letters Old English,
 Old Saxon and Old High German witnesses write differently (ð/đ/þ, ƀ/b,
-ƿ/w, ȝ/g; ``_LATIN_LETTERS``).
+ƿ/w, ȝ/g; ``_LATIN_LETTERS``), and the variant characters (異體字) of
+Literary Chinese (``_CJK_VARIANTS``).
 
 It is deliberately lossy and language-independent: the same function is
 applied to indexed text and to queries, so neither side needs language
@@ -210,6 +211,41 @@ _CYRILLIC_YAT_JA_RE = re.compile(f"(?:^|(?<=[ {_CYRILLIC_VOWELS}]))ѣ")
 _CYRILLIC_PAEROK = dict.fromkeys(map(ord, "ꙿⸯ"), None)
 
 
+#: CJK ideographs, as a regex character class body (#648): the radicals, 々 〇
+#: and the Hangzhou numerals, the unified ideographs with every extension and
+#: the compatibility ideographs. Private-use characters (unencoded ideographs
+#: in some sources) are not included: other scripts' sources use them too.
+IDEOGRAPHS = ("\u2e80-\u2fdf\u3005\u3007\u3021-\u3029\u3038-\u303b"
+              "\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\U00020000-\U0003ffff")
+IDEOGRAPH_RE = re.compile(f"[{IDEOGRAPHS}]")
+
+# Literary Chinese variant characters (異體字, #648). The sources keep their
+# own characters: zh.wikisource's diplomatic transcriptions write the forms
+# of the stone and the manuscripts (㬌 for 景, 夲 for 本, 礼 for 禮), the
+# Taishō (CBETA) its own. Each variant here folds to the traditional standard
+# form (Taiwan's 教育部 standard where the two traditional forms differ: 眾,
+# 啟, 跡), so a quote typed in either matches and the editions align by text.
+# The table comes from comparing zh.wikisource with CBETA T2142 (序聽迷詩所經),
+# T2143 (the hymn 景教三威蒙度讚 and 尊經) and T2144 (the Xi'an stele), plus
+# the "normalized form" CBETA's gaiji declarations give for the characters
+# those files use. It is not a simplified → traditional conversion: only
+# variants the sources write are here (无 与 国 礼 among them, which are
+# also simplified forms). Left out on purpose, since they are words of their
+# own: 閒 (間 and 閑), 疋 (匹), 豊 (豐 and 禮's 豊), 祆/祅, and the readings
+# where the editions differ (開/關, 元/無, 純/絕, 日/曰, 厏/萬).
+_CJK_VARIANTS = str.maketrans({
+    "㬌": "景", "衆": "眾", "髙": "高", "㓛": "功", "虗": "虛", "惣": "總", "夲": "本",
+    "逺": "遠", "㝎": "定", "啓": "啟", "𦀰": "經", "亰": "京", "𠃵": "乾", "嵗": "歲",
+    "䫟": "願", "无": "無", "皷": "鼓", "隟": "隙", "𥪰": "競", "𢫾": "指", "浄": "淨",
+    "抅": "拘", "徳": "德", "賔": "賓", "䰟": "魂", "冨": "富", "絶": "絕", "劒": "劍",
+    "羣": "群", "俻": "備", "飰": "飯", "㩲": "權", "乗": "乘", "熈": "熙", "宻": "密",
+    "礼": "禮", "国": "國", "躭": "耽", "蹔": "暫", "与": "與", "迹": "跡", "𦀸": "浣",
+    # CBETA's gaiji, by their normalized form.
+    "㗛": "笑", "𬽐": "喪", "𮊵": "羸", "\U00023ACD": "歛", "\U0002DCAB": "灟",
+    "\U0002E785": "延",
+})
+
+
 def _is_dropped_mark(ch: str) -> bool:
     # Mn/Me: combining accents, breathings, points, vowel marks, overlines.
     # Cf: zero-width joiners, bidi controls and similar format characters.
@@ -228,6 +264,7 @@ def fold(text: str) -> str:
     t = "".join(ch for ch in t if not _is_dropped_mark(ch))
     t = t.casefold()  # also maps final sigma (ς) and long s (ſ) to σ / s
     t = "".join(" " if _is_separator(ch) else ch for ch in t)
+    t = t.translate(_CJK_VARIANTS)
     t = _LATIN_DIGRAPHS.sub("e", t.translate(_LATIN_LETTERS).translate(_ARABIC_LETTERS))
     t = _fold_georgian(t.translate(_GEORGIAN_LETTERS))
     t = _CYRILLIC_DIGRAPH_RE.sub(
@@ -258,6 +295,7 @@ def fold_spans(text: str) -> tuple[str, list[int], list[int]]:
                     chars.append((" ", i, i + 1))
                     continue
                 # A Cyrillic letter may become two (ѿ → от).
+                c = c.translate(_CJK_VARIANTS)
                 c = c.translate(_LATIN_LETTERS).translate(_ARABIC_LETTERS)
                 c = c.translate(_GEORGIAN_LETTERS)
                 for e in c.translate(_CYRILLIC_LETTERS):

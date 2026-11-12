@@ -122,3 +122,17 @@ def test_an_unmatched_start_after_the_last_match_projects_nothing() -> None:
     ref = _paras([_cut(ws + ["extraword"], [30, 1])])
     ed = _paras([_cut(ws, [30])])
     assert ep.project(ref, ed).starts == [(0,)]
+
+
+def test_chinese_editions_project_cuts_between_characters() -> None:
+    """Chinese has no spaces: each ideograph is a word (#648), so a Taishō
+    paragraph is cut where the Wikisource edition's derived verses start."""
+    ws = ["粵若常然真寂，先先而无元；窅然靈虗，後後而妙有。", "惣玄摳而造化，妙衆聖以元尊者，其唯我三一妙身无元真主阿羅訶歟！"]
+    taisho = "粵若。常然真寂。先先而無元。窅然靈虛。後後而妙有。總玄摳而造化。妙眾聖以元尊者。其唯我三一妙身無元真主阿羅訶歟"
+    ref = _paras([ws], "W")
+    ed = _paras([[taisho]], "T")
+    proj = ep.project(ref, ed)
+    starts = proj.starts[0]
+    assert starts is not None and len(starts) == 2
+    units = anchoring.cut_at(taisho, starts)
+    assert units[1].startswith("總玄摳")

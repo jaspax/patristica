@@ -342,3 +342,82 @@ def test_oglt_pl_notes_are_left_to_the_size_cut():
     pl = [c.text for c in versify_chunks(chunks("oglt-pl/y"), spans_of={"oglt-pl/y#P.1": spans})]
     assert with_notes == split_text(YAHYA, "eng", spans)
     assert pl == split_text(YAHYA, "eng")
+
+
+# --- Literary Chinese (#648) ------------------------------------------------
+
+# The opening of the Xi'an stele (zh.wikisource), with its punctuation.
+STELE = ("粵若常然真寂，先先而无元；窅然靈虗，後後而妙有。惣玄摳而造化，妙衆聖以元尊者，"
+         "其唯我　　三一妙身无元真主阿羅訶歟！判十字以㝎四方，皷元風而生二氣。"
+         "暗空易而天地開，日月運而晝夜作。匠成厏物，然立初人。別賜良和，令鎮化海。"
+         "渾元之性，虗而不盈。素蕩之心，夲無希嗜。洎乎娑殫施妄，鈿飾純精。")
+
+
+def test_each_ideograph_is_a_word_with_its_punctuation():
+    from patristica.versify import _atoms
+    text = "詔曰︰「道無常名。」所司 abc"
+    atoms = _atoms(text)
+    assert "".join(atoms) == text
+    assert atoms == ["詔", "曰︰", "「道", "無", "常", "名。」", "所", "司", " abc"]
+    assert _atoms("我　　三一") == ["我", "　　三", "一"]
+
+
+def test_atoms_without_ideographs_are_unchanged():
+    """Text with no ideograph is split exactly as by the pattern before #648."""
+    import random
+    import re
+
+    from patristica.versify import _atoms
+    old = re.compile(r"\s*[^\s፡]+፡*|\s*፡+|\s+$")
+    alphabet = "ab .,;:!?\"'«»()〈〉［］＞「」።፡ 　\n\tἀβγ—…"
+    rng = random.Random(648)
+    for _ in range(2000):
+        text = "".join(rng.choice(alphabet) for _ in range(rng.randrange(40)))
+        assert _atoms(text) == old.findall(text)
+
+
+def test_chinese_punctuation_strengths():
+    from patristica.versify import CLAUSE, COMMA, SENTENCE, WORD, _strength
+    assert _strength("作。", None, "lzh") == SENTENCE
+    assert _strength("名。」", None, "lzh") == SENTENCE
+    assert _strength("歟！", None, "lzh") == SENTENCE
+    assert _strength("元；", None, "lzh") == CLAUSE
+    assert _strength("曰︰", None, "lzh") == CLAUSE
+    assert _strength("寂，", None, "lzh") == COMMA
+    assert _strength("布．", None, "lzh") == COMMA  # the Taishō's list separator
+    assert _strength("香、", None, "lzh") == COMMA
+    assert _strength("天", None, "lzh") == WORD
+
+
+def test_chinese_is_cut_at_stops_into_verses():
+    units = split_text(STELE, "lzh")
+    assert "".join(units) == STELE
+    assert len(units) > 1
+    assert all(u[-1] in "。！" for u in units)
+    assert all(count_tokens(u) <= MAX_VERSES * VERSE_TOKENS["lzh"] for u in units)
+
+
+def test_unpunctuated_chinese_is_cut_by_size():
+    import re
+    bare = re.sub(r"[^㐀-鿿]", "", STELE) * 4
+    units = split_text(bare, "lzh")
+    assert "".join(units) == bare
+    assert len(units) > 3
+    assert all(count_tokens(u) <= MAX_VERSES * VERSE_TOKENS["lzh"] for u in units)
+
+
+def test_chinese_derived_verses_through_versify_chunks():
+    chunk = _chunk("1", STELE, 0).model_copy(update={"language": "lzh"})
+    out = versify_chunks([chunk])
+    assert [c.canonical_ref for c in out][:2] == ["1.s1", "1.s2"]
+    assert "".join(c.text for c in out) == STELE
+
+
+@pytest.mark.parametrize("close", ["」", "』", "）", "》", "」』"])
+def test_chinese_closers_stay_with_their_sentence(close: str):
+    sentence = "道無常名，聖無常體，隨方設教，密濟群生，詳其教旨，玄妙無為。"
+    text = "".join(f"曰︰「{sentence}{close}" for _ in range(4))
+    units = split_text(text, "lzh")
+    assert len(units) > 1 and "".join(units) == text
+    assert all(u.endswith("。" + close) for u in units)
+    assert not any(u[0] in "」』）》" for u in units)
