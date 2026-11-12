@@ -147,6 +147,7 @@ NEW_SOURCES |= {"glosscorpus"}
 NEW_SOURCES |= {"celt"}   # Old Irish (#225): CELT, #541
 NEW_SOURCES |= {"aspr"}   # Old English (#223): Anglo-Saxon Poetic Records, #565
 NEW_SOURCES |= {"rea"}   # Old High German and Old Saxon (#224): Referenzkorpus Altdeutsch, #567
+NEW_SOURCES |= {"wikisource-lzh"}   # Literary Chinese (#228): Jingjiao texts on Chinese Wikisource, #650
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
