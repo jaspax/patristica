@@ -133,6 +133,8 @@ NEW_SOURCES |= {"wb-glosses", "wb-glosses-eng"}
 NEW_SOURCES |= {"aelfric-ch", "aelfric-ch-eng"}
 # Old Georgian (#222): TITUS codices, liturgy, translations, chronicles (#517).
 NEW_SOURCES |= {"titus-chronicles", "titus-liturgy", "titus-shatberdi", "titus-translations"}
+# Literary Chinese (#228): CBETA's Taishō (#651).
+NEW_SOURCES |= {"cbeta"}
 # Old Georgian Bible and lectionaries from TITUS (#515), one source per witness.
 NEW_SOURCES |= {
     "titus-khanmeti-gospels", "titus-adishi", "titus-preathonite-gospels",
