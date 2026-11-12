@@ -63,6 +63,7 @@ SOURCE_LABELS: dict[str, str] = {
     "wikisource-apocrypha": "Apocrypha, Greek (Wikisource)",
     "wikisource-oge": "Old Georgian texts (Georgian Wikisource)",
     "wikisource-lzh": "Jingjiao texts, Literary Chinese and Syriac (Chinese Wikisource)",
+    "wikisource-en": "English translations (English Wikisource)",
     "syriac-documents": "Ancient Syriac Documents (Ante-Nicene Fathers)",
     "wb-glosses": "Würzburg Glosses on Paul (Old Irish; Doyle, Thesaurus Palaeohibernicus)",
     "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
