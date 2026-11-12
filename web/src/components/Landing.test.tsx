@@ -40,6 +40,7 @@ const index: LibraryIndex = {
     row("pta/a", "grc", ["basil"], 10),
     row("pta/b", "lat", ["basil", "jerome"], 5),
     row("pta/c", "grc", [], 2),
+    row("ccel/d", "eng", ["basil"], 4),
   ],
 };
 
@@ -59,12 +60,13 @@ describe("Hero", () => {
 });
 
 describe("libraryStats", () => {
-  it("counts works, distinct authors and languages, and passages", () => {
+  it("counts ancient sources and English translations, distinct authors and languages, and passages", () => {
     expect(libraryStats(index)).toEqual([
-      { label: "works", value: 3 },
+      { label: "ancient sources", value: 3 },
+      { label: "English translations", value: 1 },
       { label: "authors", value: 2 },
-      { label: "languages", value: 2 },
-      { label: "passages", value: 17 },
+      { label: "languages", value: 3 },
+      { label: "passages", value: 21 },
     ]);
   });
 });
@@ -128,6 +130,6 @@ describe("Landing", () => {
   it("shows the library's counts once the index loads", async () => {
     loadIndex.mockResolvedValueOnce(index);
     render(<Landing />);
-    expect(await screen.findByText("17", { selector: ".visually-hidden" })).toBeTruthy();
+    expect(await screen.findByText("21", { selector: ".visually-hidden" })).toBeTruthy();
   });
 });
