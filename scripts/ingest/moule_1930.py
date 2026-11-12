@@ -84,7 +84,7 @@ EDITION = (
 #: Not yet set as ``translation_of``: a link to a work that is not in the
 #: corpus fails ``test_translation_of``.  Once #650's works are on this
 #: branch's base, set ``ORIGINALS_IN_CORPUS = True`` and re-ingest (#654).
-ORIGINALS_IN_CORPUS = False
+ORIGINALS_IN_CORPUS = True
 STELE_ORIGINAL = "wikisource-lzh/xian-stele"
 HYMN_ORIGINAL = "wikisource-lzh/sanwei-mengdu-zan"
 ZUNJING_ORIGINAL = "wikisource-lzh/zunjing"
@@ -181,7 +181,7 @@ PARTS: tuple[Part, ...] = (
             ("[If] the highest heavens", "verse"),
             ("A Hymn of the Brilliant Teaching of Ta-ch’in", "verse"),
         ),
-        date_composed=800, date_range=(720, 845), date_confidence="approximate",
+        date_composed=None, date_range=(720, 845), date_confidence="approximate",
         genre="liturgical",
         translation_of=HYMN_ORIGINAL,
         numbered=("1. ",),
@@ -202,7 +202,7 @@ PARTS: tuple[Part, ...] = (
         start="2. Honoured Persons and Sacred Books",
         end="translated.",
         modes=(("2. Honoured Persons and Sacred Books", "prose"),),
-        date_composed=900, date_range=(781, 1000), date_confidence="approximate",
+        date_composed=None, date_range=(781, 1000), date_confidence="approximate",
         genre="liturgical",
         translation_of=ZUNJING_ORIGINAL,
         numbered=("2. ", "3. "),
