@@ -84,7 +84,8 @@ def test_raw_works(slug: str, count: int) -> None:
     record = _raw(slug)
     units = record["paragraphs"]
     assert len(units) == count
-    assert record["work"]["translation_of"].startswith("wikisource-lzh/")
+    if moule_1930.ORIGINALS_IN_CORPUS:
+        assert record["work"]["translation_of"].startswith("wikisource-lzh/")
     for unit in units:
         # no OCR debris: footnote marks, margin marks, unmapped é / ii
         # (the only numbers Moule prints in these texts are listed here)

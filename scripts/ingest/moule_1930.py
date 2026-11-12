@@ -81,6 +81,10 @@ EDITION = (
 )
 
 #: The work ids of the Literary Chinese originals (wikisource-lzh, #650).
+#: Not yet set as ``translation_of``: a link to a work that is not in the
+#: corpus fails ``test_translation_of``.  Once #650's works are on this
+#: branch's base, set ``ORIGINALS_IN_CORPUS = True`` and re-ingest (#654).
+ORIGINALS_IN_CORPUS = False
 STELE_ORIGINAL = "wikisource-lzh/xian-stele"
 HYMN_ORIGINAL = "wikisource-lzh/sanwei-mengdu-zan"
 ZUNJING_ORIGINAL = "wikisource-lzh/zunjing"
@@ -539,7 +543,7 @@ def make_work(part: Part) -> Work:
         license=LICENSE,
         provenance_url=_DETAILS,
         edition=EDITION.format(pages=part.pages),
-        translation_of=part.translation_of,
+        translation_of=part.translation_of if ORIGINALS_IN_CORPUS else None,
     )
 
 
