@@ -1,0 +1,30 @@
+{
+  "work_id": "celt/weissagung-colum-cilles",
+  "source_path": "celt/weissagung-colum-cilles.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/weissagung-colum-cilles#WeisCol.0",
+      "source_sha256": "70a574d3797b6042",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 2,
+      "text": "Colum Cille prophesying about Adomnán."
+    },
+    {
+      "chunk_id": "celt/weissagung-colum-cilles#WeisCol.1",
+      "source_sha256": "281158ba149ecdd5",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 2,
+      "text": "He will take his name from my own name; he will make a law concerning women, [reaching] from the beautiful, vast Sea of Wight [the English Channel]. He will be a sage of learning [?] (co cendanim); [?] (rosia let form) good speech [?] (dechindscne); he will [?] (arcenfa) a very great law. [?] (Birar) who will take the sovereignty of Tara from Fínnachta, over Tara a strength that will not [?] rise; thirty years in the abbacy for him, for Adomnán, wonderful in great tidings."
+    }
+  ]
+}

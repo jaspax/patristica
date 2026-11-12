@@ -1,0 +1,37 @@
+{
+  "work_id": "celt/segen-der-freigebigkeit",
+  "source_path": "celt/segen-der-freigebigkeit.json",
+  "source_language": "sga",
+  "target_language": "eng",
+  "provenance": {
+    "claude-opus-5-5/bulk-2026-10-12/2026-11-12": {
+      "model": "claude-opus-5-5",
+      "prompt_version": "bulk-2026-10-12",
+      "date": "2026-11-12",
+      "script": "__main__"
+    }
+  },
+  "translations": [
+    {
+      "chunk_id": "celt/segen-der-freigebigkeit#Freigeb.1",
+      "source_sha256": "c81fcb7aa6186993",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 3,
+      "text": "O generous man, if you wish not to be in torment, give the Lord his share, as he himself gives to you."
+    },
+    {
+      "chunk_id": "celt/segen-der-freigebigkeit#Freigeb.2",
+      "source_sha256": "6ba7965f3bdfdc92",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 3,
+      "text": "Happy is he who gives food and drink! If you give food and a cloak, they will plead for you in heaven."
+    },
+    {
+      "chunk_id": "celt/segen-der-freigebigkeit#Freigeb.3",
+      "source_sha256": "4662be0e5920c57d",
+      "provenance": "claude-opus-5-5/bulk-2026-10-12/2026-11-12",
+      "group_size": 3,
+      "text": "Everything you have in your house, both grain and milk and honey, will not be carried with you on the road when you go to your death, O man! A."
+    }
+  ]
+}

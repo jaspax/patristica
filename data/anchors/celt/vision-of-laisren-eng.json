@@ -1,0 +1,21 @@
+{
+ "work_id": "celt/vision-of-laisren-eng",
+ "anchor": "celt/vision-of-laisren",
+ "method": "cd4ac1843c0db506",
+ "anchor_cuts": "6ae6c74686e506ff",
+ "words": "97cee6d637b220fc",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 52, "calibration": [0.7664, 0.1749], "converged": true, "fallback_paragraphs": 0, "one_one": 1.0, "one_one_anchored": 1.0, "one_one_provisional": 0.6154, "rounds": 3, "units": 52},
+ "paragraphs": {
+  "Laisren.1": {"words": "87307cee1b411a9b", "starts": [0, 27, 36, 62, 70, 93, 114]},
+  "Laisren.2": {"words": "258929989e0a0fbd", "starts": [0, 20, 47]},
+  "Laisren.3": {"words": "23c7a5fa3d4856a7", "starts": [0, 21, 38, 65]},
+  "Laisren.4": {"words": "ab263f98f4b8aec7", "starts": [0, 17, 50, 60]},
+  "Laisren.5": {"words": "c116b9d89f91890a", "starts": [0, 23, 43, 71, 91, 113]},
+  "Laisren.6": {"words": "5af566d34d8984a9", "starts": [0, 10, 31]},
+  "Laisren.7": {"words": "1559a93127db10b0", "starts": [0, 26, 55, 75, 111, 124]},
+  "Laisren.8": {"words": "3f16911a8ed573c9", "starts": [0, 30, 36, 60, 87, 104, 127, 147, 176, 182, 205]},
+  "Laisren.9": {"words": "fd04d86e2413fcb9", "starts": [0, 22, 49]},
+  "Laisren.10": {"words": "15849eee5a26d7c2", "starts": [0, 21, 49, 61, 76]}
+ }
+}
