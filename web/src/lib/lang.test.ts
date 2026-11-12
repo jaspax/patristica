@@ -25,6 +25,10 @@ describe("languageInfo", () => {
     expect(languageInfo("osx")).toEqual({ lang: "osx", name: "Old Saxon", dir: "ltr" });
   });
 
+  it("maps Literary Chinese to lzh (not modern Chinese zh), left-to-right", () => {
+    expect(languageInfo("lzh")).toEqual({ lang: "lzh", name: "Literary Chinese", dir: "ltr" });
+  });
+
   it("maps Arabic to ar, right-to-left", () => {
     expect(languageInfo("arb")).toEqual({ lang: "ar", name: "Arabic", dir: "rtl" });
   });

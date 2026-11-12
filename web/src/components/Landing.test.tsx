@@ -123,8 +123,23 @@ describe("Landing", () => {
       expect(el?.className).toMatch(/fraktur/);
       expect(el?.className).not.toMatch(/insular|englisc/);
     }
-    // The grid's rows of 5 (or 3) are full only for a multiple of 15.
-    expect(tiles).toHaveLength(15);
+    // The grid's rows of 4 (or 2) are full only for a multiple of 4.
+    expect(tiles).toHaveLength(16);
+  });
+
+  it("shows 道 for Literary Chinese, with a note saying it is not a Tang-era John 1:1 (#649)", () => {
+    render(<Landing />);
+    const strip = screen.getByRole("region", { name: /In the beginning was the Word/ });
+    const chinese = within(strip).getByRole("link", { name: /道/ });
+    expect(chinese.getAttribute("href")).toBe("/works?language=lzh");
+    expect(chinese.querySelector("[lang]")?.getAttribute("lang")).toBe("lzh");
+    const noteId = chinese.getAttribute("aria-describedby");
+    expect(noteId).toBeTruthy();
+    const note = document.getElementById(noteId!);
+    expect(note?.textContent).toMatch(/Literary Chinese: No Chinese John 1:1 survives from the Tang church/);
+    expect(note?.textContent).toContain("太初有道");
+    // Only the Chinese tile has a note.
+    expect(within(strip).getAllByRole("link").filter((a) => a.hasAttribute("aria-describedby"))).toHaveLength(1);
   });
 
   it("shows the library's counts once the index loads", async () => {

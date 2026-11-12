@@ -260,19 +260,19 @@
   color: var(--muted);
 }
 
-/* 15 tiles (Landing.tsx WORDS): full rows of 5, or of 3 on narrow screens, never an orphan row.
+/* 16 tiles (Landing.tsx WORDS): full rows of 4, or of 2 on narrow screens, never an orphan row.
    Change the column counts when the number of tiles changes. */
 .words ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
 
 @media (min-width: 40rem) {
   .words ul {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -282,6 +282,7 @@
 }
 
 .word {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -305,7 +306,7 @@
 }
 
 .wordText {
-  /* Smaller on phones, so the longest words (სიტყუაჲ) fit a third of the width. */
+  /* Smaller on phones, so the longest words (სიტყუაჲ) fit half the width. */
   font-size: clamp(1.15rem, 5vw, 1.6rem);
   line-height: 1.4;
   transition: color 0.2s;
@@ -335,6 +336,21 @@
 
 .word:hover .wordText {
   color: var(--accent);
+}
+
+/* A tile whose word is explained under the strip (WORDS' note). */
+.wordMark {
+  position: absolute;
+  top: 0.3rem;
+  inset-inline-end: 0.55rem;
+  color: var(--muted);
+}
+
+.wordsNote {
+  max-width: var(--text-width);
+  margin: 1rem auto 0;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 .wordLang {
