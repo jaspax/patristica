@@ -146,13 +146,19 @@ export default function Landing() {
   );
 }
 
-/** Counts shown under the examples, from the library index. */
+/**
+ * Counts shown under the examples, from the library index.
+ * Works are split by language: every non-English work is an ancient source, and every English
+ * work (our machine translations included) a translation, since the collection has no English originals.
+ */
 export function libraryStats(index: LibraryIndex): { label: string; value: number }[] {
+  const english = index.works.filter((w) => w.language === "eng").length;
   const authors = new Set(index.works.flatMap((w) => w.author_ids));
   const languages = new Set(index.works.map((w) => w.language));
   const passages = index.works.reduce((n, w) => n + w.chunks, 0);
   return [
-    { label: "works", value: index.works.length },
+    { label: "ancient sources", value: index.works.length - english },
+    { label: "English translations", value: english },
     { label: "authors", value: authors.size },
     { label: "languages", value: languages.size },
     { label: "passages", value: passages },
