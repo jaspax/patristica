@@ -1,7 +1,10 @@
 """Phrase search over the keyword index (#86; ``patristica.keyword``).
 
 A chunk matches when every phrase occurs in its folded text as whole words
-(``text_folded LIKE '% phrase %'``, served by the ``pg_trgm`` GIN index).
+(``text_folded LIKE '% phrase %'``, served by the ``pg_trgm`` GIN index), or
+as a sequence of characters where it starts or ends with a Chinese character
+(#648). A two-character Chinese phrase has no trigram: it is searched only in
+the chunks of ``IDEOGRAPHIC_LANGUAGES``, through their partial index.
 Matches have no similarity score of their own. With a ranking vector (the
 free text of a query, #143) they are ordered by their best vector's
 distance to it, matches without a vector last. Without one, by:
@@ -26,7 +29,7 @@ from typing import Any
 import psycopg
 
 from api.passages import passage_group
-from patristica.keyword import phrase_pattern
+from patristica.keyword import IDEOGRAPHIC_LANGUAGES, is_short, phrase_pattern
 from patristica.sources import MACHINE_TRANSLATION_SOURCES
 
 #: A phrase of very common words can match a large part of the corpus.
@@ -108,8 +111,13 @@ def phrase_search(conn: psycopg.Connection, phrases: list[str], where: str,
     if not phrases:
         raise ValueError("no phrases")
     patterns = {f"phrase{i}": phrase_pattern(p) for i, p in enumerate(phrases)}
-    matches = _MATCHES.format(where=where, group=passage_group("c"), phrases=" AND ".join(
-        f"c.text_folded LIKE %({name})s" for name in patterns))
+    conditions = [f"c.text_folded LIKE %({name})s" for name in patterns]
+    if any(is_short(p) for p in phrases):
+        # Literal values, so the planner uses the partial index chunks_ideographic.
+        conditions.append("c.language IN ({})".format(
+            ", ".join(f"'{lang}'" for lang in IDEOGRAPHIC_LANGUAGES)))
+    matches = _MATCHES.format(where=where, group=passage_group("c"),
+                              phrases=" AND ".join(conditions))
     if rank is None:
         sql = _SQL.format(matches=matches, distance="NULL::float8", order=_ORDER, join="")
     else:

@@ -275,3 +275,28 @@ def test_fold_spans_agrees_with_fold_on_the_corpus() -> None:
         for chunk in json.loads((root / entry["path"]).read_text(encoding="utf-8"))[:300]:
             assert fold_spans(chunk["text"])[0] == fold(chunk["text"]), chunk["chunk_id"]
     assert len(seen) >= 8
+
+
+def test_chinese_variant_characters_fold_to_the_standard_form():
+    # zh.wikisource's diplomatic hymn against the Taishō (#648).
+    assert fold("一切善衆至誠礼") == fold("一切善眾至誠禮") == "一切善眾至誠禮"
+    assert fold("䫟捨群生") == fold("願捨群生")
+    assert fold("大普躭苦，不蹔移，復与枯燋") == "大普耽苦 不暫移 復與枯燋"
+    assert fold("歎彼妙樂照此国") == fold("歎彼妙樂照此國")
+    assert fold("三一妙身无元真主") == fold("三一妙身無元真主")
+    assert fold("㬌教") == fold("景教")
+    # Characters that are words of their own are not folded.
+    assert fold("閒") != fold("間")
+    assert fold("疋") != fold("匹")
+
+
+def test_chinese_punctuation_is_a_separator_and_compatibility_ideographs_unify():
+    assert fold("天地開，日月運。") == "天地開 日月運"
+    assert fold("豈") == "豈"  # CJK compatibility ideograph → unified
+
+
+def test_fold_spans_maps_chinese_variants_back():
+    text = "大秦㬌教，礼无衆"
+    folded, starts, ends = fold_spans(text)
+    assert folded == fold(text) == "大秦景教 禮無眾"
+    assert [text[a:b] for a, b in zip(starts, ends)] == list("大秦㬌教，礼无衆")

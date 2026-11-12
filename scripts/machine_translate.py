@@ -97,6 +97,10 @@ RATIO_BAND: dict[str, tuple[float, float]] = {
     # Old Saxon: no parallel at all; the Heliand's words are as long as Old
     # English ones (2.47 vs 2.51 tokens a word), so ~1.0–1.4 like its neighbours.
     "osx": (0.6, 3.5),
+    # Literary Chinese (#648): the Xi'an stele (zh.wikisource, 2,054 characters with
+    # punctuation) against Wylie's English (Carus 1909, 17,440): 8.5 English
+    # characters per Chinese one (8.7 against the Taishō text).
+    "lzh": (3.5, 20.0),
 }
 DEFAULT_BAND = (0.5, 5.0)
 # A source paragraph this long whose English is under MIN_ITEM_RATIO of it is an omission.
@@ -121,6 +125,7 @@ DOCUMENT_LANGUAGES: dict[str, str] = {
     "ang": "Old English (Anglo-Saxon)",
     "goh": "Old High German",
     "osx": "Old Saxon",
+    "lzh": "Literary Chinese",
 }
 
 DOCUMENT_SYSTEM = """\

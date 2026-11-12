@@ -56,7 +56,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 VALID_LANGUAGES = {
-    "grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "ang", "goh", "osx", "eng",
+    "grc", "lat", "hbo", "syc", "cop", "gez", "hye", "got", "chu", "arb", "oge", "sga", "ang", "goh", "osx", "lzh", "eng",
 }
 
 # Unicode ranges (start, end inclusive) for non-Latin scripts
@@ -116,6 +116,20 @@ SCRIPT_RANGES: dict[str, list[tuple[int, int]]] = {
     # in the older scripts, and Mtavruli its capitals; fold() maps them all
     # onto Mkhedruli, so they count as Georgian too.
     "oge": [(0x10A0, 0x10FF), (0x2D00, 0x2D2F), (0x1C90, 0x1CBF)],
+    # Literary Chinese (#228): traditional characters as the sources have them.
+    # CJK Unified Ideographs and Extension A, the supplementary-plane extensions
+    # (B–H: Tang variant characters, 𭨝 𮊵 in the Taishō text), the compatibility
+    # ideographs (folded to unified ones by NFKD) and the CJK punctuation the
+    # editions add (。、「」, fullwidth ，；：！？).
+    "lzh": [
+        (0x4E00, 0x9FFF),
+        (0x3400, 0x4DBF),
+        (0x20000, 0x323AF),
+        (0xF900, 0xFAFF),
+        (0x2F800, 0x2FA1F),
+        (0x3000, 0x303F),
+        (0xFF00, 0xFFEF),
+    ],
 }
 
 _COLLECTION_TITLE_RE = re.compile(
