@@ -282,7 +282,6 @@
 }
 
 .word {
-  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -336,21 +335,6 @@
 
 .word:hover .wordText {
   color: var(--accent);
-}
-
-/* A tile whose word is explained under the strip (WORDS' note). */
-.wordMark {
-  position: absolute;
-  top: 0.3rem;
-  inset-inline-end: 0.55rem;
-  color: var(--muted);
-}
-
-.wordsNote {
-  max-width: var(--text-width);
-  margin: 1rem auto 0;
-  font-size: 0.8rem;
-  color: var(--muted);
 }
 
 .wordLang {

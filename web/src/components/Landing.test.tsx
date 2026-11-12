@@ -127,19 +127,13 @@ describe("Landing", () => {
     expect(tiles).toHaveLength(16);
   });
 
-  it("shows 道 for Literary Chinese, with a note saying it is not a Tang-era John 1:1 (#649)", () => {
+  it("shows 道 for Literary Chinese (#649)", () => {
     render(<Landing />);
     const strip = screen.getByRole("region", { name: /In the beginning was the Word/ });
     const chinese = within(strip).getByRole("link", { name: /道/ });
     expect(chinese.getAttribute("href")).toBe("/works?language=lzh");
     expect(chinese.querySelector("[lang]")?.getAttribute("lang")).toBe("lzh");
-    const noteId = chinese.getAttribute("aria-describedby");
-    expect(noteId).toBeTruthy();
-    const note = document.getElementById(noteId!);
-    expect(note?.textContent).toMatch(/Literary Chinese: No Chinese John 1:1 survives from the Tang church/);
-    expect(note?.textContent).toContain("太初有道");
-    // Only the Chinese tile has a note.
-    expect(within(strip).getAllByRole("link").filter((a) => a.hasAttribute("aria-describedby"))).toHaveLength(1);
+    expect(chinese.textContent).not.toContain("*");
   });
 
   it("shows the library's counts once the index loads", async () => {
