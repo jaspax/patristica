@@ -151,6 +151,7 @@ NEW_SOURCES |= {"aspr"}   # Old English (#223): Anglo-Saxon Poetic Records, #565
 NEW_SOURCES |= {"rea"}   # Old High German and Old Saxon (#224): Referenzkorpus Altdeutsch, #567
 NEW_SOURCES |= {"wikisource-lzh"}   # Literary Chinese (#228): Jingjiao texts on Chinese Wikisource, #650
 NEW_SOURCES |= {"moule-1930"}   # Literary Chinese (#228): Moule's English Jingjiao texts, #654
+NEW_SOURCES |= {"wikisource-en"}   # Literary Chinese (#228): Wylie's English of the Xi'an stele, #653
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was
