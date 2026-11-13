@@ -1,7 +1,7 @@
 // Corpus languages: ISO 639-3 codes as stored in Work.language / Chunk.language
 // (patristica/models.py), mapped to what the browser needs.
 
-export type LanguageCode = "grc" | "lat" | "hbo" | "syc" | "cop" | "gez" | "hye" | "got" | "chu" | "arb" | "oge" | "sga" | "ang" | "goh" | "osx" | "eng";
+export type LanguageCode = "grc" | "lat" | "hbo" | "syc" | "cop" | "gez" | "hye" | "got" | "chu" | "arb" | "oge" | "sga" | "ang" | "goh" | "osx" | "lzh" | "eng";
 
 export interface LanguageInfo {
   /** BCP 47 tag for the `lang` attribute; globals.css selects fonts with :lang(). */
@@ -31,6 +31,9 @@ export const LANGUAGES: Record<LanguageCode, LanguageInfo> = {
   ang: { lang: "ang", name: "Old English", dir: "ltr" },
   goh: { lang: "goh", name: "Old High German", dir: "ltr" },
   osx: { lang: "osx", name: "Old Saxon", dir: "ltr" },
+  // Literary Chinese (#228): "lzh" in both ISO 639-3 and BCP 47 ("zh" would be
+  // modern Chinese). Set horizontally; globals.css picks Noto Serif TC.
+  lzh: { lang: "lzh", name: "Literary Chinese", dir: "ltr" },
   eng: { lang: "en", name: "English", dir: "ltr" },
 };
 

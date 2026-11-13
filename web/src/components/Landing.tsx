@@ -48,7 +48,7 @@ const EXAMPLES = [
 /**
  * "The Word" of John 1:1 in each language of the collection; each links to that language's works.
  * `className` gives a tile its own face where the corpus text's font would be plain (Old Irish, Old English, Old Saxon, Old High German).
- * The strip's grid (Landing.module.css) lays out 15 tiles as 3 rows of 5, or 5 rows of 3 on narrow screens.
+ * The strip's grid (Landing.module.css) lays out 16 tiles as 4 rows of 4, or 8 rows of 2 on narrow screens.
  */
 const WORDS: { language: string; word: string; className?: string }[] = [
   { language: "grc", word: "λόγος" },
@@ -62,6 +62,9 @@ const WORDS: { language: string; word: string; className?: string }[] = [
   { language: "chu", word: "слово" },
   { language: "arb", word: "الكلمة" },
   { language: "oge", word: "სიტყუაჲ" },
+  // No Chinese John 1:1 survives from the Tang church: 道 is the Word of the later
+  // Chinese Bibles (太初有道), a mild anachronism like the blackletter German tiles.
+  { language: "lzh", word: "道" },
   { language: "sga", word: "bríathar", className: styles.insular },
   // Spelled as the manuscripts write them: wynn in Old English, uu for w in the
   // Heliand (Old Saxon) and the Tatian (Old High German, Jn 1:1 "uuas uuort").
