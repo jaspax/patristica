@@ -42,6 +42,7 @@ SOURCE_LABELS: dict[str, str] = {
     "didache": "Didache (Ante-Nicene Fathers)",
     "dsc": "Digital Syriac Corpus",
     "evetts-hop-eng": "History of the Patriarchs of Alexandria (Evetts, Patrologia Orientalis)",
+    "moule-1930": "Jingjiao texts in English (Moule, Christians in China before the Year 1550, 1930)",
     "first1k": "First Thousand Years of Greek",
     "first1k-eng": "First Thousand Years of Greek (English translations)",
     "npnf-works": "Nicene and Post-Nicene Fathers",

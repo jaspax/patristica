@@ -57,6 +57,16 @@ it has one: PTA's `<licence @target>` URL (#366) and the `license` in each
 Coptic Scriptorium document's metadata header, the most restrictive over a
 work's documents (#382).
 
+**Public domain in the United States only.** Patristica is hosted in the United
+States, and `public_domain` means public domain there. One source is not yet
+public domain everywhere: A. C. Moule's English translations of the Jingjiao
+texts in *Christians in China before the Year 1550* (London: SPCK, 1930;
+`moule-1930`, #654) were published in 1930 and so entered the US public domain
+on 1 January 2026, but Moule died in 1957, so the book is in copyright in the
+United Kingdom (and other life-plus-70 countries) until the end of 2027. The
+owner decided on 2026-11-12 to publish it from the US. Anyone reusing these
+works outside the United States should check their own country's term.
+
 The web app's **Sources & licences** page (`/sources`) lists every collection
 with its licences, edition and source link. It is generated from the library
 index, so it stays current as the corpus changes.
