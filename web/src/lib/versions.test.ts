@@ -104,6 +104,18 @@ describe("originalIds", () => {
     expect(originalIds([eng, oge])).toEqual(new Set(["oge"]));
   });
 
+  it("ranks Literary Chinese right after Syriac, before Latin (#649)", () => {
+    const lzh = workRow({ id: "lzh", language: "lzh" });
+    const syc = workRow({ id: "syc", language: "syc" });
+    const grc = workRow({ id: "grc", language: "grc" });
+    const lat = workRow({ id: "lat", language: "lat" });
+    const eng = workRow({ id: "eng", language: "eng" });
+    expect(originalIds([lzh, syc])).toEqual(new Set(["syc"]));
+    expect(originalIds([lzh, grc])).toEqual(new Set(["grc"]));
+    expect(originalIds([lat, lzh])).toEqual(new Set(["lzh"]));
+    expect(originalIds([eng, lzh])).toEqual(new Set(["lzh"]));
+  });
+
   it("ranks Old Irish after Latin, before the other vernaculars (#544)", () => {
     const sga = workRow({ id: "sga", language: "sga" });
     const lat = workRow({ id: "lat", language: "lat" });

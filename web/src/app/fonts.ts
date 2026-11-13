@@ -15,6 +15,7 @@ import {
   Noto_Serif_Ethiopic,
   Noto_Serif_Georgian,
   Noto_Serif_Hebrew,
+  Noto_Serif_TC,
   UnifrakturMaguntia,
 } from "next/font/google";
 
@@ -87,6 +88,31 @@ const georgian = Noto_Serif_Georgian({
   subsets: ["georgian"],
   variable: "--font-georgian",
   preload: false,
+});
+
+// Literary Chinese (#228, #649): Noto Serif TC, traditional characters as the
+// sources print them. Google serves it in ~100 unicode-range slices, so a page
+// fetches only the slices its characters fall in; none is preloaded. Han
+// characters take no combining marks, so no cluster can split across slices
+// (cf. #371).
+const chinese = Noto_Serif_TC({
+  weight: "variable",
+  variable: "--font-chinese",
+  preload: false,
+});
+
+// What Noto Serif TC lacks: the Taishō's supplementary-plane variants
+// (𭨝 U+2DA1D, 𮊵 U+2E2B5, …), Ext-A characters (䫟) and the Japanese and
+// simplified forms the sources keep (将 来 浄). Cut from Jigmo (CC0 1.0, after
+// GlyphWiki; covers every CJK extension) to exactly the characters the
+// Chinese sources use: web/scripts/chinese-font.py, which lists them in
+// fonts/Jigmo-Chinese.txt. Re-run it when a Chinese source changes.
+const chineseFallback = localFont({
+  src: "./fonts/Jigmo-Chinese.woff2",
+  weight: "400",
+  variable: "--font-chinese-fallback",
+  preload: false,
+  adjustFontFallback: false,
 });
 
 // Church Slavonic (#330, #371): Monomakh is made for early Cyrillic
@@ -198,6 +224,8 @@ export const fontVariables = [
   gothic,
   arabic,
   georgian,
+  chinese,
+  chineseFallback,
   slavonic,
   slavonicFallback,
   medievalFallback,
