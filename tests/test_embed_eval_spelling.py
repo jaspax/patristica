@@ -277,3 +277,55 @@ def test_old_english_pools():
     assert pool_of("ang", "aspr/creed") is None  # a minor poem: distractor only
     assert pool_of("ang", "aelfric-ch-eng/ch1-05") is None
 
+
+
+def test_langset_groups_chinese_editions_by_their_passage_alignment(tmp_path):
+    """Literary Chinese (#663): two editions cut differently are paired by the
+    alignment store, a hit on either answers, and --all-units keeps short units."""
+    from patristica import alignment_store
+    from scripts.embed_eval.queries import load_authored
+
+    root, store = tmp_path / "normalized", tmp_path / "alignments"
+    text = "大秦景教流行中國碑頌并序粵若常然真寂先先而無元窅然靈虛後後而妙有{}"
+    short = "短句甲乙丙丁戊己庚辛壬癸"
+    works = {"wikisource-lzh/xian-stele": [text.format(i) for i in range(6)] + [short],
+             "cbeta/t2144-jingjiao-stele": [text.format(i) + "。" for i in range(6)]}
+    lines = []
+    for wid, texts in works.items():
+        lines.append(json.dumps({"path": f"{wid}.json", "work": {
+            "work_id": wid, "source_id": wid.split("/")[0], "genre": "patristic",
+            "language": "lzh"}}))
+        chunks = [{"chunk_id": f"{wid}#S.{i}", "work_id": wid, "canonical_ref": f"S.{i}",
+                   "language": "lzh", "chunk_index": i, "text": t} for i, t in enumerate(texts)]
+        (root / wid).parent.mkdir(parents=True, exist_ok=True)
+        (root / f"{wid}.json").write_text(json.dumps(chunks, ensure_ascii=False), encoding="utf-8")
+    (root / "_works.jsonl").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    ids = {w: [f"{w}#S.{i}" for i in range(len(t))] for w, t in works.items()}
+    a = alignment_store.Alignment("cbeta/t2144-jingjiao-stele", "cbeta/t2144-jingjiao-stele",
+                                  6, "x", {})
+    for w in works:
+        # the editions agree on units 0-5; unit 0 is a low-confidence group
+        group_of = list(range(6)) + ([-1] if len(ids[w]) == 7 else [])
+        a.members[w] = alignment_store.Member(w, len(group_of), "x", group_of,
+                                              {g: (3 if g == 0 else 9) for g in range(6)},
+                                              alignment_store.ids_sha(ids[w]))
+    alignment_store.save(store, a)
+
+    out = tmp_path / "eval"
+    stats = langset.build(root, "lzh", out, scripture_per_lang=0, unique_per_lang=3,
+                          distractors_per_lang=0, authored_dir=tmp_path, all_units=True,
+                          alignments_dir=store)
+    rows = {c["chunk_id"]: c for c in map(json.loads, (out / "corpus.jsonl").open())}
+    assert len(rows) == 13  # every unit, the short one (under the target minimum) too
+    assert all(t["chunk_id"].startswith("wikisource-lzh/") for t in stats["targets_list"])
+    assert rows["wikisource-lzh/xian-stele#S.0"]["translation_group_id"] is None  # flagged
+    assert rows["wikisource-lzh/xian-stele#S.6"]["translation_group_id"] is None
+    g = rows["wikisource-lzh/xian-stele#S.3"]["translation_group_id"]
+    assert g.startswith("edition:") and rows["cbeta/t2144-jingjiao-stele#S.3"][
+        "translation_group_id"] == g
+    t = "wikisource-lzh/xian-stele#S.3"
+    (tmp_path / "q.jsonl").write_text(json.dumps({
+        "query_id": f"paraphrase:{t}", "mode": "paraphrase", "text": "x", "query_lang": "eng",
+        "target_lang": "lzh", "origin": "unique", "target_chunk_id": t}) + "\n")
+    [q] = load_authored([tmp_path / "q.jsonl"], list(rows.values()))
+    assert set(q.relevant_ids) == {t, "cbeta/t2144-jingjiao-stele#S.3"}

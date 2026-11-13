@@ -720,3 +720,39 @@ def test_a_passage_missing_a_translation_is_not_judged(tmp_path: Path, monkeypat
     translate.run_quality(tmp_path, tmp_path / "auth", ["syc"], None, 1,
                           translators=("kimi", "sol"), judges=("local-opus",))
     assert sorted(calls) == ["kimi", "sol"]  # no judge call
+
+
+# --- Literary Chinese (#663) ----------------------------------------------------
+
+STELE = "大秦景教流行中國碑頌，并序。粵若常然真寂，先先而无元；窅然靈虛，後後而妙有。"
+
+
+def test_ideographic_span_is_a_run_of_characters():
+    rng = random.Random(0)
+    for _ in range(50):
+        span = queries.draw_span(STELE, rng)
+        n = sum(bool(queries.IDEOGRAPH_RE.match(ch)) for ch in span)
+        assert queries.MIN_IDEOGRAPHS <= n <= queries.MAX_IDEOGRAPHS
+        assert queries.IDEOGRAPH_RE.match(span[0]) and queries.IDEOGRAPH_RE.match(span[-1])
+        assert span in STELE
+    assert queries.draw_span("大秦景教", rng) is None
+
+
+def test_perturb_folds_chinese_variants_and_drops_punctuation():
+    # 无 → 無 (#648's variant folding), no punctuation and no spaces
+    assert queries.perturb("先先而无元；窅然靈虛", "lzh", random.Random(0)) == "先先而無元窅然靈虛"
+
+
+def test_bm25_tokenizes_ideographs_one_by_one():
+    assert retrieval.tokens("景教 流行，Deus") == ["景", "教", "流", "行", "deus"]
+    bm = retrieval.BM25(["大秦景教流行中國碑頌", "志玄安樂經", *DOCS])
+    assert bm.search(["景教流行"], 1)[0] == [0]
+
+
+def test_chinese_pools_take_targets_from_wikisource_only():
+    assert select.pool_of("lzh", "wikisource-lzh/xian-stele") == "stele"
+    assert select.pool_of("lzh", "wikisource-lzh/zunjing") == "p3847"
+    assert select.pool_of("lzh", "cbeta/t2144-jingjiao-stele") is None
+    works = [{"work_id": w, "genre": "patristic", "language": "lzh"}
+             for w in ("wikisource-lzh/xian-stele", "cbeta/t2144-jingjiao-stele")]
+    assert select.unique_works(works)["lzh"] == {"wikisource-lzh/xian-stele"}

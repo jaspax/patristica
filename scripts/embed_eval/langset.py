@@ -29,6 +29,18 @@ Works in ``WITNESS_GROUPS`` are two editions of one non-Scripture text: their
 units are grouped by canonical ref like Scripture witnesses, so a query on one
 is answered by the other, both are in the corpus, and only one is a target.
 
+Languages in ``EDITION_LANGUAGES`` have editions of one text cut at different
+places, so refs don't pair them: their units are grouped by the passage
+alignment (``data/alignments``, #199's word alignment of same-language
+editions). A query on a unit of one edition is then answered by the units of
+the other edition in its alignment group (Literary Chinese, #663: the
+Wikisource and Taishō editions of four Jingjiao texts).
+
+``--all-units`` puts every unit of the language that ``scripts.embed`` embeds
+into the corpus, short ones too, for a language whose whole corpus is smaller
+than the distractor sample (Literary Chinese: about 600 units), so the set is
+the search space a user filtering by the language has.
+
 ``--min-target-chars`` keeps short units (Old Irish glosses) out of the unique
 targets; they stay in the corpus as neighbours and distractors.
 
@@ -53,7 +65,7 @@ import logging
 from collections import Counter
 from pathlib import Path
 
-from patristica import editorial
+from patristica import alignment_store, editorial
 from patristica.embeddings import MIN_CHARS
 from patristica.textfold import fold
 from patristica.versification import to_org_ref
@@ -74,6 +86,37 @@ WITNESS_GROUPS: dict[str, str] = {
     "celt/felire-oengusso": "felire",
     "glosscorpus/felire": "felire",
 }
+
+# Languages whose same-language editions are grouped by their passage
+# alignment (``edition_groups``), with the prefix of the group ids.
+EDITION_LANGUAGES: frozenset[str] = frozenset({"lzh"})
+EDITION_PREFIX = "edition:"
+
+
+def edition_groups(chunks: list[dict],
+                   alignments_dir: Path = alignment_store.DEFAULT_DIR) -> dict[str, str]:
+    """chunk id → group id for the *chunks* (of one language) that an alignment
+    pairs with a unit of another edition among them (confident spans only).
+
+    A member whose chunk ids changed since it was aligned is left out, since its
+    spans count other units.
+    """
+    by_work: dict[str, list[str]] = {}
+    for c in chunks:
+        by_work.setdefault(c["work_id"], []).append(c["chunk_id"])
+    out: dict[str, str] = {}
+    for _, a in alignment_store.iter_store(
+            alignments_dir, lambda ids: sum(i in by_work for i in ids) >= 2):
+        members = {w: m for w, m in a.members.items() if w in by_work
+                   and m.ids == alignment_store.ids_sha(by_work[w])}
+        for g, spans in a.groups_of().items():
+            spans = {w: s for w, s in spans.items() if w in members}
+            if len(spans) < 2:
+                continue
+            for w, (start, end) in spans.items():
+                for cid in by_work[w][start:end]:
+                    out[cid] = f"{EDITION_PREFIX}{a.group}:{g}"
+    return out
 
 
 def group_id(work: dict, ref: str) -> str | None:
@@ -102,15 +145,22 @@ def _chunks(normalized_dir: Path, rec: dict) -> list[dict]:
     } for c in json.loads((normalized_dir / rec["path"]).read_text(encoding="utf-8"))]
 
 
-def load_language(normalized_dir: Path, lang: str) -> tuple[list[dict], list[dict]]:
+def load_language(normalized_dir: Path, lang: str,
+                  alignments_dir: Path = alignment_store.DEFAULT_DIR
+                  ) -> tuple[list[dict], list[dict]]:
     """``(manifest records, chunks)``: every work, and the chunks of the works in *lang*.
 
     Chunks carry the embedded text and, for Scripture, their verse's org ref as
-    ``translation_group_id``; ``raw`` is the normalized chunk.
+    ``translation_group_id`` (in ``EDITION_LANGUAGES``, their edition group);
+    ``raw`` is the normalized chunk.
     """
     recs = _manifest(normalized_dir)
     chunks = [c for r in recs if r["work"]["language"] == lang
               for c in _chunks(normalized_dir, r)]
+    if lang in EDITION_LANGUAGES:
+        groups = edition_groups(chunks, alignments_dir)
+        for c in chunks:
+            c["translation_group_id"] = c["translation_group_id"] or groups.get(c["chunk_id"])
     return recs, chunks
 
 
@@ -173,8 +223,9 @@ def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
           scripture_per_lang: int = 100, unique_per_lang: int = 100,
           distractors_per_lang: int = 2000, authored_dir: Path = DEFAULT_AUTHORED,
           folded: bool = False, subset_dir: Path | None = None,
-          min_target_chars: int = MIN_TARGET_CHARS) -> dict:
-    recs, chunks = load_language(normalized_dir, lang)
+          min_target_chars: int = MIN_TARGET_CHARS, all_units: bool = False,
+          alignments_dir: Path = alignment_store.DEFAULT_DIR) -> dict:
+    recs, chunks = load_language(normalized_dir, lang, alignments_dir)
     works = [r["work"] for r in recs]
     genre = {w["work_id"]: w["genre"] for w in works}
     metas = [ChunkMeta(c["chunk_id"], c["work_id"], c["language"], genre[c["work_id"]],
@@ -184,10 +235,14 @@ def build(normalized_dir: Path, lang: str, out_dir: Path, *, seed: int = 0,
                  scripture_per_lang=scripture_per_lang, unique_per_lang=unique_per_lang,
                  distractors_per_lang=distractors_per_lang,
                  required=authored_targets(authored_dir), min_target_chars=min_target_chars)
+    if all_units:
+        for c in chunks:
+            sel.add(c["chunk_id"], "distractor")
     # A unique target's other witnesses answer its queries too.
     by_group: dict[str, list[str]] = {}
     for c in chunks:
-        if c["translation_group_id"] and c["work_id"] in WITNESS_GROUPS:
+        if c["translation_group_id"] and (c["work_id"] in WITNESS_GROUPS
+                                          or c["translation_group_id"].startswith(EDITION_PREFIX)):
             by_group.setdefault(c["translation_group_id"], []).append(c["chunk_id"])
     group_of = {c["chunk_id"]: c["translation_group_id"] for c in chunks}
     for t in sel.targets:
@@ -257,6 +312,8 @@ def main() -> None:
     p.add_argument("--distractors-per-lang", type=int, default=2000)
     p.add_argument("--min-target-chars", type=int, default=MIN_TARGET_CHARS,
                    help="shortest unique target (default %(default)s)")
+    p.add_argument("--all-units", action="store_true",
+                   help="every unit of LANG that scripts.embed embeds is in the corpus")
     p.add_argument("--authored", type=Path, default=DEFAULT_AUTHORED)
     p.add_argument("--fold", action="store_true", help="also write the fold()-ed set")
     p.add_argument("--subset-dir", type=Path,
@@ -268,7 +325,7 @@ def main() -> None:
                   unique_per_lang=args.unique_per_lang,
                   distractors_per_lang=args.distractors_per_lang,
                   authored_dir=args.authored, folded=args.fold, subset_dir=args.subset_dir,
-                  min_target_chars=args.min_target_chars)
+                  min_target_chars=args.min_target_chars, all_units=args.all_units)
     log.info("%s", json.dumps({k: v for k, v in stats.items() if k != "targets_list"},
                               indent=1, ensure_ascii=False))
 
