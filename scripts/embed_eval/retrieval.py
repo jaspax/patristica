@@ -6,7 +6,8 @@ corpus positions of its top *k* hits. *allowed* optionally restricts each
 query to a subset of positions (the language filter a user would set).
 
 - ``BM25`` — lexical baseline over ``textfold.fold`` tokens: the text index
-  that quoted and near-verbatim search will use in production.
+  that quoted and near-verbatim search will use in production. Each
+  ideograph is a token of its own (Literary Chinese writes no spaces).
 - ``Dense`` — cosine similarity over embeddings from any ``Embedder`` (wrap
   it in ``embedders.CachedEmbedder`` to keep vectors across runs).
 - ``RRF`` — reciprocal rank fusion of several retrievers (hybrid search).
@@ -19,11 +20,12 @@ from __future__ import annotations
 import heapq
 import logging
 import math
+import re
 from collections import Counter, defaultdict
 from collections.abc import Sequence
 from typing import TYPE_CHECKING, Protocol
 
-from patristica.textfold import fold
+from patristica.textfold import IDEOGRAPHS, fold
 
 if TYPE_CHECKING:
     import numpy as np
@@ -31,6 +33,13 @@ if TYPE_CHECKING:
 log = logging.getLogger(__name__)
 
 Allowed = Sequence[frozenset[int] | None] | None
+
+_IDEOGRAPH = re.compile(f"([{IDEOGRAPHS}])")
+
+
+def tokens(text: str) -> list[str]:
+    """BM25 tokens: ``fold``-ed words, each ideograph a word of its own."""
+    return _IDEOGRAPH.sub(r" \1 ", fold(text)).split()
 
 
 class Retriever(Protocol):
@@ -57,9 +66,9 @@ class BM25:
         self.postings: dict[str, list[tuple[int, int]]] = defaultdict(list)
         self.lengths: list[int] = []
         for i, doc in enumerate(docs):
-            tokens = fold(doc).split()
-            self.lengths.append(len(tokens))
-            for term, tf in Counter(tokens).items():
+            toks = tokens(doc)
+            self.lengths.append(len(toks))
+            for term, tf in Counter(toks).items():
                 self.postings[term].append((i, tf))
         n = len(docs)
         self.avgdl = (sum(self.lengths) / n) if n else 0.0
@@ -69,7 +78,7 @@ class BM25:
 
     def scores(self, query: str) -> dict[int, float]:
         acc: dict[int, float] = defaultdict(float)
-        for term in set(fold(query).split()):
+        for term in set(tokens(query)):
             idf = self.idf.get(term)
             if idf is None:
                 continue

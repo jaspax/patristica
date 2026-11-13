@@ -135,6 +135,18 @@ UNIQUE_POOLS: dict[str, dict[str, tuple[str, ...]]] = {
         "tatian": ("rea/tatian",),
         "minor": ("rea/",),
     },
+    # Literary Chinese (#663): no Chinese Scripture; six Jingjiao texts. Four
+    # of them are also in the Taishō (``cbeta/``), a near-duplicate edition:
+    # targets come from the Wikisource edition only, and the Taishō stays in
+    # the set as the other edition of each passage (``langset.EDITION_LANGUAGES``).
+    # One pool per text, the two short P. 3847 texts (hymn, Zunjing) together.
+    "lzh": {
+        "stele": ("wikisource-lzh/xian-stele",),
+        "xuting": ("wikisource-lzh/xuting-mishisuo-jing",),
+        "zhixuan": ("wikisource-lzh/zhixuan-anle-jing",),
+        "xuanyuan": ("wikisource-lzh/xuanyuan-zhiben-jing",),
+        "p3847": ("wikisource-lzh/sanwei-mengdu-zan", "wikisource-lzh/zunjing"),
+    },
 }
 
 MIN_CHARS = 30

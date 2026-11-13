@@ -183,3 +183,27 @@ independent.
 - 134 pass and 26 corrected (7 paraphrases, mostly a misread word such as *gilári* "lodging", *gebînot* "tormented", *ríetun* "took counsel"; 19 topical queries, 18 of them as too narrow; the draft kept in `drafted_text`).
 - Paraphrase accuracy averaged 4.65 and topical relevance 4.61. Opus read 75 originals well and 5 partly.
 - Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.02.
+
+**Literary Chinese (#663).** `lzh.jsonl`: drafted by Claude on 2026-11-13
+from the Chinese text, never from an English version (Wylie's stele,
+`wikisource-en`; Moule, #661): 40 targets, each with one English paraphrase
+and one English topical query. There is no Chinese Scripture in the corpus, so
+every target is `unique`. The targets are every target of the one-language set
+`scripts.embed_eval.langset lzh --scripture-per-lang 0 --unique-per-lang 40
+--all-units` (seed 0), skipping none, 8 from each pool of
+`UNIQUE_POOLS["lzh"]`: the Xi'an stele, the *Xuting mishisuo jing*, the
+*Zhixuan anle jing*, the Luoyang pillar (*Xuanyuan zhiben jing* and its
+dedication), and the Trinity hymn with the *Zunjing*. All targets are from the
+zh.wikisource edition (`wikisource-lzh`); the Taishō edition (`cbeta`) of the
+same passage answers them too, through the passage alignment of the two
+editions. 17 targets are `medium` confidence: the *Xuting* sutra's broken
+Chinese, the lacunose pillar, and the *Zunjing*'s transliterated titles.
+
+**Review of `lzh.jsonl` (#87 method, Claude Opus 5.5 on `local-opus`, one
+pass, 2026-11-13).** The owner allowed no paid API but Voyage for this eval,
+so the reviewer is Opus on the Claude subscription (`review --reviewer
+local-opus`): the drafter's own model family, so this review is not
+independent.
+- 72 pass and 8 corrected (3 paraphrases: *Xuting* lines read too firmly, and the pillar's paradoxes 無界非聽 / 無界無力 flattened; 5 topical queries, 4 of them as too narrow; the draft kept in `drafted_text`).
+- Paraphrase accuracy averaged 4.45 and topical relevance 4.58. Opus read 34 originals well and 6 partly.
+- Rerunning retrieval on all, passing-only and corrected queries moved no cell by more than 0.03.

@@ -5,7 +5,10 @@ An exact query is a short span of the target's own text, as a scholar would
 quote it. A near-verbatim query is the same span with its orthography changed
 the way a user's typing differs from the edition: no accents, breathings,
 points or vowel marks, lowercase, no punctuation, and for Latin the usual
-spelling variants.
+spelling variants. Text in ideographs (Literary Chinese, #663) has no spaces
+between words, so its span is a run of ``MIN_IDEOGRAPHS``–``MAX_IDEOGRAPHS``
+characters, and its near-verbatim form is folded (variant characters to their
+standard forms, as a user would type them) with no punctuation.
 
 A query's relevance set is every corpus chunk in the target language that
 contains the span (compared with ``textfold.squash``), since a verse quoted
@@ -25,7 +28,8 @@ from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from patristica.textfold import squash
+from patristica.keyword import index_text
+from patristica.textfold import IDEOGRAPH_RE, squash
 
 log = logging.getLogger(__name__)
 
@@ -34,6 +38,9 @@ DEFAULT_AUTHORED = Path("data/eval_authored")
 
 MIN_WORDS = 5
 MAX_WORDS = 9
+# A span of ideographs: about as long as MIN_WORDS–MAX_WORDS words in translation.
+MIN_IDEOGRAPHS = 8
+MAX_IDEOGRAPHS = 14
 MAX_RELEVANT = 5
 ATTEMPTS = 5
 
@@ -79,8 +86,28 @@ def _strip_edges(words: list[str]) -> str:
     return text.strip("".join(ch for ch in set(text) if unicodedata.category(ch)[0] in "PS"))
 
 
+def _draw_ideographs(text: str, rng: random.Random) -> str | None:
+    """A random run of MIN_IDEOGRAPHS–MAX_IDEOGRAPHS ideographs of *text*, with the
+    punctuation between them, or None if too short."""
+    pos = [m.start() for m in IDEOGRAPH_RE.finditer(text)]
+    if len(pos) < MIN_IDEOGRAPHS:
+        return None
+    n = min(len(pos), rng.randint(MIN_IDEOGRAPHS, MAX_IDEOGRAPHS))
+    start = rng.randint(0, len(pos) - n)
+    return text[pos[start]:pos[start + n - 1] + 1]
+
+
+def is_ideographic(text: str) -> bool:
+    """Whether most of *text*'s letters are ideographs."""
+    letters = [ch for ch in text if ch.isalpha()]
+    return bool(letters) and 2 * sum(bool(IDEOGRAPH_RE.match(ch)) for ch in letters) > len(letters)
+
+
 def draw_span(text: str, rng: random.Random) -> str | None:
-    """Return a random run of MIN_WORDS–MAX_WORDS words from *text*, or None if too short."""
+    """Return a random run of MIN_WORDS–MAX_WORDS words from *text* (of ideographs,
+    for ideographic text), or None if too short."""
+    if is_ideographic(text):
+        return _draw_ideographs(text, rng)
     words = text.split()
     if len(words) < MIN_WORDS:
         return None
@@ -91,6 +118,8 @@ def draw_span(text: str, rng: random.Random) -> str | None:
 
 def perturb(span: str, language: str, rng: random.Random) -> str:
     """Return *span* as a user might type it: unmarked, lowercase, unpunctuated."""
+    if is_ideographic(span):
+        return index_text(span).strip()
     t = unicodedata.normalize("NFD", span).translate(_IN_WORD)
     t = "".join(ch for ch in t if unicodedata.category(ch) not in ("Mn", "Me", "Cf"))
     t = "".join(" " if unicodedata.category(ch)[0] in "PS" else ch for ch in t)
