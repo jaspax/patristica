@@ -33,6 +33,7 @@ describe("Church Slavonic fonts (#371)", () => {
     }
     const files = [...fontsTs.matchAll(/src: "\.\/(fonts\/[^"]+\.woff2)"/g)].map((m) => m[1]);
     expect(files).toEqual([
+      "fonts/Jigmo-Chinese.woff2",
       "fonts/Monomakh-Regular.woff2",
       "fonts/NotoSerif-Slavonic.woff2",
       "fonts/NotoSerif-Medieval.woff2",
@@ -67,6 +68,34 @@ describe("Old Georgian font (#512)", () => {
     const googleImports = /import \{([^}]*)\} from "next\/font\/google"/.exec(fontsTs)?.[1] ?? "";
     expect(googleImports).toContain("Noto_Serif_Georgian");
     expect(fontsTs).toContain('variable: "--font-georgian"');
+  });
+});
+
+describe("Literary Chinese fonts (#649)", () => {
+  it("uses Noto Serif TC, then the Jigmo subset, then the body font", () => {
+    expect(langStack("lzh")).toEqual([
+      "var(--font-chinese)",
+      "var(--font-chinese-fallback)",
+      "var(--font-body)",
+    ]);
+    const googleImports = /import \{([^}]*)\} from "next\/font\/google"/.exec(fontsTs)?.[1] ?? "";
+    expect(googleImports).toContain("Noto_Serif_TC");
+    expect(fontsTs).toMatch(/Noto_Serif_TC\(\{[^}]*variable: "--font-chinese",\s*preload: false/);
+  });
+
+  it("self-hosts the Jigmo subset with its CC0 licence and the list of its characters", () => {
+    expect(fontsTs).toMatch(
+      /src: "\.\/fonts\/Jigmo-Chinese\.woff2",\s*weight: "400",\s*variable: "--font-chinese-fallback",\s*preload: false,\s*adjustFontFallback: false/,
+    );
+    expect(readFileSync(join(dir, "fonts/Jigmo-LICENSE.txt"), "utf8")).toContain("CC0 1.0 Universal");
+    const listed = readFileSync(join(dir, "fonts/Jigmo-Chinese.txt"), "utf8");
+    // The supplementary-plane variants of the Taishō text and zh.wikisource's Ext-A characters.
+    for (const cp of ["U+2DA1D", "U+2E2B5", "U+4ADF"]) expect(listed).toContain(cp);
+  });
+
+  it("keeps Chinese in the body stack, so text without a lang attribute still renders", () => {
+    const body = /--font-body:([^;]+);/.exec(css)?.[1] ?? "";
+    expect(body).toContain("var(--font-chinese), var(--font-chinese-fallback)");
   });
 });
 

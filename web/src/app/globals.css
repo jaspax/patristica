@@ -25,7 +25,7 @@
   --font-heading: var(--font-display), var(--font-serif), Georgia, serif;
   --font-body: var(--font-serif), var(--font-hebrew), var(--font-syriac), var(--font-coptic),
     var(--font-ethiopic), var(--font-armenian), var(--font-gothic), var(--font-slavonic), var(--font-arabic),
-    var(--font-georgian), Georgia, serif;
+    var(--font-georgian), var(--font-chinese), var(--font-chinese-fallback), Georgia, serif;
   color-scheme: light;
 }
 
@@ -148,6 +148,16 @@ main {
 }
 :lang(oge) {
   font-family: var(--font-georgian), var(--font-body);
+}
+/* Literary Chinese (#649): Noto Serif TC, then the Jigmo subset for the rare
+   characters it lacks. Set horizontally. Han text breaks between any two
+   characters (word-break: normal); strict line breaking also keeps 。、」 and
+   the small marks off the start of a line. Han has no italic, so slanted
+   faces are never synthesized (the derived-verse numbers stay upright). */
+:lang(lzh) {
+  font-family: var(--font-chinese), var(--font-chinese-fallback), var(--font-body);
+  line-break: strict;
+  font-synthesis-style: none;
 }
 /* Old Irish, Old English, Old High German, Old Saxon: the body's Noto Serif
    first, then the medieval fallback for what its slices can't draw (⁊, ↄ, a
