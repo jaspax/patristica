@@ -123,8 +123,17 @@ describe("Landing", () => {
       expect(el?.className).toMatch(/fraktur/);
       expect(el?.className).not.toMatch(/insular|englisc/);
     }
-    // The grid's rows of 5 (or 3) are full only for a multiple of 15.
-    expect(tiles).toHaveLength(15);
+    // The grid's rows of 4 (or 2) are full only for a multiple of 4.
+    expect(tiles).toHaveLength(16);
+  });
+
+  it("shows 道 for Literary Chinese (#649)", () => {
+    render(<Landing />);
+    const strip = screen.getByRole("region", { name: /In the beginning was the Word/ });
+    const chinese = within(strip).getByRole("link", { name: /道/ });
+    expect(chinese.getAttribute("href")).toBe("/works?language=lzh");
+    expect(chinese.querySelector("[lang]")?.getAttribute("lang")).toBe("lzh");
+    expect(chinese.textContent).not.toContain("*");
   });
 
   it("shows the library's counts once the index loads", async () => {

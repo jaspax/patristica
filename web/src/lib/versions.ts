@@ -31,9 +31,11 @@ export function versionCounts(works: readonly WorkRow[]): Map<string, number> {
  * Languages in which a text was most likely first written, best first: used
  * only when no `translation_of` link in the group says which version is the
  * original. Hebrew first for the Old Testament, then Greek (New Testament,
- * deuterocanon and most Fathers). English is never the original.
+ * deuterocanon and most Fathers). Literary Chinese follows Syriac: the
+ * Jingjiao texts come from the Church of the East (#649). English is never
+ * the original.
  */
-export const ORIGINAL_LANGUAGE_ORDER: readonly string[] = ["hbo", "grc", "syc", "lat", "sga", "ang", "goh", "osx", "chu", "cop", "arb", "hye", "oge", "gez", "got"];
+export const ORIGINAL_LANGUAGE_ORDER: readonly string[] = ["hbo", "grc", "syc", "lzh", "lat", "sga", "ang", "goh", "osx", "chu", "cop", "arb", "hye", "oge", "gez", "got"];
 
 /**
  * The ids of the group's originals: the versions the others translate.
