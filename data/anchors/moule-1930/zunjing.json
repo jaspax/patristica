@@ -1,0 +1,17 @@
+{
+ "work_id": "moule-1930/zunjing",
+ "anchor": "wikisource-lzh/zunjing",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "3b3199ff166c419b",
+ "words": "4bd8ad4489e9022b",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 12, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 1, "one_one": 0.8462, "one_one_anchored": 0.8462, "one_one_provisional": 0.5385, "rounds": 2, "units": 14},
+ "paragraphs": {
+  "1": {"words": "cbc027d5eb016f3f", "starts": [0]},
+  "2": {"words": "009c12d97fe654b6", "starts": [0]},
+  "3": {"words": "94af63faad0c6542", "starts": [0]},
+  "4": {"words": "ff2e2c4304495ef2", "starts": [0, 45, 55]},
+  "5": {"words": "71cfa670f4d6b383", "starts": [0, 53, 68, 84, 207]},
+  "6": {"words": "d1c48daeb16ffb98", "starts": [0, 42, 95]}
+ }
+}
