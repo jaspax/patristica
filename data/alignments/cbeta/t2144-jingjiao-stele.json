@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "cbeta/t2144-jingjiao-stele",
+ "pivot": "cbeta/t2144-jingjiao-stele",
+ "groups": 69,
+ "inputs": "f763e2fcbd535a70",
+ "run": {"aligner": 2, "date": "2026-11-13", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"wikisource-lzh/xian-stele": {"head": "cbeta/t2144-jingjiao-stele", "shared": 0.8962}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
+ "members": [
+  {"work_id": "cbeta/t2144-jingjiao-stele", "units": 88, "ids": "806997f7bb600cca", "inputs": "5b55861f60f14acc", "spans": "..++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.......+..+..++....+..", "conf": "999999999999999999999999999999999999999999999999999999999999999959979"},
+  {"work_id": "wikisource-lzh/xian-stele", "units": 137, "ids": "514b3de5e57a0842", "inputs": "c1e3b0c6af4d097c", "spans": ".++++++++++++++++++++++++++++++++++++++++++++++++++++=+++++++++++..+.....+...+..+=............+..........+...............................", "conf": "999999999999999999999999999999999999999999999999999999999999999959979"}
+ ]
+}
