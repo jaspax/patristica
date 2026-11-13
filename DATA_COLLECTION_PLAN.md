@@ -190,6 +190,16 @@ Not used: the YCOE and the Dictionary of Old English Corpus (no redistribution),
 
 Latin originals already in the corpus, for `translation_of` and anchoring: Boethius, *De consolatione* (`csel/stoa0058/stoa001/opp-lat3`) for Notker's Boethius; Isidore, *De fide catholica* (`oglt-pl/isidorus-hispalensis/pl83_10_sa`) for the OHG Isidor; and, for the deferred Alfredian prose, Gregory's *Regula pastoralis* (PL 77), Augustine's *Soliloquia* (PL 32) and Orosius (CSEL).
 
+#### 3.9 Literary Chinese (#228)
+
+From the survey on #228 (2026-11-12). Language `lzh` (BCP 47 `lzh`), tradition `syriac` (the Church of the East's Tang mission, Jingjiao 景教); traditional characters stored as each source gives them. The plumbing is #648 (web: #649).
+
+| Source | Works | Format | License | Issue |
+|--------|-------|--------|---------|-------|
+| `cbeta`: CBETA's Taishō, TEI P5 (github.com/cbeta-org/xml-p5, pinned commit; cached in `data/raw/_cache/cbeta/`) | Taishō 54: T2142 序聽迷詩所經, T2143 split into the hymn 景教三威蒙度讚 and 尊經, T2144 the Xi'an stele (Jingjing, 781). T2141A/B (Manichaean) are out of scope | TEI XML | CC BY-NC-SA 4.0 (cbeta.org/copyright, checked 2026-11-12; the file header: non-commercial use with the header intact) | #651 |
+
+**CBETA (#651), `license: cc-by-nc-sa-4.0`.** One work per text (`scripts/ingest/cbeta.py`, table `TEXTS` by Taishō number, so more texts can be added). Refs are the Taishō line a unit starts on, `T{no}.p{page}{register}{line}` (`T2143.p1288b05`), with CBETA's `<p>` as the prose unit and one `<l>` (a couplet, its halves joined by an ideographic space) as the hymn's unit; the hymn is ingested as `verses`. CBETA's rare characters (`<g>`) are resolved through the header's `charDecl` (Unicode, else CBETA's normalized form); the one with no Unicode form (CB07751 in T2142) is kept as CBETA's composition and marked `note`. Inline notes are the manuscripts' small print and kept; the apparatus (the Taishō's witness notes, CBETA's corrections) is dropped, the corrected reading kept. Titles are `title`, the stele's byline `heading`, `□` `lacuna`; the stele's 1859 colophon by Han Taihua is left out.
+
 ---
 
 ### Tier 2 — Downloadable but less structured; require significant parsing
@@ -340,6 +350,7 @@ Material that an editor or the source added to a text (titles, headings, supplem
 | `oshb` | the ketiv, as a note beside the qere | [#299](https://github.com/jaspax/patristica/issues/299) |
 | `wb-glosses`, `wb-glosses-eng` | each gloss's lemma, prefixed as `Rom. 1:8 meo]`; the editors' comments `[in marg.]`; restored `(…)` and supplied `[…]` letters | marked at ingest: lemma and comments `note`, restored and supplied letters `supplement` ([#539](https://github.com/jaspax/patristica/issues/539)) |
 | `aelfric-ch`, `aelfric-ch-eng` | the rubrics and Thorpe's headings (`h3`), the inner headings (`EUANGELIUM.`), Thorpe's supplied words `[on]` | marked at ingest: `title`, `heading`, `supplement`; page numbers dropped, Thorpe's endnotes not carried ([#566](https://github.com/jaspax/patristica/issues/566)) |
+| `cbeta` | titles (`<cb:jhead>`, `<head>`), the stele's byline, `□`, the composition of a character with no Unicode form | marked at ingest: `title`, `heading`, `lacuna`, `note`; the apparatus is dropped ([#651](https://github.com/jaspax/patristica/issues/651)) |
 | `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text, not editorial: kept as verse 0 ([#300](https://github.com/jaspax/patristica/issues/300)) |
 
 ### Patrologia Graeca: columns, refs and works
