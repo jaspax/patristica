@@ -1,0 +1,16 @@
+{
+ "work_id": "mt-eng/wikisource-lzh/xuanyuan-zhiben-jing",
+ "anchor": "wikisource-lzh/xuanyuan-zhiben-jing",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "64171481c4c00609",
+ "words": "a7d548d44565952c",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 33, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 0, "one_one": 0.8857, "one_one_anchored": 0.9143, "one_one_provisional": 0.2857, "rounds": 2, "units": 36},
+ "paragraphs": {
+  "XuanyuanZhiben.1": {"words": "005a53b08a1e804d", "starts": [0]},
+  "XuanyuanZhiben.1.1": {"words": "4bee1aef58656209", "starts": [0, 64, 100, 153, 184, 238, 254, 288, 414, 436, 460, 518, 547, 617, 641, 681]},
+  "XuanyuanZhiben.1.2": {"words": "3f610cac7c6a7fe8", "starts": [0, 32, 75, 125, 159]},
+  "XuanyuanZhiben.2": {"words": "fd8d142875e6d267", "starts": [0]},
+  "XuanyuanZhiben.2.1": {"words": "34b2338ee2336aa4", "starts": [0, 46, 71, 168, 201, 225, 309, 334, 369, 415, 440, 454, 512]}
+ }
+}
