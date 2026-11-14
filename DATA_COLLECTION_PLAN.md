@@ -229,7 +229,7 @@ From the survey on #228 (2026-11-12). Language `lzh` (BCP 47 `lzh`), tradition `
 | `goarch-chrysostom` | Liturgy of St. John Chrysostom (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
 | `goarch-basil` | Liturgy of St. Basil (Greek) | Greek (`grc`) | goarch.org | HTML scrape |
 | `typikon` | Greek Typikon (selected first-millennium sections) | Greek (`grc`) | Violakis 1900 ed. via archive.org/details/typikontstou00orth | OCR plain text; date filtering required via flag_liturgical.py second pass |
-| `tertullian` | Tertullian.org corpus | English (`eng`) | tertullian.org | HTML scrape |
+| `tertullian-eng` | English translations from Roger Pearse's *Additional Fathers*: 60 works, each `translation_of` its Greek, Latin or Syriac original (Library of the Fathers, SPCK, Bohn, Hakluyt, Wright's *Apocryphal Acts*, Pearse's public-domain commissions; #347) | English (`eng`) | tertullian.org | HTML scrape (`scripts/ingest/tertullian_eng.py`, shared parser `_tertullian_org.py`), pages cached in `data/raw/_cache/tertullian-org/` |
 
 ---
 
@@ -350,6 +350,7 @@ Material that an editor or the source added to a text (titles, headings, supplem
 | `oshb` | the ketiv, as a note beside the qere | [#299](https://github.com/jaspax/patristica/issues/299) |
 | `wb-glosses`, `wb-glosses-eng` | each gloss's lemma, prefixed as `Rom. 1:8 meo]`; the editors' comments `[in marg.]`; restored `(…)` and supplied `[…]` letters | marked at ingest: lemma and comments `note`, restored and supplied letters `supplement` ([#539](https://github.com/jaspax/patristica/issues/539)) |
 | `aelfric-ch`, `aelfric-ch-eng` | the rubrics and Thorpe's headings (`h3`), the inner headings (`EUANGELIUM.`), Thorpe's supplied words `[on]` | marked at ingest: `title`, `heading`, `supplement`; page numbers dropped, Thorpe's endnotes not carried ([#566](https://github.com/jaspax/patristica/issues/566)) |
+| `tertullian-eng` | footnotes (on the page, or on a notes page), headings (`h1`–`h6`, short centred or bold lines, contents entries), translators' introductions in small type, editors' remarks on a line of their own, Archer's bracketed notes (Jerome on Daniel) | marked at ingest: footnotes in place of their markers as `note`, the rest whole-unit `heading` / `note`; page and column numbers, navigation and licence lines dropped; translators' prefaces and margin summaries not carried ([#347](https://github.com/jaspax/patristica/issues/347)) |
 | `cbeta` | titles (`<cb:jhead>`, `<head>`), the stele's byline, `□`, the composition of a character with no Unicode form | marked at ingest: `title`, `heading`, `lacuna`, `note`; the apparatus is dropped ([#651](https://github.com/jaspax/patristica/issues/651)) |
 | `asv` | Psalm titles `Ps.N.0`, Hab 3:19's closing note | text, not editorial: kept as verse 0 ([#300](https://github.com/jaspax/patristica/issues/300)) |
 

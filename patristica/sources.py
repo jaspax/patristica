@@ -56,6 +56,7 @@ SOURCE_LABELS: dict[str, str] = {
     "pta-eng": "Patristic Text Archive (English translations)",
     "pearse-arabic": "Christian Arabic texts (Roger Pearse, tertullian.org)",
     "pearse-arabic-eng": "Christian Arabic texts (Roger Pearse, tertullian.org; English translations)",
+    "tertullian-eng": "Early Church Fathers – Additional Texts (Roger Pearse, tertullian.org; English translations)",
     "titus-chronicles": "Georgian Chronicle, vol. I (Old Georgian, TITUS)",
     "titus-shatberdi": "Shatberdi Codex (Old Georgian, TITUS)",
     "titus-translations": "Old Georgian translations of the Fathers (TITUS)",
