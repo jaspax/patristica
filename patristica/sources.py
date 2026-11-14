@@ -12,6 +12,7 @@ SOURCE_LABELS: dict[str, str] = {
     # Scripture
     "armenian": "Classical Armenian Bible (Zohrab)",
     "asv": "American Standard Version",
+    "brenton-eng": "Brenton's English Septuagint",
     "ccmh-assemanianus": "Codex Assemanianus (Old Church Slavonic, CCMH)",
     "ccmh-marianus": "Codex Marianus (Old Church Slavonic, CCMH)",
     "ccmh-savvina": "Savvina kniga (Old Church Slavonic, CCMH)",
@@ -21,6 +22,7 @@ SOURCE_LABELS: dict[str, str] = {
     "demetrius-psalter": "Psalter of Demetrius (Sinai, Glagolitic)",
     "gez": "Ge'ez Bible (Ethiopian canon)",
     "kjv": "King James Version",
+    "kjv-apocrypha-eng": "King James Version Apocrypha (4 Ezra)",
     "lxx-rahlfs": "Septuagint (Rahlfs)",
     "oshb": "Open Scriptures Hebrew Bible",
     "pta-lxx": "Septuagint (Patristic Text Archive)",

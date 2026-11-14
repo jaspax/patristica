@@ -120,6 +120,8 @@ NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "c
                 "ccmh-supr", "demetrius-psalter", "torot"}
 # Machine translations (#422).
 NEW_SOURCES |= {"mt-eng"}
+# Brenton's English Septuagint and the KJV's 4 Ezra (#355).
+NEW_SOURCES |= {"brenton-eng", "kjv-apocrypha-eng"}
 # Christian Arabic (#83): Roger Pearse's tertullian.org texts (#479).
 NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
 # Christian Arabic (#83): OpenITI (#480).
