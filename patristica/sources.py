@@ -71,6 +71,7 @@ SOURCE_LABELS: dict[str, str] = {
     "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
     "aelfric-ch": "Ælfric, Catholic Homilies I (Old English; Thorpe 1844, Project Gutenberg)",
     "aelfric-ch-eng": "Ælfric, Catholic Homilies I (Thorpe's English, 1844, Project Gutenberg)",
+    "lf-moralia-eng": "Gregory the Great, Morals on the Book of Job (Library of the Fathers, 1844–50; Lectionary Central)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",
