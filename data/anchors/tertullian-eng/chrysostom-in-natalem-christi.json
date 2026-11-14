@@ -1,0 +1,16 @@
+{
+ "work_id": "tertullian-eng/chrysostom-in-natalem-christi",
+ "anchor": "ogpg/vol-056/in-natalem-christi",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "34748ca1cd2d0ee2",
+ "words": "d9ac6106dad01c96",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 82, "calibration": [0.6823, 0.1653], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9318, "one_one_anchored": 0.8182, "one_one_provisional": 0.6023, "rounds": 4, "units": 86},
+ "paragraphs": {
+  "ChrysNat.1": {"words": "aa8d29ed550ec8e4", "starts": [0]},
+  "ChrysNat.2": {"words": "135c18e762b75bfc", "starts": [0, 23, 51, 89, 124, 138, 325, 387, 408, 427, 451, 489, 524, 567, 621, 654, 685, 709, 731, 764, 781, 816, 846, 896, 922, 946, 984, 997, 1037, 1321, 1549, 1770, 1792, 1830, 1845, 1882, 1904, 1923, 1951, 1977, 2009, 2030, 2057, 2079, 2115, 2149, 2173, 2213, 2245, 2277, 2325, 2539, 2809]},
+  "ChrysNat.3": {"words": "50f99da49a824a78", "starts": [0, 2, 27, 56, 74, 105, 131, 169, 204, 228, 239, 270, 298, 352, 379, 407, 436, 452, 478, 492, 507, 525]},
+  "ChrysNat.4": {"words": "2df04c75d86f0918", "starts": [0, 218, 437, 670, 706, 720, 752, 795, 855]},
+  "ChrysNat.5": {"words": "5802e4b89da465d3", "starts": [0]}
+ }
+}

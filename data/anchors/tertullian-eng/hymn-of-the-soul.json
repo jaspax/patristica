@@ -1,0 +1,14 @@
+{
+ "work_id": "tertullian-eng/hymn-of-the-soul",
+ "anchor": "dsc/hymn-of-the-soul",
+ "method": "cd4ac1843c0db506",
+ "anchor_cuts": "4f625ad0ed42bc27",
+ "words": "ece2e8b8ac0cd803",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 48, "calibration": [0.4871, 0.2256], "converged": false, "fallback_paragraphs": 0, "one_one": 0.96, "one_one_anchored": 0.96, "one_one_provisional": 0.74, "rounds": 4, "units": 50},
+ "paragraphs": {
+  "HymnSoul.1": {"words": "4c9cb0ec7bb5572a", "starts": [0]},
+  "HymnSoul.2": {"words": "ed9e671be54110a2", "starts": [0, 27, 50, 78, 102, 123, 165, 198, 226, 255, 272, 306, 327, 362, 388, 422, 462, 477, 509, 542, 571, 610, 643, 669, 709, 738, 771, 793, 843, 874, 910, 930, 972, 994, 1037, 1049, 1075, 1107, 1145, 1181, 1217, 1246, 1258, 1296, 1323, 1357, 1376, 1403]},
+  "HymnSoul.3": {"words": "3f1856a823fb47ca", "starts": [0]}
+ }
+}

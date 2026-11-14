@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-056/contra-ludos",
+ "pivot": "tertullian-eng/chrysostom-contra-ludos",
+ "groups": 56,
+ "inputs": "93563e00c86dc914",
+ "run": {"aligner": 2, "date": "2026-11-14", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ogpg/vol-056/contra-ludos", "units": 62, "ids": "6d7f0de263392cd9", "inputs": "ef86a983013380dc", "spans": "..++++++++.++++++++++++++++.++++++++++++++++++++.++++++++++++.", "conf": "99999999999999999999999969999999999999999996999999999997"},
+  {"work_id": "tertullian-eng/chrysostom-contra-ludos", "units": 65, "ids": "9e3f0c70dbedf627", "inputs": "efee235d1cfc7e58", "spans": "..+++++++++==++++++++++++++++..+++++++++++++++++++.+=+++++++++++.", "conf": "99999999999999999999999969999999999999999996999999999997"}
+ ]
+}
