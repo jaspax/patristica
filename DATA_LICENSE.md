@@ -43,7 +43,7 @@ The corpus breaks down as follows (late October 2026, by chunks):
 | Licence | Share | Sources |
 |---|---:|---|
 | CC BY-SA 4.0 | 51% | Patrologia Latina (OGL), CSEL, First Thousand Years of Greek, most of the Patristic Text Archive, Perseus, PTA Septuagint, Ge'ez Bible, Coptic Scriptorium's Mercurius, the Old Georgian texts on Georgian Wikisource |
-| Public domain | 42% | OGPG (Migne), NPNF/ANF (CCEL), CANTUS, KJV, ASV, WEB, Clementine Vulgate, Zohrab Armenian Bible, Sahidic NT, older liturgical editions, the Christian Arabic texts on tertullian.org with their English translations (dedicated to the public domain by Roger Pearse) |
+| Public domain | 42% | OGPG (Migne), NPNF/ANF (CCEL), CANTUS, KJV, ASV, WEB, Clementine Vulgate, Zohrab Armenian Bible, Sahidic NT, older liturgical editions, the Christian Arabic texts on tertullian.org with their English translations (dedicated to the public domain by Roger Pearse), English translations from the Internet Sacred Text Archive (Charles 1917, Terry 1899) |
 | CC BY 4.0 | 5% | Digital Syriac Corpus, Open Scriptures Hebrew Bible, most of Coptic Scriptorium, parts of PTA, CCMH |
 | CC BY-NC 4.0 | 1.5% | CURSUS, PTA Peshitta |
 | CC BY-NC-SA 4.0 | 0.5% | Septuagint (Rahlfs, eliranwong; with a CCAT user declaration), four Coptic Scriptorium saints' Lives (Aphou, Longinus and Lucius, Paul of Tamma, Phib), TOROT Old Church Slavonic (Psalterium Sinaiticum, Kiev Missal, Euchologium, Chrabr), the Old Irish *Félire Óengusso* (Gloss Corpus, P. Moran), the Old Georgian texts of TITUS (#514; see "Licences stated in correspondence") |

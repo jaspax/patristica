@@ -71,6 +71,8 @@ SOURCE_LABELS: dict[str, str] = {
     "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
     "aelfric-ch": "Ælfric, Catholic Homilies I (Old English; Thorpe 1844, Project Gutenberg)",
     "aelfric-ch-eng": "Ælfric, Catholic Homilies I (Thorpe's English, 1844, Project Gutenberg)",
+    "charles-eng": "Jubilees and 1 Enoch (R. H. Charles's English, 1917, Internet Sacred Text Archive)",
+    "sacred-texts-eng": "Internet Sacred Text Archive (English translations)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",
