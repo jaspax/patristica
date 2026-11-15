@@ -12,6 +12,7 @@ SOURCE_LABELS: dict[str, str] = {
     # Scripture
     "armenian": "Classical Armenian Bible (Zohrab)",
     "asv": "American Standard Version",
+    "brenton-eng": "Brenton's English Septuagint",
     "ccmh-assemanianus": "Codex Assemanianus (Old Church Slavonic, CCMH)",
     "ccmh-marianus": "Codex Marianus (Old Church Slavonic, CCMH)",
     "ccmh-savvina": "Savvina kniga (Old Church Slavonic, CCMH)",
@@ -21,6 +22,7 @@ SOURCE_LABELS: dict[str, str] = {
     "demetrius-psalter": "Psalter of Demetrius (Sinai, Glagolitic)",
     "gez": "Ge'ez Bible (Ethiopian canon)",
     "kjv": "King James Version",
+    "kjv-apocrypha-eng": "King James Version Apocrypha (4 Ezra)",
     "lxx-rahlfs": "Septuagint (Rahlfs)",
     "oshb": "Open Scriptures Hebrew Bible",
     "pta-lxx": "Septuagint (Patristic Text Archive)",
@@ -72,6 +74,7 @@ SOURCE_LABELS: dict[str, str] = {
     "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
     "aelfric-ch": "Ælfric, Catholic Homilies I (Old English; Thorpe 1844, Project Gutenberg)",
     "aelfric-ch-eng": "Ælfric, Catholic Homilies I (Thorpe's English, 1844, Project Gutenberg)",
+    "eebo-tcp-eng": "Early English Books Online, Text Creation Partnership (English translations)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",
