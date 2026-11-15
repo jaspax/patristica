@@ -1,0 +1,21 @@
+{
+ "work_id": "tertullian-eng/chrysostom-contra-ludos",
+ "anchor": "ogpg/vol-056/contra-ludos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "659cf7f6ae1bf10a",
+ "words": "0746660d53ac1dd6",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 59, "calibration": [0.7263, 0.1376], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9516, "one_one_anchored": 0.871, "one_one_provisional": 0.8548, "rounds": 4, "units": 65},
+ "paragraphs": {
+  "ChrysLud.1": {"words": "38035568be9a85e7", "starts": [0]},
+  "ChrysLud.2": {"words": "229277c2aee8392c", "starts": [0]},
+  "ChrysLud.3": {"words": "cf1d8883a7b22985", "starts": [0, 17, 54, 78, 106, 129, 148, 194]},
+  "ChrysLud.4": {"words": "c35e08e1698b4738", "starts": [0, 210]},
+  "ChrysLud.5": {"words": "c528a0fb7d6c8345", "starts": [0, 17, 45, 74, 93, 126, 143, 162, 192, 225, 256, 268]},
+  "ChrysLud.6": {"words": "57b152056cf4a9ea", "starts": [0, 15, 56, 93, 123, 381]},
+  "ChrysLud.7": {"words": "82217be40995f019", "starts": [0, 189, 269, 297, 313, 342]},
+  "ChrysLud.8": {"words": "a2379882a797a669", "starts": [0, 30, 62, 86, 117, 137, 157, 179, 209, 245, 276, 289, 323, 337, 461]},
+  "ChrysLud.9": {"words": "e5c26df75262a2e9", "starts": [0]},
+  "ChrysLud.10": {"words": "e5cac5767136e8db", "starts": [0, 5, 29, 57, 85, 123, 150, 168, 200, 226, 265, 281, 442]}
+ }
+}

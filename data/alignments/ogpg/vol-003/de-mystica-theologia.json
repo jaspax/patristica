@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-003/de-mystica-theologia",
+ "pivot": "ogpg/vol-003/de-mystica-theologia",
+ "groups": 65,
+ "inputs": "160bf9071bb0d75f",
+ "run": {"aligner": 2, "date": "2026-11-14", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "ogpg/vol-003/de-mystica-theologia", "units": 122, "ids": "470b7053de524bc5", "inputs": "6ce66dcffd654137", "spans": "+++++++.+++++++++++++++++........+++=.....+=+.................+=+..+=....+....+=......++++++++++++++++.++++.+++++++++.+..+", "conf": "99995972486999999999999999969998999999999999999999999999999999889"},
+  {"work_id": "tertullian-eng/dionysius-mystical-theology", "units": 83, "ids": "f6ba0a8cae269ca3", "inputs": "e7064b2abc95beb5", "spans": "....+++++.++++++.++++++++++++++++...+++++=++...++++++++++++++++...++++..+++++++++++", "conf": "99995972486999999999999999969998999999999999999999999999999999889"}
+ ]
+}
