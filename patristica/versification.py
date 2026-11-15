@@ -58,6 +58,9 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     "coptic-nt": "lxx",
     "demetrius-psalter": "lxx",  # Church Slavonic Psalter; the edition numbers by Rahlfs (149/151 psalms)
     "gez": "lxx",            # weak fit overall; see overrides
+    # Charles's English Jubilees and 1 Enoch (#353): no scheme numbers these books, so
+    # their refs map as the Ge'ez works' do (unchanged); Charles's numbering is the Ge'ez one.
+    "charles-eng": "lxx",
     "torot": "lxx",          # Psalterium Sinaiticum: lxx 138/150 psalms (vul 129); the rest are lacunae
     # Old Georgian from TITUS (#515). New Testament: last verses match NA's
     # (org) chapter by chapter (3 John has 15 verses, as NA); the Apocalypse

@@ -135,6 +135,8 @@ NEW_SOURCES |= {"evetts-hop-eng"}   # #481
 NEW_SOURCES |= {"wb-glosses", "wb-glosses-eng"}
 # Old English (#223): Ælfric's Catholic Homilies I and Thorpe's English (#566).
 NEW_SOURCES |= {"aelfric-ch", "aelfric-ch-eng"}
+# English translations, wave 3 (#341): the Internet Sacred Text Archive (#353).
+NEW_SOURCES |= {"charles-eng", "sacred-texts-eng"}
 # Old Georgian (#222): TITUS codices, liturgy, translations, chronicles (#517).
 NEW_SOURCES |= {"titus-chronicles", "titus-liturgy", "titus-shatberdi", "titus-translations"}
 # Literary Chinese (#228): CBETA's Taishō (#651).
