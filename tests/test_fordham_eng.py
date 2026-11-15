@@ -191,7 +191,7 @@ def test_parse_isidore_needs_footnote_text() -> None:
 
 def test_works_link_their_originals() -> None:
     works = {t.slug: f._work(t) for t in f.TEXTS}
-    assert all(isinstance(w, Work) and w.language == "eng" and w.license == "public_domain"
+    assert all(isinstance(w, Work) and w.language == "eng" and w.license == "academic-noncommercial"
                for w in works.values())
     assert works["mark-the-deacon-life-of-porphyry"].translation_of == "first1k/tlg2806/tlg001/1st1K-grc1"
     assert works["gregory-of-tours-history-of-the-franks"].translation_of == \

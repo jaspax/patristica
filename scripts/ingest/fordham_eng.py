@@ -4,7 +4,7 @@ Sourcebook* (Fordham University, sourcebooks.fordham.edu; #352).
 
 Output: ``data/raw/fordham-eng/{slug}.json``
 Language: eng  Genre: patristic (overrides in genre_overrides.csv)
-License: public_domain (the printed translations, US public domain)
+License: academic-noncommercial (the transcriptions' non-commercial terms, #696)
 
 Three works, each an English translation linked to its original
 (``translation_of``):
@@ -53,8 +53,10 @@ Licence: the pages' footers say the Sourcebook is "a collection of public
 domain and copy-permitted texts" and claim copyright in "the specific
 electronic form" (non-commercial permission); the PDF claims the same for
 Badke's digital edition.  The translations (1912, 1913, 1916) are public
-domain in the US, and a faithful transcription adds no copyright of its own;
-the transcribers' own additions are not ingested (above).
+domain in the US, and the transcribers' own additions are not ingested
+(above), but to be on the safe side the works follow the transcriptions'
+terms: ``academic-noncommercial``, the source's own terms (owner's decision,
+#696).
 """
 
 from __future__ import annotations
@@ -747,7 +749,7 @@ def _work(text: Text) -> Work:
         genre="patristic",
         language="eng",
         tradition=text.tradition,
-        license="public_domain",
+        license="academic-noncommercial",
         provenance_url=text_url(text),
         edition=text.edition,
         translation_of=text.translation_of,
