@@ -12,6 +12,7 @@ SOURCE_LABELS: dict[str, str] = {
     # Scripture
     "armenian": "Classical Armenian Bible (Zohrab)",
     "asv": "American Standard Version",
+    "brenton-eng": "Brenton's English Septuagint",
     "ccmh-assemanianus": "Codex Assemanianus (Old Church Slavonic, CCMH)",
     "ccmh-marianus": "Codex Marianus (Old Church Slavonic, CCMH)",
     "ccmh-savvina": "Savvina kniga (Old Church Slavonic, CCMH)",
@@ -21,6 +22,7 @@ SOURCE_LABELS: dict[str, str] = {
     "demetrius-psalter": "Psalter of Demetrius (Sinai, Glagolitic)",
     "gez": "Ge'ez Bible (Ethiopian canon)",
     "kjv": "King James Version",
+    "kjv-apocrypha-eng": "King James Version Apocrypha (4 Ezra)",
     "lxx-rahlfs": "Septuagint (Rahlfs)",
     "oshb": "Open Scriptures Hebrew Bible",
     "pta-lxx": "Septuagint (Patristic Text Archive)",
@@ -56,6 +58,7 @@ SOURCE_LABELS: dict[str, str] = {
     "pta-eng": "Patristic Text Archive (English translations)",
     "pearse-arabic": "Christian Arabic texts (Roger Pearse, tertullian.org)",
     "pearse-arabic-eng": "Christian Arabic texts (Roger Pearse, tertullian.org; English translations)",
+    "tertullian-eng": "Early Church Fathers – Additional Texts (Roger Pearse, tertullian.org; English translations)",
     "titus-chronicles": "Georgian Chronicle, vol. I (Old Georgian, TITUS)",
     "titus-shatberdi": "Shatberdi Codex (Old Georgian, TITUS)",
     "titus-translations": "Old Georgian translations of the Fathers (TITUS)",
@@ -71,6 +74,9 @@ SOURCE_LABELS: dict[str, str] = {
     "wb-glosses-eng": "Würzburg Glosses on Paul (Stokes and Strachan's English, Thesaurus Palaeohibernicus)",
     "aelfric-ch": "Ælfric, Catholic Homilies I (Old English; Thorpe 1844, Project Gutenberg)",
     "aelfric-ch-eng": "Ælfric, Catholic Homilies I (Thorpe's English, 1844, Project Gutenberg)",
+    "charles-eng": "Jubilees and 1 Enoch (R. H. Charles's English, 1917, Internet Sacred Text Archive)",
+    "sacred-texts-eng": "Internet Sacred Text Archive (English translations)",
+    "eebo-tcp-eng": "Early English Books Online, Text Creation Partnership (English translations)",
     "gutenberg-eng": "English translations (Project Gutenberg)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",

@@ -1,0 +1,32 @@
+{
+ "work_id": "tertullian-eng/severian-in-cosmogoniam-1",
+ "anchor": "pta/pta0001/pta057/pta-grc1",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "cc18699637b50ee6",
+ "words": "ef07ecaa7fbf5c5c",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 194, "calibration": [0.6682, 0.1634], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9897, "one_one_anchored": 0.9744, "one_one_provisional": 0.7641, "rounds": 4, "units": 200},
+ "paragraphs": {
+  "SevGen.1": {"words": "c3d80637d1b91d06", "starts": [0]},
+  "SevGen.2": {"words": "292e836452b4a8f7", "starts": [0]},
+  "SevGen.3": {"words": "857dc35b869d186f", "starts": [0]},
+  "SevGen.4": {"words": "e36794766694acf6", "starts": [0, 40, 60, 83, 104, 129, 158, 198, 228, 258, 286, 311, 344, 385, 409, 446]},
+  "SevGen.5": {"words": "fc968c3ad7eb682e", "starts": [0, 30, 57, 85, 114, 125, 165, 207, 218, 245, 265, 281, 300, 325, 350, 370, 388, 414, 428]},
+  "SevGen.6": {"words": "bbfc16d10d50e099", "starts": [0, 37, 54, 89, 123, 141, 171, 206, 218, 255, 278, 297, 339]},
+  "SevGen.7": {"words": "994ad5f7bd34b1d4", "starts": [0, 21, 50, 72, 97, 139, 151, 187, 223, 253, 290, 318, 348, 362]},
+  "SevGen.8": {"words": "ff96f03272f4edd0", "starts": [0, 50, 81, 114, 139, 169, 202, 228, 252, 282, 309, 346]},
+  "SevGen.9": {"words": "82b195b652110de4", "starts": [0, 16, 39, 64]},
+  "SevGen.10": {"words": "5d6d34a9de8f2713", "starts": [0, 26, 48, 121, 157, 176, 207, 253, 277, 308, 326, 351, 373, 398, 422, 446, 482]},
+  "SevGen.11": {"words": "56f0a4314fc74d95", "starts": [0, 11, 54, 78, 94, 139, 163, 185, 196, 234, 277, 280, 311, 332, 359, 374, 400]},
+  "SevGen.12": {"words": "f8435fff925d56bc", "starts": [0, 25, 54, 86, 115, 136, 169, 185, 210, 223, 248, 272, 297, 337]},
+  "SevGen.13": {"words": "ab59d985bc5ff4ec", "starts": [0, 28, 58, 89, 111, 145, 165]},
+  "SevGen.14": {"words": "1c8ecf5ff59df676", "starts": [0, 10, 46, 60, 88, 130, 152, 179, 230]},
+  "SevGen.15": {"words": "905dbd3c0bc64e52", "starts": [0, 40, 69, 80, 98, 130, 173, 221, 250, 278, 297]},
+  "SevGen.16": {"words": "9cc58062cc906645", "starts": [0, 7, 31, 43, 73]},
+  "SevGen.17": {"words": "5ddc1d9a1355c2e6", "starts": [0, 25, 48, 68, 111, 135]},
+  "SevGen.18": {"words": "8ac797491493947b", "starts": [0, 35, 60, 94, 132, 154, 185, 203, 225]},
+  "SevGen.19": {"words": "158a44d83552bf23", "starts": [0, 39, 61, 88, 116, 135, 186, 236, 242, 264]},
+  "SevGen.20": {"words": "d6ce9613e4a6ca89", "starts": [0, 33, 48, 91, 103, 118, 149, 184, 213, 241, 266, 292]},
+  "SevGen.21": {"words": "71375075c0f70bc0", "starts": [0, 21]}
+ }
+}

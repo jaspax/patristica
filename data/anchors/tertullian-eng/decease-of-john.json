@@ -1,0 +1,23 @@
+{
+ "work_id": "tertullian-eng/decease-of-john",
+ "anchor": "dsc/decease-of-john",
+ "method": "cd4ac1843c0db506",
+ "anchor_cuts": "f48239f1e09cc559",
+ "words": "1b370324c324ec57",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 67, "calibration": [0.5055, 0.218], "converged": false, "fallback_paragraphs": 0, "one_one": 0.942, "one_one_anchored": 0.9565, "one_one_provisional": 0.7536, "rounds": 4, "units": 69},
+ "paragraphs": {
+  "DecJohn.1": {"words": "58418a245470f361", "starts": [0]},
+  "DecJohn.2": {"words": "ca219978923ce68c", "starts": [0]},
+  "DecJohn.3": {"words": "7946d93adad639b4", "starts": [0]},
+  "DecJohn.4": {"words": "a5658c342b7f0e8b", "starts": [0, 17, 31, 55, 82, 110, 130, 148, 159, 180, 188, 205, 238, 262, 300, 315, 333, 346]},
+  "DecJohn.5": {"words": "01e46ffd8a5b4e0b", "starts": [0, 23, 42, 69]},
+  "DecJohn.6": {"words": "a416d4200ba87135", "starts": [0, 10, 45, 64, 90, 137]},
+  "DecJohn.7": {"words": "887249f05aeb6503", "starts": [0, 37]},
+  "DecJohn.8": {"words": "e19d94fbd398a52d", "starts": [0]},
+  "DecJohn.9": {"words": "a33bb3f3f5df3a0a", "starts": [0, 25, 45, 67, 88]},
+  "DecJohn.10": {"words": "63cc5487d33faf5e", "starts": [0, 36, 50, 75, 99, 129, 152, 178, 201, 230, 258, 283, 311, 328, 342, 378, 410, 441, 471, 500, 521, 547, 580, 601, 631, 656, 701]},
+  "DecJohn.11": {"words": "85a16c6f4ebe8a9e", "starts": [0, 25]},
+  "DecJohn.12": {"words": "ad2a5ea07d5eff11", "starts": [0]}
+ }
+}
