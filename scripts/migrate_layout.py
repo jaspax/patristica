@@ -161,6 +161,7 @@ NEW_SOURCES |= {"wikisource-lzh"}   # Literary Chinese (#228): Jingjiao texts on
 NEW_SOURCES |= {"moule-1930"}   # Literary Chinese (#228): Moule's English Jingjiao texts, #654
 NEW_SOURCES |= {"wikisource-en"}   # Literary Chinese (#228): Wylie's English of the Xi'an stele, #653
 NEW_SOURCES |= {"eebo-tcp-eng"}   # English translations in EEBO-TCP (#354): Wither's Nemesius
+NEW_SOURCES |= {"lf-moralia-eng"}   # English translations (#341): Library of the Fathers Moralia, #348
 
 # Old directory (relative to data/raw or data/normalized) → new directory.
 # Every source id is its own directory, except Patrologia Latina's, which was

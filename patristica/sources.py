@@ -78,6 +78,7 @@ SOURCE_LABELS: dict[str, str] = {
     "sacred-texts-eng": "Internet Sacred Text Archive (English translations)",
     "eebo-tcp-eng": "Early English Books Online, Text Creation Partnership (English translations)",
     "gutenberg-eng": "English translations (Project Gutenberg)",
+    "lf-moralia-eng": "Gregory the Great, Morals on the Book of Job (Library of the Fathers, 1844–50; Lectionary Central)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",
