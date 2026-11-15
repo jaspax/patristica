@@ -286,10 +286,11 @@
    ]
   },
   "book:1chr": {
-   "keys": "daee25c8a521be11",
+   "keys": "331c6a35c305928b",
    "members": [
     "armenian/1chr",
     "asv/1chr",
+    "brenton-eng/1chr",
     "clementine/1chr",
     "kjv/1chr",
     "lxx-rahlfs/1chr",
@@ -325,9 +326,10 @@
    ]
   },
   "book:1esd": {
-   "keys": "d2589a1562c43b70",
+   "keys": "f33fcb4787205735",
    "members": [
     "armenian/1esd",
+    "brenton-eng/1esd",
     "gez/1esd",
     "pta-lxx/1esr",
     "pta-peshitta/3esr",
@@ -353,10 +355,11 @@
    ]
   },
   "book:1kgs": {
-   "keys": "67aa115a9d3d769d",
+   "keys": "a4c9283e3d09b7bd",
    "members": [
     "armenian/1kgs",
     "asv/1kgs",
+    "brenton-eng/1kgs",
     "clementine/1kgs",
     "coptic-nt/1kgs",
     "kjv/1kgs",
@@ -368,9 +371,10 @@
    ]
   },
   "book:1macc": {
-   "keys": "07fa001c3e2c40ca",
+   "keys": "c1ed6640dd068d54",
    "members": [
     "armenian/1macc",
+    "brenton-eng/1macc",
     "clementine/1macc",
     "pta-lxx/1macc",
     "pta-peshitta/1macc"
@@ -395,10 +399,11 @@
    ]
   },
   "book:1sam": {
-   "keys": "47993c2a9ed3b586",
+   "keys": "96a40a3c94a83bde",
    "members": [
     "armenian/1sam",
     "asv/1sam",
+    "brenton-eng/1sam",
     "clementine/1sam",
     "coptic-nt/1sam",
     "kjv/1sam",
@@ -444,10 +449,11 @@
    ]
   },
   "book:2chr": {
-   "keys": "50620134d0bcbdce",
+   "keys": "6c5c2894c6c8f3e7",
    "members": [
     "armenian/2chr",
     "asv/2chr",
+    "brenton-eng/2chr",
     "clementine/2chr",
     "kjv/2chr",
     "lxx-rahlfs/2chr",
@@ -493,10 +499,11 @@
    ]
   },
   "book:2kgs": {
-   "keys": "ceed7c2ca082b0a9",
+   "keys": "cfaa6910d3ab333c",
    "members": [
     "armenian/2kgs",
     "asv/2kgs",
+    "brenton-eng/2kgs",
     "clementine/2kgs",
     "coptic-nt/2kgs",
     "gez/2kgs",
@@ -509,9 +516,10 @@
    ]
   },
   "book:2macc": {
-   "keys": "09fc33ca2e49bab7",
+   "keys": "65373ca3c210176d",
    "members": [
     "armenian/2macc",
+    "brenton-eng/2macc",
     "clementine/2macc",
     "coptic-nt/2macc",
     "pta-lxx/2macc",
@@ -537,10 +545,11 @@
    ]
   },
   "book:2sam": {
-   "keys": "8f4388665e2ac4fb",
+   "keys": "a1dd9e2888f5f036",
    "members": [
     "armenian/2sam",
     "asv/2sam",
+    "brenton-eng/2sam",
     "clementine/2sam",
     "coptic-nt/2sam",
     "kjv/2sam",
@@ -604,24 +613,27 @@
    ]
   },
   "book:3macc": {
-   "keys": "d6190527108eb506",
+   "keys": "4a4ae20edb41eac9",
    "members": [
     "armenian/3macc",
+    "brenton-eng/3macc",
     "pta-lxx/3macc",
     "pta-peshitta/3macc"
    ]
   },
   "book:4esr": {
-   "keys": "d332c26c02cc99ec",
+   "keys": "09c36553098b893d",
    "members": [
     "gez/4esr",
+    "kjv-apocrypha-eng/4esr",
     "pta-peshitta/4esr",
     "titus-oshki/4esr"
    ]
   },
   "book:4macc": {
-   "keys": "b7db99b6de2e1bcd",
+   "keys": "c3e784d820305e3f",
    "members": [
+    "brenton-eng/4macc",
     "pta-lxx/4macc",
     "pta-peshitta/4macc"
    ]
@@ -643,10 +655,11 @@
    ]
   },
   "book:amos": {
-   "keys": "916aade1048285f1",
+   "keys": "a262144fc619d3fe",
    "members": [
     "armenian/amos",
     "asv/amos",
+    "brenton-eng/amos",
     "clementine/amos",
     "coptic-nt/amos",
     "kjv/amos",
@@ -659,9 +672,10 @@
    ]
   },
   "book:bar": {
-   "keys": "4e5706fc59b91ddb",
+   "keys": "f09ddba53cf62ec1",
    "members": [
     "armenian/bar",
+    "brenton-eng/bar",
     "clementine/bar",
     "coptic-nt/bar",
     "lxx-rahlfs/bar",
@@ -671,8 +685,9 @@
    ]
   },
   "book:beldr": {
-   "keys": "16100b04b5cd50c3",
+   "keys": "03995002cefd504a",
    "members": [
+    "brenton-eng/beldr",
     "pta-lxx/beldr",
     "pta-lxx/beldrthdt",
     "pta-peshitta/beldr",
@@ -704,10 +719,11 @@
    ]
   },
   "book:dan": {
-   "keys": "4c5d01d0a10ad4a1",
+   "keys": "37af756d3bbdfc4d",
    "members": [
     "armenian/dan",
     "asv/dan",
+    "brenton-eng/dan",
     "clementine/dan",
     "coptic-nt/dan",
     "kjv/dan",
@@ -721,10 +737,11 @@
    ]
   },
   "book:deut": {
-   "keys": "e26abee179a79bf1",
+   "keys": "3f9ef6691ce4c8da",
    "members": [
     "armenian/deut",
     "asv/deut",
+    "brenton-eng/deut",
     "clementine/deut",
     "coptic-nt/deut",
     "gez/deut",
@@ -737,10 +754,11 @@
    ]
   },
   "book:eccl": {
-   "keys": "be74e7ee9bf62b9d",
+   "keys": "495f8671d59de055",
    "members": [
     "armenian/eccl",
     "asv/eccl",
+    "brenton-eng/eccl",
     "clementine/eccl",
     "coptic-nt/eccl",
     "gez/eccl",
@@ -770,8 +788,9 @@
    ]
   },
   "book:epjer": {
-   "keys": "387327325b734d13",
+   "keys": "5db2075d8fafccbf",
    "members": [
+    "brenton-eng/epjer",
     "coptic-nt/epjer",
     "pta-lxx/epjer",
     "pta-peshitta/epjer",
@@ -779,10 +798,11 @@
    ]
   },
   "book:esth": {
-   "keys": "bea1065f752c0f78",
+   "keys": "255f8ab4aca7d88a",
    "members": [
     "armenian/esth",
     "asv/esth",
+    "brenton-eng/esth",
     "clementine/esth",
     "kjv/esth",
     "lxx-rahlfs/esth",
@@ -801,10 +821,11 @@
    ]
   },
   "book:exod": {
-   "keys": "d5b666167d469488",
+   "keys": "0992be5bb932faf5",
    "members": [
     "armenian/exod",
     "asv/exod",
+    "brenton-eng/exod",
     "clementine/exod",
     "coptic-nt/exod",
     "gez/exod",
@@ -818,10 +839,11 @@
    ]
   },
   "book:ezek": {
-   "keys": "61fc575ecfe882d1",
+   "keys": "ea2bb080c5e0bbc0",
    "members": [
     "armenian/ezek",
     "asv/ezek",
+    "brenton-eng/ezek",
     "clementine/ezek",
     "coptic-nt/ezek",
     "kjv/ezek",
@@ -847,6 +869,13 @@
     "web/ezra"
    ]
   },
+  "book:ezraneh": {
+   "keys": "5668944a211f93de",
+   "members": [
+    "brenton-eng/ezraneh",
+    "pta-lxx/ezraneh"
+   ]
+  },
   "book:gal": {
    "keys": "1f595b0bb2dcccf0",
    "members": [
@@ -865,10 +894,11 @@
    ]
   },
   "book:gen": {
-   "keys": "6428b6ab1b8532e9",
+   "keys": "fb1c9bb0c0e91366",
    "members": [
     "armenian/gen",
     "asv/gen",
+    "brenton-eng/gen",
     "clementine/gen",
     "coptic-nt/gen",
     "gez/gen",
@@ -882,10 +912,11 @@
    ]
   },
   "book:hab": {
-   "keys": "ecc9a9b1e4ae8b07",
+   "keys": "1490f04f57a261bb",
    "members": [
     "armenian/hab",
     "asv/hab",
+    "brenton-eng/hab",
     "clementine/hab",
     "coptic-nt/hab",
     "kjv/hab",
@@ -898,10 +929,11 @@
    ]
   },
   "book:hag": {
-   "keys": "e21d2bcd45dda072",
+   "keys": "3762e979e093f0e2",
    "members": [
     "armenian/hag",
     "asv/hag",
+    "brenton-eng/hag",
     "clementine/hag",
     "coptic-nt/hag",
     "kjv/hag",
@@ -930,10 +962,11 @@
    ]
   },
   "book:hos": {
-   "keys": "80dc05e5445c2def",
+   "keys": "ed67bb1a3926d5e5",
    "members": [
     "armenian/hos",
     "asv/hos",
+    "brenton-eng/hos",
     "clementine/hos",
     "coptic-nt/hos",
     "kjv/hos",
@@ -946,10 +979,11 @@
    ]
   },
   "book:isa": {
-   "keys": "bb8925797c076133",
+   "keys": "69168822b26bd51e",
    "members": [
     "armenian/isa",
     "asv/isa",
+    "brenton-eng/isa",
     "clementine/isa",
     "coptic-nt/isa",
     "gez/isa",
@@ -981,9 +1015,10 @@
    ]
   },
   "book:jdt": {
-   "keys": "3675aa3d787a7b48",
+   "keys": "fb453fa3e2990bbd",
    "members": [
     "armenian/jdt",
+    "brenton-eng/jdt",
     "clementine/jdt",
     "coptic-nt/jdt",
     "gez/jdt",
@@ -994,10 +1029,11 @@
    ]
   },
   "book:jer": {
-   "keys": "56039eda537fb3b2",
+   "keys": "c4e17913f426b24e",
    "members": [
     "armenian/jer",
     "asv/jer",
+    "brenton-eng/jer",
     "clementine/jer",
     "coptic-nt/jer",
     "kjv/jer",
@@ -1010,10 +1046,11 @@
    ]
   },
   "book:job": {
-   "keys": "c45987e6b82fb5e8",
+   "keys": "5467830082b38675",
    "members": [
     "armenian/job",
     "asv/job",
+    "brenton-eng/job",
     "clementine/job",
     "coptic-nt/job",
     "gez/job",
@@ -1027,10 +1064,11 @@
    ]
   },
   "book:joel": {
-   "keys": "6dbfbc2ac522982f",
+   "keys": "e22aec208a9f18ad",
    "members": [
     "armenian/joel",
     "asv/joel",
+    "brenton-eng/joel",
     "clementine/joel",
     "coptic-nt/joel",
     "gez/joel",
@@ -1067,10 +1105,11 @@
    ]
   },
   "book:jonah": {
-   "keys": "21c889282d9a7d2c",
+   "keys": "501d7a940cf15262",
    "members": [
     "armenian/jonah",
     "asv/jonah",
+    "brenton-eng/jonah",
     "clementine/jonah",
     "coptic-nt/jonah",
     "gez/jonah",
@@ -1084,10 +1123,11 @@
    ]
   },
   "book:josh": {
-   "keys": "124399c6b9f6455e",
+   "keys": "02ec4932f40e8af3",
    "members": [
     "armenian/josh",
     "asv/josh",
+    "brenton-eng/josh",
     "clementine/josh",
     "coptic-nt/josh",
     "gez/josh",
@@ -1116,10 +1156,11 @@
    ]
   },
   "book:judg": {
-   "keys": "2e0b2032f3f4b733",
+   "keys": "6e44c26083cd1963",
    "members": [
     "armenian/judg",
     "asv/judg",
+    "brenton-eng/judg",
     "clementine/judg",
     "coptic-nt/judg",
     "gez/judg",
@@ -1140,10 +1181,11 @@
    ]
   },
   "book:lam": {
-   "keys": "2ac651e2537e083a",
+   "keys": "a4d574953a6eaaaa",
    "members": [
     "armenian/lam",
     "asv/lam",
+    "brenton-eng/lam",
     "clementine/lam",
     "coptic-nt/lam",
     "gez/lam",
@@ -1164,10 +1206,11 @@
    ]
   },
   "book:lev": {
-   "keys": "89468552b6590b6d",
+   "keys": "42c4b49841f391ae",
    "members": [
     "armenian/lev",
     "asv/lev",
+    "brenton-eng/lev",
     "clementine/lev",
     "coptic-nt/lev",
     "gez/lev",
@@ -1204,10 +1247,11 @@
    ]
   },
   "book:mal": {
-   "keys": "346e75da39430d99",
+   "keys": "ee0eea7bf7f14d45",
    "members": [
     "armenian/mal",
     "asv/mal",
+    "brenton-eng/mal",
     "clementine/mal",
     "kjv/mal",
     "lxx-rahlfs/mal",
@@ -1265,10 +1309,11 @@
    ]
   },
   "book:mic": {
-   "keys": "9a46a4fe573a5412",
+   "keys": "7f487a562607e5f8",
    "members": [
     "armenian/mic",
     "asv/mic",
+    "brenton-eng/mic",
     "clementine/mic",
     "coptic-nt/mic",
     "kjv/mic",
@@ -1288,10 +1333,11 @@
    ]
   },
   "book:nah": {
-   "keys": "590e3c3269175244",
+   "keys": "7a9b14afe4bf1f84",
    "members": [
     "armenian/nah",
     "asv/nah",
+    "brenton-eng/nah",
     "clementine/nah",
     "coptic-nt/nah",
     "kjv/nah",
@@ -1318,10 +1364,11 @@
    ]
   },
   "book:num": {
-   "keys": "6895f66c1fab5914",
+   "keys": "2ef336e429544ffa",
    "members": [
     "armenian/num",
     "asv/num",
+    "brenton-eng/num",
     "clementine/num",
     "coptic-nt/num",
     "gez/num",
@@ -1334,10 +1381,11 @@
    ]
   },
   "book:obad": {
-   "keys": "ff50d43c3fcd86fe",
+   "keys": "904e56eefdee3efd",
    "members": [
     "armenian/obad",
     "asv/obad",
+    "brenton-eng/obad",
     "clementine/obad",
     "coptic-nt/obad",
     "kjv/obad",
@@ -1391,11 +1439,19 @@
     "wulfila/phlm"
    ]
   },
+  "book:prman": {
+   "keys": "fa83d0012a649a10",
+   "members": [
+    "brenton-eng/prman",
+    "pta-peshitta/prman"
+   ]
+  },
   "book:prov": {
-   "keys": "efa52fcb85580b56",
+   "keys": "1725f8390bc16108",
    "members": [
     "armenian/prov",
     "asv/prov",
+    "brenton-eng/prov",
     "clementine/prov",
     "coptic-nt/prov",
     "gez/prov",
@@ -1409,10 +1465,11 @@
    ]
   },
   "book:ps": {
-   "keys": "5dcb402ffd9156ca",
+   "keys": "6cc6aee1712f7cc0",
    "members": [
     "armenian/ps",
     "asv/ps",
+    "brenton-eng/ps",
     "clementine/ps",
     "coptic-nt/ps",
     "demetrius-psalter/ps",
@@ -1467,10 +1524,11 @@
    ]
   },
   "book:ruth": {
-   "keys": "2ccc1b9a03be57d0",
+   "keys": "fbbe02ab16cbd3ff",
    "members": [
     "armenian/ruth",
     "asv/ruth",
+    "brenton-eng/ruth",
     "clementine/ruth",
     "coptic-nt/ruth",
     "gez/ruth",
@@ -1491,9 +1549,10 @@
    ]
   },
   "book:sir": {
-   "keys": "96cef29756c51ed1",
+   "keys": "e11c346c5d008a46",
    "members": [
     "armenian/sir",
+    "brenton-eng/sir",
     "clementine/sir",
     "coptic-nt/sir",
     "gez/sir",
@@ -1504,10 +1563,11 @@
    ]
   },
   "book:song": {
-   "keys": "ff5bf9479e2da5f4",
+   "keys": "6501f1182c7f0d90",
    "members": [
     "armenian/song",
     "asv/song",
+    "brenton-eng/song",
     "clementine/song",
     "coptic-nt/song",
     "gez/song",
@@ -1520,8 +1580,9 @@
    ]
   },
   "book:sus": {
-   "keys": "e0d643131af941f7",
+   "keys": "70981e866d700b55",
    "members": [
+    "brenton-eng/sus",
     "pta-lxx/sus",
     "pta-lxx/susthdt",
     "pta-peshitta/sus",
@@ -1553,9 +1614,10 @@
    ]
   },
   "book:tob": {
-   "keys": "20e102339b38ed89",
+   "keys": "68e2c57cc37f2292",
    "members": [
     "armenian/tob",
+    "brenton-eng/tob",
     "clementine/tob",
     "coptic-nt/tob",
     "gez/tob",
@@ -1566,9 +1628,10 @@
    ]
   },
   "book:wis": {
-   "keys": "4de776b6041188e6",
+   "keys": "2c7b2bb91cd123dd",
    "members": [
     "armenian/wis",
+    "brenton-eng/wis",
     "clementine/wis",
     "gez/wis",
     "lxx-rahlfs/wis",
@@ -1578,10 +1641,11 @@
    ]
   },
   "book:zech": {
-   "keys": "b2bf4c20ecd6cd20",
+   "keys": "4f724b507ac378f9",
    "members": [
     "armenian/zech",
     "asv/zech",
+    "brenton-eng/zech",
     "clementine/zech",
     "coptic-nt/zech",
     "kjv/zech",
@@ -1594,10 +1658,11 @@
    ]
   },
   "book:zeph": {
-   "keys": "37cd7b5e6ec36e0f",
+   "keys": "2bcef92067e85894",
    "members": [
     "armenian/zeph",
     "asv/zeph",
+    "brenton-eng/zeph",
     "clementine/zeph",
     "coptic-nt/zeph",
     "kjv/zeph",
