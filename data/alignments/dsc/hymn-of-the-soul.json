@@ -3,10 +3,11 @@
  "group": "dsc/hymn-of-the-soul",
  "pivot": "mt-eng/dsc/hymn-of-the-soul",
  "groups": 50,
- "inputs": "6b44b57d6d2b9603",
- "run": {"aligner": 2, "date": "2026-11-09", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "inputs": "698076ea712e9871",
+ "run": {"aligner": 2, "date": "2026-11-14", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align", "text": {"editions": {"tertullian-eng/hymn-of-the-soul": {"head": "mt-eng/dsc/hymn-of-the-soul", "shared": 0.4028}}, "method": "same-language editions aligned with the head of their language (the pivot if it is one) by their folded words (patience-style anchors, difflib in small gaps, runs of 3+ words), carried through the head's beads; their text beads replace vector beads and keep their pivot units in one group", "params": {"full_dice": 0.6, "link_frac": 0.3, "link_min": 2, "min_run": 3, "min_shared": 0.1, "small": 400}, "version": 1}},
  "members": [
   {"work_id": "dsc/hymn-of-the-soul", "units": 50, "ids": "161adf926a63a4f1", "inputs": "38310f6e5eab65dd", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999"},
-  {"work_id": "mt-eng/dsc/hymn-of-the-soul", "units": 50, "ids": "cdce6673db605fc4", "inputs": "a9f0ce6db58cf27f", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999"}
+  {"work_id": "mt-eng/dsc/hymn-of-the-soul", "units": 50, "ids": "cdce6673db605fc4", "inputs": "a9f0ce6db58cf27f", "spans": "++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "99999999999999999999999999999999999999999999999999"},
+  {"work_id": "tertullian-eng/hymn-of-the-soul", "units": 50, "ids": "2d53f5ded16fcb2d", "inputs": "259c35b3b0dbefe9", "spans": ".+2+++++++++++++++++++++++++++++++++++++++++++++++.", "conf": "959998989999898998964955799959999439989964947998"}
  ]
 }

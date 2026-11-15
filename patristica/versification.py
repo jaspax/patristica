@@ -82,6 +82,13 @@ SOURCE_SCHEMES: dict[str, Scheme] = {
     # Jer 51/52 (lxx 23: Hebrew order), Joel 3/3, Mal 4/4, Zech 14/14 chapters.
     "titus-oshki": "eng",
     "titus-psalter-a": "lxx",       # Psalms: lxx 149/151 (vul 142, org 17)
+    # Brenton's English Septuagint (#355): chapter ends match the LXX in every
+    # book translated from the Greek (Psalms 151/151, Jeremiah 51/52 in the
+    # LXX order); the Apocrypha, adapted from the KJV, number as English
+    # Bibles do (overrides below). Proverbs 24-31 and Sirach 30-36 follow the
+    # Greek manuscripts' order, which no scheme describes (#683).
+    "brenton-eng": "lxx",
+    "kjv-apocrypha-eng": "eng",  # 4 Ezra only, which no scheme numbers
 }
 
 #: Books that follow a different scheme from their source's default.  Chosen
@@ -120,6 +127,15 @@ BOOK_SCHEME_OVERRIDES: dict[tuple[str, str], Scheme] = {
     ("titus-oshki", "EpJer"): "lxx",
     ("titus-oshki", "Sus"): "lxx",
     ("titus-oshki", "BelDr"): "lxx",
+    # Brenton's Apocrypha (#355) keep the KJV's verse numbers; chapter ends
+    # (Brenton, lxx, eng): Tobit 14/10/13, Judith 16/15/16, Wisdom 19/18/19,
+    # 1 Esdras 9/4/9, Baruch 3.37 and the Epistle's 73 verses as English.
+    ("brenton-eng", "Tob"): "eng",
+    ("brenton-eng", "Jdt"): "eng",
+    ("brenton-eng", "Wis"): "eng",
+    ("brenton-eng", "Bar"): "eng",
+    ("brenton-eng", "EpJer"): "eng",
+    ("brenton-eng", "1Esd"): "eng",
 }
 
 #: Chapters that follow a different scheme from their book (#186).  Some
