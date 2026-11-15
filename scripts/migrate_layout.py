@@ -124,6 +124,8 @@ NEW_SOURCES |= {"mt-eng"}
 NEW_SOURCES |= {"brenton-eng", "kjv-apocrypha-eng"}
 # Christian Arabic (#83): Roger Pearse's tertullian.org texts (#479).
 NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
+# English translations, wave 2 (#347): tertullian.org's Additional Fathers.
+NEW_SOURCES |= {"tertullian-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
 # Old Georgian (#222): Georgian Wikisource (#513).
