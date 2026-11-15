@@ -1,0 +1,31 @@
+{
+ "work_id": "tertullian-eng/symmachus-relatio-3",
+ "anchor": "oglt-pl/symmachus/pl18_12_q.",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "060277d8a2deb755",
+ "words": "c2c9f423772bf20a",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 80, "calibration": [0.596, 0.194], "converged": false, "fallback_paragraphs": 0, "one_one": 0.2102, "one_one_anchored": 0.0123, "one_one_provisional": 0.0098, "rounds": 4, "span": [5825, 6196], "units": 86},
+ "paragraphs": {
+  "SymmRel3.1": {"words": "d0884338cafe8661", "starts": [0]},
+  "SymmRel3.2": {"words": "c4736c4edaeb824b", "starts": [0]},
+  "SymmRel3.3": {"words": "4e1075ebc0c0780f", "starts": [0, 33, 62]},
+  "SymmRel3.4": {"words": "48518da851e2fec7", "starts": [0, 90, 109, 133]},
+  "SymmRel3.5": {"words": "2259f9cf2818fcf8", "starts": [0, 39, 82, 109]},
+  "SymmRel3.6": {"words": "a39bde1707f9f4d8", "starts": [0, 16, 57, 68]},
+  "SymmRel3.7": {"words": "81d32bcd6540045a", "starts": [0, 23, 49, 75]},
+  "SymmRel3.8": {"words": "21cbae8dfb0c3e97", "starts": [0, 24, 62, 102]},
+  "SymmRel3.9": {"words": "f2deaf1302c68dd8", "starts": [0, 14, 63, 79]},
+  "SymmRel3.10": {"words": "fab5fe987bf4c90c", "starts": [0, 17, 57, 87, 123, 159, 184]},
+  "SymmRel3.11": {"words": "df0292a14086a740", "starts": [0, 14, 44, 77, 89]},
+  "SymmRel3.12": {"words": "dc355286578aaebb", "starts": [0, 24, 53, 79]},
+  "SymmRel3.13": {"words": "099803a32e239b02", "starts": [0, 17, 44, 69, 88]},
+  "SymmRel3.14": {"words": "dbb48b10f5c9b255", "starts": [0, 32, 64]},
+  "SymmRel3.15": {"words": "08987c8b091d18fd", "starts": [0, 40, 74, 101, 158, 175, 198, 224]},
+  "SymmRel3.16": {"words": "b130504e70fe019f", "starts": [0, 30, 52, 80, 105, 123]},
+  "SymmRel3.17": {"words": "f0442bfcecb2db92", "starts": [0, 31, 71, 93, 124, 153]},
+  "SymmRel3.18": {"words": "459ed73326ac7a03", "starts": [0, 19, 47, 66, 86, 106, 140]},
+  "SymmRel3.19": {"words": "a66736c22a4fc255", "starts": [0, 31, 80]},
+  "SymmRel3.20": {"words": "c5d069d234e73459", "starts": [0, 30, 54]}
+ }
+}

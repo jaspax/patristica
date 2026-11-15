@@ -120,8 +120,12 @@ NEW_SOURCES |= {"ccmh", "ccmh-assemanianus", "ccmh-marianus", "ccmh-savvina", "c
                 "ccmh-supr", "demetrius-psalter", "torot"}
 # Machine translations (#422).
 NEW_SOURCES |= {"mt-eng"}
+# Brenton's English Septuagint and the KJV's 4 Ezra (#355).
+NEW_SOURCES |= {"brenton-eng", "kjv-apocrypha-eng"}
 # Christian Arabic (#83): Roger Pearse's tertullian.org texts (#479).
 NEW_SOURCES |= {"pearse-arabic", "pearse-arabic-eng"}
+# English translations, wave 2 (#347): tertullian.org's Additional Fathers.
+NEW_SOURCES |= {"tertullian-eng"}
 # Christian Arabic (#83): OpenITI (#480).
 NEW_SOURCES |= {"openiti"}
 # Old Georgian (#222): Georgian Wikisource (#513).
@@ -131,6 +135,10 @@ NEW_SOURCES |= {"evetts-hop-eng"}   # #481
 NEW_SOURCES |= {"wb-glosses", "wb-glosses-eng"}
 # Old English (#223): Ælfric's Catholic Homilies I and Thorpe's English (#566).
 NEW_SOURCES |= {"aelfric-ch", "aelfric-ch-eng"}
+# English translations, wave 3 (#341): the Internet Sacred Text Archive (#353).
+NEW_SOURCES |= {"charles-eng", "sacred-texts-eng"}
+# English translations from Project Gutenberg (#349).
+NEW_SOURCES |= {"gutenberg-eng"}
 # Old Georgian (#222): TITUS codices, liturgy, translations, chronicles (#517).
 NEW_SOURCES |= {"titus-chronicles", "titus-liturgy", "titus-shatberdi", "titus-translations"}
 # Literary Chinese (#228): CBETA's Taishō (#651).
@@ -152,6 +160,7 @@ NEW_SOURCES |= {"rea"}   # Old High German and Old Saxon (#224): Referenzkorpus 
 NEW_SOURCES |= {"wikisource-lzh"}   # Literary Chinese (#228): Jingjiao texts on Chinese Wikisource, #650
 NEW_SOURCES |= {"moule-1930"}   # Literary Chinese (#228): Moule's English Jingjiao texts, #654
 NEW_SOURCES |= {"wikisource-en"}   # Literary Chinese (#228): Wylie's English of the Xi'an stele, #653
+NEW_SOURCES |= {"eebo-tcp-eng"}   # English translations in EEBO-TCP (#354): Wither's Nemesius
 NEW_SOURCES |= {"lf-moralia-eng"}   # English translations (#341): Library of the Fathers Moralia, #348
 
 # Old directory (relative to data/raw or data/normalized) → new directory.

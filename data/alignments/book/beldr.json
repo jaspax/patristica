@@ -1,14 +1,15 @@
 {
  "format": 1,
  "group": "book:beldr",
- "pivot": "pta-lxx/beldrthdt",
- "groups": 39,
- "inputs": "9ec11e5efe4d36bb",
- "run": {"aligner": 2, "date": "2026-11-07", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "brenton-eng/beldr",
+ "groups": 40,
+ "inputs": "9c8842db65572ac2",
+ "run": {"aligner": 2, "date": "2026-11-14", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.1, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "pta-lxx/beldr", "units": 37, "ids": "df620752904daf44", "inputs": "b4ebd4dd42af2e64", "spans": ".+2+++++++=++++3++++++++=+++2+2++++++++++", "conf": "9999999999999999999999999999999999"},
-  {"work_id": "pta-lxx/beldrthdt", "units": 42, "ids": "712efb38b5603522", "inputs": "2107ba5ee199a2bc", "spans": "+++++++++=++=++++++++++++=++++++++++++++++", "conf": "999999999999999999999999999999999999999"},
-  {"work_id": "pta-peshitta/beldr", "units": 42, "ids": "dfa209f5c9062069", "inputs": "d1466908f1b90ee4", "spans": "+++++++++=++=++++++++++++=++++++++++++++++", "conf": "999999999999999999999999999999999999999"},
-  {"work_id": "titus-oshki/beldr", "units": 42, "ids": "bb7e19256f2d055f", "inputs": "31c9a33ae725554e", "spans": "+++++++++=++=++++++++++++=++++++++++++++++", "conf": "999999999999999999999999999999999999999"}
+  {"work_id": "brenton-eng/beldr", "units": 42, "ids": "5d64d7eb5331558f", "inputs": "15e754fa1e35c449", "spans": "+++++++++=+++++++++++++++=++++++++++++++++", "conf": "9999999999999999999999999999999999999999"},
+  {"work_id": "pta-lxx/beldr", "units": 37, "ids": "df620752904daf44", "inputs": "b4ebd4dd42af2e64", "spans": "+2=+++++++=++2+++3+++++++=+++2+2++++++++++", "conf": "9999999998969999999999999999999999"},
+  {"work_id": "pta-lxx/beldrthdt", "units": 42, "ids": "712efb38b5603522", "inputs": "2107ba5ee199a2bc", "spans": "+++++++++=++2=++++++++++++=++++++++++++++++", "conf": "999999999999999999999999999999999999999"},
+  {"work_id": "pta-peshitta/beldr", "units": 42, "ids": "dfa209f5c9062069", "inputs": "d1466908f1b90ee4", "spans": "+++++++++=+++++++++++++++=++++++++++++++++", "conf": "9999999999999999999999999999999999999999"},
+  {"work_id": "titus-oshki/beldr", "units": 42, "ids": "bb7e19256f2d055f", "inputs": "31c9a33ae725554e", "spans": "+++++++++=+++++++++++++++=++++++++++++++++", "conf": "9999999999999999999999999999999999999999"}
  ]
 }
