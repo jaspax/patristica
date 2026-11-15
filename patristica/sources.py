@@ -77,6 +77,7 @@ SOURCE_LABELS: dict[str, str] = {
     "charles-eng": "Jubilees and 1 Enoch (R. H. Charles's English, 1917, Internet Sacred Text Archive)",
     "sacred-texts-eng": "Internet Sacred Text Archive (English translations)",
     "eebo-tcp-eng": "Early English Books Online, Text Creation Partnership (English translations)",
+    "gutenberg-eng": "English translations (Project Gutenberg)",
     # Liturgical
     "adai-mari": "Liturgy of Addai and Mari (Ante-Nicene Fathers)",
     "armenian-liturgy": "Armenian Liturgy (Issaverdens)",

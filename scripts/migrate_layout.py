@@ -137,6 +137,8 @@ NEW_SOURCES |= {"wb-glosses", "wb-glosses-eng"}
 NEW_SOURCES |= {"aelfric-ch", "aelfric-ch-eng"}
 # English translations, wave 3 (#341): the Internet Sacred Text Archive (#353).
 NEW_SOURCES |= {"charles-eng", "sacred-texts-eng"}
+# English translations from Project Gutenberg (#349).
+NEW_SOURCES |= {"gutenberg-eng"}
 # Old Georgian (#222): TITUS codices, liturgy, translations, chronicles (#517).
 NEW_SOURCES |= {"titus-chronicles", "titus-liturgy", "titus-shatberdi", "titus-translations"}
 # Literary Chinese (#228): CBETA's Taishō (#651).
