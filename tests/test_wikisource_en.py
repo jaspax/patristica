@@ -1,4 +1,4 @@
-"""English Wikisource (#653): Wylie's translation of the Xi'an stele, HTML to units."""
+"""English Wikisource: Wylie's Xi'an stele (#653, HTML) and Mason's Macarius (#350, wikitext)."""
 
 from __future__ import annotations
 
@@ -9,7 +9,17 @@ from pathlib import Path
 import pytest
 
 from patristica import editorial
-from scripts.ingest.wikisource_en import NESTORIAN_STELE, PAGES, Page, parse_stele
+from scripts.ingest.wikisource_en import (
+    MACARIUS_REVIDS,
+    MACARIUS_SECTIONS,
+    MACARIUS_SLUG,
+    NESTORIAN_STELE,
+    PAGES,
+    Page,
+    parse_macarius,
+    parse_macarius_homily,
+    parse_stele,
+)
 
 _RAW = Path(__file__).resolve().parents[1] / "data" / "raw" / "wikisource-en"
 
@@ -123,5 +133,104 @@ def test_raw_files(page: Page) -> None:
     assert data["work"]["translation_of"] == page.translation_of
     refs = [u["ref"] for u in data["paragraphs"]]
     assert len(refs) == len(set(refs)) == page.units
+    for unit in data["paragraphs"]:
+        editorial.check(unit["text"], unit.get("editorial", []), unit["ref"])
+
+
+# ---------------------------------------------------------------------------
+# Mason's Macarius (#350), from wikitext
+# ---------------------------------------------------------------------------
+
+_HEADER = """{{{{header
+ | title      = Fifty spiritual homilies of St. Macarius the Egyptian
+ | section    = Homily {n}
+ | year       = 1921
+}}}}
+"""
+
+# Homily I as on Wikisource, cut down: a centred heading with the argument in
+# italics, a section continued by an unnumbered paragraph, a section number
+# inside a paragraph, a supplied word in brackets and a missing number (4).
+_HOMILY_1 = _HEADER.format(n=1) + """
+{{c|{{larger|HOMILY I}}
+
+''An allegorical interpretation of the vision''}}
+
+1. THE blessed prophet Ezekiel relates a ''glorious'' vision.
+
+The Rider, then, is conveyed by the chariot.
+
+2. And this that the prophet saw was true. 3. The four living creatures
+[that bore it] were a symbol.
+
+5. Neither is there any part behind.
+"""
+
+# Homily XVII's heading is two plain lines, and Homily V starts with "I.".
+_HOMILY_17 = _HEADER.format(n=17) + """HOMILY XVII
+
+Concerning the spiritual unction of Christians.
+
+1. PERFECT Christians are consecrated to the cross.
+"""
+_HOMILY_5 = _HEADER.format(n=5) + """
+{{c|{{larger|HOMILY V}}
+
+''A great difference between Christians and the men of this world.''}}
+
+I. THE world of Christians is one thing—and that of men another—2. if, I say, they desire it.
+"""
+
+
+def test_macarius_homily_units() -> None:
+    units = {u["ref"]: u for u in parse_macarius_homily(_HOMILY_1, 1)}
+    assert list(units) == ["MacHom.1", "MacHom.1.1", "MacHom.1.2", "MacHom.1.3", "MacHom.1.5"]
+    head = units["MacHom.1"]
+    assert head["text"] == "HOMILY I. An allegorical interpretation of the vision"
+    assert head["editorial"] == [[0, len(head["text"]), "title"]]
+    assert units["MacHom.1.1"]["text"] == ("THE blessed prophet Ezekiel relates a glorious vision. "
+                                           "The Rider, then, is conveyed by the chariot.")
+    assert units["MacHom.1.2"]["text"] == "And this that the prophet saw was true."
+    three = units["MacHom.1.3"]
+    assert three["text"] == "The four living creatures [that bore it] were a symbol."
+    assert [three["text"][s:e] for s, e, _ in three["editorial"]] == ["[that bore it]"]
+    assert three["editorial"][0][2] == "supplement"
+    assert units["MacHom.1.5"]["text"] == "Neither is there any part behind."
+    for unit in units.values():
+        editorial.check(unit["text"], unit.get("editorial", []), unit["ref"])
+
+
+def test_macarius_plain_heading_and_roman_one() -> None:
+    units = parse_macarius_homily(_HOMILY_17, 17)
+    assert [u["ref"] for u in units] == ["MacHom.17", "MacHom.17.1"]
+    assert units[0]["text"] == "HOMILY XVII. Concerning the spiritual unction of Christians."
+    units = parse_macarius_homily(_HOMILY_5, 5)
+    assert [u["ref"] for u in units] == ["MacHom.5", "MacHom.5.1", "MacHom.5.2"]
+    assert units[1]["text"] == "THE world of Christians is one thing—and that of men another—"
+    assert units[2]["text"] == "if, I say, they desire it."
+
+
+def test_macarius_checks() -> None:
+    with pytest.raises(ValueError, match="heading"):
+        parse_macarius_homily(_HOMILY_1, 2)
+    with pytest.raises(ValueError, match="before section 1"):
+        parse_macarius_homily(_HOMILY_1.replace("1. THE", "THE"), 1)
+    with pytest.raises(ValueError, match="markup"):
+        parse_macarius_homily(_HOMILY_1.replace("glorious", "[[glorious]]"), 1)
+    with pytest.raises(ValueError, match="50"):
+        parse_macarius([_HOMILY_1])
+    assert len(MACARIUS_REVIDS) == 50
+
+
+def test_macarius_raw_file() -> None:
+    path = _RAW / f"{MACARIUS_SLUG}.json"
+    if not path.exists() or path.read_bytes().startswith(b"version https://git-lfs"):
+        pytest.skip("raw data not present")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    assert data["work"]["translation_of"] == "ogpg/vol-034/homiliae-spirituales"
+    assert data["work"]["license"] == "public_domain"
+    refs = [u["ref"] for u in data["paragraphs"]]
+    assert len(refs) == len(set(refs)) == 50 + MACARIUS_SECTIONS
+    assert [r for r in refs if r.count(".") == 1] == [f"MacHom.{h}" for h in range(1, 51)]
     for unit in data["paragraphs"]:
         editorial.check(unit["text"], unit.get("editorial", []), unit["ref"])
