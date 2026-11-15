@@ -13,14 +13,20 @@ the ``Page:`` pages it transcludes, so the source regenerates offline.  The
 existing Greek and Georgian Wikisource ingestors read wikitext and their
 pages' own markup, so none of their parsing applies here.
 
-So far one page: Alexander Wylie's translation (1855) of the Xi'an stele
-(781), as reprinted in Paul Carus (ed.), *The Nestorian Monument* (Open Court
-1909).  Only the translation is taken; the book's essays are modern secondary
-material, and its "Original Text" subpage is the Chinese inscription
-(``wikisource-lzh`` has the stele from zh.wikisource).
+Two works so far:
 
-Units and editorial material (#236)
------------------------------------
+- Alexander Wylie's translation (1855) of the Xi'an stele (781), as reprinted
+  in Paul Carus (ed.), *The Nestorian Monument* (Open Court 1909), parsed from
+  its rendered HTML (below).  Only the translation is taken; the book's essays
+  are modern secondary material, and its "Original Text" subpage is the
+  Chinese inscription (``wikisource-lzh`` has the stele from zh.wikisource);
+- A. J. Mason's *Fifty Spiritual Homilies of St. Macarius the Egyptian*
+  (SPCK 1921), the Pseudo-Macarian Collection II, #350.  Its homily pages hold
+  their text in their own wikitext, so it is read from the wikitext of each
+  page at a pinned revision (see "Macarius" further down).
+
+Units and editorial material (#236): the stele
+----------------------------------------------
 - ``Stele``: the page heading ("Translation of the Nestorian Inscription. By
   A. Wylie."), wholly ``title``;
 - ``Stele.1``: the stele's own title (景教流行中國碑頌并序 …), then
@@ -38,6 +44,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -310,6 +317,195 @@ _PARSERS = {NESTORIAN_STELE.slug: parse_stele}
 
 
 # ---------------------------------------------------------------------------
+# Macarius: Mason's Fifty Spiritual Homilies, from wikitext (#350)
+# ---------------------------------------------------------------------------
+#
+# The book is the main page (title page and contents, transcluded), an
+# Introduction subpage and one subpage per homily, ``…/Homily 1`` …
+# ``…/Homily 50``, each holding its text as wikitext: a ``{{header}}``, the
+# heading ``{{c|{{larger|HOMILY I}}⏎''argument''}}`` (Homily 17 has it as two
+# plain lines), then paragraphs separated by blank lines.  Mason numbers the
+# sections as Migne's Greek (PG 34, 449–822) does; a section starts a
+# paragraph ("1. THE blessed prophet …") or, where a page break of the
+# transcription ran two paragraphs together, inside one ("… nature. 23.
+# Heaven was once …").
+#
+# Units: ``MacHom.{h}`` is the homily's heading and argument, wholly
+# ``title`` (the argument renders the Greek's own title, but it is a title
+# all the same); ``MacHom.{h}.{n}`` is section *n*, its paragraphs joined,
+# without its number.
+# Mason's bracketed supplied words ("[ask him]") are ``supplement`` spans.
+# Mason's Introduction (a modern essay on the author and the collection) is
+# not carried, as other English sources leave out their translators' essays.
+#
+# The transcription lacks a few of Mason's section numbers (5.7, 15.11, 17.9);
+# their text stays with the section before.  Two homilies print the first
+# number as a roman "I." (5, 12).
+
+MACARIUS_BOOK = "Fifty spiritual homilies of St. Macarius the Egyptian"
+MACARIUS_SLUG = "macarius-fifty-homilies-mason"
+# Each homily page's revision, Homily 1 … 50 (checked 2026-11-14).
+MACARIUS_REVIDS: tuple[int, ...] = (
+    12638176, 12638177, 12638181, 12638182, 12638184, 12638186, 12638343, 12638319,
+    12638310, 12638309, 12638307, 12638305, 12638303, 12638297, 12638296, 12638295,
+    12290707, 12638286, 12638279, 12638278, 12638275, 12638265, 12638264, 12638262,
+    12638260, 12638259, 12638258, 12638256, 12638254, 12638237, 12638235, 12638227,
+    12638226, 12638218, 12638216, 12638215, 12638212, 12638211, 12638209, 12638207,
+    12638203, 12638202, 12638201, 12638197, 12638195, 12638192, 12638191, 12638190,
+    12638189, 12638188,
+)
+MACARIUS_MAIN_REVID = 15663553  # the main page: {{translation license}} PD-old / PD-US|1928
+MACARIUS_SECTIONS = 467  # expected section units over the 50 homilies
+
+# A section number: at a paragraph's start, or inside one after a space or a dash.
+_SECTION_RE = re.compile(r"(?:^|(?<=\s)|(?<=—))(\d{1,2}|I)\.\s+")
+_MAX_SKIP = 2  # numbers the transcription may lack between two sections
+
+
+def _strip_header(wikitext: str) -> str:
+    """The page's text after its ``{{header … }}``."""
+    if not wikitext.startswith("{{header"):
+        raise ValueError("homily page does not start with {{header}}")
+    return wikitext.split("\n}}", 1)[1]
+
+
+def _plain(wikitext: str) -> str:
+    """Inline wikitext as plain text: italics and bold marks dropped."""
+    text = re.sub(r"'{2,3}", "", wikitext)
+    if re.search(r"\{\{|\}\}|\[\[|<\w", text):
+        raise ValueError(f"unexpected markup in {text[:80]!r}")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _with_supplements(text: str) -> dict:
+    """``{"text", "editorial"?}`` with each ``[…]`` marked ``supplement``."""
+    spans = [[m.start(), m.end(), "supplement"] for m in re.finditer(r"\[[^\[\]]+\]", text)]
+    rec: dict = {"text": text}
+    if spans:
+        rec["editorial"] = spans
+    return rec
+
+
+def _roman(n: int) -> str:
+    vals = ((50, "L"), (40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I"))
+    out = ""
+    for v, r in vals:
+        while n >= v:
+            out += r
+            n -= v
+    return out
+
+
+def parse_macarius_homily(wikitext: str, number: int) -> list[dict]:
+    """One homily page's wikitext as raw units (heading, then sections)."""
+    body = _strip_header(wikitext).strip()
+    m = re.match(r"\{\{c\|\{\{larger\|(HOMILY [IVXL]+)\}\}\s*\n\s*\n?(.*?)\}\}\s*\n", body, re.S)
+    if m is None:  # Homily 17: two plain lines
+        m = re.match(r"(HOMILY [IVXL]+)\s*\n\s*\n(.*?)\n\s*\n", body, re.S)
+    if m is None:
+        raise ValueError(f"Homily {number}: no heading")
+    label, argument = m.group(1), _plain(m.group(2))
+    if label != f"HOMILY {_roman(number)}":
+        raise ValueError(f"Homily {number}: heading {label!r}")
+    heading = f"{label}. {argument}"
+    units: list[dict] = [{"ref": f"MacHom.{number}", "text": heading,
+                          "editorial": [[0, len(heading), "title"]]}]
+
+    paragraphs = [_plain(p) for p in re.split(r"\n\s*\n", body[m.end():]) if p.strip()]
+    current = 0
+    sections: dict[int, list[str]] = {}
+    for para in paragraphs:
+        pos = 0
+        for sm in _SECTION_RE.finditer(para):
+            n = 1 if sm.group(1) == "I" else int(sm.group(1))
+            if sm.group(1) == "I" and (current or sm.start()):
+                continue
+            if not current < n <= current + 1 + _MAX_SKIP:
+                continue
+            if sm.start() == 0 and pos == 0:
+                pass  # the paragraph starts the section
+            elif current == 0:
+                raise ValueError(f"Homily {number}: text before section 1: {para[:60]!r}")
+            else:
+                sections[current].append(para[pos:sm.start()].strip())
+            current, pos = n, sm.end()
+            sections[current] = []
+        if current == 0:
+            raise ValueError(f"Homily {number}: text before section 1: {para[:60]!r}")
+        sections[current].append(para[pos:].strip())
+    for n, parts in sections.items():
+        text = " ".join(p for p in parts if p)
+        units.append({"ref": f"MacHom.{number}.{n}", **_with_supplements(text)})
+    return units
+
+
+def parse_macarius(pages: list[str]) -> list[dict]:
+    """The 50 homily pages' wikitext (in order) as the work's raw units."""
+    if len(pages) != 50:
+        raise ValueError(f"Macarius: {len(pages)} homily pages, expected 50")
+    units = [u for i, wt in enumerate(pages, 1) for u in parse_macarius_homily(wt, i)]
+    sections = len(units) - 50
+    if sections != MACARIUS_SECTIONS:
+        raise ValueError(f"Macarius: {sections} sections, expected {MACARIUS_SECTIONS}")
+    return units
+
+
+def _fetch_macarius(cache_dir: Path) -> list[str]:
+    """The homily pages' wikitext at their pinned revisions (cached)."""
+    path = cache_dir / f"{MACARIUS_SLUG}.json"
+    if path.exists():
+        cached = json.loads(path.read_text(encoding="utf-8"))
+        if [p["revid"] for p in cached["pages"]] == list(MACARIUS_REVIDS):
+            return [p["wikitext"] for p in cached["pages"]]
+    require_network("fetching Mason's Macarius from English Wikisource")
+    found: dict[int, dict] = {}
+    for i in range(0, len(MACARIUS_REVIDS), 50):
+        batch = MACARIUS_REVIDS[i:i + 50]
+        resp = _get({"action": "query", "prop": "revisions", "rvprop": "ids|content",
+                     "rvslots": "main", "revids": "|".join(map(str, batch))})
+        for page in resp["query"]["pages"]:
+            for rev in page["revisions"]:
+                found[rev["revid"]] = {"title": page["title"], "revid": rev["revid"],
+                                       "wikitext": rev["slots"]["main"]["content"]}
+    pages = []
+    for i, revid in enumerate(MACARIUS_REVIDS, 1):
+        page = found.get(revid)
+        if page is None or page["title"] != f"{MACARIUS_BOOK}/Homily {i}":
+            raise ValueError(f"Macarius: revision {revid} is not of Homily {i}")
+        pages.append(page)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"book": MACARIUS_BOOK, "pages": pages},
+                               ensure_ascii=False, indent=1), encoding="utf-8")
+    return [p["wikitext"] for p in pages]
+
+
+def _macarius_work() -> Work:
+    return Work(
+        work_id=f"{SOURCE_ID}/{MACARIUS_SLUG}",
+        source_id=SOURCE_ID,
+        author="Pseudo-Macarius",
+        title="Fifty Spiritual Homilies",
+        date_composed=400,
+        date_range=(380, 430),
+        date_confidence="approximate",
+        genre="patristic",
+        language="eng",
+        tradition="greek",
+        # Mason died in 1928; Wikisource tags the translation {{PD-US|1928}}
+        # and the original {{PD-old}}.
+        license="public_domain",
+        provenance_url=(f"https://en.wikisource.org/w/index.php?title="
+                        f"{quote(MACARIUS_BOOK.replace(' ', '_'))}&oldid={MACARIUS_MAIN_REVID}"),
+        edition=("Translated by A. J. Mason, Fifty Spiritual Homilies of St. Macarius the "
+                 "Egyptian (London: SPCK; New York: Macmillan, 1921), Translations of "
+                 "Christian Literature, Series I: Greek Texts; English Wikisource "
+                 "transcription (scan: archive.org fiftyspiritualho00pseuuoft); "
+                 "the translator's Introduction is not included"),
+        translation_of="ogpg/vol-034/homiliae-spirituales",
+    )
+
+
+# ---------------------------------------------------------------------------
 # Fetch and write
 # ---------------------------------------------------------------------------
 
@@ -382,6 +578,16 @@ def ingest(output_dir: Path, force: bool = False) -> list[Work]:
             continue
         work = _work(page)
         units = _PARSERS[page.slug](_fetch(page, cache_dir), page)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps({"work": work.model_dump(), "paragraphs": units},
+                                       ensure_ascii=False, indent=2), encoding="utf-8")
+        works.append(work)
+    out_path = output_dir / SOURCE_ID / f"{MACARIUS_SLUG}.json"
+    if out_path.exists() and not force:
+        works.append(Work(**json.loads(out_path.read_text(encoding="utf-8"))["work"]))
+    else:
+        work = _macarius_work()
+        units = parse_macarius(_fetch_macarius(cache_dir))
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps({"work": work.model_dump(), "paragraphs": units},
                                        ensure_ascii=False, indent=2), encoding="utf-8")
