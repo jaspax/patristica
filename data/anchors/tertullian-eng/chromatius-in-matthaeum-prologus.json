@@ -1,0 +1,30 @@
+{
+ "work_id": "tertullian-eng/chromatius-in-matthaeum-prologus",
+ "anchor": "oglt-pl/chromatius-aquileiensis/pl20_6_sanctichromatiiaqu",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "a7004bdf1d5ad34d",
+ "words": "fea1db0a63241743",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 107, "calibration": [0.6597, 0.0724], "converged": false, "fallback_paragraphs": 0, "one_one": 0.0766, "one_one_anchored": 0.0437, "one_one_provisional": 0.0341, "rounds": 4, "span": [94, 825], "units": 115},
+ "paragraphs": {
+  "ChromMt.1": {"words": "795620603f80f286", "starts": [0, 48, 61, 80, 85]},
+  "ChromMt.2": {"words": "61aab5c33a82e947", "starts": [0]},
+  "ChromMt.3": {"words": "f8397c3b159fd2ab", "starts": [0, 54, 76]},
+  "ChromMt.4": {"words": "67956e6e936e171b", "starts": [0, 40, 88, 93]},
+  "ChromMt.5": {"words": "545af85e3fc8823d", "starts": [0, 20, 30, 57, 73, 98, 103, 133]},
+  "ChromMt.6": {"words": "91dbdc345e4730dd", "starts": [0, 84, 103, 142, 149, 185, 197]},
+  "ChromMt.7": {"words": "4dcbb2536b4b16d4", "starts": [0, 120, 139, 153, 163, 175, 215, 245, 262, 283, 299, 358]},
+  "ChromMt.8": {"words": "79f24088a0a33031", "starts": [0, 15, 32, 59, 102, 113, 144, 210, 218, 243, 254, 278, 288, 311, 312, 331, 360, 366]},
+  "ChromMt.9": {"words": "8b22b7a02a258aad", "starts": [0, 30]},
+  "ChromMt.10": {"words": "4621c46476340e1d", "starts": [0, 5, 30]},
+  "ChromMt.11": {"words": "a3cd6d2775d2b0f5", "starts": [0, 14, 44, 75]},
+  "ChromMt.12": {"words": "006e7a295572a59a", "starts": [0, 24, 48, 65]},
+  "ChromMt.13": {"words": "09ee8a72cfcd41d3", "starts": [0, 14, 21, 31, 56]},
+  "ChromMt.14": {"words": "98de1e384ec396c1", "starts": [0, 24, 74, 88, 102]},
+  "ChromMt.15": {"words": "0200e0ba4c21e6e2", "starts": [0, 25, 45, 78, 89, 98, 110, 114]},
+  "ChromMt.16": {"words": "75b6714970080aab", "starts": [0, 19, 63, 137, 172, 179, 195, 208, 214, 222, 236]},
+  "ChromMt.17": {"words": "26effd164ebf24e7", "starts": [0, 16]},
+  "ChromMt.18": {"words": "e542c47a4598f856", "starts": [0, 27, 31, 43, 50, 58, 76, 79, 91, 151]},
+  "ChromMt.19": {"words": "efdfc003b4a8ae43", "starts": [0, 34, 47]}
+ }
+}
