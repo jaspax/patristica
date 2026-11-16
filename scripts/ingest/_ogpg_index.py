@@ -33,8 +33,21 @@ module cuts that stream into works using the curated table
 ``bhg``
     *Bibliotheca Hagiographica Graeca* number (``882``, ``1205``) of a row that
     is one whole hagiographic text or homily, written to ``Work.external_ids``
-    as ``BHG:…`` (#375).  It is the last column and may be left off the rows
-    that have none.
+    as ``BHG:…`` (#375).  It may be left empty, or left off the rows that
+    have no ``latin`` either.
+``latin``
+    Columns of the row where Migne prints no Greek, so that no Greek text is
+    expected there (#708): ``all`` (the whole row) or column ranges inside the
+    row, ``1321-1406 1689-1708``.  For a text whose Greek is lost and survives
+    in a Latin version (Rufinus's *De principiis*, Hesychius *In Leviticum*),
+    Latin-only works printed inside the row's range (Eutychius's *Annales*
+    after the *Vita Andreae Sali*), Latin translations Migne gives instead of
+    the Greek, and the editor's Latin prefaces, dissertations and indices.  The
+    Greek Migne prints there (fragments, quotations) is still extracted and
+    written: the column says only that the rest is not missing.  The ingestor
+    ignores it; ``scripts.ogpg_coverage`` reads it (``latin_ranges``) and
+    leaves those columns' pages without text out of the expected pages.  The
+    last column; left off the rows that have none.
 ``date_composed``, ``date_start``, ``date_end``, ``date_confidence``
     As in ``Work``.  Empty dates fall back to the volume's (``_ogpg_volumes``).
     A work whose range starts after the collection period
