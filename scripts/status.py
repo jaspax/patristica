@@ -19,7 +19,8 @@ Levels:
 - ``ok``.
 
 Checks that need local data run only when asked: ``--raw`` compares
-``data/raw`` with normalize's raw hashes (the works normalize would refuse);
+``data/raw`` with normalize's raw hashes (the works normalize would refuse)
+and reports the OGPG works' column coverage (``scripts.ogpg_coverage``, #706);
 ``--vectors`` loads ``data/embeddings`` (8 GB) for the units still to embed and
 the alignment groups whose inputs changed or that align would refuse; ``--db``
 connects to the search database (``DATABASE_URL``; on the droplet through
@@ -118,6 +119,19 @@ def _is_work(path: Path) -> bool:
     except ValueError:
         return False
     return isinstance(record, dict) and bool(record.get("work"))
+
+
+def ogpg_coverage_rows(raw: Path = RAW) -> list[Row]:
+    """How much of the OGPG works' Migne columns has text (#706): a known data
+    quality state, so at most a warning.  Only where ``data/raw/ogpg`` is."""
+    from scripts import ogpg_coverage
+
+    if not (raw / "ogpg").is_dir():
+        return []
+    s = ogpg_coverage.summary(ogpg_coverage.measure(raw / "ogpg"))
+    return [Row("ingest", "ogpg coverage", "warn" if s["missing_pages"] else "ok",
+                ogpg_coverage.summary_line(s).removeprefix("OGPG coverage: ")
+                + ("; details: scripts.ogpg_coverage --works" if s["missing_pages"] else ""))]
 
 
 def raw_changes(norm: Path = NORMALIZED, raw: Path = RAW) -> tuple[list[str], list[str]]:
@@ -407,6 +421,8 @@ def collect(norm: Path = NORMALIZED, raw: Path | None = None, vecs: Path | None 
                             ("normalize", "manifest", manifest),
                             ("normalize", "local raw", local_raw), ("align", "code", align_code)):
         _guarded(rows, step, check, fn)
+    if raw is not None:
+        _guarded(rows, "ingest", "ogpg coverage", lambda: ogpg_coverage_rows(raw))
     # The rest read the normalized files: with entries whose file is missing they
     # can't run, which the manifest row already reports.
     dependent = (("anchor", "cuts", lambda: anchor_rows(norm, norm.parent / ANCHORS.name)),
