@@ -5,6 +5,9 @@ data/raw/_repos/
 data/raw/_gitdirs/
 data/raw/_repo_archives/**/*.tmp
 
+# Local caches of derived values (scripts.ogpg_coverage's column maps)
+data/cache/
+
 # Derived chunks (regenerated from data/normalized by scripts.chunk)
 data/chunks/*
 !data/chunks/.gitkeep
