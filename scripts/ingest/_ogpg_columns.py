@@ -24,7 +24,10 @@ as 1305 → 1505 agree with each other too, but sit hundreds of columns off).
 Chapter numbers, footnote marks and other stray numbers vote for a different
 offset on every page, so they never add up to a state; real column numbers
 agree with each other across pages.  A state is a
-``(k, offset)`` pair, so a volume may switch layout part way (PG 47 does).
+``(k, offset)`` pair, so a volume may switch layout part way (PG 47 does);
+such a switch costs ``LAYOUT_COST`` more, and the jump cost per column
+between the two states' columns on the page where it happens, so the columns
+run on across it (#709).
 
 A number is in head position when it is the first or last token of a short
 line (at most ``_MAX_HEAD_TOKENS`` tokens).  Bracketed numbers (``[216]``, the
@@ -63,6 +66,12 @@ SWITCH_COST = 4.0
 # moves it by 2; misread digits (3 ↔ 5, 1 ↔ 7) by hundreds, which then needs
 # that much more evidence.
 JUMP_COST = 0.25
+# The same for a jump forward (the offset grows: the scan lacks leaves).  A
+# little cheaper, so that a run of pages on columns well supported by their
+# heads may be followed by a gap of missing leaves (PG 57 lacks cols. 89–174)
+# rather than be shifted onto the columns after it; misread digits (200
+# columns off) still need far more evidence (#709).
+FORWARD_JUMP_COST = 0.2
 # Extra cost of switching between the one- and two-columns-per-page layouts.
 LAYOUT_COST = 4.0
 # A run of pages on one state is kept only if at least this fraction of its
@@ -118,13 +127,15 @@ State = tuple[int, int]
 
 
 def _nearest_switch(cost: list[float], states: list[State],
-                    blank: int = 0) -> tuple[list[float], list[int]]:
+                    blank: int = 0, page: int = 0) -> tuple[list[float], list[int]]:
     """For each state, the cheapest way to switch into it from another state.
 
     Switching costs ``SWITCH_COST`` plus ``JUMP_COST`` per column the offset
-    moves (an L1 distance transform over the sorted offsets of each layout),
-    or ``SWITCH_COST + LAYOUT_COST`` from the other layout.  After ``blank``
-    pages without head numbers, the offset may fall by up to ``k * blank``
+    falls or ``FORWARD_JUMP_COST`` per column it grows (an L1 distance
+    transform over the sorted offsets of each layout),
+    or ``SWITCH_COST + LAYOUT_COST`` plus ``JUMP_COST`` per column the
+    position on ``page`` moves from the other layout (``_cross_layout``).
+    After ``blank`` pages without head numbers, the offset may fall by up to ``k * blank``
     columns at no extra cost: those pages may print fewer columns than there
     are pages (blank or repeated leaves whose OCR has no text), but never
     more.  Returns the cost and the state switched from.
@@ -137,23 +148,52 @@ def _nearest_switch(cost: list[float], states: list[State],
         groups.setdefault(k, []).append(i)
     for k, idx in groups.items():                  # states are sorted by offset
         src_cost, src = _window_min(cost, states, idx, k * blank)
-        for order in (idx, idx[::-1]):
+        for order, rate in ((idx, FORWARD_JUMP_COST), (idx[::-1], JUMP_COST)):
             run_c, run_a, prev_o = float("inf"), -1, 0
             for i in order:
                 o = states[i][1]
                 if run_a >= 0:
-                    run_c += JUMP_COST * abs(o - prev_o)
+                    run_c += rate * abs(o - prev_o)
                 if src_cost[i] < run_c:
                     run_c, run_a = src_cost[i], src[i]
                 prev_o = o
                 if run_c < best[i]:
                     best[i], arg[i] = run_c, run_a
-    group_min = {k: min(idx, key=lambda i: (cost[i], i)) for k, idx in groups.items()}
-    for i, (k, _) in enumerate(states):
-        for k2, g in group_min.items():
-            if k2 != k and cost[g] + LAYOUT_COST < best[i]:
-                best[i], arg[i] = cost[g] + LAYOUT_COST, g
+    for k, idx in groups.items():
+        for k2, src in groups.items():
+            if k2 != k:
+                _cross_layout(cost, states, src, idx, page, best, arg)
     return [c + SWITCH_COST for c in best], arg
+
+
+def _cross_layout(cost: list[float], states: list[State], src: list[int], dst: list[int],
+                  page: int, best: list[float], arg: list[int]) -> None:
+    """Switching from the states ``src`` of one layout into ``dst`` of another
+    at ``page``: ``LAYOUT_COST`` plus ``JUMP_COST`` (``FORWARD_JUMP_COST``
+    forward) per column between the two states' positions on that page
+    (``best``/``arg`` updated in place).
+
+    The columns must run on across a change of layout as across any other
+    switch.  Charging only a flat cost let the path leave the volume's
+    columns for a state of small numbers (verse numbers of the Hexapla or a
+    catena, which advance about one per page) and come back anywhere, e.g.
+    at a run of misread digits 200 columns on (PG 16, PG 27, #709).
+    """
+    def position(i: int) -> int:
+        return states[i][0] * page + states[i][1]
+
+    points = sorted([(position(i), 0, i) for i in src] + [(position(i), 1, i) for i in dst])
+    for order, sign, rate in ((points, 1, FORWARD_JUMP_COST), (points[::-1], -1, JUMP_COST)):
+        run_c, run_a = float("inf"), -1
+        for pos, is_dst, i in order:
+            if not is_dst:
+                c = cost[i] - sign * rate * pos
+                if c < run_c:
+                    run_c, run_a = c, i
+            elif run_a >= 0:
+                c = run_c + sign * rate * pos + LAYOUT_COST
+                if c < best[i]:
+                    best[i], arg[i] = c, run_a
 
 
 def _window_min(cost: list[float], states: list[State], idx: list[int],
@@ -179,8 +219,13 @@ def _window_min(cost: list[float], states: list[State], idx: list[int],
     return out_c, out_a
 
 
-def _viterbi(votes: list[set[State]]) -> tuple[list[State], list[int]]:
-    """Best piecewise-constant state path → (states, path of state indices)."""
+def _viterbi(votes: list[set[State]],
+             pages: list[int] | None = None) -> tuple[list[State], list[int]]:
+    """Best piecewise-constant state path → (states, path of state indices).
+
+    ``pages`` are the page numbers the votes were cast on (``page_votes``),
+    by default 0, 1, …
+    """
     support: Counter[State] = Counter(o for v in votes for o in v)
     states = sorted(o for o, c in support.items() if c >= _MIN_SUPPORT)
     if not states or not votes:
@@ -189,8 +234,10 @@ def _viterbi(votes: list[set[State]]) -> tuple[list[State], list[int]]:
     cost = [0.0 if states[s] in votes[0] else 1.0 for s in range(n)]
     back: list[list[int]] = []
     blank = 0 if votes[0] else 1          # pages without head numbers just before
-    for v in votes[1:]:
-        switch, frm = _nearest_switch(cost, states, blank)
+    if pages is None:
+        pages = list(range(len(votes)))
+    for v, page in zip(votes[1:], pages[1:]):
+        switch, frm = _nearest_switch(cost, states, blank, page)
         blank = 0 if v else blank + 1
         new_cost: list[float] = []
         ptr: list[int] = []
@@ -247,7 +294,7 @@ def map_columns(heads: list[tuple[str, list[int]]],
     skipped = sorted(int(s) for s in skip if s.isdigit())
     numeric = [(stem, n - bisect.bisect_left(skipped, n), nums) for stem, n, nums in pages]
     votes = [page_votes(set(nums), p) for _, p, nums in numeric]
-    states, path = _viterbi(votes)
+    states, path = _viterbi(votes, [p for _, p, _ in numeric])
     columns: dict[str, tuple[int, int] | None] = {stem: None for stem, _ in heads}
 
     # Runs of pages on one state.  Columns must increase through the volume:
@@ -311,6 +358,11 @@ def map_columns(heads: list[tuple[str, list[int]]],
 _GAP_TOLERANCE = 0.15
 # Only gaps of more than this many pages are interpolated.
 _MIN_GAP = 3
+# A gap whose columns advance more slowly than its pages, down to this many
+# per page, is interpolated too: its pages include leaves the scan repeats or
+# leaves blank that the repeat check didn't find (PG 18 cols. 569–618, #578,
+# #709), so its columns are estimates, but better than none.
+_SLOW_GAP_RATE = 0.75
 
 
 def _interpolate(numeric: list[tuple[str, int, list[int]]], positions: dict[int, int]) -> None:
@@ -318,8 +370,9 @@ def _interpolate(numeric: list[tuple[str, int, list[int]]], positions: dict[int,
 
     Stretches whose running heads did not survive the OCR, or whose numbers
     were outvoted (verse and psalm numbers), lie between two numbered pages;
-    when the columns between those advance by about 1 or 2 per page, the
-    pages in between get linearly interpolated positions.
+    when the columns between those advance by about 1 or 2 per page (or
+    between ``_SLOW_GAP_RATE`` and 1: undetected repeated or blank leaves),
+    the pages in between get linearly interpolated positions.
     """
     known = sorted(positions)
     for a, b in zip(known, known[1:]):
@@ -327,7 +380,8 @@ def _interpolate(numeric: list[tuple[str, int, list[int]]], positions: dict[int,
             continue
         pa, pb = numeric[a][1], numeric[b][1]
         rate = (positions[b] - positions[a]) / (pb - pa)
-        if not any(abs(rate - k) <= _GAP_TOLERANCE * k for k in (1, 2)):
+        if not (any(abs(rate - k) <= _GAP_TOLERANCE * k for k in (1, 2))
+                or _SLOW_GAP_RATE <= rate < 1):
             continue
         prev = positions[a]
         for i in range(a + 1, b):
