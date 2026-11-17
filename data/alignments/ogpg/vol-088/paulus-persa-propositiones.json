@@ -1,0 +1,12 @@
+{
+ "format": 1,
+ "group": "ogpg/vol-088/paulus-persa-propositiones",
+ "pivot": "mt-eng/ogpg/vol-088/paulus-persa-propositiones",
+ "groups": 85,
+ "inputs": "7719429aa90b7b3b",
+ "run": {"aligner": 2, "date": "2026-11-17", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "members": [
+  {"work_id": "mt-eng/ogpg/vol-088/paulus-persa-propositiones", "units": 85, "ids": "5f605dfa24ad4980", "inputs": "6fe2b919b1d33aa9", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"},
+  {"work_id": "ogpg/vol-088/paulus-persa-propositiones", "units": 85, "ids": "18810299f1b77420", "inputs": "965a471c8e36e117", "spans": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", "conf": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999"}
+ ]
+}

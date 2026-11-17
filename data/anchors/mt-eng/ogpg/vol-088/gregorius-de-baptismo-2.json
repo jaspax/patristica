@@ -1,0 +1,19 @@
+{
+ "work_id": "mt-eng/ogpg/vol-088/gregorius-de-baptismo-2",
+ "anchor": "ogpg/vol-088/gregorius-de-baptismo-2",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "149651d5d89750d6",
+ "words": "56f212d910ba8132",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 115, "calibration": [0.7562, 0.1176], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "one_one_anchored": 1.0, "one_one_provisional": 0.8087, "rounds": 4, "units": 115},
+ "paragraphs": {
+  "ogpg.vol-088.c1871.1": {"words": "60e502e28818d781", "starts": [0, 12, 37, 64, 95, 110, 136, 165, 176, 199, 229, 260, 283, 300, 324]},
+  "ogpg.vol-088.c1873.1": {"words": "8209b75710eb943c", "starts": [0, 19, 53, 80, 111, 138, 171, 186, 225, 238, 267, 302, 333, 365, 386]},
+  "ogpg.vol-088.c1873.2": {"words": "b4697cdb83f7d481", "starts": [0, 20, 42, 68, 89]},
+  "ogpg.vol-088.c1875.1": {"words": "071a1b7db60cc8a0", "starts": [0, 22, 47, 71, 91, 126, 159, 219, 229, 254, 290, 303, 372, 408, 443, 461, 494, 520, 542]},
+  "ogpg.vol-088.c1877.1": {"words": "59ed7d4fb498cf08", "starts": [0, 39, 69, 111, 138, 162, 186, 216, 228, 266, 276, 335, 367, 384, 408, 440, 463, 490, 517, 560]},
+  "ogpg.vol-088.c1879.1": {"words": "482d5d951e56f6bb", "starts": [0, 20, 50, 75, 95, 131, 164, 190, 227, 252, 272, 290, 313, 342, 373, 397, 437]},
+  "ogpg.vol-088.c1881.1": {"words": "14d65df3543b04d3", "starts": [0, 35, 56, 97, 111, 145, 177, 210, 225, 250, 279, 315, 350, 361, 391, 406, 428, 456]},
+  "ogpg.vol-088.c1883.1": {"words": "659517a8cff2b0a1", "starts": [0, 26, 57, 96, 119, 148]}
+ }
+}
