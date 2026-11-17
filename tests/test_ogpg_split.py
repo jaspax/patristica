@@ -94,6 +94,71 @@ class TestMapColumns:
         m = oc.map_columns(heads)
         assert m.columns["659"] == (1319, 1320)
 
+    def test_small_numbers_are_no_detour_for_a_misread_jump(self):
+        # PG 27 (#709): a catena's verse numbers (about one more per page)
+        # form a one-column-per-page state near column 0.  A flat cost for
+        # changing layout let the path leave the volume's columns for that
+        # state and come back at a run of "15xx" misreadings of 13xx.
+        heads = _two_column_heads(60, 600, 1201)
+        for i, (_, nums) in enumerate(heads[30:], 30):
+            col = 1201 + 2 * i
+            verse = i - 29
+            nums[:] = [verse + 6] if i % 2 == 0 else []     # verse numbers
+            if i >= 45:
+                nums.append(col + 200 if i % 3 else col)    # mostly misread
+        m = oc.map_columns(heads)
+        assert m.columns["629"] == (1259, 1260)
+        assert m.columns["640"] == (1281, 1282)
+        assert m.columns["659"] == (1319, 1320)
+
+    def test_verse_numbers_at_the_start_do_not_restart_the_columns(self):
+        # PG 16 pt 2 (#709): a volume continuing another's columns (1279 on)
+        # opens with pages full of small verse numbers; they must not map the
+        # first pages to columns 1–80 and leave the rest without a column.
+        heads = []
+        for i in range(80):
+            nums = [7 + i % 20, 20 + i % 9] if i % 2 == 0 else [12]
+            if i % 3 == 0:
+                nums.append(1279 + 2 * i)
+            heads.append((f"{15 + i:03d}", nums))
+        m = oc.map_columns(heads)
+        assert m.columns["015"] == (1279, 1280)
+        assert m.columns["060"] == (1369, 1370)
+
+    def test_gap_of_missing_leaves_after_sparse_heads(self):
+        # PG 57 (#709): facing Greek and Latin pages print cols. 1–88 with few
+        # surviving heads, then the scan lacks cols. 89–174.  The first pages
+        # keep their columns rather than being moved onto those after the gap.
+        heads = []
+        for p in range(15, 102):
+            col = p - 14
+            heads.append((f"{p:03d}", [col] if p % 4 == 0 else []))
+        for p in range(102, 180):
+            heads.append((f"{p:03d}", [p + 72] if p % 2 == 0 else []))
+        m = oc.map_columns(heads)
+        assert m.columns["048"] == (33, 34)
+        assert m.columns["120"] == (191, 192)
+
+    def test_slow_gap_is_interpolated(self):
+        # PG 18 (#578, #709): undetected repeated leaves make a gap's columns
+        # advance more slowly than its pages; they still get estimates.
+        numeric = [(f"{p:03d}", p, []) for p in range(40)]
+        positions = {0: 569, 30: 593}                       # 0.8 columns a page
+        oc._interpolate(numeric, positions)
+        assert positions[15] == 581
+        too_slow = {0: 569, 30: 581}                        # 0.4: not a gap
+        oc._interpolate(numeric, too_slow)
+        assert too_slow == {0: 569, 30: 581}
+
+    def test_layout_switch_keeps_the_columns_running(self):
+        states = [(1, 0), (2, -100), (2, 500)]
+        cost, frm = oc._nearest_switch([0.0, 50.0, 50.0], states, page=100)
+        # (1, 0) and (2, -100) both print column 100 on page 100: switching
+        # costs the layout change only.  (2, 500) prints column 700: from
+        # (1, 0) that is a 600-column jump, dearer than staying.
+        assert frm[1] == 0 and cost[1] == oc.SWITCH_COST + oc.LAYOUT_COST
+        assert frm[2] == 2 and cost[2] == 50.0 + oc.SWITCH_COST
+
     def test_front_matter_numbers_are_dropped(self):
         # Years in a Vita advance with the pages, like columns would, but the
         # text proper restarts at column 1: the better-supported chain wins.
@@ -108,7 +173,9 @@ class TestMapColumns:
         assert frm == [0, 1, 2]                   # nothing cheaper than staying
         assert cost[1] == 5.0 + oc.SWITCH_COST
         cost, frm = oc._nearest_switch([0.0, 9.0], [(2, 0), (2, 4)])
-        assert frm[1] == 0 and cost[1] == oc.SWITCH_COST + 4 * oc.JUMP_COST
+        assert frm[1] == 0 and cost[1] == oc.SWITCH_COST + 4 * oc.FORWARD_JUMP_COST
+        cost, frm = oc._nearest_switch([9.0, 0.0], [(2, 0), (2, 4)])
+        assert frm[0] == 1 and cost[0] == oc.SWITCH_COST + 4 * oc.JUMP_COST
 
     def test_no_evidence(self):
         m = oc.map_columns([("010", []), ("011", [8])])
