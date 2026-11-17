@@ -43,6 +43,12 @@ page its own column map puts there: such holes can be filled from the scans we
 have (#90), the rest need new OCR (#94).  The other scans' maps leave out
 their repeated leaves' handling, so this is an estimate.
 
+Columns where Migne prints no Greek (a text that survives only in Latin, the
+editor's Latin prefaces and indices; the index's ``latin`` column, #708) are
+not expected to have text: a page there without text is counted as
+``latin_only``, not as missing, so ``latin`` afterwards counts only the
+unexplained Latin pages.  A page there with text still counts as present.
+
 Volumes without index rows are one work ``ogpg/{vol}``, measured over the
 columns its scan maps.  Index rows dated after the collection period are left
 out (their text is not written).  The output is deterministic.
@@ -97,6 +103,67 @@ def pages_in(ranges: list[tuple[int, int]]) -> list[int]:
 
 
 # ---------------------------------------------------------------------------
+# Latin-only columns (the index's ``latin`` column, #708)
+# ---------------------------------------------------------------------------
+
+LatinRanges = dict[str, list[tuple[int, int | None]]]
+_LATIN_RANGE = re.compile(r"^(\d+)-(\d+)$")
+
+
+def parse_latin(lines: list[str], index: dict) -> LatinRanges:
+    """Latin-only column ranges per volume from the CSV text of ``ogpg_index.csv``.
+
+    ``index`` is the same text parsed by ``_ogpg_index.parse_index``: ``all``
+    stands for its row's resolved range (``None`` as the end: to the end of
+    the volume), and a range must lie inside its row.
+    """
+    import csv
+
+    from scripts.ingest import _ogpg_index as pgi
+
+    reader = csv.DictReader(line for line in lines if not line.startswith("#"))
+    out: LatinRanges = defaultdict(list)
+    for n, rec in enumerate(reader, 2):
+        value = (rec.get("latin") or "").strip()
+        if not value:
+            continue
+        where = f"ogpg_index.csv row {n}"
+        vol, slug, start = rec["volume"].strip(), rec["slug"].strip(), int(rec["col_start"])
+        row = next((r for r in index.get(vol, []) if r.slug == slug and r.col_start == start),
+                   None)
+        if row is None:
+            raise pgi.OgpgIndexError(f"{where}: latin on a row the index doesn't have")
+        if value == "all":
+            out[vol].append((row.col_start, row.col_end))
+            continue
+        for part in value.split():
+            m = _LATIN_RANGE.match(part)
+            if not m:
+                raise pgi.OgpgIndexError(f"{where}: bad latin range {part!r}")
+            a, b = int(m.group(1)), int(m.group(2))
+            if not row.col_start <= a <= b or (row.col_end is not None and b > row.col_end):
+                raise pgi.OgpgIndexError(
+                    f"{where}: latin range {part} outside the row's columns "
+                    f"{row.col_start}–{row.col_end if row.col_end is not None else ''}")
+            out[vol].append((a, b))
+    return {vol: sorted(rs) for vol, rs in out.items()}
+
+
+def load_latin(path: Path | None = None) -> LatinRanges:
+    """Latin-only column ranges of the repository's ``ogpg_index.csv``."""
+    from scripts.ingest import _ogpg_index as pgi
+
+    path = path or pgi.INDEX_PATH
+    lines = path.read_text(encoding="utf-8").splitlines(keepends=True)
+    return parse_latin(lines, pgi.parse_index(lines))
+
+
+def in_latin(page: int, ranges: list[tuple[int, int | None]]) -> bool:
+    """Whether a page (first column) has a column in one of the Latin-only ranges."""
+    return any(a <= page + 1 and (b is None or page <= b) for a, b in ranges)
+
+
+# ---------------------------------------------------------------------------
 # Results
 # ---------------------------------------------------------------------------
 
@@ -128,6 +195,7 @@ class WorkCoverage:
     start_mid: bool | None = None
     end_mid: bool | None = None
     end_apparatus: bool | None = None
+    latin_only: int = 0         # pages without text in Latin-only columns (not expected)
 
     @property
     def missing(self) -> int:
@@ -154,7 +222,7 @@ class WorkCoverage:
 
     def to_json(self) -> dict:
         return {"work": self.work, "expected": self.expected, "present": self.present,
-                "coverage": round(self.coverage, 4),
+                "coverage": round(self.coverage, 4), "latin_only": self.latin_only,
                 "causes": dict(sorted(self.causes.items())), "fillable": self.fillable,
                 "start_mid": self.start_mid, "end_mid": self.end_mid,
                 "end_apparatus": self.end_apparatus,
@@ -282,8 +350,10 @@ class VolumeResult:
 
 
 def measure_volume(vol: str, rows: list, raw_dir: Path,
-                   cache_dir: Path | None = None) -> VolumeResult | None:
-    """Coverage of one volume's works (``rows``: its ``_ogpg_index`` rows)."""
+                   cache_dir: Path | None = None,
+                   latin: list[tuple[int, int | None]] | None = None) -> VolumeResult | None:
+    """Coverage of one volume's works (``rows``: its ``_ogpg_index`` rows;
+    ``latin``: its Latin-only column ranges)."""
     from scripts import ogpg_boundaries as ob
 
     extract_path = raw_dir / EXTRACT_DIR / f"{vol}.json"
@@ -329,8 +399,12 @@ def measure_volume(vol: str, rows: list, raw_dir: Path,
             if len(files) > (1 if own else 0) else set()
         expected = pages_in(rs)
         missing: list[tuple[int, str]] = []
+        latin_only = 0
         for page in expected:
             if page in own_pages:
+                continue
+            if latin and in_latin(page, latin):
+                latin_only += 1
                 continue
             if page in others:
                 cause = "elsewhere"
@@ -344,7 +418,8 @@ def measure_volume(vol: str, rows: list, raw_dir: Path,
             if cause != "elsewhere":
                 result.lost.append((work, page))
             missing.append((page, cause))
-        wc = WorkCoverage(work, len(expected), len(expected) - len(missing), _holes(missing))
+        n = len(expected) - latin_only
+        wc = WorkCoverage(work, n, n - len(missing), _holes(missing), latin_only=latin_only)
         if own is not None:
             b = ob.check_work(own.path, raw_dir)
             if b is not None:
@@ -461,15 +536,17 @@ def volumes(raw_dir: Path, index: dict) -> list[str]:
     return sorted(found | set(index))
 
 
-def _measure_one(args: tuple[str, list, Path, Path | None]) -> VolumeResult | None:
+def _measure_one(args: tuple[str, list, Path, Path | None, list]) -> VolumeResult | None:
     return measure_volume(*args)
 
 
 def measure(raw_dir: Path = RAW_DIR, index: dict | None = None,
             scans: Path | None = None, cache_dir: Path | None = CACHE_DIR,
-            workers: int | None = None) -> list[WorkCoverage]:
+            workers: int | None = None, latin: LatinRanges | None = None) -> list[WorkCoverage]:
     """Coverage of every OGPG work, by volume and column order.
 
+    ``index`` and ``latin`` default to the repository's ``ogpg_index.csv`` (a
+    given ``index`` comes with no Latin-only ranges unless ``latin`` is given).
     ``workers`` > 1 measures volumes in parallel processes (default: one per
     CPU; 1 runs in this process).
     """
@@ -479,7 +556,11 @@ def measure(raw_dir: Path = RAW_DIR, index: dict | None = None,
 
     if index is None:
         index = pgi.load_index()
-    jobs = [(vol, index.get(vol, []), raw_dir, cache_dir) for vol in volumes(raw_dir, index)]
+        if latin is None:
+            latin = load_latin()
+    latin = latin or {}
+    jobs = [(vol, index.get(vol, []), raw_dir, cache_dir, latin.get(vol, []))
+            for vol in volumes(raw_dir, index)]
     workers = workers or min(len(jobs), os.cpu_count() or 1) or 1
     if workers > 1:
         with ProcessPoolExecutor(workers) as pool:
@@ -509,6 +590,7 @@ def summary(works: list[WorkCoverage]) -> dict:
         "works": len(works),
         "expected_pages": sum(w.expected for w in works),
         "missing_pages": sum(w.missing for w in works),
+        "latin_only": sum(w.latin_only for w in works),
         "under_80": sum(1 for w in works if w.coverage < 0.8),
         "under_50": sum(1 for w in works if w.coverage < 0.5),
         "causes": dict(sorted(causes.items())),
@@ -531,12 +613,14 @@ def summary_line(s: dict) -> str:
         line += f"; by cause: {causes}"
     if s["fillable"]:
         line += f"; {s['fillable']:,} fillable from other scans"
+    if s.get("latin_only"):
+        line += f"; {s['latin_only']:,} Latin-only pages not expected"
     return line
 
 
 def works_tsv(works: list[WorkCoverage]) -> list[str]:
     lines = ["work\texpected\tpresent\tcoverage\tmissing\tlargest_hole\t"
-             + "\t".join(CAUSES + SCAN_CAUSES) + "\tfillable\tboundary"]
+             + "\t".join(CAUSES + SCAN_CAUSES) + "\tfillable\tlatin_only\tboundary"]
     for w in sorted(works, key=lambda w: (-w.missing, w.work)):
         big = w.largest_hole
         flags = [n for n, f in (("start", w.start_mid), ("end", w.end_mid),
@@ -546,7 +630,7 @@ def works_tsv(works: list[WorkCoverage]) -> list[str]:
             w.work, str(w.expected), str(w.present), f"{w.coverage:.3f}", str(w.missing),
             f"{big.first}-{big.last}" if big else "",
             *(str(c.get(k, 0)) for k in CAUSES + SCAN_CAUSES),
-            str(w.fillable), ",".join(flags)]))
+            str(w.fillable), str(w.latin_only), ",".join(flags)]))
     return lines
 
 

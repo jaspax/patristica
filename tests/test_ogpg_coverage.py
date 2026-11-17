@@ -170,3 +170,77 @@ def test_status_row(monkeypatch, tmp_path: Path, raw: Path, index) -> None:
     assert (row.step, row.check, row.level) == ("ingest", "ogpg coverage", "warn")
     assert "4 of 20 pages missing" in row.detail
     assert status.ogpg_coverage_rows(tmp_path / "nowhere") == []
+
+
+# ---------------------------------------------------------------------------
+# Latin-only columns (#708)
+# ---------------------------------------------------------------------------
+
+LATIN_HEADER = HEADER.rstrip("\n") + ",bhg,latin\n"
+
+
+def _latin(*rows: str) -> tuple[dict, oc.LatinRanges]:
+    lines = [LATIN_HEADER, *(r + "\n" for r in rows)]
+    index = pgi.parse_index(lines)
+    return index, oc.parse_latin(lines, index)
+
+
+def test_latin_column_is_parsed_per_row() -> None:
+    index, latin = _latin(_row("a", 11, 20) + ",,17-18", _row("b", 21, 30),
+                          _row("a", 31, 34) + ",,31-31 33-34", _row("c", 35, "") + ",,all")
+    assert latin == {VOL: [(17, 18), (31, 31), (33, 34), (35, None)]}
+    # The ingestor's parser ignores the column: the rows are those without it.
+    assert index == _index(_row("a", 11, 20), _row("b", 21, 30), _row("a", 31, 34),
+                           _row("c", 35, ""))
+
+
+def test_latin_all_is_the_rows_resolved_range() -> None:
+    _, latin = _latin(_row("a", 11, "") + ",,all", _row("b", 21, 30))
+    assert latin == {VOL: [(11, 20)]}
+
+
+@pytest.mark.parametrize("value,msg", [
+    ("9-12", "outside the row"),
+    ("15-25", "outside the row"),
+    ("18-17", "outside the row"),
+    ("17", "bad latin range"),
+    ("17–18", "bad latin range"),
+])
+def test_latin_rejects_bad_ranges(value: str, msg: str) -> None:
+    with pytest.raises(pgi.OgpgIndexError, match=msg):
+        _latin(_row("a", 11, 20) + ",," + value)
+
+
+def test_in_latin_matches_a_page_by_either_column() -> None:
+    assert oc.in_latin(17, [(18, 30)]) and oc.in_latin(29, [(18, 30)])
+    assert not oc.in_latin(15, [(18, 30)]) and not oc.in_latin(31, [(18, 30)])
+    assert oc.in_latin(901, [(35, None)])
+
+
+def test_latin_pages_are_not_expected(raw: Path, index) -> None:
+    # a's col. 17 (no text) is Latin; c is Latin throughout (its col. 35 has
+    # no text, the rest has Greek, which still counts as present).
+    latin = {VOL: [(17, 18), (35, None)]}
+    works = {w.work: w for w in _measure(raw, index, latin=latin)}
+    a, c = works[f"ogpg/{VOL}/a"], works[f"ogpg/{VOL}/c"]
+    assert (a.expected, a.present, a.latin_only, a.holes) == (6, 6, 1, [])
+    assert (c.expected, c.present, c.latin_only, c.holes) == (7, 7, 1, [])
+    assert works[f"ogpg/{VOL}/b"].latin_only == 0
+    s = oc.summary(list(works.values()))
+    assert s["missing_pages"] == 2 and s["latin_only"] == 2
+    assert "2 Latin-only pages not expected" in oc.summary_line(s)
+    assert works[f"ogpg/{VOL}/a"].to_json()["latin_only"] == 1
+    assert oc.works_tsv(list(works.values()))[0].split("\t")[-2] == "latin_only"
+
+
+def test_given_index_has_no_latin_ranges_unless_given(raw: Path, index) -> None:
+    assert all(w.latin_only == 0 for w in _measure(raw, index))
+
+
+def test_repository_latin_ranges_are_valid() -> None:
+    latin = oc.load_latin()
+    index = pgi.load_index()
+    assert latin and set(latin) <= set(index)
+    for vol, ranges in latin.items():
+        for a, b in ranges:
+            assert b is None or a <= b, (vol, a, b)

@@ -1,5 +1,5 @@
-# Open Patrologia Graeca: works per Migne column range. One row per work, or per column range of a work printed in several pieces; see scripts/ingest/_ogpg_index.py for the columns and basis values.
-volume,slug,col_start,col_end,author,title,cpg,tlg,date_composed,date_start,date_end,date_confidence,basis,duplicate_of,note,bhg
+# Open Patrologia Graeca: works per Migne column range. One row per work, or per column range of a work printed in several pieces; see scripts/ingest/_ogpg_index.py for the columns (latin: columns where Migne prints no Greek, #708) and basis values.
+volume,slug,col_start,col_end,author,title,cpg,tlg,date_composed,date_start,date_end,date_confidence,basis,duplicate_of,note,bhg,latin
 vol-001,1-clementis,199,328,Clement of Rome,Epistula I ad Corinthios,,tlg1271.tlg001,96,95,97,established,elenchus,first1k/tlg1271/tlg001/1st1K-grc1,
 vol-001,2-clementis,329,348,Pseudo-Clement of Rome,Epistula II ad Corinthios (homilia),,tlg1271.tlg002,150,120,170,approximate,heads,first1k/tlg1271/tlg002/1st1K-grc1,
 vol-001,constitutiones-apostolicae,509,1156,Pseudo-Clement of Rome,Constitutiones apostolicae,,,380,375,400,approximate,elenchus,,"The Recognitiones (col. 1157–) survive only in Rufinus's Latin, which the OGPG ingest does not extract."
@@ -9,7 +9,7 @@ vol-002,martyrium-clementis,617,632,,Martyrium S. Clementis,,,,400,800,uncertain
 vol-002,ephraem-chersonensis,633,726,Ephraim of Cherson,De miraculo S. Clementis; with the liturgy of St Clement,,,,500,900,uncertain,heads,,"Ephraim's account, followed by Clementine pieces (liturgy) up to Barnabas."
 vol-002,barnabae-epistula,727,782,Epistle of Barnabas,Epistula Barnabae,,tlg1216.tlg001,130,96,135,approximate,elenchus,first1k/tlg1216/tlg001/opp-grc1,
 vol-002,apostolorum-fragmenta,783,788,,Fragmenta S. Matthiae; Sententia S. Bartholomaei,,,,100,300,uncertain,elenchus,,
-vol-002,hermae-pastor,891,1024,Hermas,Pastor,1052,tlg1419.tlg001,140,100,150,approximate,elenchus,first1k/tlg1419/tlg001/1st1K-grc1,
+vol-002,hermae-pastor,891,1024,Hermas,Pastor,1052,tlg1419.tlg001,140,100,150,approximate,elenchus,first1k/tlg1419/tlg001/1st1K-grc1,,,all
 vol-002,testamenta-xii-patriarcharum,1025,1166,,Testamenta XII patriarcharum,,,150,100,200,uncertain,elenchus,,
 vol-002,epistula-ad-diognetum,1167,1186,,Epistula ad Diognetum,,tlg0646.tlg004,180,150,220,approximate,elenchus,first1k/tlg0646/tlg004/1st1K-grc1,
 vol-002,de-martyrio-andreae,1187,1276,,Epistula presbyterorum et diaconorum Achaiae de martyrio S. Andreae,,,,400,600,uncertain,elenchus,,
@@ -124,7 +124,7 @@ vol-003,pachymeres-paraphrasis,1043,1044,George Pachymeres,Paraphrasis in opera 
 vol-003,de-mystica-theologia,1045,1056,Pseudo-Dionysius the Areopagite,De mystica theologia,,,500,480,530,approximate,elenchus,,Pages whose running head names Pachymeres's paraphrase are carved out (see pachymeres-paraphrasis); paraphrase pages whose head the OCR missed remain here.
 vol-003,pachymeres-paraphrasis,1057,1062,George Pachymeres,Paraphrasis in opera S. Dionysii,,,1290,1280,1310,approximate,heads,,"13th–14th century: after the collection period, so dropped. Pages identified by the running head 'Paraphr. Pachymerae' (one-page gaps filled)."
 vol-003,de-mystica-theologia,1063,1064,Pseudo-Dionysius the Areopagite,De mystica theologia,,,500,480,530,approximate,elenchus,,Pages whose running head names Pachymeres's paraphrase are carved out (see pachymeres-paraphrasis); paraphrase pages whose head the OCR missed remain here.
-vol-003,epistulae,1065,1190,Pseudo-Dionysius the Areopagite,Epistulae X,,,500,480,530,approximate,elenchus,,Pages whose running head names Pachymeres's paraphrase are carved out (see pachymeres-paraphrasis); paraphrase pages whose head the OCR missed remain here.
+vol-003,epistulae,1065,1190,Pseudo-Dionysius the Areopagite,Epistulae X,,,500,480,530,approximate,elenchus,,Pages whose running head names Pachymeres's paraphrase are carved out (see pachymeres-paraphrasis); paraphrase pages whose head the OCR missed remain here.,,1121-1188
 vol-004,scholia,13,432,John of Scythopolis; Maximus the Confessor,"Scholia in opera S. Dionysii (prologus; in De caelesti hierarchia, De ecclesiastica hierarchia, De divinis nominibus, De mystica theologia)",,,600,530,662,approximate,elenchus,,Printed as Maximus's; most of the scholia are by John of Scythopolis.
 vol-004,pachymeres-paraphrasis,433,526,George Pachymeres,Paraphrasis in epistulas S. Dionysii,,,1290,1280,1310,approximate,heads,,"13th–14th century: after the collection period, so dropped (Ordo rerum: paraphrase col. 433, Lansselius's notes 509)."
 vol-004,scholia-in-epistulas,527,576,John of Scythopolis; Maximus the Confessor,Scholia in epistulas S. Dionysii,,,600,530,662,approximate,elenchus,,
@@ -138,7 +138,7 @@ vol-005,ignatius-epistulae-interpolatae,729,968,Pseudo-Ignatius,Epistulae interp
 vol-005,martyrium-ignatii,969,1004,,Martyrium S. Ignatii (with the liturgy ascribed to him),,,,300,600,uncertain,elenchus,,
 vol-005,polycarpi-epistula,1005,1028,Polycarp of Smyrna,Epistula ad Philippenses,,tlg1622.tlg001,135,110,155,approximate,elenchus,first1k/tlg1622/tlg001/1st1K-grc1,
 vol-005,martyrium-polycarpi,1029,1036,,Martyrium Polycarpi (epistula Smyrnaeorum),,tlg1484.tlg001,160,155,170,approximate,elenchus,first1k/tlg1484/tlg001/1st1K-grc1,
-vol-005,melito-fragmenta,1145,1248,Melito of Sardis,Fragmenta,,,170,160,190,approximate,elenchus,,
+vol-005,melito-fragmenta,1145,1248,Melito of Sardis,Fragmenta,,,170,160,190,approximate,elenchus,,,,all
 vol-005,papias-fragmenta,1249,1264,Papias of Hierapolis,Fragmenta,,,120,100,140,approximate,elenchus,,
 vol-005,quadratus-fragmentum,1265,1268,Quadratus of Athens,Apologia pro Christianis (fragmentum),,,125,124,129,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
 vol-005,agrippa-castor,1269,1272,Agrippa Castor,Notitia de opere contra Basilidem,,,130,125,135,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text"
@@ -190,7 +190,7 @@ vol-010,anatolius-arithmetica,231,236,Anatolius of Laodicea,Institutiones arithm
 vol-010,theognostus,237,242,Theognostus of Alexandria,Hypotyposes (fragmenta),,,265,250,282,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 235; col. 235 is still Anatolius, Photius on Theognostus begins at 237"
 vol-010,pierius,243,246,Pierius of Alexandria,Fragmenta,,,290,275,309,approximate,curated,,"#81: split from the old container row; columns from the Elenchus, checked against the Greek text. Elenchus col. 241; col. 241 is still Theognostus, Photius on Pierius begins at 243"
 vol-010,malchion-epistula,247,260,Malchion of Antioch,Epistula synodi Antiochenae contra Paulum Samosatenum,,,268,268,270,approximate,elenchus,,
-vol-010,hippolytus-exegetica,261,724,Hippolytus of Rome,Fragmenta exegetica (in Genesin … in Danielem; Susanna; in Matthaeum; in Apocalypsin),,,220,200,235,approximate,elenchus,,
+vol-010,hippolytus-exegetica,261,724,Hippolytus of Rome,Fragmenta exegetica (in Genesin … in Danielem; Susanna; in Matthaeum; in Apocalypsin),,,220,200,235,approximate,elenchus,,,,261-552
 vol-010,de-christo-et-antichristo,725,786,Hippolytus of Rome,Demonstratio de Christo et Antichristo,,,202,200,210,approximate,heads,,
 vol-010,adversus-judaeos,787,794,Hippolytus of Rome,Demonstratio adversus Judaeos,,,,,,uncertain,heads,,Authenticity disputed.
 vol-010,adversus-graecos,795,802,Hippolytus of Rome,Adversus Graecos (fragmentum),,,,,,uncertain,heads,,
@@ -207,7 +207,7 @@ vol-010,kata-meros-pistis,1103,1126,Pseudo-Gregory Thaumaturgus,Fides secundum p
 vol-010,capitula-de-fide,1127,1136,Pseudo-Gregory Thaumaturgus,Capitula XII de fide,,,,350,500,uncertain,heads,,
 vol-010,thaumaturgus-dubia,1137,1232,Pseudo-Gregory Thaumaturgus,"Opuscula dubia (Ad Tatianum de anima; homiliae, incl. In omnes sanctos)",,,,250,600,uncertain,heads,,
 vol-010,dionysius-alexandrinus,1233,1404,Dionysius of Alexandria,Epistulae et fragmenta (incl. Epistula canonica ad Basilidem),,,255,247,264,approximate,elenchus,,
-vol-010,acta-archelai,1405,1528,Hegemonius,Acta Archelai (fragmenta Graeca),,,340,330,350,approximate,heads,,Mostly Latin; the Greek is fragmentary.
+vol-010,acta-archelai,1405,1528,Hegemonius,Acta Archelai (fragmenta Graeca),,,340,330,350,approximate,heads,,Mostly Latin; the Greek is fragmentary.,,all
 vol-010,pamphilus-expositio,1529,1576,Pseudo-Pamphilus,Expositio capitum Actuum apostolorum,,,,300,500,uncertain,heads,,
 vol-010,dionysius-commentaria,1577,,Dionysius of Alexandria,Fragmenta in Ecclesiasten et in Lucam,,,255,247,264,approximate,heads,,
 vol-011,africanus-epistula-ad-originem,41,46,Sextus Julius Africanus,Epistula ad Originem (de historia Susannae),,,240,238,245,approximate,curated,,Also printed in PG 10 (with the Africanus fragments).
@@ -215,7 +215,7 @@ vol-011,epistula-ad-africanum,47,86,Origen,Epistula ad Africanum,,tlg2042.tlg045
 vol-011,epistula-ad-gregorium,87,90,Origen,Epistula ad Gregorium Thaumaturgum,,,235,230,240,uncertain,heads,,Also transmitted as Philocalia 13.
 vol-011,de-resurrectione-fragmenta,91,98,Origen,Fragmenta ex libris De resurrectione,,,225,220,230,uncertain,elenchus,,
 vol-011,stromata-fragmenta,99,106,Origen,Fragmenta ex libris Stromatum,,,225,220,231,uncertain,elenchus,,
-vol-011,de-principiis,107,414,Origen,De principiis (Peri archon),,,229,220,231,approximate,curated,,"PG prints Rufinus's Latin translation with the surviving Greek (mainly from the Philocalia and Justinian) alongside; only the Greek is extracted here, so the text is the Greek fragments. The Elenchus gives col. 115 for Book I; the Greek preface begins at col. 107."
+vol-011,de-principiis,107,414,Origen,De principiis (Peri archon),,,229,220,231,approximate,curated,,"PG prints Rufinus's Latin translation with the surviving Greek (mainly from the Philocalia and Justinian) alongside; only the Greek is extracted here, so the text is the Greek fragments. The Elenchus gives col. 115 for Book I; the Greek preface begins at col. 107.",,all
 vol-011,de-oratione,415,562,Origen,De oratione,1477,tlg2042.tlg008,234,233,235,approximate,heads,first1k/tlg2042/tlg008/perseus-grc1,
 vol-011,exhortatio-ad-martyrium,563,636,Origen,Exhortatio ad martyrium,1475,tlg2042.tlg007,235,235,235,approximate,elenchus,first1k/tlg2042/tlg007/perseus-grc1,
 vol-011,contra-celsum,637,,Origen,Contra Celsum libri VIII,,tlg2042.tlg001,248,246,249,approximate,elenchus,first1k/tlg2042/tlg001/perseus-grc1,
@@ -229,27 +229,27 @@ vol-012,selecta-in-jesum-nave,819,824,Origen,Selecta in Jesum Nave,,tlg2042.tlg0
 vol-012,selecta-in-judices,949,990,Origen,Selecta in Judices (with Ruth),,tlg2042.tlg055,,,,uncertain,heads,first1k/tlg2042/tlg055/1st1K-grc1,
 vol-012,selecta-in-regna,991,1030,Origen,Selecta in libros Regnorum,,,,,,uncertain,heads,,
 vol-012,selecta-in-job,1031,1052,Origen,Selecta in Job,,tlg2042.tlg057,,,,uncertain,heads,first1k/tlg2042/tlg057/1st1K-grc1,
-vol-012,selecta-in-psalmos,1053,,Origen,Selecta in Psalmos,,tlg2042.tlg058,,,,uncertain,heads,first1k/tlg2042/tlg058/1st1K-grc1,Authenticity of parts disputed.
+vol-012,selecta-in-psalmos,1053,,Origen,Selecta in Psalmos,,tlg2042.tlg058,,,,uncertain,heads,first1k/tlg2042/tlg058/1st1K-grc1,Authenticity of parts disputed.,,1321-1406 1689-1708
 vol-013,fragmenta-in-proverbia,17,34,Origen,Fragmenta in Proverbia,,,,220,254,uncertain,elenchus,,
-vol-013,in-canticum,35,196,Origen,"In Canticum canticorum: fragmenta, homiliae II, commentarii libri IV",,,242,240,245,approximate,elenchus,,"The homilies and commentary survive in Latin (Jerome, Rufinus); only the Greek fragments are extracted here."
+vol-013,in-canticum,35,196,Origen,"In Canticum canticorum: fragmenta, homiliae II, commentarii libri IV",,,242,240,245,approximate,elenchus,,"The homilies and commentary survive in Latin (Jerome, Rufinus); only the Greek fragments are extracted here.",,all
 vol-013,excerpta-procopiana-in-canticum,197,218,Origen,Excerpta Procopiana in Canticum canticorum,,,,240,245,uncertain,elenchus,,Excerpts preserved in the catena of Procopius of Gaza.
 vol-013,homiliae-in-isaiam,219,252,Origen,Homiliae in visiones Isaiae,,,,240,250,uncertain,elenchus,,Survive in Jerome's Latin; little or no Greek.
 vol-013,homiliae-in-jeremiam,253,542,Origen,Homiliae in Jeremiam,,,242,240,245,approximate,elenchus,,The same homilies are in first1k/tlg2042/tlg009 and tlg021.
 vol-013,selecta-in-jeremiam,543,604,Origen,Selecta in Jeremiam,,tlg2042.tlg010,,240,245,uncertain,heads,first1k/tlg2042/tlg010/opp-grc1,
 vol-013,selecta-in-threnos,605,662,Origen,Selecta in Threnos,,tlg2042.tlg011,,240,250,uncertain,heads,first1k/tlg2042/tlg011/opp-grc1,
-vol-013,homiliae-in-ezechielem,663,766,Origen,Homiliae in Ezechielem,,,,240,245,uncertain,heads,,Survive in Jerome's Latin; little or no Greek.
+vol-013,homiliae-in-ezechielem,663,766,Origen,Homiliae in Ezechielem,,,,240,245,uncertain,heads,,Survive in Jerome's Latin; little or no Greek.,,all
 vol-013,selecta-in-ezechielem,767,824,Origen,Selecta in Ezechielem,,,,240,250,uncertain,elenchus,first1k/tlg2042/tlg061/1st1K-grc1,
 vol-013,in-osee,825,828,Origen,E commentariis in Osee,,,,240,250,uncertain,heads,,
-vol-013,commentarii-in-matthaeum,829,1800,Origen,Commentarii in Evangelium secundum Matthaeum,,,248,246,249,approximate,heads,,"Greek tomes X–XVII with the anonymous Latin translation (Vetus interpretatio, Commentariorum series); the same Greek is in first1k/tlg2042/tlg029 and tlg030."
-vol-013,homiliae-in-lucam,1801,1900,Origen,Homiliae in Lucam,,,234,233,235,uncertain,curated,first1k/tlg2042/tlg016/opp-grc1,Standard PG columns; survive mainly in Jerome's Latin.
+vol-013,commentarii-in-matthaeum,829,1800,Origen,Commentarii in Evangelium secundum Matthaeum,,,248,246,249,approximate,heads,,"Greek tomes X–XVII with the anonymous Latin translation (Vetus interpretatio, Commentariorum series); the same Greek is in first1k/tlg2042/tlg029 and tlg030.",,1601-1800
+vol-013,homiliae-in-lucam,1801,1900,Origen,Homiliae in Lucam,,,234,233,235,uncertain,curated,first1k/tlg2042/tlg016/opp-grc1,Standard PG columns; survive mainly in Jerome's Latin.,,all
 vol-013,fragmenta-in-lucam,1901,1908,Origen,Fragmenta in Lucam,,,,233,254,uncertain,elenchus,first1k/tlg2042/tlg017/opp-grc1,
 vol-014,commentarii-in-joannem,21,830,Origen,Commentarii in Evangelium Joannis,,tlg2042.tlg005,235,231,248,approximate,elenchus,first1k/tlg2042/tlg005/1st1K-grc1,
 vol-014,in-acta-fragmenta,831,838,Origen,Ex homiliis in Acta apostolorum,,,,,,uncertain,elenchus,,
-vol-014,fragmenta,1291,,Origen,Fragmenta (Graeca) in Epistulam ad Romanos et varia,,,,,,uncertain,elenchus,,The Commentary on Romans (cols. 839–1290) survives only in Rufinus's Latin.
-vol-015,hexapla,1,,Origen,Hexaplorum quae supersunt (Genesis – Regna),,,240,230,245,approximate,elenchus,,"Fragments of the Greek versions (Aquila, Symmachus, Theodotion, …) arranged by Origen, as collected by Montfaucon and Bahrdt."
+vol-014,fragmenta,1291,,Origen,Fragmenta (Graeca) in Epistulam ad Romanos et varia,,,,,,uncertain,elenchus,,The Commentary on Romans (cols. 839–1290) survives only in Rufinus's Latin.,,all
+vol-015,hexapla,1,,Origen,Hexaplorum quae supersunt (Genesis – Regna),,,240,230,245,approximate,elenchus,,"Fragments of the Greek versions (Aquila, Symmachus, Theodotion, …) arranged by Origen, as collected by Montfaucon and Bahrdt.",,1-140
 vol-016-pt1,hexapla,1,,Origen,Hexaplorum quae supersunt (Paralipomena – Psalmi),,,240,230,245,approximate,elenchus,,"Fragments of the Greek versions arranged by Origen (Paralipomena 235, Job 287, Psalmi 567)."
-vol-016-pt2,hexapla,1,,Origen,Hexaplorum quae supersunt (Proverbia – Lamentationes),,,240,230,245,approximate,elenchus,,Continues the column numbering of part 1; the primary scan's columns are unreliable at the start.
-vol-016-pt3,hexapla,1,3006,Origen,Hexaplorum quae supersunt (Ezechiel – Prophetae minores),,,240,230,245,approximate,elenchus,,Continues the column numbering of part 2. Ends with Malachi (col. 3005); Migne's title page and the Latin prefaces to the Philosophumena (cols. 3007–3016) go to the remainder.
+vol-016-pt2,hexapla,1,,Origen,Hexaplorum quae supersunt (Proverbia – Lamentationes),,,240,230,245,approximate,elenchus,,Continues the column numbering of part 1; the primary scan's columns are unreliable at the start.,,2299-2396
+vol-016-pt3,hexapla,1,3006,Origen,Hexaplorum quae supersunt (Ezechiel – Prophetae minores),,,240,230,245,approximate,elenchus,,Continues the column numbering of part 2. Ends with Malachi (col. 3005); Migne's title page and the Latin prefaces to the Philosophumena (cols. 3007–3016) go to the remainder.,,2691-2772
 vol-016-pt3,refutatio-omnium-haeresium,3017,,Hippolytus of Rome,Philosophumena sive Omnium haeresium refutatio,,tlg2115.tlg060,225,222,235,approximate,heads,first1k/tlg2115/tlg060/opp-grc1,"Printed by Migne (after Miller, 1851) as Origen's Philosophumena; now ascribed to Hippolytus. Title page at col. 3007, Miller's and Duncker's prefaces 3009–3016; the text opens at col. 3017 (ΤΟΥ ΚΑΤΑ ΠΑΣΩΝ ΑΙΡΕΣΕΩΝ ΕΛΕΓΧΟΥ ΒΙΒΛΙΟΝ Α´) and runs to the end of the volume (book 10)."
 vol-017,exegetica-supplementum,9,370,Origen,Supplementum ad Origenis exegetica (selecta et scholia),,,,,,uncertain,elenchus,,"Catena fragments; partly also in First1KGreek (tlg2042: Selecta, Adnotationes, Scholia)."
 vol-017,huetii-origeniana,633,1284,Pierre-Daniel Huet,Origeniana,,,1679,1668,1679,established,elenchus,,"17th-century study (Latin with Greek quotations): after the collection period, so dropped."
@@ -274,7 +274,7 @@ vol-018,eugenius-expositio-fidei,1281,1306,Eugenius of Ancyra,Expositio fidei ad
 vol-018,theodorus-heracleensis-in-isaiam,1307,,Theodore of Heraclea,Fragmenta in Isaiam,,,345,330,355,uncertain,curated,,
 vol-019,chronicon,99,599,Eusebius of Caesarea,Chronicorum libri duo,,,311,300,325,approximate,elenchus,,Greek fragments and the canons; much of the text is the Latin version from the Armenian.
 vol-019,samuel-aniensis,600,742,Samuel of Ani,Temporum ratio,,,1180,1170,1190,approximate,elenchus,,"12th-century Armenian chronicle (in Latin): after the collection period, so dropped."
-vol-019,uranologion,743,,,"Veterum scriptorum opuscula chronologica et astronomica (Petavius's Uranologion: Hipparchus, Geminus, Achilles, computistic texts)",,,,-150,1400,uncertain,elenchus,,"Not patristic: ancient astronomical texts and Byzantine computistic pieces, some of them late; not split further."
+vol-019,uranologion,743,,,"Veterum scriptorum opuscula chronologica et astronomica (Petavius's Uranologion: Hipparchus, Geminus, Achilles, computistic texts)",,,,-150,1400,uncertain,elenchus,,"Not patristic: ancient astronomical texts and Byzantine computistic pieces, some of them late; not split further.",,743-744 905-932 1343-1488
 vol-020,historia-ecclesiastica,9,909,Eusebius of Caesarea,Historia ecclesiastica,,tlg2018.tlg002,324,311,326,approximate,elenchus,first1k/tlg2018/tlg002/1st1K-grc1,
 vol-020,vita-constantini,910,1234,Eusebius of Caesarea,De vita Constantini libri IV,,tlg2018.tlg020,339,337,339,approximate,elenchus,first1k/tlg2018/tlg020/1st1K-grc1,
 vol-020,oratio-constantini,1235,1314,Constantine I,Oratio ad sanctorum coetum,,tlg2018.tlg021,325,313,330,uncertain,elenchus,first1k/tlg2018/tlg021/1st1K-grc1,Transmitted with the Vita Constantini; authorship disputed.
@@ -292,7 +292,7 @@ vol-024,commentaria-in-psalmos-supplementum,9,76,Eusebius of Caesarea,Commentari
 vol-024,commentaria-in-isaiam,77,606,Eusebius of Caesarea,Commentaria in Isaiam,3468,tlg2018.tlg019,330,325,339,approximate,elenchus,,
 vol-024,de-theophania,607,706,Eusebius of Caesarea,De Theophania (fragmenta),,tlg2018.tlg010,333,325,337,approximate,elenchus,first1k/tlg2018/tlg010/1st1K-grc1,
 vol-024,contra-marcellum,707,826,Eusebius of Caesarea,Contra Marcellum,3477,tlg2018.tlg007,337,336,338,approximate,elenchus,pta/pta0003/pta007/pta-grc1,
-vol-024,de-ecclesiastica-theologia,827,,Eusebius of Caesarea,De ecclesiastica theologia,3478,tlg2018.tlg009,338,337,339,approximate,elenchus,first1k/tlg2018/tlg009/1st1K-grc1,The Opuscula (col. 1047–) are not in the primary scan.
+vol-024,de-ecclesiastica-theologia,827,,Eusebius of Caesarea,De ecclesiastica theologia,3478,tlg2018.tlg009,338,337,339,approximate,elenchus,first1k/tlg2018/tlg009/1st1K-grc1,The Opuscula (col. 1047–) are not in the primary scan.,,1047-1212
 vol-025,contra-gentes,3,,Athanasius of Alexandria,Oratio contra gentes,2090,tlg2035.tlg001,330,318,337,approximate,elenchus,pta/pta0022/pta001/pta-grc1,
 vol-025,de-incarnatione,95,,Athanasius of Alexandria,Oratio de incarnatione Verbi,2091,tlg2035.tlg002,330,318,337,approximate,elenchus,pta/pta0022/pta002/pta-grc1,
 vol-025,expositio-fidei,199,,Pseudo-Athanasius,Expositio fidei,,,,,,uncertain,elenchus,,Authenticity disputed.
@@ -335,11 +335,11 @@ vol-026,fragmenta-varia,1217,,Athanasius of Alexandria,Fragmenta varia,,,,,,unce
 vol-026,sermo-maior-de-fide,1261,,Pseudo-Athanasius,Sermo maior de fide,,,,,,uncertain,elenchus,,Not by Athanasius (often attributed to Marcellus of Ancyra).
 vol-026,fragmenta-et-sermones,1293,,Athanasius of Alexandria,Fragmenta et sermones,,,,,,uncertain,elenchus,,
 vol-026,de-azymis,1327,,Pseudo-Athanasius,Opusculum de azymis,,,,,,uncertain,elenchus,,Spurious.
-vol-026,epistulae-festales,1339,,Athanasius of Alexandria,Epistulae festales,,,350,329,373,approximate,elenchus,,"Mostly in Latin translation from the Syriac, with Greek fragments."
+vol-026,epistulae-festales,1339,,Athanasius of Alexandria,Epistulae festales,,,350,329,373,approximate,elenchus,,"Mostly in Latin translation from the Syriac, with Greek fragments.",,1339-1430
 vol-027,ad-marcellinum,11,46,Athanasius of Alexandria,Epistula ad Marcellinum de interpretatione Psalmorum,,,,,,,elenchus,,"Ends with § 33 on col. 45 (…ὅθεν καὶ καταγνώσεσθαι); what follows to col. 58 is the next row (#447)."
 vol-027,fragmenta-et-praefatio-in-psalmos,47,58,Athanasius of Alexandria,Fragmenta exegetica varia; praefatio in Psalmos ex codice Ambrosiano,,,,,,uncertain,heads,,"Split from ad-marcellinum (#447): scholia on the Psalms, Luke 1 and Deut. 32 (cols. 47–53), Migne's monitum on their authenticity, and the Ambrosian preface on the order of the Psalms (cols. 55–58, Τὸ δ’ αὐτὸ εὕροις… ὅτι προφήτης ὑπάρχων ὁ Δαυΐδ). Several pieces; attribution uncertain."
 vol-027,expositiones-in-psalmos,59,,Athanasius of Alexandria,Expositiones in Psalmos,,,,,,uncertain,elenchus,,Authenticity partly disputed.
-vol-027,de-titulis-psalmorum,591,,Pseudo-Athanasius,De titulis Psalmorum,,,,,,uncertain,elenchus,,Spurious.
+vol-027,de-titulis-psalmorum,591,,Pseudo-Athanasius,De titulis Psalmorum,,,,,,uncertain,elenchus,,Spurious.,,591-648
 vol-027,fragmenta-exegetica,1343,,Athanasius of Alexandria,"Fragmenta exegetica (in Job, in Canticum, in Matthaeum, in Lucam, in I Cor.)",,,,,,uncertain,elenchus,,"From the catenae. The Elenchus starts them at cols. 1343, 1347, 1363, 1389 and 1403; the primary scan's column numbers are unreliable here, so they are one work."
 vol-028,de-incarnatione-dei-verbi,1,28,Pseudo-Athanasius,De incarnatione Dei Verbi (dubium),,,,350,500,uncertain,elenchus,,
 vol-028,testimonia,29,80,Pseudo-Athanasius,Testimonia ex Scriptura sacra,,,,350,500,uncertain,elenchus,,
@@ -370,7 +370,7 @@ vol-028,monasticae-vitae-institutio,845,848,Pseudo-Athanasius,Monasticae vitae i
 vol-028,ad-castorem,849,904,Pseudo-Athanasius,Epistulae II ad Castorem,,,,400,800,uncertain,heads,,
 vol-028,homiliae-spuriae,905,1114,Pseudo-Athanasius,"Homiliae spuriae (in Nativitatem Praecursoris, in Annuntiationem, in descriptionem Mariae, in Nativitatem Christi, in Occursum Domini, in Pascha, in Ascensionem, …)",,,,400,900,uncertain,heads,,
 vol-028,dialogi-de-trinitate,1115,1288,Pseudo-Athanasius,Dialogi V de sancta Trinitate,,,,370,400,uncertain,heads,,
-vol-028,opuscula-spuria,1289,1486,Pseudo-Athanasius,Opuscula spuria varia (dialogus contra haereses; quaestiones; fragmenta),,,,400,900,uncertain,heads,,
+vol-028,opuscula-spuria,1289,1486,Pseudo-Athanasius,Opuscula spuria varia (dialogus contra haereses; quaestiones; fragmenta),,,,400,900,uncertain,heads,,,,1435-1484
 vol-028,vita-syncleticae,1487,1580,Pseudo-Athanasius,Vita et conversatio S. Syncleticae,,,,400,500,uncertain,heads,,
 vol-028,symbolum-quicumque,1581,,,Symbolum Athanasianum (Quicumque; Graece),,,,500,1050,uncertain,heads,,Greek versions of a Latin creed.
 vol-029,in-hexaemeron,3,,Basil of Caesarea,Homiliae IX in Hexaemeron,,,378,370,378,approximate,elenchus,,
@@ -432,11 +432,11 @@ vol-033,supposita,1188,1210,Pseudo-Cyril of Jerusalem,Opera S. Cyrillo supposita
 vol-033,petrus-ii-epistula-encyclica,1275,1294,Peter II of Alexandria,Epistula encyclica et fragmenta,,,378,373,381,approximate,curated,,Split from alexandrina-varia (two authors); Timothy's Responsa begin at col. 1295
 vol-033,timotheus-responsa-canonica,1295,1312,Timothy of Alexandria,Responsa canonica,,,382,381,385,approximate,curated,,"Split from alexandrina-varia; begins with the first question, Ἐὰν παιδίον κατηχούμενον"
 vol-033,metaphrasis-psalmorum,1313,1538,Pseudo-Apollinaris,Metaphrasis Psalmorum,,,460,450,470,approximate,heads,,Hexameter paraphrase printed under Apollinaris's name.
-vol-034,apophthegmata,229,384,Macarius of Egypt,Apophthegmata,,,,350,500,uncertain,elenchus,,
+vol-034,apophthegmata,229,384,Macarius of Egypt,Apophthegmata,,,,350,500,uncertain,elenchus,,,,265-384
 vol-034,sermo-de-exitu,385,448,Pseudo-Macarius,Sermo de exitu animae justorum et peccatorum,,,,400,800,uncertain,elenchus,,
 vol-034,homiliae-spirituales,449,820,Pseudo-Macarius,Homiliae spirituales L,,,400,380,430,approximate,elenchus,,
 vol-034,opuscula,821,990,Pseudo-Macarius,"Opuscula (De custodia cordis, De perfectione in spiritu, De oratione, De patientia, De elevatione mentis, De charitate, De libertate mentis)",,,,380,1000,uncertain,elenchus,,Paraphrases of the Macarian homilies attributed to Symeon Metaphrastes.
-vol-034,historia-lausiaca,991,,Palladius of Helenopolis,Historia Lausiaca,,,420,419,420,approximate,elenchus,,
+vol-034,historia-lausiaca,991,,Palladius of Helenopolis,Historia Lausiaca,,,420,419,420,approximate,elenchus,,,,all
 vol-035,oratio-1,395,,Gregory of Nazianzus,Oratio 1: In sanctum Pascha et in tarditatem,,,362,362,362,approximate,elenchus,,
 vol-035,oratio-2,407,,Gregory of Nazianzus,Oratio 2: Apologetica (De fuga sua),,,362,362,363,approximate,elenchus,,
 vol-035,oratio-3,517,,Gregory of Nazianzus,Oratio 3: Ad eos qui ipsum acciverant nec occurrerant,,,362,362,362,approximate,elenchus,,
@@ -501,9 +501,9 @@ vol-038,christus-patiens,133,340,Pseudo-Gregory of Nazianzus,Christus patiens (t
 vol-038,cosmas-scholia,341,680,Cosmas of Jerusalem,Collectio et explicatio historiarum quarum meminit Gregorius in carminibus,,,740,720,760,approximate,heads,,
 vol-038,carmina-inedita,681,840,Gregory of Nazianzus,Carmina a Droncke edita,,,385,381,390,approximate,elenchus,,
 vol-038,paraphrasis-anonymi,841,846,,Paraphrasis carminis S. Gregorii de libris canonicis,,,,600,1000,uncertain,elenchus,,
-vol-038,pseudo-caesarius,847,,Pseudo-Caesarius of Nazianzus,Dialogi IV (Erotapokriseis),,,550,540,560,approximate,heads,,
+vol-038,pseudo-caesarius,847,,Pseudo-Caesarius of Nazianzus,Dialogi IV (Erotapokriseis),,,550,540,560,approximate,heads,,,,1191-1270
 vol-039,amphilochius,13,130,Amphilochius of Iconium,"Opera (homiliae, epistula synodalis, fragmenta)",,,385,370,395,approximate,heads,,
-vol-039,didymus-de-trinitate,131,1034,Didymus the Blind,De Trinitate libri III,,,385,380,392,uncertain,heads,,Authorship disputed. Didymus's De Spiritu sancto (col. 1035) survives only in Jerome's Latin.
+vol-039,didymus-de-trinitate,131,1034,Didymus the Blind,De Trinitate libri III,,,385,380,392,uncertain,heads,,Authorship disputed. Didymus's De Spiritu sancto (col. 1035) survives only in Jerome's Latin.,,135-270 993-1032
 vol-039,didymus-contra-manichaeos,1085,1109,Didymus the Blind,Contra Manichaeos,,,,370,398,uncertain,heads,,
 vol-039,didymus-fragmenta,1110,,Didymus the Blind,Fragmenta (ex libris deperditis et ex catenis),,,,370,398,uncertain,elenchus,,The primary scan ends at col. 1170; the In epistulas catholicas (Latin) and Nectarius (col. 1823) are not in it.
 vol-040,philo-carpasius,27,162,Philo of Carpasia,Enarratio in Canticum canticorum,,,400,390,410,approximate,heads,,
@@ -512,7 +512,7 @@ vol-040,photius-de-asteriis,477,502,Photius of Constantinople,De Asteriis (ex Am
 vol-040,nemesius,503,846,Nemesius of Emesa,De natura hominis,,,400,390,400,approximate,elenchus,,
 vol-040,hieronymus-graecus,847,924,Hieronymus Graecus,Dialogus de Trinitate; De effectu baptismi et alia,,,,600,900,uncertain,heads,,
 vol-040,serapion-thmuitanus,925,946,Serapion of Thmuis,Opera (adversus Manichaeos; epistulae),,,350,340,360,approximate,heads,,
-vol-040,pachomius-et-discipuli,947,1204,Pachomius; Orsisius; Theodore the Abbot,Praecepta et opuscula monastica (Graeca),,,340,320,380,approximate,heads,,
+vol-040,pachomius-et-discipuli,947,1204,Pachomius; Orsisius; Theodore the Abbot,Praecepta et opuscula monastica (Graeca),,,340,320,380,approximate,heads,,,,953-1204
 vol-040,isaias-abbas,1205,1212,Isaiah the Abbot,Capita de ascesi et quiete,,,480,450,490,approximate,heads,,
 vol-040,evagrius,1213,,Evagrius Ponticus,"Opera (Capita practica, Sententiae, Rerum monachalium rationes, …)",,,390,380,399,approximate,heads,,
 vol-041,vita-epiphanii,23,114,Pseudo-John (disciple of Epiphanius); Polybius of Rhinocorura,Vita S. Epiphanii (with Polybius's appendix),,,,450,800,uncertain,heads,,
@@ -522,12 +522,12 @@ vol-042,panarion-2,9,880,Epiphanius of Salamis,Panarion (Adversus haereses) LXV�
 vol-042,petavii-animadversiones,881,,Dionysius Petavius,Animadversiones et dissertationes,,,1622,1620,1630,approximate,elenchus,,"17th-century commentary: after the collection period, so dropped."
 vol-043,ancoratus,11,236,Epiphanius of Salamis,Ancoratus,,tlg2021.tlg001,374,374,374,established,elenchus,,
 vol-043,de-mensuris-et-ponderibus,237,292,Epiphanius of Salamis,De mensuris et ponderibus,,,392,392,392,approximate,elenchus,,
-vol-043,de-gemmis,293,372,Epiphanius of Salamis,De XII gemmis,,,394,394,394,approximate,elenchus,,Mostly the old Latin version; Greek fragments.
+vol-043,de-gemmis,293,372,Epiphanius of Salamis,De XII gemmis,,,394,394,394,approximate,elenchus,,Mostly the old Latin version; Greek fragments.,,305-370
 vol-043,epistulae-et-de-lxx,373,392,Epiphanius of Salamis,De LXX interpretibus; epistulae ad Joannem Hierosolymitanum et ad Hieronymum,,,394,392,400,approximate,elenchus,,
 vol-043,de-vitis-prophetarum,393,438,Pseudo-Epiphanius,De vitis prophetarum,,,,400,600,uncertain,elenchus,,"The Elenchus's range also holds Pseudo-Epiphanius's homilies: In ramos palmarum (cols. 427–438) and, after the homily on the burial (in-sepulturam), In resurrectionem and the homilies on Mary (cols. 465–506), not yet split."
 vol-043,in-sepulturam,439,464,Pseudo-Epiphanius,Homilia in divini corporis sepulturam (in sabbato magno),3768,,,400,900,uncertain,curated,,"Split from de-vitis-prophetarum (#375). The title and the opening lines (Τί τοῦτο; σήμερον σιγὴ πολλή) are missing from the OCR: col. 439 starts at Ποῦ ποτε νῦν εἰσιν αἱ πρὸ βραχέος ταραχαί; the text runs to the resurrection of Adam, before the doxology."
 vol-043,de-vitis-prophetarum,465,506,Pseudo-Epiphanius,De vitis prophetarum,,,,400,600,uncertain,elenchus,,"Continued from col. 438: the homilies In resurrectionem (Ὁ τῆς δικαιοσύνης τριήμερος ἥλιος) and on Mary."
-vol-043,opuscula-spuria,507,748,Pseudo-Epiphanius,Opuscula spuria (De numerorum mysteriis; homiliae),,,,400,900,uncertain,elenchus,,
+vol-043,opuscula-spuria,507,748,Pseudo-Epiphanius,Opuscula spuria (De numerorum mysteriis; homiliae),,,,400,900,uncertain,elenchus,,,,539-748
 vol-043,nonnus-paraphrasis,749,940,Nonnus of Panopolis,Paraphrasis in Evangelium secundum Joannem,,,450,440,470,approximate,elenchus,,
 vol-043,heinsii-exercitationes,941,1226,Daniel Heinsius,Exercitationes ad Nonni paraphrasin,,,1627,1620,1630,approximate,elenchus,,"17th-century commentary: after the collection period, so dropped."
 vol-043,nonnus-dionysiaca,1227,1282,Nonnus of Panopolis,Dionysiacorum argumenta et fragmenta,,,450,440,470,approximate,elenchus,,
@@ -740,7 +740,7 @@ vol-063,severianus-de-sigillis,531,,Severian of Gabala,Homilia de sigillis libro
 vol-063,in-principio-erat-verbum,543,,Severian of Gabala,Homilia in illud: In principio erat Verbum,4210,tlg4139.tlg016,400,398,408,approximate,elenchus,pta/pta0001/pta026/pta-grc1,Printed among Chrysostom's works; attributed to Severian of Gabala (PTA).
 vol-063,de-mansuetudine,549,,John Chrysostom,Sermo de mansuetudine,,,,,,uncertain,elenchus,,
 vol-063,eclogae,567,,Pseudo-John Chrysostom,Eclogae ex diversis homiliis (homiliae XLVIII),,,,400,1000,uncertain,elenchus,,A later florilegium compiled from Chrysostom's homilies.
-vol-064,supplementum,1,1074,John Chrysostom,Supplementum ad editionem Montfauconianam (homiliae et fragmenta),,,,400,1000,uncertain,elenchus,,"Mai's, Bandini's and Matthaei's additions: homilies (several spurious), letters and exegetical fragments from the catenae."
+vol-064,supplementum,1,1074,John Chrysostom,Supplementum ad editionem Montfauconianam (homiliae et fragmenta),,,,400,1000,uncertain,elenchus,,"Mai's, Bandini's and Matthaei's additions: homilies (several spurious), letters and exegetical fragments from the catenae.",,133-296
 vol-064,meletius-de-natura-hominis,1075,1310,Meletius the Monk,De natura hominis,,,,800,1100,uncertain,elenchus,,Date disputed (9th–11th century).
 vol-065,severianus-sermones,15,32,Severian of Gabala,Sermones (in Theophania et alii),4212,tlg4139.tlg017,400,398,408,approximate,heads,pta/pta0001/pta028/pta-grc1,
 vol-065,theophilus-alexandrinus,33,70,Theophilus of Alexandria,"Opera (prosphonesis, canones, epistulae, fragmenta)",,,400,385,412,approximate,heads,,
@@ -799,13 +799,13 @@ vol-077,epistulae,123,390,Cyril of Alexandria,Epistulae,,,430,412,444,approximat
 vol-077,homiliae-paschales,391,980,Cyril of Alexandria,Homiliae paschales,,,420,414,442,approximate,elenchus,,
 vol-077,homiliae-diversae,981,1118,Cyril of Alexandria,Homiliae diversae,,,431,412,444,approximate,elenchus,,
 vol-077,spuria,1119,1312,Pseudo-Cyril of Alexandria,Spuria (De Trinitate liber et alia),,,,450,800,uncertain,elenchus,,
-vol-077,auctores-varii,1313,,Theodotus of Ancyra; Paul of Emesa; Acacius of Beroea; John of Antioch; Memnon of Ephesus; Acacius of Melitene; Rabbula of Edessa; Firmus of Caesarea; Amphilochius of Side,"Opuscula, homiliae et epistulae (Ephesine controversy)",,,435,425,460,approximate,elenchus,,Several authors; boundaries inside not curated (Elenchus OCR garbled).
-vol-078,isidori-epistulae,119,,Isidore of Pelusium,Epistulae (libri V) et alloquia,,,425,390,440,approximate,elenchus,,
+vol-077,auctores-varii,1313,,Theodotus of Ancyra; Paul of Emesa; Acacius of Beroea; John of Antioch; Memnon of Ephesus; Acacius of Melitene; Rabbula of Edessa; Firmus of Caesarea; Amphilochius of Side,"Opuscula, homiliae et epistulae (Ephesine controversy)",,,435,425,460,approximate,elenchus,,Several authors; boundaries inside not curated (Elenchus OCR garbled).,,1413-1430 1473-1480 1517-1536
+vol-078,isidori-epistulae,119,,Isidore of Pelusium,Epistulae (libri V) et alloquia,,,425,390,440,approximate,elenchus,,,,119-176 1675-1784
 vol-079,nili-epistulae,25,694,Nilus of Ancyra,Epistulae (libri IV),,,425,390,430,approximate,elenchus,,
 vol-079,nili-opuscula,695,1317,Nilus of Ancyra,"Opuscula (Oratio in Albianum, De monastica exercitatione, Peristeria, De voluntaria paupertate, De monachorum praestantia, Ad Eulogium, De vitiis, De oratione, De malignis cogitationibus, Sententiae, …)",,,425,390,430,approximate,elenchus,,De oratione and De malignis cogitationibus are by Evagrius Ponticus.
 vol-079,suaresii-dissertatio,1318,1434,Joseph-Marie Suarès,Dissertatio de operibus S. Nili; Liber chronologicus de vita S. Nili,,,1673,1665,1677,approximate,elenchus,,"17th-century study: after the collection period, so dropped."
 vol-079,nili-fragmenta,1435,,Nilus of Ancyra,De octo vitiosis cogitationibus; sermonum fragmenta ex Photio,,,425,390,430,approximate,elenchus,,De octo vitiosis cogitationibus is by Evagrius.
-vol-080,quaestiones-in-octateuchum,1,528,Theodoret of Cyrrhus,Quaestiones in Octateuchum,,,453,450,455,approximate,heads,,
+vol-080,quaestiones-in-octateuchum,1,528,Theodoret of Cyrrhus,Quaestiones in Octateuchum,,,453,450,455,approximate,heads,,,,7-66
 vol-080,quaestiones-in-reges-et-paralipomena,529,856,Theodoret of Cyrrhus,Quaestiones in libros Regnorum et Paralipomenon,,,453,450,455,approximate,curated,,Standard PG column; no heading for the books of Kingdoms in this scan.
 vol-080,in-psalmos,857,,Theodoret of Cyrrhus,Interpretatio in Psalmos,,,441,435,449,approximate,heads,,
 vol-081,in-canticum,27,214,Theodoret of Cyrrhus,Interpretatio in Canticum canticorum,,,435,430,440,uncertain,heads,,
@@ -856,7 +856,7 @@ vol-086-pt1,alexandrini-patriarchae,263,312,Timothy III of Alexandria; Theodosiu
 vol-086-pt1,eusebius-alexandrinus,313,508,Eusebius of Alexandria,Sermones,,,,450,600,uncertain,elenchus,,
 vol-086-pt1,eusebius-emesenus,509,566,Eusebius of Emesa,Fragmenta dogmatica et exegetica,,,350,340,359,approximate,elenchus,,
 vol-086-pt1,gregentius,567,782,Gregentius of Taphar,Leges Homeritarum; Disputatio cum Herbano Judaeo,,,,550,1000,uncertain,heads,,Date and authorship disputed.
-vol-086-pt1,epiphanius-cp,783,884,Epiphanius of Constantinople,Epistulae et sententiae,,,525,520,535,approximate,heads,,
+vol-086-pt1,epiphanius-cp,783,884,Epiphanius of Constantinople,Epistulae et sententiae,,,525,520,535,approximate,heads,,,,799-884
 vol-086-pt1,isaac-syrus,885,890,Isaac of Nineveh,De cogitationibus (Graece),,,680,660,700,approximate,heads,,
 vol-086-pt1,barsanuphius,891,900,Barsanuphius,Doctrina circa opiniones Origenis et Evagrii,,,540,520,550,approximate,heads,,
 vol-086-pt1,eustathius-monachus,901,944,Eustathius the Monk,Epistula ad Timotheum scholasticum de duabus naturis,,,550,530,570,approximate,heads,,
@@ -872,7 +872,7 @@ vol-086-pt2,zacharias-hierosolymitanus,3227,3264,Zacharias of Jerusalem,Epistula
 vol-086-pt2,modestus,3265,3312,Modestus of Jerusalem,Homiliae,,,630,614,634,approximate,heads,,
 vol-086-pt2,jobius-erechthius,3313,3324,Job the Monk; Erechthius of Antioch in Pisidia,Quaestio quare Filius incarnatus est; fragmentum,,,,500,700,uncertain,elenchus,,
 vol-086-pt2,petrus-laodicenus,3325,,Peter of Laodicea,Expositio in orationem dominicam; commentarii in Evangelia,,,,600,800,uncertain,elenchus,,
-vol-087-pt1,procopius-in-octateuchum,5,1078,Procopius of Gaza,Commentarii in Octateuchum,,,515,500,530,approximate,heads,,"Mostly Latin, with Greek fragments from the Leipzig catena."
+vol-087-pt1,procopius-in-octateuchum,5,1078,Procopius of Gaza,Commentarii in Octateuchum,,,515,500,530,approximate,heads,,"Mostly Latin, with Greek fragments from the Leipzig catena.",,7-20 727-848
 vol-087-pt1,procopius-in-regna,1079,1218,Procopius of Gaza,Scholia in libros Regnorum et Paralipomenon,,,515,500,530,approximate,heads,,
 vol-087-pt1,procopius-in-proverbia,1219,,Procopius of Gaza,Commentarii in Proverbia (and in Canticum),,,515,500,530,approximate,elenchus,,
 vol-087-pt2,procopius-in-canticum,1545,1800,Procopius of Gaza,Commentarii in Canticum canticorum (with fragments from another codex),,,515,500,530,approximate,elenchus,,
@@ -884,7 +884,7 @@ vol-087-pt3,sophronius-opera,3201,3732,Sophronius of Jerusalem,Orationes; De pec
 vol-087-pt3,sophronius-anacreontica,3733,3839,Sophronius of Jerusalem,Anacreontica,,,630,600,638,approximate,heads,,
 vol-087-pt3,triodium,3840,3980,Sophronius of Jerusalem,Triodium,,,,600,1000,uncertain,heads,,Liturgical poetry transmitted under Sophronius's name.
 vol-087-pt3,commentarius-liturgicus,3981,4014,Pseudo-Sophronius,Commentarius liturgicus; precatio; De laboribus SS. Petri et Pauli,,,,600,1000,uncertain,elenchus,,Spurious.
-vol-087-pt3,alexander-monachus,4015,,Alexander the Monk,De inventione crucis; Laudatio S. Barnabae,,,550,527,565,approximate,heads,,
+vol-087-pt3,alexander-monachus,4015,,Alexander the Monk,De inventione crucis; Laudatio S. Barnabae,,,550,527,565,approximate,heads,,,,4089-4176
 vol-088,cosmas-topographia,1,476,Cosmas Indicopleustes,Topographia christiana,,,548,545,550,approximate,heads,,
 vol-088,constantinus-diaconus-laudatio,477,528,Constantine the Deacon,Laudatio omnium martyrum,,,,,,uncertain,elenchus,,"From the Elenchus (col. 477) and the Latin running head LAUDATIO OMNIUM MARTYRUM; the Greek ends on col. 528 with the doxology (#95)."
 vol-088,paulus-persa-disputationes,529,550,Paul the Persian,Disputatio cum Photino Manichaeo,,,527,527,530,approximate,heads,,"The three sessions (ΔΙΑΛΕΚΤΟΣ ΠΡΩΤΗ, ΔΕΥΤΕΡΑ, ΤΡΙΤΗ) from ΦΩΤΕΙΝΟΥ ΜΑΝΙΧΑΙΟΥ ΚΑΙ ΠΑΥΛΟΥ ΧΡΙΣΤΙΑΝΟΥ (Περὶ κτίσεως). Its last lines are on the page of the next heading, col. 551, and go with that row (#95)."
@@ -906,9 +906,9 @@ vol-088,joannes-jejunator-de-paenitentia,1937,,John IV the Faster,"Sermo de paen
 vol-089,hodegos,3,326,Anastasius of Sinai,Viae dux (Hodegos),,,690,686,700,approximate,elenchus,,
 vol-089,quaestiones-et-responsiones,327,824,Anastasius of Sinai,Quaestiones et responsiones,,,690,680,700,uncertain,elenchus,,Partly by later compilers.
 vol-089,de-sacra-synaxi,825,850,Anastasius of Sinai,Oratio de sacra synaxi,,,690,680,700,approximate,heads,,
-vol-089,in-hexaemeron,851,1076,Anastasius of Sinai,Anagogicae contemplationes in Hexaemeron,,,690,680,700,uncertain,elenchus,,Mostly in Latin; the Greek is book XII.
+vol-089,in-hexaemeron,851,1076,Anastasius of Sinai,Anagogicae contemplationes in Hexaemeron,,,690,680,700,uncertain,elenchus,,Mostly in Latin; the Greek is book XII.,,851-1050
 vol-089,orationes-in-psalmum-6,1077,1178,Anastasius of Sinai,Orationes in Psalmum VI; sermo tertius,,,690,680,700,approximate,elenchus,,
-vol-089,anastasius-antiochenus,1179,1408,Anastasius I of Antioch,Contra Arianos fragmenta; Disputatio adversus Judaeos; orationes; sermones,,,580,559,599,uncertain,elenchus,,The Disputatio adversus Judaeos is spurious.
+vol-089,anastasius-antiochenus,1179,1408,Anastasius I of Antioch,Contra Arianos fragmenta; Disputatio adversus Judaeos; orationes; sermones,,,580,559,599,uncertain,elenchus,,The Disputatio adversus Judaeos is spurious.,,1291-1360
 vol-089,anastasius-abbas,1409,1414,Anastasius the Abbot,Epistula ad monachos apud Calarim,,,640,620,662,approximate,elenchus,,
 vol-089,antiochus-pandectes,1415,,Antiochus of Saba,Pandectes Scripturae sacrae,,,620,614,630,approximate,elenchus,,
 vol-090,vita-et-acta,67,243,,Vita ac certamen S. Maximi; Acta (Relatio motionis et alia),,,,662,1000,uncertain,elenchus,,The Vita is a 10th-century composition; the Acta are contemporary documents.
@@ -936,13 +936,13 @@ vol-092,georgius-pisida-opera-varia,1373,,George of Pisidia,In resurrectionem; H
 vol-093,olympiodorus-in-ecclesiasten,477,626,Olympiodorus the Deacon,Commentarii in Ecclesiasten,,,520,510,530,uncertain,curated,,This scan's column numbers begin only around col. 603; standard PG columns.
 vol-093,olympiodorus-in-jeremiam,627,724,Olympiodorus the Deacon,Fragmenta in Jeremiam,,,520,505,565,uncertain,heads,,
 vol-093,olympiodorus-in-threnos-et-baruch,725,786,Olympiodorus the Deacon,Fragmenta in Lamentationes et Baruch,,,520,505,565,uncertain,heads,,
-vol-093,hesychius-in-leviticum,787,1178,Hesychius of Jerusalem,Commentarius in Leviticum,,,440,430,450,uncertain,curated,,Survives only in Latin; little or no Greek.
+vol-093,hesychius-in-leviticum,787,1178,Hesychius of Jerusalem,Commentarius in Leviticum,,,440,430,450,uncertain,curated,,Survives only in Latin; little or no Greek.,,all
 vol-093,hesychius-in-psalmos,1179,1338,Hesychius of Jerusalem,In Psalmos,,,440,430,450,uncertain,heads,,
 vol-093,hesychius-in-prophetas,1339,1390,Hesychius of Jerusalem,Capitula et stichi in XII prophetas et Isaiam,,,440,430,450,uncertain,heads,,
 vol-093,hesychius-quaestiones,1391,1448,Hesychius of Jerusalem,Collectio difficultatum et solutionum,,,440,430,450,uncertain,heads,,
 vol-093,hesychius-homiliae,1449,1478,Hesychius of Jerusalem,Homiliae,,,440,430,451,uncertain,curated,,
 vol-093,hesychius-sinaita,1479,1544,Hesychius the Sinaite,De temperantia et virtute (centuriae),,,,700,900,uncertain,heads,,
-vol-093,leontius-neapolitanus,1545,,Leontius of Neapolis,Sermones; Contra Judaeos (fragmenta); Vita S. Joannis Eleemosynarii; Vita S. Symeonis Sali,,,640,630,650,approximate,curated,,
+vol-093,leontius-neapolitanus,1545,,Leontius of Neapolis,Sermones; Contra Judaeos (fragmenta); Vita S. Joannis Eleemosynarii; Vita S. Symeonis Sali,,,640,630,650,approximate,curated,,,,1611-1666
 vol-094,lequien-dissertationes,1,428,Michel Le Quien,Praefatio et Dissertationes Damascenicae,,,1712,1712,1712,established,curated,,"18th-century dissertations (Latin with Greek quotations): after the collection period, so dropped. This scan's column numbers begin only around col. 407."
 vol-094,vita-damasceni,429,488,John of Jerusalem,Vita S. Joannis Damasceni,,,,950,1050,uncertain,heads,,Le Quien's notes are printed under the text.
 vol-094,dialectica,521,676,John of Damascus,Fons scientiae I: Dialectica (Capita philosophica),,,743,730,749,uncertain,heads,,
@@ -960,7 +960,7 @@ vol-096,passio-artemii,1241,1334,,Passio S. Artemii,,,,700,900,uncertain,curated
 vol-096,disputatio-saraceni,1335,1370,John of Damascus,Disputatio Saraceni et Christiani,,,740,700,754,uncertain,heads,,
 vol-096,canones-joannis-monachi,1371,1434,John the Monk,Canones (in S. Basilium; in Chrysostomum; in S. Petrum),,,,700,1000,uncertain,heads,,
 vol-096,joannes-nicaenus,1435,1458,John of Nicaea,De nativitate Domini,,,800,750,850,uncertain,heads,,
-vol-096,joannes-euboeensis,1459,,John of Euboea,Sermones,,,750,740,760,approximate,heads,,
+vol-096,joannes-euboeensis,1459,,John of Euboea,Sermones,,,750,740,760,approximate,heads,,,,1509-1568
 vol-097,malalas-chronographia,9,718,John Malalas,Chronographia,,,565,530,570,approximate,curated,,Chilmead's and Hody's notes are printed under the text and are not separated here. This scan's column numbers begin only around col. 415.
 vol-097,bentleii-epistula-ad-millium,719,789,Richard Bentley,Epistola ad Joannem Millium,,,1691,1691,1691,established,curated,,"17th-century study (Latin with Greek quotations): after the collection period, so dropped."
 vol-097,andreas-cretensis,805,1444,Andrew of Crete,"Orationes (homiliae); canones et idiomela, incl. Canon magnus",,,712,700,740,uncertain,heads,,
@@ -968,10 +968,10 @@ vol-097,theodorus-abucara,1445,,Theodore Abu Qurrah,Opuscula,,,800,780,825,uncer
 vol-098,germanus,9,458,Germanus I of Constantinople,"Opera (Historia ecclesiastica et mystica contemplatio, homiliae, De haeresibus et synodis, epistulae)",,,725,715,733,approximate,curated,,The primary scan has no text before col. 409; the Historia mystica's attribution is disputed.
 vol-098,cosmas-hymni,459,548,Cosmas of Maiuma,Hymni (canones),,,740,720,760,approximate,heads,,
 vol-098,leontius-vita-gregorii,549,728,Leontius (presbyter of St Sabas),Vita S. Gregorii Agrigentini,,,,650,850,uncertain,heads,,
-vol-098,gregorius-agrigentinus,729,1228,Gregory of Agrigentum,Explanatio in Ecclesiasten,,,600,590,630,approximate,heads,,
+vol-098,gregorius-agrigentinus,729,1228,Gregory of Agrigentum,Explanatio in Ecclesiasten,,,600,590,630,approximate,heads,,,,731-740 1183-1228
 vol-098,dogmata-et-fides,1229,1272,,Dogmata orthodoxa; Expositio fidei,,,,600,850,uncertain,heads,,
 vol-098,hadrianus-isagoge,1273,1312,Adrian (exegete),Isagoge in sacras Scripturas,,,440,420,460,uncertain,heads,,
-vol-098,tarasius,1313,,Tarasius of Constantinople,Oratio encomiastica; epistulae,,,787,784,806,approximate,heads,,
+vol-098,tarasius,1313,,Tarasius of Constantinople,Oratio encomiastica; epistulae,,,787,784,806,approximate,heads,,,,1373-1422 1501-1520
 vol-099,vitae-theodori,1,326,,Vitae S. Theodori Studitae,,,,850,950,uncertain,curated,,Standard PG columns (the Vitae by Michael the Monk and others); this scan's column numbers begin only around col. 461.
 vol-099,antirrheticus-1,327,350,Theodore the Studite,Antirrheticus I adversus iconomachos,,,815,813,826,uncertain,elenchus,,Split from opuscula-adversus-iconomachos (#95). Ordo rerum col. 327; this scan has no text for cols. 281–460.
 vol-099,antirrheticus-2,351,389,Theodore the Studite,Antirrheticus II adversus iconomachos,,,815,813,826,uncertain,elenchus,,Split from opuscula-adversus-iconomachos (#95). Ordo rerum col. 351; no text in this scan.
@@ -980,7 +980,7 @@ vol-099,opuscula-adversus-iconomachos,435,477,Theodore the Studite,Refutatio poe
 vol-099,problemata-ad-iconomachos,478,485,Theodore the Studite,Problemata ad iconomachos,,,815,813,826,uncertain,elenchus,,"Split from opuscula-adversus-iconomachos (#95): from ΠΡΟΣ ΕΙΚΟΝΟΜΑΧΟΥΣ, ΛΕΓΟΝΤΑΣ ΤΟΝ ΚΥΡΙΟΝ … ΧΑΡΑΚΤΗΡΑ through problem ΙΑ’ (Ἐξ ἀπεριγράπτου καὶ περιγραπτοῦ) to its end (ΙΕ’), on the leaf with cols. 485–486 (its misplaced first copy is dropped, #578)."
 vol-099,capita-adversus-iconomachos,486,498,Theodore the Studite,Adversus iconomachos capita septem,,,815,813,826,uncertain,elenchus,,Split from opuscula-adversus-iconomachos (#95): Ordo rerum col. 486: from the heading ΚΑΤΑ ΕΙΚΟΝΟΜΑΧΩΝ ΚΕΦΑΛΑΙΑ ΕΠΤΑ to chapter 7 (the leaf with cols. 485–486 is kept in place since #578).
 vol-099,epistula-ad-platonem,499,508,Theodore the Studite,Epistula ad Platonem de cultu sacrarum imaginum,,,815,813,826,uncertain,heads,,
-vol-099,parva-catechesis,509,686,Theodore the Studite,Parva catechesis,,,820,800,826,uncertain,curated,,
+vol-099,parva-catechesis,509,686,Theodore the Studite,Parva catechesis,,,820,800,826,uncertain,curated,,,,all
 vol-099,orationes,687,802,Theodore the Studite,Orationes,,,810,790,826,uncertain,curated,,
 vol-099,laudatio-platonis,803,848,Theodore the Studite,Laudatio funebris in Platonem hegumenum,,,814,814,815,approximate,heads,,
 vol-099,laudatio-arsenii,849,882,Theodore the Studite,Laudatio S. Arsenii anachoretae,,,810,790,826,uncertain,heads,,"From the heading ΠΡΟΟΙΜΙΟΝ (Ἀστὴρ ἀειφανὴς ἡμῖν) on col. 849, after the end of Laudatio Platonis (#533)."
@@ -1011,7 +1011,7 @@ vol-101,amphilochia,45,1186,Photius of Constantinople,Amphilochia (quaestiones a
 vol-101,commentarii-in-nt,1187,1276,Photius of Constantinople,Commentariorum in Novum Testamentum fragmenta,,,875,858,893,uncertain,elenchus,,
 vol-101,amphilochia-supplementum,1277,,Photius of Constantinople,Supplementum ad quaestiones Amphilochianas,,,875,867,886,approximate,elenchus,,
 vol-102,contra-manichaeos,9,262,Photius of Constantinople,Contra Manichaeos libri IV,,,872,867,886,approximate,elenchus,,
-vol-102,mystagogia,263,546,Photius of Constantinople,De Spiritus sancti mystagogia,,,886,883,886,approximate,elenchus,,
+vol-102,mystagogia,263,546,Photius of Constantinople,De Spiritus sancti mystagogia,,,886,883,886,approximate,elenchus,,,,269-278 405-546
 vol-102,homiliae,547,574,Photius of Constantinople,Homiliae,,,865,858,886,approximate,elenchus,,
 vol-102,carmina,575,584,Photius of Constantinople,Carmina,,,,858,893,uncertain,elenchus,,
 vol-102,epistulae,585,,Photius of Constantinople,Epistulae,,,870,858,893,approximate,elenchus,,
@@ -1021,8 +1021,8 @@ vol-104,nomocanon,441,1218,Photius of Constantinople,Syntagma canonum (Nomocanon
 vol-104,interrogationes,1219,1245,Photius of Constantinople,Interrogationes decem cum totidem responsionibus,,,,858,893,uncertain,elenchus,,
 vol-104,petrus-siculus,1246,1350,Peter of Sicily,Historia Manichaeorum; sermones III adversus Manichaeos,,,870,868,872,approximate,elenchus,,
 vol-104,petrus-argivus,1351,1382,Peter of Argos,Oratio de conceptione B. Annae; Vita S. Athanasii Methonensis,,,910,890,930,approximate,elenchus,,
-vol-104,elenchus-agareni,1383,,Bartholomew of Edessa,Elenchus et confutatio Agareni,,,,850,1250,uncertain,elenchus,,Date disputed (9th–13th century).
-vol-105,nicetas-david,15,586,Nicetas David Paphlagon,Orationes laudatoriae; Vita S. Ignatii; fragmenta in Lucam; Exegesis carminum Gregorii,,,900,880,920,approximate,elenchus,,
+vol-104,elenchus-agareni,1383,,Bartholomew of Edessa,Elenchus et confutatio Agareni,,,,850,1250,uncertain,elenchus,,Date disputed (9th–13th century).,,1459-1536
+vol-105,nicetas-david,15,586,Nicetas David Paphlagon,Orationes laudatoriae; Vita S. Ignatii; fragmenta in Lucam; Exegesis carminum Gregorii,,,900,880,920,approximate,elenchus,,,,441-486
 vol-105,nicetas-byzantius,587,849,Nicetas of Byzantium,Refutatio epistulae regis Armeniae; Confutatio dogmatum Mahomedis,,,860,842,886,approximate,elenchus,,
 vol-105,encomium-omnium-sanctorum,850,854,Nicetas David Paphlagon,Encomium in omnes sanctos,,,900,880,920,uncertain,elenchus,,
 vol-105,theognostus,855,862,Theognostus the Monk,Libellus ad Nicolaum papam in causa Ignatii,,,861,858,867,approximate,elenchus,,
@@ -1034,14 +1034,14 @@ vol-106,andreas-caesariensis,207,484,Andrew of Caesarea,Commentarius in Apocalyp
 vol-106,arethas,485,786,Arethas of Caesarea,Commentarius in Apocalypsin,,,913,900,932,approximate,heads,,
 vol-106,varii-ix-x-saeculi,787,1018,John Geometres; Cosmas Vestitor; anonymous,"Orationes (de SS. Samona, Guria et Abibo; in Annuntiationem; de malo), hymni in Deiparam, encomia",,,950,750,1000,uncertain,elenchus,,Several authors; not split further.
 vol-106,opuscula-scripturistica-et-liturgica,1019,,,Epitome in Genesin; fragmentum Jacobi Jacobitae; opuscula scripturistica et liturgica,,,,700,1000,uncertain,elenchus,,
-vol-107,leo-sapiens,1,1120,Leo VI the Wise,"Opera (orationes, epistulae, Tactica, Notitiae, poemata; with Basil I's Paraeneses)",,,900,867,912,approximate,elenchus,,
+vol-107,leo-sapiens,1,1120,Leo VI the Wise,"Opera (orationes, epistulae, Tactica, Notitiae, poemata; with Basil I's Paraeneses)",,,900,867,912,approximate,elenchus,,,,43-60 293-298 315-328
 vol-107,oracula-leonis,1121,,Pseudo-Leo VI,Oracula cum figuris et antiqua paraphrasi,,,,900,1300,uncertain,elenchus,,Date disputed; probably later than Leo.
 vol-108,vita-theophanis,9,62,,Vita et officium S. Theophanis,,,,818,900,uncertain,elenchus,,
 vol-108,chronographia,63,1009,Theophanes the Confessor,Chronographia,,,814,810,815,approximate,elenchus,,
 vol-108,vita-leonis-armeni,1010,1036,Scriptor incertus,Vita Leonis Armeni,,,820,815,830,approximate,elenchus,,
 vol-108,leo-grammaticus,1037,1164,Leo Grammaticus,Chronographia,,,1013,1000,1020,approximate,curated,,Start column inferred from the Elenchus's next item.
 vol-108,henschenii-dissertatio,1165,1186,Godefridus Henschenius,Dissertatio de chronographia S. Theophanis,,,1680,1670,1681,approximate,elenchus,,"17th-century study: after the collection period, so dropped."
-vol-108,historia-ex-theophane,1187,,Anastasius Bibliothecarius,Historia ecclesiastica ex Theophane (Latine),,,873,870,875,approximate,elenchus,,Latin translation.
+vol-108,historia-ex-theophane,1187,,Anastasius Bibliothecarius,Historia ecclesiastica ex Theophane (Latine),,,873,870,875,approximate,elenchus,,Latin translation.,,all
 vol-109,theophanes-continuatus,15,498,Theophanes Continuatus,"Chronographia (Theophanes continuatus), incl. Vita Basilii Macedonis",,,955,950,970,approximate,elenchus,,
 vol-109,dissertatio-steliteutica,499,518,,Dissertatio steliteutica contra iconomachos (Adversus Constantinum Caballinum),,,745,740,775,approximate,elenchus,,
 vol-109,miracula-demetrii,519,652,,Ex miraculis S. Demetrii martyris,,,,610,700,uncertain,elenchus,,
@@ -1055,25 +1055,25 @@ vol-111,nicolaus-ad-protum,391,406,Nicholas I Mystikos,"Liber ad praepositum Sac
 vol-111,fragmentum-de-pontificibus,407,410,,Fragmentum historicum de pontificibus Romanis,,,,900,1000,uncertain,elenchus,,"Split from nicolaus-mysticus (#95): anonymous (Elenchus: ANONYMUS, Fragmentum historicum, col. 407), ΠΕΡΙ ΤΩΝ ΠΑΠΩΝ ΑΠΟ ΤΟΥ ΧΡΟΝΙΚΟΥ (Φόρμοσος ἐπίσκοπος ἦν τὸ πρότερον Πορτουένσης), from Formosus to the Hungarian raids in Tuscany."
 vol-111,basilius-neopatrensis,411,418,Basil of Neopatras,Prologus interpretationis duodecim prophetarum minorum,,,920,900,950,uncertain,heads,,"Elenchus: Basilius Neopatrensis metropolita, Prologus interpretationis duodecim prophetarum minorum; the heading reads … Neopatrensis prologus interpretationis sanctorum XII prophetarum (Mai, Nova bibl. patr. VII, 540). Formerly titled Epistula (#578)."
 vol-111,gregorius-caesariensis,419,440,Gregory the Presbyter of Caesarea,Laudatio SS. Patrum Nicaenorum,,,,850,1000,uncertain,heads,,
-vol-111,vita-lucae-junioris,441,608,,Vita S. Lucae junioris (Steiriotae),,,960,955,1000,uncertain,heads,,
-vol-111,vita-andreae-sali,609,,Nicephorus the Presbyter,Vita S. Andreae Sali,,,960,950,1000,uncertain,curated,,The Vita has no column heading in this scan; a short notice on Theodore Daphnopates printed just before it is included.
+vol-111,vita-lucae-junioris,441,608,,Vita S. Lucae junioris (Steiriotae),,,960,955,1000,uncertain,heads,,,,481-608
+vol-111,vita-andreae-sali,609,,Nicephorus the Presbyter,Vita S. Andreae Sali,,,960,950,1000,uncertain,curated,,The Vita has no column heading in this scan; a short notice on Theodore Daphnopates printed just before it is included.,,611-626 889-1236
 vol-112,de-ceremoniis,71,,Constantine VII Porphyrogenitus,De cerimoniis aulae Byzantinae libri II,,,955,945,959,approximate,elenchus,,
 vol-113,de-thematibus,63,156,Constantine VII Porphyrogenitus,De thematibus,,,935,930,959,approximate,heads,,
 vol-113,de-administrando-imperio,157,422,Constantine VII Porphyrogenitus,De administrando imperio,,,952,948,952,approximate,heads,,
-vol-113,leges-et-varia,423,,Constantine VII Porphyrogenitus; Leo III and Constantine V; others,Novellae; Ecloga legum; opuscula varia,,,900,726,1000,uncertain,heads,,Several authors; not split further.
+vol-113,leges-et-varia,423,,Constantine VII Porphyrogenitus; Leo III and Constantine V; others,Novellae; Ecloga legum; opuscula varia,,,900,726,1000,uncertain,heads,,Several authors; not split further.,,605-610 961-988 1079-1238
 vol-114,allatii-diatriba,19,198,Leo Allatius,De Symeonum scriptis diatriba,,,1664,1660,1669,approximate,elenchus,,"17th-century study: after the collection period, so dropped."
 vol-114,metaphrastes-opuscula,199,304,Symeon Metaphrastes,Officium; Oratio in lamentationem Deiparae; iambi; Alphabeta moralia; Epitome canonum,,,980,960,1000,approximate,elenchus,,
-vol-114,menologium-1,305,,Symeon Metaphrastes,Vitae sanctorum (Menologium) I,,,980,960,1000,approximate,elenchus,,Continued in PG 115–116.
-vol-115,menologium-2,9,,Symeon Metaphrastes,Vitae sanctorum (Menologium) II,,,980,960,1000,approximate,elenchus,,
-vol-116,menologium-3,5,1080,Symeon Metaphrastes,Vitae sanctorum (Menologium) III,,,980,960,1000,approximate,elenchus,,
-vol-116,acta-demetrii,1081,,,Acta S. Demetrii martyris,,,,600,900,uncertain,elenchus,,
+vol-114,menologium-1,305,,Symeon Metaphrastes,Vitae sanctorum (Menologium) I,,,980,960,1000,approximate,elenchus,,Continued in PG 115–116.,,323-330 393-396 457-466 583-594 757-760 1225-1230 1287-1292
+vol-115,menologium-2,9,,Symeon Metaphrastes,Vitae sanctorum (Menologium) II,,,980,960,1000,approximate,elenchus,,,,79-94 311-322 489-496 515-522 545-594 613-616 699-702 751-812 1089-1108
+vol-116,menologium-3,5,1080,Symeon Metaphrastes,Vitae sanctorum (Menologium) III,,,980,960,1000,approximate,elenchus,,,,163-188 271-274 561-564 747-752
+vol-116,acta-demetrii,1081,,,Acta S. Demetrii martyris,,,,600,900,uncertain,elenchus,,,,1085-1170 1399-1452
 vol-117,menologium-basilianum,9,612,,Menologium Basilii II,,,985,979,989,approximate,elenchus,,
 vol-117,basilii-novellae,613,654,Basil II,Novellae constitutiones,,,996,976,1025,approximate,elenchus,,
 vol-117,leo-diaconus,655,924,Leo the Deacon,Historiae libri X,,,992,990,995,approximate,elenchus,,
 vol-117,hasii-notae,925,1006,Karl Benedikt Hase,Notae in Leonem Diaconum,,,1819,1810,1819,approximate,elenchus,,"19th-century notes: after the collection period, so dropped."
 vol-117,tzimiscis-et-fragmenta,1007,1162,,Joannis Tzimiscis epistola; fragmenta a Gallandio collecta,,,,900,1000,uncertain,elenchus,,
 vol-117,ignatius-diaconus,1163,1192,Ignatius the Deacon,Drama de primi parentis lapsu; versus; iambi alphabetici; epistula,,,830,800,850,approximate,elenchus,,
-vol-117,suda-indices,1193,,Suda,Lexicon Suidae (indices),,,1000,970,1000,approximate,elenchus,,
+vol-117,suda-indices,1193,,Suda,Lexicon Suidae (indices),,,1000,970,1000,approximate,elenchus,,,,all
 vol-118,commentarii,21,,Pseudo-Oecumenius,Commentarii in Acta apostolorum et in Epistulas Pauli,,,990,900,1000,uncertain,elenchus,,
 vol-119,pseudo-oecumenius-in-epistulas-pauli,1,452,Pseudo-Oecumenius,Commentarius in epistulas Pauli (ad Colossenses – ad Hebraeos),,,990,950,1000,uncertain,heads,,"Continued from PG 118. A catena of earlier commentators (Chrysostom, Theodoret and others)."
 vol-119,pseudo-oecumenius-in-epistulas-catholicas,453,722,Pseudo-Oecumenius,Commentarius in epistulas catholicas,,,990,950,1000,uncertain,curated,,Standard PG columns; this scan has no pages for cols. c. 414–824.
@@ -1081,7 +1081,7 @@ vol-119,cerularius-et-lichudes,825,834,Michael Cerularius; Constantine Lichoudes
 vol-119,canonistae-posteriores,835,,,"Jus Graeco-Romanum: decreta et responsa canonica of later patriarchs and judges (Nicholas III Grammaticus, Luke Chrysoberges, John Kamateros, George Xiphilinus, Philotheus and others)",,,1150,1084,1400,approximate,heads,,"Authors born after 1025 and texts composed after 1050: after the collection period, so dropped."
 vol-120,vita-nili-junioris,15,184,,Vita S. Nili junioris,,,1010,1004,1050,approximate,heads,,
 vol-120,epiphanius-monachus,185,286,Epiphanius the Monk,Sermo de vita B. Mariae; Vita S. Andreae; opuscula,,,,750,1000,uncertain,heads,,
-vol-120,symeon-novus-theologus,287,712,Symeon the New Theologian,Orationes (Latine); Divinorum amorum liber; Capita practica et theologica; De tribus modis orationis; Dialogus,,,1000,980,1022,approximate,elenchus,,
+vol-120,symeon-novus-theologus,287,712,Symeon the New Theologian,Orationes (Latine); Divinorum amorum liber; Capita practica et theologica; De tribus modis orationis; Dialogus,,,1000,980,1022,approximate,elenchus,,,,321-602
 vol-120,cerularius-et-alii,713,834,Michael Cerularius; Nicetas of Nicaea; Peter III of Antioch,Edictum synodale (1054); epistulae; de schismate,,,,,,uncertain,elenchus,,Authors born before 1025 (patristica.period); dates from the volume.
 vol-120,leo-ochridensis,835,850,Leo of Ohrid,Epistulae (de azymis),,,,,,uncertain,heads,,
 vol-120,nicetas-stethatos,851,1074,Nicetas Stethatos,"Capita practica, physica, gnostica; contra Latinos; opuscula",,,,,,uncertain,heads,,Born c. 1005.
