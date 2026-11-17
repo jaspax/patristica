@@ -1,0 +1,33 @@
+{
+ "work_id": "mt-eng/ogpg/vol-039/didymus-contra-manichaeos",
+ "anchor": "ogpg/vol-039/didymus-contra-manichaeos",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "093c23584929afd6",
+ "words": "40cc46516a6e7fe8",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 218, "calibration": [0.6621, 0.1574], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "one_one_anchored": 1.0, "one_one_provisional": 0.8257, "rounds": 4, "units": 218},
+ "paragraphs": {
+  "ogpg.vol-039.c1085.1": {"words": "d9693fb782e24c48", "starts": [0, 22, 45, 73, 101, 127]},
+  "ogpg.vol-039.c1087.1": {"words": "3e783a6b4335c98d", "starts": [0, 19, 49, 83, 114, 137, 164]},
+  "ogpg.vol-039.c1087.2": {"words": "a8bda4d07e03478e", "starts": [0, 35, 73, 85]},
+  "ogpg.vol-039.c1087.3": {"words": "e162a69bd2f76dde", "starts": [0]},
+  "ogpg.vol-039.c1087.4": {"words": "6819b800200b450e", "starts": [0]},
+  "ogpg.vol-039.c1087.5": {"words": "17f7152f0ae39214", "starts": [0, 18, 37]},
+  "ogpg.vol-039.c1089.1": {"words": "f92e0ea302694fdf", "starts": [0, 27]},
+  "ogpg.vol-039.c1089.2": {"words": "2d561dbe34c8f039", "starts": [0, 14, 44, 65, 82, 105, 133, 159, 195, 212, 260, 279, 322, 347, 388, 404]},
+  "ogpg.vol-039.c1091.1": {"words": "d9df12c11d21f21b", "starts": [0, 36, 61, 80, 109, 125, 158, 179, 209, 237, 269, 297, 321, 347, 376, 396, 429, 453, 488, 519]},
+  "ogpg.vol-039.c1093.1": {"words": "fb4a62107ed5e666", "starts": [0, 33, 56, 87, 116, 134, 158, 196, 216, 243, 271, 312, 344, 360, 387, 428]},
+  "ogpg.vol-039.c1093.2": {"words": "9f66aa1deffe690f", "starts": [0]},
+  "ogpg.vol-039.c1095.1": {"words": "eca3cb9b8ab56a5a", "starts": [0, 31, 51, 85, 103, 128, 149, 178]},
+  "ogpg.vol-039.c1095.2": {"words": "c19da9aaaf5c9035", "starts": [0, 17, 38, 74, 87, 117, 135, 152, 171, 197, 239, 263]},
+  "ogpg.vol-039.c1097.1": {"words": "50c375bd5b6da72a", "starts": [0, 35, 60, 86, 91, 120, 149, 178, 185, 210, 237, 272, 292, 323, 363, 397, 421, 432]},
+  "ogpg.vol-039.c1099.1": {"words": "1979e63d15b6b358", "starts": [0, 22, 45, 66, 98, 117, 148, 165]},
+  "ogpg.vol-039.c1099.2": {"words": "8ff9048cbe30c399", "starts": [0, 27, 61, 81, 123, 141]},
+  "ogpg.vol-039.c1101.1": {"words": "1eba0034dfdfbc9c", "starts": [0, 11, 41, 65, 76, 93, 116, 160, 186, 218, 257, 276, 319, 342, 380]},
+  "ogpg.vol-039.c1101.2": {"words": "6f2ce23dd5b7efc8", "starts": [0, 45, 71]},
+  "ogpg.vol-039.c1103.1": {"words": "5f1f0a138724158f", "starts": [0, 24, 62, 79, 108, 138, 160, 190, 229, 266, 283, 303, 325, 350, 374, 403, 437, 460, 490]},
+  "ogpg.vol-039.c1105.1": {"words": "456bd1158d1a8b0b", "starts": [0, 19, 59, 81, 106, 129, 160, 193, 217, 239, 263, 284, 297, 313, 327, 346, 376, 399, 422, 452, 486]},
+  "ogpg.vol-039.c1107.1": {"words": "8b012ccaf58a7757", "starts": [0, 27, 45, 72, 90, 116, 144, 191, 217, 228, 246, 266, 294, 320, 350, 363, 389, 416, 440, 466, 502]},
+  "ogpg.vol-039.c1109.1": {"words": "4d9e7eff41b61939", "starts": [0, 33, 60, 85, 111, 122, 135, 180, 208, 237]}
+ }
+}

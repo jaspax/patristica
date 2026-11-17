@@ -1,0 +1,21 @@
+{
+ "work_id": "mt-eng/ogpg/vol-088/paulus-persa-propositiones",
+ "anchor": "ogpg/vol-088/paulus-persa-propositiones",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "875decbfab08b895",
+ "words": "a9f7ba55cbdd4e13",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 85, "calibration": [0.6806, 0.1455], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "one_one_anchored": 1.0, "one_one_provisional": 0.8588, "rounds": 4, "units": 85},
+ "paragraphs": {
+  "ogpg.vol-088.c0569.2": {"words": "1e6db776b98c517e", "starts": [0, 25, 59, 92, 136, 151]},
+  "ogpg.vol-088.c0569.3": {"words": "cb1a532dee9fdb09", "starts": [0, 42, 62, 84]},
+  "ogpg.vol-088.c0569.4": {"words": "4bf9e0bc4b9885cc", "starts": [0, 57]},
+  "ogpg.vol-088.c0569.5": {"words": "5cd0e2ac2c6b5d3f", "starts": [0, 19, 41]},
+  "ogpg.vol-088.c0571.1": {"words": "c6a2da55e67bd486", "starts": [0]},
+  "ogpg.vol-088.c0571.2": {"words": "73c6d04163542caf", "starts": [0, 29, 60]},
+  "ogpg.vol-088.c0571.3": {"words": "910b803b28ed34be", "starts": [0, 23, 40, 67, 100, 157, 188, 226, 242, 277, 300, 337, 356, 376]},
+  "ogpg.vol-088.c0573.1": {"words": "947f087aeb50bc9e", "starts": [0, 18, 45, 59, 94, 126, 156, 190, 223, 245, 267, 314, 364, 395, 420, 438, 460, 494, 515]},
+  "ogpg.vol-088.c0575.1": {"words": "44a0351ef2ac9415", "starts": [0, 46, 66, 80, 99, 130, 164, 199, 221, 230, 283, 309, 341, 393]},
+  "ogpg.vol-088.c0577.1": {"words": "e176b0336118b6ef", "starts": [0, 39, 70, 83, 120, 144, 178, 196, 240, 262, 283, 302, 320, 344, 366, 405, 441, 466, 491]}
+ }
+}

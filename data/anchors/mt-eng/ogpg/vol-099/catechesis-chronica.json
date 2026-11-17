@@ -1,0 +1,17 @@
+{
+ "work_id": "mt-eng/ogpg/vol-099/catechesis-chronica",
+ "anchor": "ogpg/vol-099/catechesis-chronica",
+ "method": "7c99b01da01bd8eb",
+ "anchor_cuts": "8182b11f6f72f747",
+ "words": "8bc0b3b25b4b7460",
+ "model": "voyage/voyage-4-large",
+ "stats": {"beads": 88, "calibration": [0.7872, 0.1331], "converged": false, "fallback_paragraphs": 0, "one_one": 1.0, "one_one_anchored": 1.0, "one_one_provisional": 0.7614, "rounds": 4, "units": 88},
+ "paragraphs": {
+  "ogpg.vol-099.c1693.1": {"words": "aa7ab80eaa228a63", "starts": [0, 16, 30, 47, 80, 105, 132, 143, 173, 195, 219, 240, 261, 276, 302, 327]},
+  "ogpg.vol-099.c1695.1": {"words": "94c501a050f304bc", "starts": [0, 32, 45, 67, 99, 116, 165, 181, 198, 228, 269, 291, 322, 344, 372, 390, 416, 464, 488, 509]},
+  "ogpg.vol-099.c1697.1": {"words": "738de8a70430efe8", "starts": [0, 24, 56, 81, 102, 135, 155, 208, 239, 262, 281, 300, 323, 352, 383]},
+  "ogpg.vol-099.c1697.2": {"words": "0c2a47442197b829", "starts": [0, 33]},
+  "ogpg.vol-099.c1699.1": {"words": "a29f6fa94b62e1f4", "starts": [0, 25, 54, 72, 100, 125, 154, 181, 205, 230, 267, 282, 323, 356, 375, 400]},
+  "ogpg.vol-099.c1701.1": {"words": "a63b22abfb43152b", "starts": [0, 18, 33, 67, 101, 124, 159, 173, 196, 218, 250, 283, 306, 330, 367, 397, 421, 439, 470]}
+ }
+}
