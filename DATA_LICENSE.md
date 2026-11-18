@@ -182,6 +182,10 @@ library export, and our own attribution tables such as
 - `scripts/ingest/data/greek_wordforms.tsv.gz` is a word-form list derived
   from CC BY-SA texts (First1KGreek, PTA, Perseus, PTA Septuagint) and the SBLGNT.
   It is distributed under CC BY-SA 4.0, and Rahlfs is excluded.
+- `scripts/ocr/eval/data/` is the OCR eval set's ground truth (#718):
+  transcriptions of Patrologia Graeca pages by Calfa, from
+  [Zenodo 20008699](https://zenodo.org/records/20008699), under CC BY 4.0.
+  Credit and details are in the `README.md` in that directory.
 
 ## Attribution
 
