@@ -22,6 +22,8 @@ class Line:
     id: str
     text: str
     label: str | None = None
+    # The line's polygon, as (x, y) points.
+    points: tuple[tuple[int, int], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -75,11 +77,21 @@ def _text_of(el: etree._Element) -> str:
     return (uni.text or "") if uni is not None else ""
 
 
-def _box(el: etree._Element) -> tuple[int, int, int, int] | None:
+def _points(el: etree._Element) -> tuple[tuple[int, int], ...]:
     coords = _child(el, "Coords")
     if coords is None or not coords.get("points"):
+        return ()
+    out = []
+    for p in coords.get("points").split():
+        x, y = p.split(",")
+        out.append((int(float(x)), int(float(y))))
+    return tuple(out)
+
+
+def _box(el: etree._Element) -> tuple[int, int, int, int] | None:
+    pts = _points(el)
+    if not pts:
         return None
-    pts = [tuple(int(float(v)) for v in p.split(",")) for p in coords.get("points").split()]
     xs, ys = [p[0] for p in pts], [p[1] for p in pts]
     return min(xs), min(ys), max(xs), max(ys)
 
@@ -102,7 +114,8 @@ def read_page(path: Path) -> Page:
         if _local(el.tag) != "TextRegion":
             continue
         lines = tuple(
-            Line(id=ln.get("id", ""), text=_text_of(ln), label=_label(ln))
+            Line(id=ln.get("id", ""), text=_text_of(ln), label=_label(ln),
+                 points=_points(ln))
             for ln in el
             if _local(ln.tag) == "TextLine"
         )

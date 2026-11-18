@@ -32,7 +32,7 @@ embed = ["numpy"]  # scripts.embed: corpus vectors via patristica.embedders (#13
 index = ["numpy", "psycopg[binary]"]  # scripts.build_index: load the search database (#137)
 eval = ["numpy", "httpx", "anthropic"]  # scripts.embed_eval: dense retrieval, API embedders, translation eval
 eval-local = ["numpy", "sentence-transformers", "torch"]  # local embedders (CPU torch; not in CI)
-ocr = ["rapidfuzz"]  # scripts.ocr: OCR eval scorer and pipeline (#705, #718)
+ocr = ["rapidfuzz", "pillow"]  # scripts.ocr: OCR eval scorer and pipeline (#705, #718)
 pipeline = ["patristica[embed,index,deploy,eval]"]  # scripts.pipeline: every step in one run (#248)
 
 [project.scripts]

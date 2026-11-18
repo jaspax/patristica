@@ -9,6 +9,7 @@ line by line, exactly as transcribed.
 
 from __future__ import annotations
 
+import io
 import logging
 import re
 import zipfile
@@ -17,7 +18,7 @@ from pathlib import Path
 
 from scripts.ingest._common import download_file
 
-from .pagexml import read_page
+from .pagexml import Line, Page, Region, read_page
 
 log = logging.getLogger(__name__)
 
@@ -61,17 +62,54 @@ def _greek_share(text: str) -> float:
     return greek / len(letters)
 
 
-def greek_lines(xml_path: Path) -> list[str]:
-    """The transcribed lines of a page's Greek text regions, in reading order."""
-    page = read_page(xml_path)
-    out: list[str] = []
+def _greek_regions(page: Page) -> list[Region]:
+    """The page's Greek text regions, top to bottom.
+
+    Calfa's text pages are single-column crops without a reading order, and
+    a few list their regions bottom first, so position decides the order.
+    """
+    out = []
     for region in page.regions:
         if (region.label or "").lower() in _SKIP_LABELS:
             continue
-        lines = [ln.text.strip() for ln in region.lines if ln.text.strip()]
-        if lines and _greek_share("\n".join(lines)) >= _GREEK_MIN:
-            out.extend(lines)
-    return out
+        text = "\n".join(ln.text for ln in region.lines if ln.text.strip())
+        if text and _greek_share(text) >= _GREEK_MIN:
+            out.append(region)
+    return sorted(out, key=lambda r: r.box[1] if r.box else 0)
+
+
+def greek_lines(xml_path: Path) -> list[str]:
+    """The transcribed lines of a page's Greek text regions, top to bottom."""
+    return [ln.text.strip() for region in _greek_regions(read_page(xml_path))
+            for ln in region.lines if ln.text.strip()]
+
+
+def untranscribed(page: Page) -> list[Line]:
+    """Lines the transcriber segmented but left empty, in any region."""
+    return [ln for region in page.regions for ln in region.lines
+            if not ln.text.strip() and len(ln.points) >= 3]
+
+
+def masked_image(data: bytes, lines: list[Line], suffix: str) -> bytes:
+    """The image with every line in ``lines`` painted white.
+
+    Calfa left some segmented lines untranscribed (a heading, a note mark, or
+    most of a column on a few pages). Erasing them makes the image show
+    exactly what the ground truth transcribes, so an engine that reads them
+    isn't charged with insertions.
+    """
+    from PIL import Image, ImageDraw
+
+    img = Image.open(io.BytesIO(data))
+    img.load()
+    draw = ImageDraw.Draw(img)
+    white = 255 if img.mode in ("L", "1") else (255,) * len(img.getbands())
+    for ln in lines:
+        draw.polygon(list(ln.points), fill=white)
+    out = io.BytesIO()
+    fmt = {".jpg": "JPEG", ".jpeg": "JPEG", ".png": "PNG", ".tif": "TIFF"}.get(suffix, "PNG")
+    img.save(out, format=fmt, **({"quality": 95} if fmt == "JPEG" else {}))
+    return out.getvalue()
 
 
 def page_id(set_name: str, member: str) -> str:
@@ -113,11 +151,15 @@ def extract(zip_path: Path, source: Source, gt_dir: Path, image_dir: Path,
                 continue
             pid = page_id(source.set, member)
             (gt_dir / f"{pid}.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
-            image = _image_member(names, member, read_page(xml_tmp).image)
+            page = read_page(xml_tmp)
+            blank = untranscribed(page)
+            image = _image_member(names, member, page.image)
             if image:
-                dest = image_dir / f"{pid}{Path(image).suffix.lower()}"
-                if not dest.exists():
-                    dest.write_bytes(z.read(image))
+                suffix = Path(image).suffix.lower()
+                data = z.read(image)
+                if blank:
+                    data = masked_image(data, blank, suffix)
+                (image_dir / f"{pid}{suffix}").write_bytes(data)
             else:
                 log.warning("%s: no image in %s", member, zip_path.name)
             rows.append({
@@ -125,6 +167,7 @@ def extract(zip_path: Path, source: Source, gt_dir: Path, image_dir: Path,
                 "source": f"{ZENODO_RECORD} {source.file}:{member}",
                 "image": image or "", "lines": str(len(lines)),
                 "chars": str(sum(len(ln) for ln in lines)), "status": "checked",
+                "note": f"image: {len(blank)} untranscribed lines masked" if blank else "",
             })
     return rows
 

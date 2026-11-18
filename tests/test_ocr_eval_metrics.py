@@ -87,3 +87,10 @@ def test_unrelated_pair_is_not_a_real_word_substitution() -> None:
     # Both are valid forms, but nothing alike: an alignment artefact.
     c = score_page("ὁ θεὸς ἦν", "ὁ καὶ ἦν", LEX)
     assert (c.word_subs, c.realword_subs) == (1, 0)
+
+
+def test_fold_conventions() -> None:
+    ref = "δι´ οὗ ἡμῖν"
+    hyp = "δι' οὗ ¹⁸ ἡμῖν (3)"
+    assert score_page(ref, hyp, LEX).char_errors > 0
+    assert score_page(ref, hyp, LEX, conventions=True).char_errors == 0

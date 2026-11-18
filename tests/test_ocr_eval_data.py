@@ -30,7 +30,8 @@ REGIONS = (
     + _line("καὶ τί γὰρ ἂν ἄλλο") + _line("τι προοίμιον") + "</TextRegion>"
     '<TextRegion id="r2" custom="structure {type:col_latin;}">'
     + _line("Et quid enim aliud") + "</TextRegion>"
-    '<TextRegion id="r3" type="paragraph">' + _line("Θαυμαστὸς ὁ Θεὸς") + "</TextRegion>"
+    '<TextRegion id="r3" type="paragraph"><Coords points="10,92 30,92 30,98 10,98"/>'
+    + _line("Θαυμαστὸς ὁ Θεὸς") + "</TextRegion>"
 )
 
 
@@ -46,7 +47,7 @@ def test_read_page(tmp_path: Path) -> None:
     assert page.regions[1].box == (10, 20, 30, 90)
 
 
-def test_greek_lines_skip_latin(tmp_path: Path) -> None:
+def test_greek_lines_skip_latin_top_to_bottom(tmp_path: Path) -> None:
     p = tmp_path / "p.xml"
     p.write_text(_page_xml(REGIONS), encoding="utf-8")
     assert groundtruth.greek_lines(p) == ["καὶ τί γὰρ ἂν ἄλλο", "τι προοίμιον", "Θαυμαστὸς ὁ Θεὸς"]

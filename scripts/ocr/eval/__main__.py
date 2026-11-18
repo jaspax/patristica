@@ -89,6 +89,12 @@ def cmd_build(args: argparse.Namespace) -> int:
     return 0
 
 
+def _note(row: dict[str, str], ogl: str) -> str:
+    """The row's note with its ``OGL: …`` part replaced by ``ogl``."""
+    parts = [p for p in row.get("note", "").split("; ") if p and not p.startswith("OGL:")]
+    return "; ".join(parts + ([ogl] if ogl else []))
+
+
 def cmd_baseline(args: argparse.Namespace) -> int:
     from . import ogl
 
@@ -106,12 +112,13 @@ def cmd_baseline(args: argparse.Namespace) -> int:
         if m is None:
             # OGL has no page with this text: it is a hole, scored as empty.
             row.update(ogl_scan="", ogl_stem="", ogl_containment="",
-                       note="OGL: no page has this text (scored empty)")
+                       note=_note(row, "OGL: no page has this text (scored empty)"))
             (out_dir / f"{row['page_id']}.txt").write_text("", encoding="utf-8")
             continue
         found += 1
         row.update(ogl_scan=m.scan, ogl_stem=m.stem, ogl_containment=f"{m.containment:.2f}",
-                   note="" if m.ingested else "OGL: best of all scans (volume not ingested)")
+                   note=_note(row, "" if m.ingested
+                              else "OGL: best of all scans (volume not ingested)"))
         hyp = ogl.trim_to(m.text, ref)
         (out_dir / f"{row['page_id']}.txt").write_text(hyp + "\n", encoding="utf-8")
     write_manifest(rows)
@@ -127,6 +134,9 @@ def cmd_score(args: argparse.Namespace) -> int:
     rows = read_manifest()
     if args.set:
         rows = [r for r in rows if r["set"] in args.set]
+    if args.pages:
+        wanted = set(args.pages.read_text(encoding="utf-8").split())
+        rows = [r for r in rows if r["page_id"] in wanted]
     rows = [r for r in rows if r.get("status", "checked") == "checked"]
     lexicon = load_lexicon()
     header = ("group", "pages", "missing", "chars", "CER%", "baseCER%", "accent%",
@@ -145,9 +155,12 @@ def cmd_score(args: argparse.Namespace) -> int:
             ref = (GT_DIR / f"{row['page_id']}.txt").read_text(encoding="utf-8")
             groups[key] = groups[key] + score_page(
                 ref, hyp[0], lexicon, dehyphenate=args.dehyphenate,
+                conventions=args.fold_conventions,
                 ref_columns=_columns(row.get("columns")), hyp_columns=hyp[1],
             )
-        print(f"\n## {engine}" + (" (dehyphenated)" if args.dehyphenate else ""))
+        flags = [f for f, on in (("dehyphenated", args.dehyphenate),
+                                 ("conventions folded", args.fold_conventions)) if on]
+        print(f"\n## {engine}" + (f" ({', '.join(flags)})" if flags else ""))
         print(" | ".join(header))
         print(" | ".join("---" for _ in header))
         total = Counts()
@@ -196,7 +209,11 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("score", help="score engines' outputs against the ground truth")
     s.add_argument("--engine", action="append", required=True, help="a dir under hyp/ (repeatable)")
     s.add_argument("--set", action="append", help="only these sets (calfa-v2, ours)")
+    s.add_argument("--pages", type=Path, metavar="FILE",
+                   help="only the page ids listed in FILE (whitespace-separated)")
     s.add_argument("--by", choices=("pg_volume", "set", "page_id"), help="one row per group")
+    s.add_argument("--fold-conventions", action="store_true",
+                   help="unify apostrophes and drop footnote markers, on both sides")
     s.add_argument("--dehyphenate", action="store_true",
                    help="join words split at line ends, on both sides")
     s.add_argument("--examples", type=int, default=0, metavar="N",
