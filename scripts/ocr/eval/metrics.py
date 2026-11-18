@@ -70,6 +70,9 @@ _ROMAN = re.compile(r"(?<!\S)[IVXLCDM]+(?=\.)|(?<!\S)[ivxlcdm]+(?=\.)")
 _NOTE_MARKERS = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁽⁾]+|[(\[]\s*\d{1,3}\s*\*?\s*[)\]]|\d{1,3}\*?")
 _SPACE_BEFORE_PUNCT = re.compile(r"\s+(?=[,·;:.!?»)\]])")
 _SPACE_AFTER_OPEN = re.compile(r"(?<=[«(\[])\s+")
+# Migne sometimes prints no space after a comma or high dot (],ὡς); Calfa
+# restores it. A missing space before a letter is not a misreading.
+_NO_SPACE_AFTER = re.compile(r"(?<=[,·;])(?=[^\W\d_«])")
 _GRAVE = "̀"
 _ACUTE = "́"
 # The last vowel's accent of a word directly followed by punctuation.
@@ -82,6 +85,7 @@ def fold_conventions(text: str) -> str:
     text = _NOTE_MARKERS.sub("", text.translate(_APOSTROPHES))
     text = _LATIN_WORD.sub("", text)
     text = _SPACE_AFTER_OPEN.sub("", _SPACE_BEFORE_PUNCT.sub("", text))
+    text = _NO_SPACE_AFTER.sub(" ", text)
     text = _ROMAN.sub(lambda m: m.group(0).lower(), text)
     nfd = unicodedata.normalize("NFD", text)
     return unicodedata.normalize("NFC", _FINAL_GRAVE.sub(_ACUTE, nfd))

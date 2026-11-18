@@ -139,3 +139,9 @@ def test_fold_latin_words_but_not_numerals() -> None:
     ref = "ἐφεῖλκε [εἷλκε] πρὸς xvi. Ἀλλά"
     hyp = "ἐφεῖλκε [al. εἷλκε] πρὸς XVI. Ἀλλά"
     assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
+
+
+def test_fold_missing_space_after_comma() -> None:
+    ref = "[ταύταις], ὡς γέγραπται"
+    hyp = "[ταύταις],ὡς γέγραπται"
+    assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
