@@ -66,7 +66,8 @@ def _run(tmp_path: Path, page: str = "p1") -> stages.Run:
 
 
 def test_disputed_lines(tmp_path: Path) -> None:
-    lines, agreed, readings = stages.disputed(_run(tmp_path), "p1")
+    lines, agreed, readings, missing = stages.disputed(_run(tmp_path), "p1")
+    assert missing == {}
     assert [a is None for a in agreed] == [False, True, False]
     assert readings[1] == ["ὁ λόγος καὶ", "ὁ λόγος καὶ", "ὁ λόγος καὶ", "ὁ νόμος καὶ"]
 
@@ -80,6 +81,9 @@ class _Fake:
     def run(self, jobs):
         self.jobs += jobs
         return {j.key: backends.Result(json.dumps(self.answer), {"input_tokens": 10}) for j in jobs}
+
+    def ack(self):
+        self.acked = True
 
 
 def test_synth_sends_only_disputed_lines(tmp_path: Path) -> None:
@@ -119,7 +123,7 @@ def test_gemini_request_and_batch_parsing(monkeypatch) -> None:
             {"error": {"code": 3}, "metadata": {"key": "b"}}]}}}}
     items = backends._inlined(finished)
     assert [i["metadata"]["key"] for i in items] == ["a", "b"]
-    assert backends.Gemini._text(items[0]["response"])[0] == "ok"
+    assert backends._GeminiBase._text(items[0]["response"])[0] == "ok"
 
 
 def test_claude_batch_params(monkeypatch) -> None:
@@ -154,3 +158,73 @@ def test_cost_command(tmp_path: Path, capsys) -> None:
     assert main(["cost", "--out", str(tmp_path)]) == 0
     out = capsys.readouterr().out
     assert "synth1" in out and "4.0000" in out and "2.0000" in out
+
+
+def test_cost_prices_claude_cache_reads_separately(tmp_path: Path, capsys) -> None:
+    d = tmp_path / "opus_page"
+    d.mkdir()
+    (d / "p1.txt").write_text("x")
+    usage = {"input_tokens": 0, "cache_read_input_tokens": 1_000_000, "output_tokens": 0,
+             "limits": {"five_hour": 0.10}}
+    (d / "_usage.jsonl").write_text(json.dumps({"key": "p1#0", "usage": usage, "error": None})
+                                    + "\n" + json.dumps({"key": "p1#1", "usage": {
+                                        "input_tokens": 0, "output_tokens": 0,
+                                        "limits": {"five_hour": 0.13}}, "error": None}) + "\n")
+    assert main(["cost", "--out", str(tmp_path)]) == 0
+    out = capsys.readouterr().out
+    assert "0.4000" in out  # $0.40 per million cache reads, not $4
+    assert "five_hour 3.0 pts" in out
+
+
+class _FakeBatch(backends._Batched):
+    """A batch backend whose batches answer immediately; counts submissions."""
+
+    provider = "fake"
+
+    def __init__(self, state_dir, fail=()):
+        super().__init__(state_dir)
+        self.submitted, self.fail = [], set(fail)
+
+    def request(self, job):
+        return {"text": job.parts[0][1]}
+
+    def submit(self, jobs):
+        self.submitted.append([j.key for j in jobs])
+        self.last = jobs
+        return [f"b{len(self.submitted)}"]
+
+    def fetch(self, batch_id, keys):
+        return {k: backends.Result("", error="boom") if k in self.fail
+                else backends.Result(f"ok {k}") for k in keys}
+
+
+def test_batch_checkpoint_reuses_identical_requests_only(tmp_path: Path) -> None:
+    jobs = [backends.Job("a", "s", [("text", "1")]), backends.Job("b", "s", [("text", "2")])]
+    first = _FakeBatch(tmp_path, fail={"b"})
+    r = first.run(jobs)
+    assert r["a"].text == "ok a" and r["b"].error == "boom"
+    # A rerun before ack: "a" is reused, the failed "b" is resubmitted alone.
+    second = _FakeBatch(tmp_path)
+    r = second.run(jobs)
+    assert second.submitted == [["b"]] and r["b"].text == "ok b"
+    # A changed request is not served the old result.
+    third = _FakeBatch(tmp_path)
+    third.run([backends.Job("a", "s", [("text", "changed")])])
+    assert third.submitted == [["a"]]
+    third.ack()
+    assert not (tmp_path / "_batch_fake.json").exists()
+
+
+def test_lines_kraken_missed_are_recovered(tmp_path: Path) -> None:
+    run = _run(tmp_path)
+    for stage in ("opus_page", "gemini_page"):
+        p = run.out / stage / "p1.txt"
+        lines = p.read_text(encoding="utf-8").splitlines()
+        lines.insert(2, "καὶ θεὸς ἦν ὁ λόγος")
+        p.write_text("\n".join(lines), encoding="utf-8")
+    _, _, _, missing = stages.disputed(run, "p1")
+    insert, review = stages.recovered_lines(missing)
+    assert insert == {1: ["καὶ θεὸς ἦν ὁ λόγος"]} and review[0]["after_line"] == 1
+    stages.synth(run, "synth1", _Fake({"lines": [{"id": 1, "text": "ὁ λόγος καὶ"}]}))
+    assert run.text("synth1", "p1").splitlines()[2] == "καὶ θεὸς ἦν ὁ λόγος"
+    assert (run.out / "synth1" / "_review.jsonl").exists()

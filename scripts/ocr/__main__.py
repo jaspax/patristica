@@ -22,6 +22,7 @@ import argparse
 import json
 import logging
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 from patristica.console import setup_logging
@@ -38,7 +39,8 @@ CLAUDE_MODEL = "claude-opus-5-5"
 # Gemini 3.8 Flash doubles on 2027-01-01 ($1.50 / $7.50).
 PRICES = {
     "gemini": {"in": 0.75, "out": 3.75},
-    "claude": {"in": 4.00, "out": 20.00, "cache_write_1h": 8.00, "cache_read": 0.40},
+    "claude": {"in": 4.00, "out": 20.00, "cache_read": 0.40, "cache_write_5m": 5.00,
+               "cache_write_1h": 8.00},
 }
 PROVIDER = {"kgc": "gemini", "gemini_page": "gemini", "opus_page": "claude",
             "synth1": "claude", "synth2": "claude"}
@@ -80,39 +82,61 @@ def cmd_run(args: argparse.Namespace) -> int:
     return 0
 
 
-def _tokens(provider: str, u: dict) -> tuple[float, float]:
+def _charge(provider: str, u: dict) -> tuple[float, float, float]:
+    """(input tokens, output tokens, USD at direct rates) of one request.
+
+    Claude's cache reads and writes are priced at their own rates: a read at
+    0.1x input, a write at 1.25x (5-minute) or 2x (1-hour) input.
+    """
+    p = PRICES[provider]
     if provider == "gemini":
-        return (u.get("promptTokenCount", 0),
-                u.get("candidatesTokenCount", 0) + (u.get("thoughtsTokenCount") or 0))
-    return (u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0)
-            + u.get("cache_read_input_tokens", 0), u.get("output_tokens", 0))
+        tin = u.get("promptTokenCount", 0)
+        tout = u.get("candidatesTokenCount", 0) + (u.get("thoughtsTokenCount") or 0)
+        return tin, tout, (tin * p["in"] + tout * p["out"]) / 1e6
+    plain, read = u.get("input_tokens", 0), u.get("cache_read_input_tokens", 0)
+    write = u.get("cache_creation_input_tokens", 0)
+    by_ttl = u.get("cache_creation") or {}
+    w1h = by_ttl.get("ephemeral_1h_input_tokens", 0)
+    w5m = write - w1h
+    tout = u.get("output_tokens", 0)
+    usd = (plain * p["in"] + read * p["cache_read"] + w5m * p["cache_write_5m"]
+           + w1h * p["cache_write_1h"] + tout * p["out"]) / 1e6
+    return plain + read + write, tout, usd
 
 
 def cmd_cost(args: argparse.Namespace) -> int:
-    """Tokens and dollars per page for each stage, at direct and batch rates."""
+    """Tokens and dollars per page for each stage, at direct and batch rates.
+
+    For stages run through `claude -p`, also how far the run moved the
+    subscription's usage windows (five_hour, seven_day), as percentage points.
+    """
     out = Path(args.out)
     total = 0.0
     print(f"{'stage':12s} {'pages':>5s} {'in/page':>9s} {'out/page':>9s} {'$/page':>8s} "
-          f"{'batch $/page':>13s}")
+          f"{'batch $/page':>13s}  subscription windows")
     for stage, provider in PROVIDER.items():
         f = out / stage / "_usage.jsonl"
         if not f.exists():
             continue
-        tin = tout = 0.0
-        pages = set()
+        tin = tout = usd = 0.0
+        windows: dict[str, list[float]] = defaultdict(list)
         for line in f.read_text().splitlines():
             r = json.loads(line)
             if r.get("error"):
                 continue
-            pages.add(r["key"].split("#")[0])
-            i, o = _tokens(provider, r["usage"] or {})
-            tin, tout = tin + i, tout + o
+            u = r["usage"] or {}
+            i, o, d = _charge(provider, u)
+            tin, tout, usd = tin + i, tout + o, usd + d
+            for w, v in (u.get("limits") or {}).items():
+                if v is not None:
+                    windows[w].append(v)
         # A page with no disputed line makes no synthesis request but still counts.
-        n = len(list((out / stage).glob("*.txt"))) or len(pages) or 1
-        p = PRICES[provider]
-        usd = (tin * p["in"] + tout * p["out"]) / 1e6 / n
-        total += usd
-        print(f"{stage:12s} {n:5d} {tin / n:9.0f} {tout / n:9.0f} {usd:8.4f} {usd / 2:13.4f}")
+        n = len(list((out / stage).glob("*.txt"))) or 1
+        total += usd / n
+        win = "  ".join(f"{w} {100 * (max(v) - min(v)):.1f} pts"
+                        for w, v in sorted(windows.items()))
+        print(f"{stage:12s} {n:5d} {tin / n:9.0f} {tout / n:9.0f} {usd / n:8.4f} "
+              f"{usd / n / 2:13.4f}  {win}")
     print(f"{'total':12s} {'':5s} {'':9s} {'':9s} {total:8.4f} {total / 2:13.4f}")
     return 0
 

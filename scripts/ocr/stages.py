@@ -22,6 +22,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from PIL import Image
+from rapidfuzz.distance import Levenshtein
 
 from scripts.ocr import flags, prompts
 from scripts.ocr.alto import read_alto
@@ -113,6 +114,7 @@ def page_reader(run: Run, stage: str, backend) -> None:
     results = backend.run(_page_jobs(run, run.todo(stage)))
     run.log_usage(stage, results)
     _write_pages(run, stage, results)
+    backend.ack()
 
 
 def kgc(run: Run, backend, point: str = "r95") -> None:
@@ -141,45 +143,87 @@ def kgc(run: Run, backend, point: str = "r95") -> None:
         out = list(base)
         r = results.get(p)
         if r is not None:
-            if r.error:
-                log.error("kgc %s: %s", p, r.error)
-                continue
-            for x in parse_json(r.text).get("lines", []):
-                if 0 <= int(x["id"]) < len(out):
-                    out[int(x["id"])] = norm(x["text"])
+            answer = _answer(r, "kgc", p)
+            if answer is None:
+                continue  # left for the next run
+            for i, text in answer.items():
+                if 0 <= i < len(out):
+                    out[i] = text
         (run.dir("kgc") / f"{p}.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
+    backend.ack()
 
 
-def disputed(run: Run, page: str) -> tuple[list, list[str], list[list[str]]]:
-    """Kraken's lines, the agreed text per line, and the readings of each line.
+def _answer(r: Result, stage: str, page: str) -> dict[int, str] | None:
+    """A JSON lines answer as {line id: text}; None (logged) if it failed or is malformed."""
+    if r.error:
+        log.error("%s %s: %s", stage, page, r.error)
+        return None
+    try:
+        return {int(x["id"]): norm(x["text"]) for x in parse_json(r.text).get("lines", [])}
+    except (ValueError, KeyError, TypeError) as e:
+        log.error("%s %s: unreadable answer (%s)", stage, page, e)
+        return None
+
+
+def disputed(run: Run, page: str) -> tuple[list, list[str], list[list[str]], dict]:
+    """Kraken's lines, the agreed text per line, the readings of each line, and
+    the lines only the whole-page readers have.
 
     A line is agreed when the three readers' versions are the same up to
-    transcription conventions; about 80% of lines are.
+    transcription conventions; about 80% of lines are. A reader line that
+    pairs with no Kraken line (Kraken did not segment it) is returned in
+    `missing`: {index of the Kraken line it follows (-1 before the first):
+    {stage: [lines]}}.
     """
     lines = read_alto(run.out / "kraken" / f"{page}.xml")
     k_text = [ln.text for ln in lines]
     readings: list[list[str]] = [[t] for t in k_text]  # R1 is Kraken's line
     witnesses = [[] for _ in lines]
+    missing: dict[int, dict[str, list[str]]] = {}
     for stage in READERS:
         wl = lines_of(run.text(stage, page))
+        last = -1
         for i, j in pair_lines(k_text, wl):
             if i is not None and j is not None:
                 witnesses[i].append(wl[j])
+                last = i
+            elif i is not None:
+                last = i
+            elif j is not None:
+                missing.setdefault(last, {}).setdefault(stage, []).append(wl[j])
     agreed = []
     for i, w in enumerate(witnesses):
         readings[i] += w
         ok = len(w) == len(READERS) and all(same_reading(w[0], x) for x in w[1:])
         agreed.append(w[0] if ok else None)
-    return lines, agreed, readings
+    return lines, agreed, readings, missing
+
+
+def recovered_lines(missing: dict[int, dict[str, list[str]]]) -> tuple[dict[int, list[str]], list]:
+    """Lines Kraken missed that both whole-page readers have, by insertion point.
+
+    Only lines the two whole-page readers agree on are inserted (Opus's
+    version); every unmatched line, inserted or not, is listed for review.
+    """
+    insert: dict[int, list[str]] = {}
+    review = []
+    for after, by_stage in sorted(missing.items()):
+        opus, gem = by_stage.get("opus_page", []), by_stage.get("gemini_page", [])
+        for o in opus:
+            match = next((g for g in gem if Levenshtein.normalized_similarity(o, g) >= 0.7), None)
+            if match is not None:
+                insert.setdefault(after, []).append(o)
+        review.append({"after_line": after, **by_stage, "inserted": insert.get(after, [])})
+    return insert, review
 
 
 def synth(run: Run, stage: str, backend) -> None:
     """Opus writes the disputed lines from their images and all readings."""
     jobs, plans = [], {}
     for p in run.todo(stage):
-        lines, agreed, readings = disputed(run, p)
+        lines, agreed, readings, missing = disputed(run, p)
         todo = [i for i, a in enumerate(agreed) if a is None]
-        plans[p] = (lines, agreed, readings)
+        plans[p] = (lines, agreed, readings, missing)
         if not todo:
             continue
         listing = []
@@ -200,17 +244,22 @@ def synth(run: Run, stage: str, backend) -> None:
                         json_answer=True))
     results = backend.run(jobs)
     run.log_usage(stage, results)
-    for p, (lines, agreed, readings) in plans.items():
+    for p, (lines, agreed, readings, missing) in plans.items():
         r = results.get(p)
-        if r is not None and r.error:
-            log.error("%s %s: %s", stage, p, r.error)
-            continue
-        ans = ({int(x["id"]): norm(x["text"]) for x in parse_json(r.text).get("lines", [])}
-               if r else {})
+        ans = _answer(r, stage, p) if r is not None else {}
+        if ans is None:
+            continue  # left for the next run
         # A line the model did not answer keeps the first reader's version (kgc).
         out = [a if a is not None else ans.get(i, (readings[i] + readings[i])[1])
                for i, a in enumerate(agreed)]
+        insert, review = recovered_lines(missing)
+        if review:
+            with (run.dir(stage) / "_review.jsonl").open("a") as f:
+                f.write(json.dumps({"page": p, "unmatched": review}, ensure_ascii=False) + "\n")
+        for after in sorted(insert, reverse=True):
+            out[after + 1:after + 1] = insert[after]
         (run.dir(stage) / f"{p}.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
+    backend.ack()
 
 
 def final(run: Run) -> None:
