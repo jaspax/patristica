@@ -14,6 +14,8 @@ against it with `python -m scripts.ocr.eval score`.
   - `note`.
 - `gt/{page_id}.txt`: the page's Greek main text, one printed line per line, diplomatic: as printed, with line-end hyphens, Migne's accents and his misprints.
 
+`score --fold-conventions` unifies transcription conventions that differ between sources without being misreadings, on both sides: the elision mark (Calfa `´`, OGL `’`, others `'`), hyphen characters, and footnote markers, which Calfa leaves out. `score --pages FILE` scores a list of pages, for a sample run.
+
 Images and engine outputs aren't tracked. They are in `data/cache/ocr_eval/` (`images/`, `hyp/{engine}/`). `build` rewrites the Calfa rows, their files and their images from the Zenodo download (cached in `data/cache/ocr_eval/zenodo/`).
 
 ## Calfa (`calfa-v2`, 266 pages)
@@ -21,6 +23,10 @@ Images and engine outputs aren't tracked. They are in `data/cache/ocr_eval/` (`i
 The pages are hand-checked transcriptions of PG pages by Calfa (Chahan Vidal-Gorène et al.), from *Patrologia Graeca (OCR ground truth)*, [Zenodo 20008699](https://zenodo.org/records/20008699), `data-v2.zip`, under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 The text is taken from the transcribed regions, with Latin columns and empty layout regions left out.
+
+- **Region order:** the crops have no reading order, and a few list their regions bottom first, so regions are taken top to bottom.
+- **Masked lines:** Calfa left some segmented lines untranscribed: a heading, a note mark, or most of a column (PG 127 col. 526: 45 of 54 lines). On 164 pages `build` paints those lines white in the cached image, so every engine sees exactly what the ground truth transcribes. The manifest `note` records it.
+- **A known gap:** PG 98 col. 1362 has 7 printed lines that Calfa neither segmented nor transcribed, so they can't be masked. Every engine is charged for them.
 
 Columns by volume:
 - PG 35: Gregory Nazianzen, *Orationes* 1–4, columns 396–719 (158 pages).

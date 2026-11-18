@@ -42,9 +42,24 @@ MIN_PAIR_SIMILARITY = 0.5
 _HYPHEN_BREAK = re.compile(r"(?<=\w)[-‐¬]\s*\n\s*(?=\w)")
 
 
-def clean(text: str, dehyphenate: bool = False) -> str:
-    """NFC, optional dehyphenation, whitespace collapsed to single spaces."""
+# Transcription conventions that differ between sources without being
+# misreadings: the elision mark (Calfa ´, OGL ’, others ' ʼ ᾽), the hyphen
+# character (- or U+2010), and footnote
+# reference markers, which Calfa leaves out and engines keep.
+_APOSTROPHES = str.maketrans({**{c: "’" for c in "'´ʼ᾽‘`′"}, **{c: "-" for c in "‐‑‒"}})
+_NOTE_MARKERS = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁽⁾]+|\(\d{1,3}\)|\[\d{1,3}\]")
+
+
+def fold_conventions(text: str) -> str:
+    """Unify apostrophes and drop footnote markers (superscripts, (12), [12])."""
+    return _NOTE_MARKERS.sub("", text.translate(_APOSTROPHES))
+
+
+def clean(text: str, dehyphenate: bool = False, conventions: bool = False) -> str:
+    """NFC, optional dehyphenation and convention folding, whitespace collapsed."""
     text = unicodedata.normalize("NFC", text)
+    if conventions:
+        text = fold_conventions(text)
     if dehyphenate:
         text = _HYPHEN_BREAK.sub("", text)
     return _WS.sub(" ", text).strip()
@@ -130,12 +145,13 @@ def score_page(
     lexicon: frozenset[str],
     *,
     dehyphenate: bool = False,
+    conventions: bool = False,
     ref_columns: tuple[int, ...] | None = None,
     hyp_columns: tuple[int, ...] | None = None,
     max_examples: int = 5,
 ) -> Counts:
     """Score one page's hypothesis against its reference."""
-    ref_c, hyp_c = clean(ref, dehyphenate), clean(hyp, dehyphenate)
+    ref_c, hyp_c = clean(ref, dehyphenate, conventions), clean(hyp, dehyphenate, conventions)
     c = Counts(pages=1, chars=len(ref_c))
     c.char_errors = sum(_edits(ref_c, hyp_c))
     c.base_errors = sum(_edits(strip_marks(ref_c), strip_marks(hyp_c)))
