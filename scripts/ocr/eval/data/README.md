@@ -57,4 +57,6 @@ Corrections of Calfa's text where it is demonstrably not what is printed, applie
 - **A** (diacritics): Calfa's form is not in the accent-sensitive word list of #164, the alternative is, they differ only in diacritics, and at least 3 of 5 independent OCR readers give that alternative.
 - **B** (letters): Calfa's form is in neither word list, the alternative is in the accent-sensitive list within two letter edits, and at least 4 of 5 readers give it.
 
-Corrections from a reviewer's reading of the images are not admitted by rule; they come only from a human review of each disagreement.
+- **H** (human review): the owner judged a disagreement between the pipeline and Calfa against the page image, and the pipeline reproduced the print (2026-11-18, 48 rows; `readers` names the review card). The policy is diplomatic: the print is right, misprints included, so these rows also undo Calfa's silent corrections. An `H` row's `gt` may be several tokens, and a word Calfa left out is written as its neighbouring word followed by the missing word.
+
+Corrections from a model's reading of the images are not admitted.

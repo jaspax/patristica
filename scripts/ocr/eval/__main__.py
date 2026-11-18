@@ -73,14 +73,22 @@ def read_errata(path: Path = ERRATA) -> dict[str, list[dict[str, str]]]:
 
 
 def apply_errata(text: str, errata: list[dict[str, str]]) -> str:
-    """``text`` with each erratum's token replaced on its line (first match)."""
+    """``text`` with each erratum applied on its line.
+
+    An erratum's ``gt`` is one token or a run of space-separated tokens; the
+    first occurrence of that run on the line is replaced by ``corrected``. A
+    word Calfa left out is an erratum whose ``gt`` is the word before it and
+    whose ``corrected`` adds the missing word.
+    """
     lines = text.split("\n")
     for e in errata:
         i = int(e["line"]) - 1
         toks = lines[i].split(" ")
-        if e["gt"] not in toks:
+        run = e["gt"].split(" ")
+        at = next((k for k in range(len(toks) - len(run) + 1) if toks[k:k + len(run)] == run), None)
+        if at is None:
             raise ValueError(f"erratum not found: {e}")
-        toks[toks.index(e["gt"])] = e["corrected"]
+        toks[at:at + len(run)] = e["corrected"].split(" ") if e["corrected"] else []
         lines[i] = " ".join(toks)
     return "\n".join(lines)
 

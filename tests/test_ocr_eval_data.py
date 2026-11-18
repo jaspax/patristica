@@ -113,3 +113,19 @@ def test_tracked_manifest_matches_gt_files() -> None:
         text = (GT_DIR / f"{r['page_id']}.txt").read_text(encoding="utf-8")
         assert len(text.splitlines()) == int(r["lines"]), r["page_id"]
         assert r["status"] in ("checked", "draft")
+
+
+def test_apply_errata_runs_and_insertions() -> None:
+    from scripts.ocr.eval.__main__ import apply_errata
+    text = "ἥγημαι ταύτας [ταύταις], ὡς γέγραπται\nδεύτερος στίχος"
+    errata = [
+        {"line": "1", "gt": "[ταύταις], ὡς", "corrected": "[ταύταις],ὡς"},
+        {"line": "2", "gt": "δεύτερος", "corrected": "δεύτερος καὶ"},
+    ]
+    assert apply_errata(text, errata) == "ἥγημαι ταύτας [ταύταις],ὡς γέγραπται\nδεύτερος καὶ στίχος"
+
+
+def test_tracked_errata_apply_cleanly() -> None:
+    from scripts.ocr.eval.__main__ import apply_errata, read_errata
+    for pid, rows in read_errata().items():
+        apply_errata((GT_DIR / f"{pid}.txt").read_text(encoding="utf-8"), rows)
