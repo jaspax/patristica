@@ -59,6 +59,32 @@ def _columns(value: str | list | None) -> tuple[int, ...] | None:
     return tuple(int(v) for v in value)
 
 
+ERRATA = DATA_DIR / "errata.csv"
+
+
+def read_errata(path: Path = ERRATA) -> dict[str, list[dict[str, str]]]:
+    """Corrections to the ground truth, by page (see data/README.md)."""
+    out: dict[str, list[dict[str, str]]] = defaultdict(list)
+    if path.exists():
+        with path.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                out[row["page_id"]].append(row)
+    return out
+
+
+def apply_errata(text: str, errata: list[dict[str, str]]) -> str:
+    """``text`` with each erratum's token replaced on its line (first match)."""
+    lines = text.split("\n")
+    for e in errata:
+        i = int(e["line"]) - 1
+        toks = lines[i].split(" ")
+        if e["gt"] not in toks:
+            raise ValueError(f"erratum not found: {e}")
+        toks[toks.index(e["gt"])] = e["corrected"]
+        lines[i] = " ".join(toks)
+    return "\n".join(lines)
+
+
 def read_hypothesis(engine_dir: Path, page_id: str) -> tuple[str, tuple[int, ...] | None] | None:
     """An engine's text and column numbers for a page; None if it has none."""
     js = engine_dir / f"{page_id}.json"
@@ -139,6 +165,7 @@ def cmd_score(args: argparse.Namespace) -> int:
         rows = [r for r in rows if r["page_id"] in wanted]
     rows = [r for r in rows if r.get("status", "checked") == "checked"]
     lexicon = load_lexicon()
+    errata = read_errata() if args.errata else {}
     header = ("group", "pages", "missing", "chars", "CER%", "baseCER%", "accent%",
               "WER%", "realword%", "cols%")
     for engine in args.engine:
@@ -153,12 +180,14 @@ def cmd_score(args: argparse.Namespace) -> int:
                 groups[key] = groups[key]  # keep the group in the table
                 continue
             ref = (GT_DIR / f"{row['page_id']}.txt").read_text(encoding="utf-8")
+            if errata.get(row["page_id"]):
+                ref = apply_errata(ref, errata[row["page_id"]])
             groups[key] = groups[key] + score_page(
                 ref, hyp[0], lexicon, dehyphenate=args.dehyphenate,
                 conventions=args.fold_conventions,
                 ref_columns=_columns(row.get("columns")), hyp_columns=hyp[1],
             )
-        flags = [f for f, on in (("dehyphenated", args.dehyphenate),
+        flags = [f for f, on in (("dehyphenated", args.dehyphenate), ("errata", args.errata),
                                  ("conventions folded", args.fold_conventions)) if on]
         print(f"\n## {engine}" + (f" ({', '.join(flags)})" if flags else ""))
         print(" | ".join(header))
@@ -214,6 +243,8 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--by", choices=("pg_volume", "set", "page_id"), help="one row per group")
     s.add_argument("--fold-conventions", action="store_true",
                    help="unify apostrophes and drop footnote markers, on both sides")
+    s.add_argument("--errata", action="store_true",
+                   help="apply data/errata.csv (rule-based corrections of the ground truth)")
     s.add_argument("--dehyphenate", action="store_true",
                    help="join words split at line ends, on both sides")
     s.add_argument("--examples", type=int, default=0, metavar="N",

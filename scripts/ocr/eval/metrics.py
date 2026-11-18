@@ -46,15 +46,33 @@ _HYPHEN_BREAK = re.compile(r"(?<=\w)[-‐¬]\s*\n\s*(?=\w)")
 # misreadings:
 # - the elision mark (Calfa ´, OGL ’, others ' ʼ ᾽) and the numeral sign ʹ,
 #   which engines read as an apostrophe;
-# - the hyphen character (- or U+2010);
-# - footnote reference markers, which Calfa leaves out and engines keep;
-# - Migne prints a space before , · ; : and keeps the grave accent on a word's
+# - the hyphen character (- or U+2010); the stigma ϛ/Ϛ (one glyph in Migne)
+#   and the curly beta ϐ;
+# - Roman section numbers' case (Migne capitals, Calfa lower case);
+# - footnote reference markers and Latin words (al., f.), which Calfa leaves
+#   out and engines keep;
+# - Migne prints a space before , · ; : ! ? » ) ] and after « ( [ (as #164's
+#   typo() folds them), and the numeral sign as ΄ or ʹ; he keeps the grave accent on a word's
 #   last syllable before punctuation (φωτὸς ,); Calfa drops the space and
 #   writes the modern acute (φωτός,).
-_APOSTROPHES = str.maketrans({**{c: "’" for c in "'´ʼ᾽‘`′ʹʹ"},
-                              **{c: "-" for c in "‐‑‒"}})
-_NOTE_MARKERS = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁽⁾]+|\(\d{1,3}\)|\[\d{1,3}\]")
-_SPACE_BEFORE_PUNCT = re.compile(r"\s+(?=[,·;:.])")
+_APOSTROPHES = str.maketrans({**{c: "’" for c in "'´ʼ᾽‘`′ʹʹ΄"},
+                              **{c: "-" for c in "‐‑‒"},
+                              "Ϛ": "ϛ", "ϐ": "β"})
+# Latin words (Migne's "[al. …]", "f."): Calfa transcribes Greek only and
+# has no Latin letters except Roman section numbers.
+_LATIN_WORD = re.compile(
+    r"(?<![^\s\[(])(?![ivxlcdm]+\.|[IVXLCDM]+\.)[A-Za-z]{1,12}\.?(?=[\s\])]|$)")
+# Section numbers in Roman numerals: Migne prints capitals, Calfa writes them
+# lower case.
+_ROMAN = re.compile(r"(?<!\S)[IVXLCDM]+(?=\.)|(?<!\S)[ivxlcdm]+(?=\.)")
+# Note references: superscripts, (12), [12], 12*, (3*). Calfa's text has no
+# digits at all, so every digit run an engine writes is a note reference.
+_NOTE_MARKERS = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁽⁾]+|[(\[]\s*\d{1,3}\s*\*?\s*[)\]]|\d{1,3}\*?")
+_SPACE_BEFORE_PUNCT = re.compile(r"\s+(?=[,·;:.!?»)\]])")
+_SPACE_AFTER_OPEN = re.compile(r"(?<=[«(\[])\s+")
+# Migne sometimes prints no space after a comma or high dot (],ὡς); Calfa
+# restores it. A missing space before a letter is not a misreading.
+_NO_SPACE_AFTER = re.compile(r"(?<=[,·;])(?=[^\W\d_«])")
 _GRAVE = "̀"
 _ACUTE = "́"
 # The last vowel's accent of a word directly followed by punctuation.
@@ -65,7 +83,10 @@ def fold_conventions(text: str) -> str:
     """Unify apostrophes and hyphens, drop footnote markers, and fold Migne's
     space and grave before punctuation onto the modern form."""
     text = _NOTE_MARKERS.sub("", text.translate(_APOSTROPHES))
-    text = _SPACE_BEFORE_PUNCT.sub("", text)
+    text = _LATIN_WORD.sub("", text)
+    text = _SPACE_AFTER_OPEN.sub("", _SPACE_BEFORE_PUNCT.sub("", text))
+    text = _NO_SPACE_AFTER.sub(" ", text)
+    text = _ROMAN.sub(lambda m: m.group(0).lower(), text)
     nfd = unicodedata.normalize("NFD", text)
     return unicodedata.normalize("NFC", _FINAL_GRAVE.sub(_ACUTE, nfd))
 

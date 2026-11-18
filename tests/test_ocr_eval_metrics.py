@@ -113,3 +113,35 @@ def test_fold_numeral_sign() -> None:
 
 def test_fold_grave_with_iota_subscript() -> None:
     assert score_page("τῇ ἀγαθᾴ,", "τῇ ἀγαθᾲ ,", LEX, conventions=True).char_errors == 0
+
+
+def test_fold_guillemet_spacing() -> None:
+    ref = "«Αἰτεῖτε, καὶ δοθήσεται!» Ι’."
+    hyp = "« Αἰτεῖτε , καὶ δοθήσεται ! » Ι΄."
+    assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
+
+
+def test_fold_numerals_and_beta() -> None:
+    ref = "iii. Οὕτινος Ιϛ’. Σαϐϐάτῳ"
+    hyp = "III. Οὕτινος ΙϚ’. Σαββάτῳ"
+    assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
+    # A Greek word in capitals is not a Roman numeral.
+    assert score_page("ΙΙΙ καὶ", "ιιι καὶ", LEX, conventions=True).word_errors == 1
+
+
+def test_fold_plain_digit_note_markers() -> None:
+    ref = "πέδησις, καὶ Τεσσαρακοστῆς, καὶ"
+    hyp = "πέδησις 28, καὶ Τεσσαρακοστῆς (3*), καὶ"
+    assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
+
+
+def test_fold_latin_words_but_not_numerals() -> None:
+    ref = "ἐφεῖλκε [εἷλκε] πρὸς xvi. Ἀλλά"
+    hyp = "ἐφεῖλκε [al. εἷλκε] πρὸς XVI. Ἀλλά"
+    assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
+
+
+def test_fold_missing_space_after_comma() -> None:
+    ref = "[ταύταις], ὡς γέγραπται"
+    hyp = "[ταύταις],ὡς γέγραπται"
+    assert score_page(ref, hyp, LEX, conventions=True).word_errors == 0
