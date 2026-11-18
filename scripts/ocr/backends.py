@@ -447,3 +447,13 @@ class ClaudeCLI:
 
     def ack(self) -> None:
         pass
+
+    @staticmethod
+    def windows() -> dict[str, float]:
+        """The subscription's usage windows now (five_hour, seven_day utilization).
+
+        `claude -p` reports them in a rate_limit_event, but not on every call, so
+        a stage reads them with a tiny Haiku call before and after it runs.
+        """
+        _, r = ClaudeCLI("haiku")._one(Job("windows", "Reply with OK.", [("text", "OK?")]))
+        return dict(r.usage.get("limits") or {})

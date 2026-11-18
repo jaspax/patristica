@@ -58,6 +58,18 @@ def _claude(args: argparse.Namespace, stage: str):
                        state_dir=Path(args.out) / stage)
 
 
+def _with_windows(args: argparse.Namespace, run: stages.Run, stage: str, body) -> None:
+    """Run a Claude stage; with claude -p, record the subscription windows around it."""
+    if args.claude != "cli" or not run.todo(stage):
+        body()
+        return
+    before = ClaudeCLI.windows()
+    body()
+    after = ClaudeCLI.windows()
+    with (run.dir(stage) / "_windows.jsonl").open("a") as f:
+        f.write(json.dumps({"before": before, "after": after}) + "\n")
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     pages = Path(args.pages).read_text(encoding="utf-8").split()
     run = stages.Run(pages, Path(args.images), Path(args.out))
@@ -74,9 +86,10 @@ def cmd_run(args: argparse.Namespace) -> int:
         elif stage == "gemini_page":
             stages.page_reader(run, stage, _gemini(args, stage))
         elif stage == "opus_page":
-            stages.page_reader(run, stage, _claude(args, stage))
+            _with_windows(args, run, stage,
+                          lambda: stages.page_reader(run, stage, _claude(args, stage)))
         elif stage in ("synth1", "synth2"):
-            stages.synth(run, stage, _claude(args, stage))
+            _with_windows(args, run, stage, lambda: stages.synth(run, stage, _claude(args, stage)))
         elif stage == "final":
             stages.final(run)
     return 0
@@ -135,6 +148,16 @@ def cmd_cost(args: argparse.Namespace) -> int:
         total += usd / n
         win = "  ".join(f"{w} {100 * (max(v) - min(v)):.1f} pts"
                         for w, v in sorted(windows.items()))
+        wf = out / stage / "_windows.jsonl"
+        if wf.exists():  # before/after readings of each claude -p run of the stage
+            used: dict[str, float] = defaultdict(float)
+            for line in wf.read_text().splitlines():
+                r = json.loads(line)
+                for w, v in r["before"].items():
+                    if w in r["after"]:
+                        used[w] += r["after"][w] - v  # negative if the window reset meanwhile
+            win = "  ".join(f"{w} {100 * v:.1f} pts" + (" (window reset?)" if v < 0 else "")
+                            for w, v in sorted(used.items()))
         print(f"{stage:12s} {n:5d} {tin / n:9.0f} {tout / n:9.0f} {usd / n:8.4f} "
               f"{usd / n / 2:13.4f}  {win}")
     print(f"{'total':12s} {'':5s} {'':9s} {'':9s} {total:8.4f} {total / 2:13.4f}")
