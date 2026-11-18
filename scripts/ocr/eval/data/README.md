@@ -14,7 +14,11 @@ against it with `python -m scripts.ocr.eval score`.
   - `note`.
 - `gt/{page_id}.txt`: the page's Greek main text, one printed line per line, diplomatic: as printed, with line-end hyphens, Migne's accents and his misprints.
 
-`score --fold-conventions` unifies transcription conventions that differ between sources without being misreadings, on both sides: the elision mark (Calfa `´`, OGL `’`, others `'`), hyphen characters, and footnote markers, which Calfa leaves out. `score --pages FILE` scores a list of pages, for a sample run.
+`score --fold-conventions` unifies, on both sides, transcription conventions that differ between sources without being misreadings:
+- the elision mark (Calfa `´`, OGL `’`, others `'`) and the numeral sign `ʹ`;
+- hyphen characters;
+- footnote markers, which Calfa leaves out;
+- Migne's space before punctuation and his grave accent kept before it (`φωτὸς ,`), which Calfa writes in the modern form (`φωτός,`). The engines read the print correctly, as checked against the images. `score --pages FILE` scores a list of pages, for a sample run.
 
 Images and engine outputs aren't tracked. They are in `data/cache/ocr_eval/` (`images/`, `hyp/{engine}/`). `build` rewrites the Calfa rows, their files and their images from the Zenodo download (cached in `data/cache/ocr_eval/zenodo/`).
 
