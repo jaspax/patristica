@@ -43,16 +43,31 @@ _HYPHEN_BREAK = re.compile(r"(?<=\w)[-‐¬]\s*\n\s*(?=\w)")
 
 
 # Transcription conventions that differ between sources without being
-# misreadings: the elision mark (Calfa ´, OGL ’, others ' ʼ ᾽), the hyphen
-# character (- or U+2010), and footnote
-# reference markers, which Calfa leaves out and engines keep.
-_APOSTROPHES = str.maketrans({**{c: "’" for c in "'´ʼ᾽‘`′"}, **{c: "-" for c in "‐‑‒"}})
+# misreadings:
+# - the elision mark (Calfa ´, OGL ’, others ' ʼ ᾽) and the numeral sign ʹ,
+#   which engines read as an apostrophe;
+# - the hyphen character (- or U+2010);
+# - footnote reference markers, which Calfa leaves out and engines keep;
+# - Migne prints a space before , · ; : and keeps the grave accent on a word's
+#   last syllable before punctuation (φωτὸς ,); Calfa drops the space and
+#   writes the modern acute (φωτός,).
+_APOSTROPHES = str.maketrans({**{c: "’" for c in "'´ʼ᾽‘`′ʹʹ"},
+                              **{c: "-" for c in "‐‑‒"}})
 _NOTE_MARKERS = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁽⁾]+|\(\d{1,3}\)|\[\d{1,3}\]")
+_SPACE_BEFORE_PUNCT = re.compile(r"\s+(?=[,·;:.])")
+_GRAVE = "̀"
+_ACUTE = "́"
+# The last vowel's accent of a word directly followed by punctuation.
+_FINAL_GRAVE = re.compile("\u0300(?=[\w\u0300-\u036f]*[,\u00b7;:.])")
 
 
 def fold_conventions(text: str) -> str:
-    """Unify apostrophes and drop footnote markers (superscripts, (12), [12])."""
-    return _NOTE_MARKERS.sub("", text.translate(_APOSTROPHES))
+    """Unify apostrophes and hyphens, drop footnote markers, and fold Migne's
+    space and grave before punctuation onto the modern form."""
+    text = _NOTE_MARKERS.sub("", text.translate(_APOSTROPHES))
+    text = _SPACE_BEFORE_PUNCT.sub("", text)
+    nfd = unicodedata.normalize("NFD", text)
+    return unicodedata.normalize("NFC", _FINAL_GRAVE.sub(_ACUTE, nfd))
 
 
 def clean(text: str, dehyphenate: bool = False, conventions: bool = False) -> str:

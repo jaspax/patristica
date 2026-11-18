@@ -94,3 +94,22 @@ def test_fold_conventions() -> None:
     hyp = "δι' οὗ ¹⁸ ἡμῖν (3)"
     assert score_page(ref, hyp, LEX).char_errors > 0
     assert score_page(ref, hyp, LEX, conventions=True).char_errors == 0
+
+
+def test_fold_migne_punctuation_conventions() -> None:
+    # Migne: space before punctuation, grave kept before it; Calfa: modern form.
+    ref = "τοῦ φωτός, καὶ τὸ νοητόν· εἰς οὐρανόν;"
+    hyp = "τοῦ φωτὸς , καὶ τὸ νοητὸν · εἰς οὐρανὸν ;"
+    assert score_page(ref, hyp, LEX).char_errors > 0
+    assert score_page(ref, hyp, LEX, conventions=True).char_errors == 0
+    # A grave inside the line, not before punctuation, stays an error.
+    assert score_page("τό νοητόν", "τὸ νοητόν", LEX, conventions=True).char_errors == 1
+
+
+def test_fold_numeral_sign() -> None:
+    for sign in ("\u0374", "\u02b9"):
+        assert score_page(f"Β{sign}. Καὶ", "Β'. Καὶ", LEX, conventions=True).char_errors == 0
+
+
+def test_fold_grave_with_iota_subscript() -> None:
+    assert score_page("τῇ ἀγαθᾴ,", "τῇ ἀγαθᾲ ,", LEX, conventions=True).char_errors == 0
