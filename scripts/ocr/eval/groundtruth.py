@@ -78,10 +78,23 @@ def _greek_regions(page: Page) -> list[Region]:
     return sorted(out, key=lambda r: r.box[1] if r.box else 0)
 
 
+def _line_top(line: Line) -> int:
+    return min((y for _, y in line.points), default=0)
+
+
 def greek_lines(xml_path: Path) -> list[str]:
-    """The transcribed lines of a page's Greek text regions, top to bottom."""
-    return [ln.text.strip() for region in _greek_regions(read_page(xml_path))
-            for ln in region.lines if ln.text.strip()]
+    """The transcribed lines of a page's Greek text regions, top to bottom.
+
+    Lines are ordered by position inside each region too: a few pages list a
+    line out of place (PG 145 col. 342 has its line at y 1917 last).
+    """
+    out = []
+    for region in _greek_regions(read_page(xml_path)):
+        lines = [ln for ln in region.lines if ln.text.strip()]
+        if all(ln.points for ln in lines):
+            lines.sort(key=_line_top)
+        out.extend(ln.text.strip() for ln in lines)
+    return out
 
 
 def untranscribed(page: Page) -> list[Line]:

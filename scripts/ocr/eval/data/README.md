@@ -49,3 +49,12 @@ For each page:
 - add a manifest row (`set` `ours`, `status` `draft`, `columns`, and the IA image URL in `source`);
 - add its `gt/ours-….txt` file;
 - set `status` to `checked` after a line-by-line check against the image.
+
+## Errata (`errata.csv`)
+
+Corrections of Calfa's text where it is demonstrably not what is printed, applied by `score --errata` (the scorer reports with and without them). Each row names the page, the line, Calfa's token and the correction, with the rule that admitted it:
+
+- **A** (diacritics): Calfa's form is not in the accent-sensitive word list of #164, the alternative is, they differ only in diacritics, and at least 3 of 5 independent OCR readers give that alternative.
+- **B** (letters): Calfa's form is in neither word list, the alternative is in the accent-sensitive list within two letter edits, and at least 4 of 5 readers give it.
+
+Corrections from a reviewer's reading of the images are not admitted by rule; they come only from a human review of each disagreement.
