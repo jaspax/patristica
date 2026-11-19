@@ -228,3 +228,18 @@ def test_lines_kraken_missed_are_recovered(tmp_path: Path) -> None:
     stages.synth(run, "synth1", _Fake({"lines": [{"id": 1, "text": "ὁ λόγος καὶ"}]}))
     assert run.text("synth1", "p1").splitlines()[2] == "καὶ θεὸς ἦν ὁ λόγος"
     assert (run.out / "synth1" / "_review.jsonl").exists()
+
+
+def test_cost_prices_each_stage_by_its_recorded_model(tmp_path: Path, capsys) -> None:
+    # A Gemini model standing in as the second whole-page reader is priced as Gemini.
+    d = tmp_path / "opus_page"
+    d.mkdir()
+    (d / "p1.txt").write_text("x")
+    (d / "_model.json").write_text(json.dumps(
+        {"provider": "gemini", "model": "gemini-3.1-pro-preview", "effort": "low"}))
+    (d / "_usage.jsonl").write_text(json.dumps(
+        {"key": "p1#0", "usage": {"promptTokenCount": 1_000_000, "candidatesTokenCount": 0},
+         "error": None}) + "\n")
+    assert main(["cost", "--out", str(tmp_path)]) == 0
+    out = capsys.readouterr().out
+    assert "2.0000" in out and "gemini-3.1-pro-preview low" in out
