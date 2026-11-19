@@ -76,6 +76,12 @@ MIN_HITS = 40
 NEAR = 1
 # A page "has Greek" in a copy's OCR when it has this many Greek letters.
 GREEK_LETTERS = 300
+# Trust is judged per leaf, not per copy (a copy whose heads mislead its map in
+# one stretch is still right elsewhere), from the matched passages nearest to
+# it on each side, within REACH leaves (``_side``).  A hole has no text of
+# ours, so its leaves are judged by the passages at its edges.
+SIDE_HITS = 5
+REACH = 600
 
 _COL_REF = re.compile(r"\.c(\d+)\.\d+$")
 
@@ -158,7 +164,7 @@ def item_pages(ia: Archive, item: str, cache_dir: Path = CACHE_DIR) -> list[str]
     files = {}
     for suffix in ("hocr_searchtext.txt.gz", "hocr_pageindex.json.gz"):
         r = ia.get(f"{IA}/download/{item}/{item}_{suffix}")
-        if r.status_code == 404 or r.status_code == 403:
+        if r.status_code in (401, 403, 404):    # no OCR, or a lending-library item
             out.write_bytes(gzip.compress(json.dumps({"pages": None}).encode()))
             return None
         r.raise_for_status()
@@ -247,6 +253,8 @@ class Copy:
     other_hits: int         # matched passages in other volumes
     source: str = ""
     contributor: str = ""
+    # Leaf -> (our page - the page the copy's map gives it) of each matched passage.
+    diffs: dict[int, list[int]] | None = None
 
     @property
     def ok(self) -> bool:
@@ -292,6 +300,7 @@ def identify_copy(item: str, pages: list[str], ours: OurText, meta: dict) -> Cop
     vol = max(by_vol, key=lambda v: (len(by_vol[v]), v))
     hits = by_vol[vol]
     diffs = Counter()
+    per_leaf: dict[int, list[int]] = defaultdict(list)
     agree = 0
     for leaf, page in hits:
         span = cmap.get(leaf)
@@ -299,6 +308,7 @@ def identify_copy(item: str, pages: list[str], ours: OurText, meta: dict) -> Cop
             continue
         d = page - page_of(span[0])
         diffs[d] += 1
+        per_leaf[leaf].append(d)
         # One column per page (PG 47-64): a page and its facing page share columns.
         if abs(d) <= 2 * NEAR:
             agree += 1
@@ -309,7 +319,56 @@ def identify_copy(item: str, pages: list[str], ours: OurText, meta: dict) -> Cop
                 min((s[0] for s in spans), default=None), max((s[1] for s in spans), default=None),
                 with_col, agree / with_col if with_col else 0.0, shift,
                 sum(len(h) for v, h in by_vol.items() if v != vol),
-                meta.get("source", ""), str(meta.get("contributor", "")))
+                meta.get("source", ""), str(meta.get("contributor", "")), dict(per_leaf))
+
+
+def _side(diffs: dict[int, list[int]], leaf: int, step: int) -> bool:
+    """Whether our text confirms the copy's map on the nearest leaves one way.
+
+    Each leaf with matched passages votes once, for its most common offset.
+    Walking away from ``leaf``, the map is confirmed once SIDE_HITS leaves vote
+    for its columns, before SIDE_HITS vote for any one other offset (a map
+    that is wrong there).  Leaves at scattered offsets match phrases our text
+    has elsewhere too, and are ignored.
+    """
+    agree = 0
+    wrong: Counter[int] = Counter()
+    k = leaf
+    while abs(k - leaf) <= REACH:
+        if k in diffs and diffs[k]:
+            d = Counter(diffs[k]).most_common(1)[0][0]
+            if abs(d) <= 2 * NEAR:
+                agree += 1
+                if agree >= SIDE_HITS:
+                    return True
+            else:
+                wrong[d] += 1
+                if wrong[d] >= SIDE_HITS:
+                    return False
+        k += step
+    return False
+
+
+def trust(diffs: dict[int, list[int]], leaf: int, supported: bool) -> tuple[bool, bool]:
+    """Whether the copy's map is confirmed by our text (before, after) a leaf.
+
+    A leaf is trusted when both sides confirm it, or when its own running head
+    prints its column and one side does (``Leaf.trusted``).
+    """
+    return _side(diffs, leaf, -1), _side(diffs, leaf, 1)
+
+
+def save_diffs(c: Copy, cache_dir: Path = CACHE_DIR) -> None:
+    d = cache_dir / "maps"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / f"{c.item}.json").write_text(json.dumps({"volume": c.volume, "diffs": c.diffs}))
+
+
+def load_diffs(item: str, cache_dir: Path = CACHE_DIR) -> dict[int, list[int]]:
+    f = cache_dir / "maps" / f"{item}.json"
+    if not f.exists():
+        return {}
+    return {int(k): v for k, v in json.loads(f.read_text())["diffs"].items()}
 
 
 def identify(ia: Archive, raw_dir: Path = RAW_DIR, cache_dir: Path = CACHE_DIR,
@@ -320,7 +379,11 @@ def identify(ia: Archive, raw_dir: Path = RAW_DIR, cache_dir: Path = CACHE_DIR,
     copies: list[Copy] = []
     for n, meta in enumerate(cands, 1):
         item = meta["identifier"]
-        pages = item_pages(ia, item, cache_dir)
+        try:
+            pages = item_pages(ia, item, cache_dir)
+        except httpx.HTTPError as e:
+            log.error("%s: OCR not fetched (%s); left out", item, e)
+            continue
         if not pages:
             log.debug("%s: no page OCR", item)
             continue
@@ -329,6 +392,7 @@ def identify(ia: Archive, raw_dir: Path = RAW_DIR, cache_dir: Path = CACHE_DIR,
             log.debug("%s: no PG volume matched", item)
             continue
         copies.append(c)
+        save_diffs(c, cache_dir)
         log.info("[%d/%d] %s -> %s hits %d agree %.2f shift %d", n, len(cands), item,
                   c.volume, c.hits, c.agree, c.shift)
     copies.sort(key=lambda c: (c.volume, not c.ok, -c.hits, c.item))
@@ -363,37 +427,43 @@ class Leaf:
     cols: tuple[int, int]
     supported: bool         # its own running head prints one of its columns
     greek: int              # Greek letters in the copy's OCR of it
-    agree: float            # the copy's agreement
+    before: bool            # our text confirms the copy's map before it (``trust``)
+    after: bool             # and after it
+
+    @property
+    def trusted(self) -> bool:
+        return (self.before and self.after) or (self.supported and (self.before or self.after))
 
     def rank(self) -> tuple:
-        return (self.greek >= GREEK_LETTERS, self.supported, self.agree, self.greek)
+        return (self.trusted, self.greek >= GREEK_LETTERS, self.supported,
+                self.before + self.after, self.greek)
 
 
-def leaves_of(item: str, pages: list[str], agree: float) -> dict[int, list[Leaf]]:
+def leaves_of(item: str, pages: list[str], diffs: dict[int, list[int]]
+              ) -> dict[int, list[Leaf]]:
     """Every mapped leaf of a copy, by the page (first column) it prints."""
     from scripts.ingest import _ogpg_columns as cols
 
     out: dict[int, list[Leaf]] = defaultdict(list)
     for leaf, span in column_map(pages).items():
-        heads = cols.head_numbers(pages[leaf])
-        out[page_of(span[0])].append(Leaf(item, leaf, span, bool(heads & set(span)),
-                                          greek_letters(pages[leaf]), agree))
+        supported = bool(cols.head_numbers(pages[leaf]) & set(span))
+        out[page_of(span[0])].append(Leaf(item, leaf, span, supported, greek_letters(pages[leaf]),
+                                          *trust(diffs, leaf, supported)))
     return out
 
 
 def locate(ia: Archive, pages_file: Path, cache_dir: Path = CACHE_DIR,
-           table: Path = TABLE, all_copies: bool = False) -> list[dict]:
+           table: Path = TABLE) -> list[dict]:
     """Choose a leaf for every page that needs OCR -> ``cache_dir/pages.jsonl``.
 
-    Only ``ok`` copies are used unless ``all_copies``.  Among a volume's copies
-    the leaf with Greek in its OCR, then one whose head prints its column, then
-    the copy that agrees best is taken.  A page no copy maps is listed with no
-    leaf.
+    Every copy of the volume is considered, but only its trusted leaves
+    (``trust``).  Among those, a leaf with Greek in its OCR, then one whose
+    head prints its column, then the best agreement wins.  A page with no
+    trusted leaf is listed with no leaf, and the number of untrusted ones.
     """
     copies = defaultdict(list)
     for row in read_table(table):
-        if row["ok"] == "y" or all_copies:
-            copies[row["volume"]].append(row)
+        copies[row["volume"]].append(row)
     wanted = [json.loads(line) for line in pages_file.read_text(encoding="utf-8").splitlines()]
     wanted = [r for r in wanted if r["needs_ocr"]]
     by_vol: dict[str, dict[int, list[Leaf]]] = {}
@@ -403,16 +473,21 @@ def locate(ia: Archive, pages_file: Path, cache_dir: Path = CACHE_DIR,
         if vol not in by_vol:
             found: dict[int, list[Leaf]] = defaultdict(list)
             for row in copies.get(vol, []):
-                pages = item_pages(ia, row["ia_id"], cache_dir)
-                for page, ls in leaves_of(row["ia_id"], pages or [], float(row["agree"])).items():
+                item = row["ia_id"]
+                pages = item_pages(ia, item, cache_dir)
+                for page, ls in leaves_of(item, pages or [], load_diffs(item, cache_dir)).items():
                     found[page].extend(ls)
             by_vol[vol] = found
         options = by_vol[vol].get(r["cols"][0], [])
-        best = max(options, key=Leaf.rank, default=None)
+        trusted = [lf for lf in options if lf.trusted]
+        best = max(trusted, key=Leaf.rank, default=None)
         rec = {**{k: r[k] for k in ("volume", "work", "cols", "cause")}, "ia_id": None}
         if best is not None:
             rec.update(ia_id=best.item, leaf=best.leaf, supported=best.supported,
-                       ia_greek=best.greek, options=len(options))
+                       ia_greek=best.greek, both_sides=best.before and best.after,
+                       options=len(trusted))
+        else:
+            rec["untrusted"] = len(options)
         out.append(rec)
     (cache_dir / "pages.jsonl").write_text(
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in out), encoding="utf-8")
@@ -443,14 +518,44 @@ def _jp2_names(ia: Archive, item: str, cache_dir: Path = CACHE_DIR) -> list[str]
     return names
 
 
-def image_url(ia: Archive, item: str, leaf: int, leaves: int,
-              cache_dir: Path = CACHE_DIR) -> str:
-    """The original JPEG 2000 of a leaf, or IIIF's JPEG when the zip's files
-    don't line up one to one with the OCR's pages."""
+def _leaf_numbers(ia: Archive, item: str, cache_dir: Path = CACHE_DIR) -> list[int]:
+    """The leaf number of each page of an item's OCR, in order (cached).
+
+    From ``_scandata.xml``: its pages in order, without those left out of the
+    access formats.  The OCR's page index, the JPEG 2000 file names and IIIF
+    (``$n``) all follow it, but an item's leaves may start at 0 or at 1.
+    """
+    d = cache_dir / "leafnums"
+    d.mkdir(parents=True, exist_ok=True)
+    f = d / f"{item}.json"
+    if f.exists():
+        return json.loads(f.read_text())
+    r = ia.get(f"{IA}/download/{item}/{item}_scandata.xml")
+    nums = []
+    if r.is_success:
+        for m in re.finditer(r'<page leafNum="(\d+)"(.*?)</page>', r.text, re.S):
+            if "<addToAccessFormats>false" not in m.group(2):
+                nums.append(int(m.group(1)))
+    f.write_text(json.dumps(nums))
+    return nums
+
+
+def image_url(ia: Archive, item: str, position: int, pages: int,
+              cache_dir: Path = CACHE_DIR) -> tuple[str, int] | None:
+    """(URL, leaf number) of the image of the page at ``position`` in the
+    item's OCR (``pages`` long): its JPEG 2000 from the item's zip, else IIIF's
+    JPEG.  None when the leaf can't be told for certain."""
+    nums = _leaf_numbers(ia, item, cache_dir)
     names = _jp2_names(ia, item, cache_dir)
-    if len(names) == leaves:
-        return (f"{IA}/download/{item}/{item}_jp2.zip/{item}_jp2%2F{names[leaf]}")
-    return f"https://iiif.archive.org/iiif/{item}${leaf}/full/max/0/default.jpg"
+    if len(nums) == pages:
+        leaf = nums[position]
+        by_num = {int(m.group(1)): n for n in names if (m := re.search(r"_(\d+)\.jp2$", n))}
+        if leaf in by_num:
+            return f"{IA}/download/{item}/{item}_jp2.zip/{item}_jp2%2F{by_num[leaf]}", leaf
+        return f"https://iiif.archive.org/iiif/{item}${leaf}/full/max/0/default.jpg", leaf
+    if len(names) == pages:      # no usable scandata: the zip's files in order
+        return f"{IA}/download/{item}/{item}_jp2.zip/{item}_jp2%2F{names[position]}", position
+    return None
 
 
 def fetch(ia: Archive, cache_dir: Path = CACHE_DIR, images_dir: Path = IMAGES_DIR,
@@ -472,7 +577,12 @@ def fetch(ia: Archive, cache_dir: Path = CACHE_DIR, images_dir: Path = IMAGES_DI
         item = r["ia_id"]
         if item not in leaves:
             leaves[item] = len(item_pages(ia, item, cache_dir) or [])
-        url = image_url(ia, item, r["leaf"], leaves[item], cache_dir)
+        found = image_url(ia, item, r["leaf"], leaves[item], cache_dir)
+        if found is None:
+            log.error("%s %s: can't tell which image of %s is page %d of its OCR; skipped",
+                      r["volume"], stem, item, r["leaf"])
+            continue
+        url, leaf_num = found
         resp = ia.get(url)
         if not resp.is_success:
             log.error("%s %s: HTTP %d from %s", r["volume"], stem, resp.status_code, url)
@@ -483,7 +593,8 @@ def fetch(ia: Archive, cache_dir: Path = CACHE_DIR, images_dir: Path = IMAGES_DI
         tmp.rename(vdir / f"{stem}{ext}")
         with (vdir / "manifest.jsonl").open("a", encoding="utf-8") as f:
             f.write(json.dumps({"file": f"{stem}{ext}", "cols": r["cols"], "work": r["work"],
-                                "ia_id": item, "leaf": r["leaf"], "url": url}) + "\n")
+                                "ia_id": item, "page": r["leaf"], "leaf": leaf_num,
+                                "url": url}) + "\n")
         done += 1
         if done % 100 == 0:
             log.info("fetched %d pages", done)
@@ -505,7 +616,6 @@ def main(argv: list[str] | None = None) -> int:
     lo = sub.add_parser("locate", help="choose a leaf for every page that needs OCR")
     lo.add_argument("--pages", type=Path, required=True,
                     help="scripts.ogpg_coverage --scans --pages output")
-    lo.add_argument("--all-copies", action="store_true", help="use copies not marked ok too")
     fe = sub.add_parser("fetch", help="download the located pages' images")
     fe.add_argument("--images-dir", type=Path, default=IMAGES_DIR)
     fe.add_argument("--volume", action="append", help="only these volumes (vol-075)")
@@ -518,7 +628,7 @@ def main(argv: list[str] | None = None) -> int:
     elif args.cmd == "identify":
         identify(ia, args.raw_dir, args.cache_dir)
     elif args.cmd == "locate":
-        locate(ia, args.pages, args.cache_dir, all_copies=args.all_copies)
+        locate(ia, args.pages, args.cache_dir)
     elif args.cmd == "fetch":
         fetch(ia, args.cache_dir, args.images_dir,
               set(args.volume) if args.volume else None, args.limit)
