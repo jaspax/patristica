@@ -112,7 +112,9 @@ class _FakeArchive:
         if url.endswith("_jp2.zip/"):
             if not self.jp2:
                 return httpx.Response(404, request=req)
-            body = "".join(f'<a href="//x/{n}">{n}</a>' for n in self.jp2)
+            body = "".join(f'<a href="//ia1.us.archive.org/view_archive.php?archive=/1/items/'
+                           f'{n.rsplit("_", 1)[0]}/{n.rsplit("_", 1)[0]}_jp2.zip&amp;file='
+                           f'{n.rsplit("_", 1)[0]}_jp2%2F{n}">{n}</a>' for n in self.jp2)
             return httpx.Response(200, text=body, request=req)
         if url.endswith("_scandata.xml"):
             leaves = "".join(f'<page leafNum="{self.first + i}"><x/></page>'

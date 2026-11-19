@@ -517,7 +517,9 @@ def _jp2_names(ia: Archive, item: str, cache_dir: Path = CACHE_DIR) -> list[str]
     if f.exists():
         return json.loads(f.read_text())
     r = ia.get(f"{IA}/download/{item}/{item}_jp2.zip/")
-    names = sorted(set(re.findall(r'href="[^"]*?([^"/]+\.jp2)"', r.text))) if r.is_success else []
+    # Links are ``…view_archive.php?archive=…&file={item}_jp2%2F{item}_0001.jp2``.
+    names = sorted(set(re.findall(r"(?:/|%2F)([A-Za-z0-9_.-]+_\d+\.jp2)\b", r.text))
+                   ) if r.is_success else []
     f.write_text(json.dumps(names))
     return names
 
@@ -587,7 +589,11 @@ def fetch(ia: Archive, cache_dir: Path = CACHE_DIR, images_dir: Path = IMAGES_DI
                       r["volume"], stem, item, r["leaf"])
             continue
         url, leaf_num = found
-        resp = ia.get(url)
+        try:
+            resp = ia.get(url)
+        except httpx.HTTPError as e:
+            log.error("%s %s: %s", r["volume"], stem, e)
+            continue
         if not resp.is_success:
             log.error("%s %s: HTTP %d from %s", r["volume"], stem, resp.status_code, url)
             continue
