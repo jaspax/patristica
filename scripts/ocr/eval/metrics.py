@@ -76,7 +76,7 @@ _NO_SPACE_AFTER = re.compile(r"(?<=[,·;])(?=[^\W\d_«])")
 _GRAVE = "̀"
 _ACUTE = "́"
 # The last vowel's accent of a word directly followed by punctuation.
-_FINAL_GRAVE = re.compile("\u0300(?=[\w\u0300-\u036f]*[,\u00b7;:.])")
+_FINAL_GRAVE = re.compile("\u0300(?=[\\w\u0300-\u036f]*[,\u00b7;:.])")
 
 
 def fold_conventions(text: str) -> str:
