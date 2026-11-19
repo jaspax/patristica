@@ -27,10 +27,14 @@ and the search result are cached in ``data/cache/ogpg_images/``, and fetched
 images are kept.  Requests to the Internet Archive are throttled.
 
 The table is tracked: one row per copy that matched a volume, with how well
-its map agrees with our text (``agree``: the share of matched passages whose
-columns are where the copy's map puts them).  A copy is ``ok`` when that
-share is high on enough evidence; the others are for a person to check.
-Reads ``data/raw/ogpg`` (the work files), so it runs where the data is.
+its map agrees with our text overall (``agree``: the share of matched
+passages whose columns are where the copy's map puts them; ``ok`` when that
+is high, with no shift).  ``locate`` judges each leaf on its own instead
+(``trust``): a hole has no text of ours, so a leaf in it is trusted when our
+text confirms the copy's map at both edges, or at one edge and the leaf's own
+running head prints its column.  Rows with a ``shift`` are for a person to
+check: the copy, or our column map, is off there.  Reads ``data/raw/ogpg``
+(the work files), so it runs where the data is.
 """
 
 from __future__ import annotations
