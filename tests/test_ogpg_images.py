@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 import httpx
+import pytest
 
 from scripts import ogpg_images as oi
 
@@ -70,6 +71,8 @@ def test_trust_comes_from_the_text_at_both_edges_of_a_hole() -> None:
     diffs = {leaf: [0] for leaf in [*range(20), *range(60, 80)]}
     assert oi.trust(diffs, 40, False) == (True, True)
     assert oi.Leaf("x", 40, (91, 92), False, 0, True, True).trusted
+    # A head printing a nearby column that isn't the leaf's own: never trusted.
+    assert not oi.Leaf("x", 40, (91, 92), False, 0, True, True, contradicted=True).trusted
     # After the hole the map is a page off: only a leaf whose own head prints
     # its column is trusted.
     diffs = {leaf: [0] for leaf in range(20)} | {leaf: [4] for leaf in range(60, 80)}
@@ -86,6 +89,35 @@ def test_trust_comes_from_the_text_at_both_edges_of_a_hole() -> None:
     assert oi.trust({0: [0] * 9}, 0 + oi.REACH + 5, True) == (False, False)
 
 
+def test_a_copy_one_page_off_is_not_trusted() -> None:
+    # Review of #754: offsets of +-2 columns are a page off, not a match.
+    off = {leaf: [2, 2, 2] for leaf in [*range(20), *range(60, 80)]}
+    assert oi.trust(off, 40, True) == (False, False)
+    off = {leaf: [-2, -2] for leaf in [*range(20), *range(60, 80)]}
+    assert oi.trust(off, 40, True) == (False, False)
+    # A right map whose leaves also match the paragraph run on from the page
+    # before (two columns early) is still confirmed.
+    right = {leaf: [0, -2, -2] for leaf in [*range(20), *range(60, 80)]}
+    assert oi.trust(right, 40, False) == (True, True)
+    assert oi._vote([0, -2, -2, -2]) == 0 and oi._vote([0, -2, -2, -2, -2]) == -2
+
+
+def test_get_raises_the_transport_error_after_its_retries(monkeypatch) -> None:
+    ia = oi.Archive(throttle=0)
+    monkeypatch.setattr(oi.time, "sleep", lambda s: None)
+
+    def down(url, params=None):
+        raise httpx.ConnectError("down")
+    monkeypatch.setattr(ia.client, "get", down)
+    with pytest.raises(httpx.ConnectError):
+        ia.get("https://archive.org/x", attempts=2)
+    def busy(url, params=None):
+        return httpx.Response(503, request=httpx.Request("GET", url))
+    monkeypatch.setattr(ia.client, "get", busy)
+    with pytest.raises(httpx.HTTPStatusError):
+        ia.get("https://archive.org/x", attempts=2)
+
+
 def test_leaves_prefer_trusted_then_greek_then_head_support() -> None:
     pages = _copy_pages({leaf: 11 + 2 * leaf for leaf in range(20)})
     pages[5] = "21 TITLE\n"            # page 21: a head but no text
@@ -96,6 +128,14 @@ def test_leaves_prefer_trusted_then_greek_then_head_support() -> None:
     assert max(ls[23] + [other], key=oi.Leaf.rank).item == "x"   # a head beats no head
     untrusted = oi.Leaf("z", 7, (23, 24), False, 1000, True, False)
     assert not untrusted.trusted and max(ls[23] + [untrusted], key=oi.Leaf.rank).item == "x"
+
+
+def test_a_leaf_whose_head_prints_another_column_is_never_trusted() -> None:
+    pages = _copy_pages({leaf: 11 + 2 * leaf for leaf in range(20)})
+    pages[5] = "25 TITLE 26\n" + _passage(21)      # the map says 21, its head 25
+    ls = oi.leaves_of("x", pages, {leaf: [0] for leaf in range(20)})
+    (lf,) = ls[21]
+    assert lf.contradicted and not lf.trusted and lf.before and lf.after
 
 
 class _FakeArchive:
@@ -145,6 +185,8 @@ def test_locate_and_fetch(tmp_path: Path) -> None:
     table = tmp_path / "t.csv"
     oi.write_table([good, bad], table)
     assert [r["ok"] for r in oi.read_table(table)] == ["y", "n"]
+    # The bad copy (shifted) is never used, however its heads read.
+    assert [oi.usable(r) for r in oi.read_table(table)] == [True, False]
     wanted = tmp_path / "pages.jsonl"
     recs = [{"volume": VOL, "work": f"ogpg/{VOL}/a", "cols": [c, c + 1], "cause": "blank",
              "needs_ocr": True} for c in (15, 99)]
@@ -163,6 +205,32 @@ def test_locate_and_fetch(tmp_path: Path) -> None:
     assert man[0]["page"] == 2 and man[0]["url"].endswith("good_0002.jp2")
     n = len(ia.urls)
     assert oi.fetch(ia, cache, images) == 0 and len(ia.urls) == n   # idempotent
+    # An interrupted download leaves only a .part file: the next run fetches it.
+    f.unlink()
+    (images / VOL / "c0015.jp2.part").write_bytes(b"half")
+    assert oi.fetch(ia, cache, images) == 1 and f.exists()
+
+
+def test_fetch_follows_a_new_locate(tmp_path: Path) -> None:
+    cache, images = tmp_path / "cache", tmp_path / "img"
+    pages = _copy_pages({leaf: 11 + 2 * leaf for leaf in range(20)})
+    _cache_item(cache, "good", pages)
+    ia = _FakeArchive([f"good_{i:04d}.jp2" for i in range(20)])
+
+    def located(*recs):
+        (cache / "pages.jsonl").write_text("".join(json.dumps(
+            {"volume": VOL, "work": "w", "cols": [c, c + 1], "ia_id": "good", "leaf": leaf})
+            + "\n" for c, leaf in recs))
+    located((15, 2), (17, 3))
+    assert oi.fetch(ia, cache, images) == 2
+    # locate now picks another leaf for col 15 and drops col 17.
+    located((15, 4))
+    assert oi.fetch(ia, cache, images) == 1
+    assert (images / VOL / "c0015.jp2").read_bytes().endswith(b"good_0004.jp2")
+    assert not (images / VOL / "c0017.jp2").exists()
+    man = [json.loads(line) for line in (images / VOL / "manifest.jsonl").read_text().splitlines()]
+    assert [(m["file"], m["page"]) for m in man] == [("c0015.jp2", 4)]
+    assert oi.fetch(ia, cache, images) == 0
 
 
 def test_image_url_follows_the_scandata_leaf_numbers(tmp_path: Path) -> None:

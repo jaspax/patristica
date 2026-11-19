@@ -29,11 +29,15 @@ images are kept.  Requests to the Internet Archive are throttled.
 The table is tracked: one row per copy that matched a volume, with how well
 its map agrees with our text overall (``agree``: the share of matched
 passages whose columns are where the copy's map puts them; ``ok`` when that
-is high, with no shift).  ``locate`` judges each leaf on its own instead
-(``trust``): a hole has no text of ours, so a leaf in it is trusted when our
-text confirms the copy's map at both edges, or at one edge and the leaf's own
-running head prints its column.  Rows with a ``shift`` are for a person to
-check: the copy, or our column map, is off there.  Reads ``data/raw/ogpg``
+is high, with no shift).  ``locate`` uses only copies surely of their
+volume (``usable``: no shift, agreement at least ``COPY_AGREE``) and judges
+each of their leaves on its own (``Leaf.trusted``): its running head prints
+its column, or, a hole having no text of ours, our text confirms the copy's
+map at both edges of it; a head printing another column near its own rules a
+leaf out.  Rows with a ``shift`` are copies of other volumes matched on stray
+passages, or places where our column map is off (#756): for a person to
+check.  The leaves chosen are right on about 9 in 10 checked by eye; the OCR
+pipeline reads each page's printed columns and rejects a mismatch (#721).  Reads ``data/raw/ogpg``
 (the work files), so it runs where the data is.
 """
 
@@ -86,6 +90,15 @@ GREEK_LETTERS = 300
 # ours, so its leaves are judged by the passages at its edges.
 SIDE_HITS = 5
 REACH = 600
+ZERO_SHARE = 0.25
+# A head number within this many columns of a leaf's own, but not one of
+# them, contradicts the copy's map at that leaf.
+CONTRADICTION = 12
+# ``locate`` uses only copies identified beyond doubt: no shift, at least this
+# share of matched passages at their mapped columns, on MIN_HITS of them.  A
+# copy of another volume (matched on a few stray passages) agrees on ~0 and
+# has a large shift; a running head vouches for a leaf only within its copy.
+COPY_AGREE = 0.25
 
 _COL_REF = re.compile(r"\.c(\d+)\.\d+$")
 
@@ -107,23 +120,29 @@ class Archive:
                                    follow_redirects=True)
         self.throttle, self._last = throttle, 0.0
 
-    def get(self, url: str, **params) -> httpx.Response:
-        for attempt in range(5):
+    def get(self, url: str, attempts: int = 5, **params) -> httpx.Response:
+        """GET with retries; raises ``httpx.HTTPError`` (a transport error or the
+        last 5xx/429 status) once ``attempts`` have failed."""
+        for attempt in range(attempts):
             wait = self._last + self.throttle - time.monotonic()
             if wait > 0:
                 time.sleep(wait)
             self._last = time.monotonic()
+            last = attempt == attempts - 1
             try:
                 r = self.client.get(url, params=params or None)
             except httpx.TransportError as e:
+                if last:
+                    raise
                 log.debug("%s: %s, retrying", url, e)
             else:
                 if r.status_code < 500 and r.status_code != 429:
                     return r
+                if last:
+                    r.raise_for_status()
                 log.debug("%s: HTTP %d, retrying", url, r.status_code)
             time.sleep(2 ** attempt * 2)
-        r.raise_for_status()
-        return r
+        raise AssertionError("unreachable")
 
 
 def _greek_item(doc: dict) -> bool:
@@ -329,19 +348,19 @@ def identify_copy(item: str, pages: list[str], ours: OurText, meta: dict) -> Cop
 def _side(diffs: dict[int, list[int]], leaf: int, step: int) -> bool:
     """Whether our text confirms the copy's map on the nearest leaves one way.
 
-    Each leaf with matched passages votes once, for its most common offset.
-    Walking away from ``leaf``, the map is confirmed once SIDE_HITS leaves vote
-    for its columns, before SIDE_HITS vote for any one other offset (a map
-    that is wrong there).  Leaves at scattered offsets match phrases our text
-    has elsewhere too, and are ignored.
+    Each leaf with matched passages votes once (``_vote``).  Walking away
+    from ``leaf``, the map is confirmed once SIDE_HITS leaves vote for its
+    columns, before SIDE_HITS vote for any one other offset (a map that is
+    wrong there).  Leaves at scattered offsets match phrases our text has
+    elsewhere too, and are ignored.
     """
     agree = 0
     wrong: Counter[int] = Counter()
     k = leaf
     while abs(k - leaf) <= REACH:
         if k in diffs and diffs[k]:
-            d = Counter(diffs[k]).most_common(1)[0][0]
-            if abs(d) <= 2 * NEAR:
+            d = _vote(diffs[k])
+            if d == 0:
                 agree += 1
                 if agree >= SIDE_HITS:
                     return True
@@ -353,12 +372,25 @@ def _side(diffs: dict[int, list[int]], leaf: int, step: int) -> bool:
     return False
 
 
-def trust(diffs: dict[int, list[int]], leaf: int, supported: bool) -> tuple[bool, bool]:
-    """Whether the copy's map is confirmed by our text (before, after) a leaf.
+def _vote(diffs: list[int]) -> int:
+    """A leaf's offset from its matched passages: 0 (the map is right) when at
+    least ZERO_SHARE of them sit exactly at its columns, else the most common
+    other offset.
 
-    A leaf is trusted when both sides confirm it, or when its own running head
-    prints its column and one side does (``Leaf.trusted``).
+    Our text is referenced by the page a paragraph starts on, so a paragraph
+    running onto the next leaf matches there two columns early even where the
+    map is right; but a leaf the map puts one page off has no passage at 0 at
+    all, so a page off is never taken for a match.
     """
+    zero = sum(d == 0 for d in diffs)
+    if zero and zero >= ZERO_SHARE * len(diffs):
+        return 0
+    return Counter(d for d in diffs if d != 0).most_common(1)[0][0]
+
+
+def trust(diffs: dict[int, list[int]], leaf: int, supported: bool) -> tuple[bool, bool]:
+    """Whether the copy's map is confirmed by our text (before, after) a leaf
+    (``Leaf.trusted`` decides from these and the leaf's own head)."""
     return _side(diffs, leaf, -1), _side(diffs, leaf, 1)
 
 
@@ -433,10 +465,21 @@ class Leaf:
     greek: int              # Greek letters in the copy's OCR of it
     before: bool            # our text confirms the copy's map before it (``trust``)
     after: bool             # and after it
+    contradicted: bool = False  # its running head prints a nearby column, not its own
 
     @property
     def trusted(self) -> bool:
-        return (self.before and self.after) or (self.supported and (self.before or self.after))
+        """Its own running head prints its column, or our text confirms the
+        copy's map on both sides of it; never when its head prints another
+        column near its own (the map is off there, whatever our text says).
+
+        The head alone suffices: the copy's map is read from its printed
+        heads, and where our own column refs are off (#756) our text would
+        wrongly reject it.
+        """
+        if self.contradicted:
+            return False
+        return self.supported or (self.before and self.after)
 
     def rank(self) -> tuple:
         return (self.trusted, self.greek >= GREEK_LETTERS, self.supported,
@@ -450,24 +493,33 @@ def leaves_of(item: str, pages: list[str], diffs: dict[int, list[int]]
 
     out: dict[int, list[Leaf]] = defaultdict(list)
     for leaf, span in column_map(pages).items():
-        supported = bool(cols.head_numbers(pages[leaf]) & set(span))
+        heads = cols.head_numbers(pages[leaf])
+        supported = bool(heads & set(span))
+        contradicted = not supported and any(abs(n - span[0]) <= CONTRADICTION for n in heads)
         out[page_of(span[0])].append(Leaf(item, leaf, span, supported, greek_letters(pages[leaf]),
-                                          *trust(diffs, leaf, supported)))
+                                          *trust(diffs, leaf, supported), contradicted))
     return out
+
+
+def usable(row: dict) -> bool:
+    """Whether a table row's copy is surely of its volume (``COPY_AGREE``)."""
+    return (int(row["shift"]) == 0 and float(row["agree"]) >= COPY_AGREE
+            and int(row["hits"]) >= MIN_HITS)
 
 
 def locate(ia: Archive, pages_file: Path, cache_dir: Path = CACHE_DIR,
            table: Path = TABLE) -> list[dict]:
     """Choose a leaf for every page that needs OCR -> ``cache_dir/pages.jsonl``.
 
-    Every copy of the volume is considered, but only its trusted leaves
-    (``trust``).  Among those, a leaf with Greek in its OCR, then one whose
+    The volume's ``usable`` copies are considered, and only their trusted
+    leaves (``Leaf.trusted``).  Among those, a leaf with Greek in its OCR, then one whose
     head prints its column, then the best agreement wins.  A page with no
     trusted leaf is listed with no leaf, and the number of untrusted ones.
     """
     copies = defaultdict(list)
     for row in read_table(table):
-        copies[row["volume"]].append(row)
+        if usable(row):
+            copies[row["volume"]].append(row)
     wanted = [json.loads(line) for line in pages_file.read_text(encoding="utf-8").splitlines()]
     wanted = [r for r in wanted if r["needs_ocr"]]
     by_vol: dict[str, dict[int, list[Leaf]]] = {}
@@ -564,51 +616,98 @@ def image_url(ia: Archive, item: str, position: int, pages: int,
     return None
 
 
+def _read_manifest(vdir: Path) -> dict[str, dict]:
+    """A volume's manifest: file stem -> its latest entry."""
+    f = vdir / "manifest.jsonl"
+    out: dict[str, dict] = {}
+    if f.exists():
+        for line in f.read_text(encoding="utf-8").splitlines():
+            e = json.loads(line)
+            out[e["file"].rsplit(".", 1)[0]] = e
+    return out
+
+
+def _write_manifest(vdir: Path, entries: dict[str, dict]) -> None:
+    tmp = vdir / "manifest.jsonl.part"
+    tmp.write_text("".join(json.dumps(entries[k]) + "\n" for k in sorted(entries)),
+                   encoding="utf-8")
+    tmp.rename(vdir / "manifest.jsonl")
+
+
 def fetch(ia: Archive, cache_dir: Path = CACHE_DIR, images_dir: Path = IMAGES_DIR,
           volumes: set[str] | None = None, limit: int | None = None) -> int:
-    """Download the chosen leaf of every located page (idempotent)."""
+    """Make ``images_dir`` hold the chosen leaf of every located page (idempotent).
+
+    A page whose image came from another copy or leaf than the one now chosen
+    (``locate`` was re-run) is fetched again; images of pages no longer
+    located are removed; each volume's ``manifest.jsonl`` lists its images.
+    """
     recs = [json.loads(line) for line in
             (cache_dir / "pages.jsonl").read_text(encoding="utf-8").splitlines()]
-    recs = [r for r in recs if r["ia_id"] and (not volumes or r["volume"] in volumes)]
-    leaves = {}
-    done = 0
+    by_vol: dict[str, list[dict]] = defaultdict(list)
     for r in recs:
-        if limit is not None and done >= limit:
-            break
-        vdir = images_dir / r["volume"]
+        if r["ia_id"] and (not volumes or r["volume"] in volumes):
+            by_vol[r["volume"]].append(r)
+    if images_dir.is_dir():                 # volumes with no located page left
+        for vdir in images_dir.iterdir():
+            if vdir.is_dir() and vdir.name not in by_vol and (
+                    not volumes or vdir.name in volumes):
+                by_vol[vdir.name] = []
+    leaves: dict[str, int] = {}
+    done = removed = 0
+    for vol in sorted(by_vol):
+        vdir = images_dir / vol
         vdir.mkdir(parents=True, exist_ok=True)
-        stem = f"c{r['cols'][0]:04d}"
-        if any(vdir.glob(f"{stem}.*")):
-            continue
-        item = r["ia_id"]
-        if item not in leaves:
-            leaves[item] = len(item_pages(ia, item, cache_dir) or [])
-        found = image_url(ia, item, r["leaf"], leaves[item], cache_dir)
-        if found is None:
-            log.error("%s %s: can't tell which image of %s is page %d of its OCR; skipped",
-                      r["volume"], stem, item, r["leaf"])
-            continue
-        url, leaf_num = found
-        try:
-            resp = ia.get(url)
-        except httpx.HTTPError as e:
-            log.error("%s %s: %s", r["volume"], stem, e)
-            continue
-        if not resp.is_success:
-            log.error("%s %s: HTTP %d from %s", r["volume"], stem, resp.status_code, url)
-            continue
-        ext = ".jp2" if url.endswith(".jp2") else ".jpg"
-        tmp = vdir / f"{stem}{ext}.part"
-        tmp.write_bytes(resp.content)
-        tmp.rename(vdir / f"{stem}{ext}")
-        with (vdir / "manifest.jsonl").open("a", encoding="utf-8") as f:
-            f.write(json.dumps({"file": f"{stem}{ext}", "cols": r["cols"], "work": r["work"],
-                                "ia_id": item, "page": r["leaf"], "leaf": leaf_num,
-                                "url": url}) + "\n")
-        done += 1
-        if done % 100 == 0:
-            log.info("fetched %d pages", done)
-    log.info("fetched %d pages into %s", done, images_dir)
+        manifest = _read_manifest(vdir)
+        wanted = set()
+        for r in by_vol[vol]:
+            stem = f"c{r['cols'][0]:04d}"
+            wanted.add(stem)
+            item = r["ia_id"]
+            have = [vdir / f"{stem}{ext}" for ext in (".jp2", ".jpg")
+                    if (vdir / f"{stem}{ext}").exists()]
+            e = manifest.get(stem)
+            if have and e and (e["ia_id"], e["page"]) == (item, r["leaf"]):
+                continue
+            if limit is not None and done >= limit:
+                continue
+            if item not in leaves:
+                leaves[item] = len(item_pages(ia, item, cache_dir) or [])
+            found = image_url(ia, item, r["leaf"], leaves[item], cache_dir)
+            if found is None:
+                log.error("%s %s: can't tell which image of %s is page %d of its OCR; skipped",
+                          vol, stem, item, r["leaf"])
+                continue
+            url, leaf_num = found
+            try:
+                resp = ia.get(url)
+            except httpx.HTTPError as err:
+                log.error("%s %s: %s", vol, stem, err)
+                continue
+            if not resp.is_success:
+                log.error("%s %s: HTTP %d from %s", vol, stem, resp.status_code, url)
+                continue
+            ext = ".jp2" if url.endswith(".jp2") else ".jpg"
+            for old in have:
+                old.unlink()
+            tmp = vdir / f"{stem}{ext}.part"
+            tmp.write_bytes(resp.content)
+            tmp.rename(vdir / f"{stem}{ext}")
+            manifest[stem] = {"file": f"{stem}{ext}", "cols": r["cols"], "work": r["work"],
+                              "ia_id": item, "page": r["leaf"], "leaf": leaf_num, "url": url}
+            done += 1
+            if done % 100 == 0:
+                log.info("fetched %d pages", done)
+                _write_manifest(vdir, manifest)
+        for f in [*vdir.glob("c*.jp2"), *vdir.glob("c*.jpg"), *vdir.glob("c*.part")]:
+            stem = f.name.split(".", 1)[0]
+            if stem not in wanted or f.name.endswith(".part"):
+                f.unlink()
+                removed += stem not in wanted and not f.name.endswith(".part")
+        manifest = {k: v for k, v in manifest.items() if k in wanted}
+        _write_manifest(vdir, manifest)
+    log.info("fetched %d pages into %s; removed %d no longer located", done, images_dir,
+             removed)
     return done
 
 
