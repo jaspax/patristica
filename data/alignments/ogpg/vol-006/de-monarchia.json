@@ -2,11 +2,11 @@
  "format": 1,
  "group": "ogpg/vol-006/de-monarchia",
  "pivot": "ogpg/vol-006/de-monarchia",
- "groups": 41,
- "inputs": "c412ce60d206581f",
- "run": {"aligner": 2, "date": "2026-11-10", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "groups": 45,
+ "inputs": "fcc0a30db4955ab8",
+ "run": {"aligner": 2, "date": "2026-11-19", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "anf-works/pseudo-justin-sole-government-of-god", "units": 53, "ids": "fcae20c4ab4274bf", "inputs": "54552fa64b62c2f6", "spans": "+++++++++++++++..++++++++=++=+++.+=+..+=...++++++++++", "conf": "69889999999996899989978889687498999999999"},
-  {"work_id": "ogpg/vol-006/de-monarchia", "units": 83, "ids": "dccb0c21cc4a7cb2", "inputs": "c16966df5ad1ccc6", "spans": "+++++++++++++...+=.+....+=++..+...+==.+........++.++=+...++=+......++=++++++++++=..", "conf": "69889999999996899989978889687498999999999"}
+  {"work_id": "anf-works/pseudo-justin-sole-government-of-god", "units": 53, "ids": "fcae20c4ab4274bf", "inputs": "54552fa64b62c2f6", "spans": "+++++++++++++++..++++++++=++=+++.+++++.++..++++++++++", "conf": "698899999999968999899788896844825879999999999"},
+  {"work_id": "ogpg/vol-006/de-monarchia", "units": 95, "ids": "6c9dd8dc92f61151", "inputs": "708abc551e21d563", "spans": "+++++++++++++...+=.+....+=++..+...+==.+........++.++=+...++=+.......+....+.++.++=+=+++++++++=..", "conf": "698899999999968999899788896844825879999999999"}
  ]
 }

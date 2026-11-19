@@ -81,7 +81,9 @@ patristica/
 │   ├── embed.py               # normalized + translations → Voyage vectors → data/embeddings/ (#136)
 │   ├── catalog.py             # print ingestion status table with last-run timestamps
 │   ├── ogpg_boundaries.py     # OGPG works that start or end mid-sentence: before/after counts for ingest changes (#531)
-│   ├── ogpg_coverage.py       # OGPG works' Migne column coverage and the cause of every hole (#706; status --raw row)
+│   ├── ogpg_coverage.py       # OGPG works' Migne column coverage and the cause of every hole (#706; status --raw row; --pages: per page, needs_ocr)
+│   ├── ogpg_images.py         # page images for the PG holes from Internet Archive copies, mapped by their running heads (#719) → scripts/ingest/data/ogpg_images.csv, data/raw/_images/ (gitignored)
+│   ├── ogpg_calfa.py          # Calfa's PG OCR (Zenodo 19915273, CC BY 4.0) for the pages the holes lack → data/ocr/ogpg/ (#719)
 │   ├── ocr/eval/              # OCR eval set + scorer for the PG holes (#718): ground truth, OGL baseline, CER/accents/real words
 │   ├── ocr/                   # OCR pipeline for the PG holes (#720): Kraken → word flags → Gemini/Opus readers → selective Opus synthesis → vote; batch APIs; `cost`
 │   ├── status.py              # freshness of every pipeline step in one table (#130)
@@ -125,6 +127,7 @@ patristica/
     ├── alignments/            # passage alignments, one file per version group (tracked; scripts.align, #179)
     ├── anchors/               # cut files of anchored derived verses, {source_id}/….json (tracked; scripts.anchor, #304)
     ├── anchor_vectors/        # scratch segment vectors of scripts.anchor (gitignored, regenerable)
+    ├── ocr/ogpg/              # new OCR of the OGPG holes, one {vol}.jsonl per volume (plain git; read by scripts/ingest/ogpg.py, #719)
     └── library/               # static library for the web browser (gitignored; scripts.export_library)
 ```
 

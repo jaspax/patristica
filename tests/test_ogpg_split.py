@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -453,6 +454,56 @@ class TestSplitVolume:
                       )["vol-045"]
         (_, work, _), = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows)
         assert work.date_range == (370, 395) and work.date_confidence == "established"
+
+
+class TestOcrPages:
+    """New OCR of the holes (#719): added where the volume has no text, never in place of it."""
+
+    HEADS = TestSplitVolume.HEADS
+    # Page 013 (cols. 15-16) is a hole: its paragraph is gone.
+    PARAS = [p for p in TestSplitVolume.PARAS if p[0] != "013"]
+
+    @staticmethod
+    def _ocr(tmp_path: Path) -> list[dict]:
+        d = tmp_path / "ocr"
+        d.mkdir()
+        recs = [{"cols": [15, 16], "lines": ["ὁ λόγος ἐπι-", "στήμης καὶ"], "source": "calfa"},
+                {"cols": [11, 12], "lines": ["already there"], "source": "calfa"}]
+        (d / "vol-045.jsonl").write_text("".join(json.dumps(r) + "\n"
+                                                 for r in recs), encoding="utf-8")
+        (d / "_sources.json").write_text('{"calfa": "pages from Calfa (CC BY 4.0)"}')
+        return ogpg.ocr_pages("vol-045", d), ogpg.ocr_credits(d)
+
+    def test_pages_are_read_with_hyphens_joined(self, tmp_path: Path):
+        ocr, credits = self._ocr(tmp_path)
+        assert ocr[0]["text"] == "ὁ λόγος ἐπιστήμης καὶ" and ocr[0]["cols"] == (15, 16)
+        assert credits == {"calfa": "pages from Calfa (CC BY 4.0)"}
+        assert ogpg.ocr_pages("vol-046", tmp_path / "ocr") == []
+
+    def test_a_hole_is_filled_and_no_ref_moves(self, tmp_path: Path):
+        ocr, credits = self._ocr(tmp_path)
+        extract = _extract(self.HEADS, self.PARAS)
+        (_, _, before), = ogpg.split_volume("Vol.-45", extract, [])
+        (_, work, after), = ogpg.split_volume("Vol.-45", extract, [], ocr=ocr, credits=credits)
+        assert [p["ref"] for p in after] == ["ogpg.vol-045.c0009.1", "ogpg.vol-045.c0011.1",
+                                             "ogpg.vol-045.c0013.1", "ogpg.vol-045.c0015.1",
+                                             "ogpg.vol-045.c0017.1"]
+        assert [p for p in after if p["ref"] != "ogpg.vol-045.c0015.1"] == before
+        assert after[3]["text"] == "ὁ λόγος ἐπιστήμης καὶ"
+        assert "already there" not in str(after)          # never in place of OGL text
+        assert work.edition.endswith("; pages from Calfa (CC BY 4.0)")
+
+    def test_only_works_given_pages_are_credited(self, tmp_path: Path):
+        ocr, credits = self._ocr(tmp_path)
+        rows = _index(
+            "vol-045,a,9,12,Gregory of Nyssa,A,,,385,380,390,,heads,,",
+            "vol-045,b,13,,Gregory of Nyssa,B,,,385,380,390,,heads,,",
+        )["vol-045"]
+        out = {rel: work for rel, work, _ in
+               ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), rows,
+                                 ocr=ocr, credits=credits)}
+        assert "Calfa" not in out["vol-045/a.json"].edition
+        assert "Calfa" in out["vol-045/b.json"].edition
 
 
 def test_prune_removes_stale_files(tmp_path: Path):

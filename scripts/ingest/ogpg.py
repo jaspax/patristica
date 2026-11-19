@@ -934,6 +934,51 @@ def _cross_scan(primary: _Scan, kept: list[dict], others: list[_Scan]
     return misbound, fills, replaced
 
 
+# ---------------------------------------------------------------------------
+# New OCR of the holes (#719, #705)
+# ---------------------------------------------------------------------------
+
+# Text for pages the OGL OCR lacks: one JSON-lines file per volume,
+# ``{"cols", "lines", "source", …}`` per page (scripts.ogpg_calfa, later the
+# OCR pipeline), and ``_sources.json``: each source's credit for the edition.
+OCR_DIR = Path(__file__).resolve().parents[2] / "data" / "ocr" / "ogpg"
+
+
+def ocr_pages(vol_slug: str, ocr_dir: Path = OCR_DIR) -> list[dict]:
+    """A volume's pages of new OCR, as fills (``{"cols", "scan", "stem", "title",
+    "text", "ocr_source"}``): each page one paragraph, its line-end hyphens joined."""
+    path = ocr_dir / f"{vol_slug}.jsonl"
+    if not path.exists():
+        return []
+    out = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        r = json.loads(line)
+        text = " ".join(_fix_hyphenation("\n".join(r["lines"])).split())
+        if text:
+            out.append({"cols": tuple(r["cols"]), "scan": r["source"], "stem": None,
+                        "title": None, "text": text, "ocr_source": r["source"]})
+    return out
+
+
+def ocr_credits(ocr_dir: Path = OCR_DIR) -> dict[str, str]:
+    """Each OCR source's credit, for the ``edition`` of the works it adds to."""
+    path = ocr_dir / "_sources.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def _first_page(col: int) -> int:
+    return col if col % 2 else col - 1
+
+
+def _credited(work: Work, paras: list[dict], credits: dict[str, str] | None) -> Work:
+    """``work`` with the credit of every OCR source among its paragraphs in its edition."""
+    sources = sorted({p["ocr_source"] for p in paras if p.get("ocr_source")})
+    if not sources:
+        return work
+    notes = [(credits or {}).get(s, f"pages from {s}") for s in sources]
+    return work.model_copy(update={"edition": "; ".join([work.edition, *notes])})
+
+
 def _merge_fills(paras: list[dict], fills: list[dict]) -> list[dict]:
     """Primary paragraphs (with ``cols``) and fills, in column order: each
     fill goes before the first primary paragraph of a later column."""
@@ -1282,6 +1327,8 @@ def split_volume(
     extract: dict,
     rows: list[pgi.IndexRow],
     repeats: rep.Repeats | None = None,
+    ocr: list[dict] | None = None,
+    credits: dict[str, str] | None = None,
 ) -> list[tuple[str, Work, list[dict]]]:
     """Cut an extracted volume into works → ``[(relative path, work, paragraphs)]``.
 
@@ -1292,7 +1339,10 @@ def split_volume(
     with the positional refs of ``_ogpg_index.assign_refs``, and
     ``"editorial"`` note spans where a paragraph ends in Migne's notes
     (``_ogpg_notes``).  Pages the scan
-    repeats (``repeats``, found here when not given) are left out.
+    repeats (``repeats``, found here when not given) are left out.  Pages of
+    new OCR (``ocr``, from ``ocr_pages``) are added where no paragraph has
+    the page's columns, never in place of OGL text, so no ref moves; the
+    works they go to credit their source (``credits``) in their edition.
     """
     vol_nums, vol_slug = _parse_repo(repo_name)
     part = _parse_repo_part(repo_name)
@@ -1306,20 +1356,25 @@ def split_volume(
              if p["stem"] not in repeats.pages]
     paras = _merge_fills(paras, [{**f, "cols": tuple(f["cols"])}
                                  for f in extract.get("fills", [])])
+    if ocr:
+        have = {_first_page(p["cols"][0]) for p in paras if p.get("cols")}
+        paras = _merge_fills(paras, [p for p in ocr if _first_page(p["cols"][0]) not in have])
     if rows:
         paras = pgi.split_inline_headings(paras, rows)
     refs = pgi.assign_refs(paras, vol_slug)
     if not rows:
-        work = _make_work(repo_name, vol_nums, part, vol_slug, scan)
+        work = _credited(_make_work(repo_name, vol_nums, part, vol_slug, scan), paras, credits)
         return [(f"{vol_slug}.json", work,
                  [_unit(r, p["text"]) for r, p in zip(refs, paras)])]
 
     owners = pgi.assign_works(paras, rows)
     last_col = max((p["cols"][1] for p in paras if p.get("cols")), default=None)
     buckets: dict[str | None, list[dict]] = {}
+    sources: dict[str | None, list[dict]] = {}
     for ref, para, owner in zip(refs, paras, owners):
         key = None if owner is None else rows[owner].slug
         buckets.setdefault(key, []).append(_unit(ref, para["text"]))
+        sources.setdefault(key, []).append(para)
     by_slug: dict[str, list[pgi.IndexRow]] = {}
     for row in rows:
         by_slug.setdefault(row.slug, []).append(row)
@@ -1334,10 +1389,12 @@ def split_volume(
             log.info("OPG %s/%s: dropped (after the collection period, %s)",
                      vol_slug, slug, row.date_range)
             continue
-        work = _make_index_work(repo_name, vol_nums, part, parts, last_col, scan)
+        work = _credited(_make_index_work(repo_name, vol_nums, part, parts, last_col, scan),
+                         sources[slug], credits)
         out.append((f"{vol_slug}/{slug}.json", work, buckets[slug]))
     if None in buckets:
-        work = _make_work(repo_name, vol_nums, part, vol_slug, scan, remainder=True)
+        work = _credited(_make_work(repo_name, vol_nums, part, vol_slug, scan, remainder=True),
+                         sources[None], credits)
         out.append((f"{vol_slug}/{pgi.REMAINDER_SLUG}.json", work, buckets[None]))
     return out
 
@@ -1373,8 +1430,10 @@ def _ingest_volume(
     pipeline["repeated_pages"] = len(repeats.pages)
     works: list[Work] = []
     written: set[str] = set()
+    ocr = ocr_pages(vol_slug)
     for rel, work, paragraphs in split_volume(repo_name, extract,
-                                              pgi.load_index().get(vol_slug, []), repeats):
+                                              pgi.load_index().get(vol_slug, []), repeats,
+                                              ocr, ocr_credits()):
         _write_if_changed(output_dir / rel, {
             "work": work.model_dump(),
             "pipeline": pipeline,

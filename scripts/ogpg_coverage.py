@@ -340,6 +340,32 @@ def _holes(missing: list[tuple[int, str]]) -> list[Hole]:
 
 
 @dataclass
+class MissingPage:
+    """A missing page (not ``elsewhere``) of one work, for ``--pages``."""
+
+    volume: str
+    work: str
+    page: int                   # its first column
+    cause: str                  # ``unplaced``, ``unmapped`` or ``no_text``
+    scan_cause: str | None = None   # ``no_text`` split by its OCR (``--scans``)
+    fillable: bool = False      # another scan has Greek for it (``--scans``)
+    stems: list[str] = field(default_factory=list)  # the primary scan's pages
+
+    @property
+    def needs_ocr(self) -> bool:
+        """No text for it anywhere: a leaf the scan lacks, or OCR that is blank
+        or garbled, and no other scan to fill it from (#705 step 2)."""
+        if self.fillable:
+            return False
+        return self.cause == "unmapped" or self.scan_cause in ("blank", "garbled")
+
+    def to_json(self) -> dict:
+        return {"volume": self.volume, "work": self.work, "cols": [self.page, self.page + 1],
+                "cause": self.scan_cause or self.cause, "fillable": self.fillable,
+                "needs_ocr": self.needs_ocr, "stems": self.stems}
+
+
+@dataclass
 class VolumeResult:
     volume: str
     works: list[WorkCoverage]
@@ -347,6 +373,8 @@ class VolumeResult:
     # every other non-``elsewhere`` missing page, for ``--scans``.
     no_text: list[tuple[str, int, list[str]]] = field(default_factory=list)
     lost: list[tuple[str, int]] = field(default_factory=list)
+    # One record per missing page that is not ``elsewhere`` (``--pages``).
+    pages: list[MissingPage] = field(default_factory=list)
 
 
 def measure_volume(vol: str, rows: list, raw_dir: Path,
@@ -417,6 +445,9 @@ def measure_volume(vol: str, rows: list, raw_dir: Path,
                 cause = "unmapped"
             if cause != "elsewhere":
                 result.lost.append((work, page))
+                result.pages.append(MissingPage(
+                    vol, work, page, cause,
+                    stems=list(smap.stems_of.get(page, [])) if cause == "no_text" else []))
             missing.append((page, cause))
         n = len(expected) - latin_only
         wc = WorkCoverage(work, n, n - len(missing), _holes(missing), latin_only=latin_only)
@@ -477,6 +508,7 @@ def apply_scans(result: VolumeResult, repos_dir: Path, raw_dir: Path,
     scans = ogpg._scan_files(clone)
     primary = extract["pipeline"].get("primary_scan")
     by_work = {w.work: w for w in result.works}
+    record = {(r.work, r.page): r for r in result.pages}
 
     def hole_of(work: str, page: int) -> Hole:
         return next(h for h in by_work[work].holes if h.first <= page <= h.last)
@@ -497,6 +529,7 @@ def apply_scans(result: VolumeResult, repos_dir: Path, raw_dir: Path,
                 kind = "latin"
             hole = hole_of(work, page)
             hole.causes[kind] += 1
+            record[work, page].scan_cause = kind
 
     lost = defaultdict(list)
     for work, page in result.lost:
@@ -518,6 +551,7 @@ def apply_scans(result: VolumeResult, repos_dir: Path, raw_dir: Path,
     for page in found:
         for work in lost[page]:
             hole_of(work, page).fillable += 1
+            record[work, page].fillable = True
     return True
 
 
@@ -542,13 +576,15 @@ def _measure_one(args: tuple[str, list, Path, Path | None, list]) -> VolumeResul
 
 def measure(raw_dir: Path = RAW_DIR, index: dict | None = None,
             scans: Path | None = None, cache_dir: Path | None = CACHE_DIR,
-            workers: int | None = None, latin: LatinRanges | None = None) -> list[WorkCoverage]:
+            workers: int | None = None, latin: LatinRanges | None = None,
+            pages: list[MissingPage] | None = None) -> list[WorkCoverage]:
     """Coverage of every OGPG work, by volume and column order.
 
     ``index`` and ``latin`` default to the repository's ``ogpg_index.csv`` (a
     given ``index`` comes with no Latin-only ranges unless ``latin`` is given).
     ``workers`` > 1 measures volumes in parallel processes (default: one per
-    CPU; 1 runs in this process).
+    CPU; 1 runs in this process).  A ``pages`` list receives every missing
+    page that is not ``elsewhere``, in order.
     """
     import os
 
@@ -579,6 +615,8 @@ def measure(raw_dir: Path = RAW_DIR, index: dict | None = None,
                 lexicon = lex.load_lexicon()
             apply_scans(result, scans, raw_dir, lexicon)
         out.extend(result.works)
+        if pages is not None:
+            pages.extend(sorted(result.pages, key=lambda r: (r.page, r.work)))
     return out
 
 
@@ -653,13 +691,18 @@ def main() -> None:
     parser.add_argument("--works", action="store_true", help="print a TSV per work")
     parser.add_argument("--holes", action="store_true", help="print a TSV per hole")
     parser.add_argument("--json", type=Path, metavar="FILE", help="write everything as JSON")
+    parser.add_argument("--pages", type=Path, metavar="FILE",
+                        help="write one JSON line per missing page that is not elsewhere "
+                             "(with needs_ocr; use with --scans)")
     parser.add_argument("--workers", type=int, help="parallel processes (default: one per CPU)")
     parser.add_argument("--no-cache", action="store_true",
                         help=f"don't read or write the column maps in {CACHE_DIR}")
     args = parser.parse_args()
     setup_logging()
+    pages: list[MissingPage] | None = [] if args.pages else None
     works = measure(args.raw_dir, scans=args.scans,
-                    cache_dir=None if args.no_cache else CACHE_DIR, workers=args.workers)
+                    cache_dir=None if args.no_cache else CACHE_DIR, workers=args.workers,
+                    pages=pages)
     s = summary(works)
     if args.works:
         print("\n".join(works_tsv(works)))
@@ -668,6 +711,13 @@ def main() -> None:
     if args.json:
         args.json.write_text(json.dumps({"summary": s, "works": [w.to_json() for w in works]},
                                         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    if args.pages:
+        if args.scans is None:
+            log.warning("--pages without --scans: needs_ocr counts every no_text page as not")
+        args.pages.write_text("".join(json.dumps(r.to_json(), ensure_ascii=False) + "\n"
+                                      for r in pages or []), encoding="utf-8")
+        log.info("%d missing pages, %d need OCR -> %s", len(pages or []),
+                 sum(r.needs_ocr for r in pages or []), args.pages)
     log.info("%s", summary_line(s))
 
 
