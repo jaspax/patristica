@@ -103,6 +103,24 @@ def test_coverage_and_causes(raw: Path, index) -> None:
     assert c.start_mid is False
 
 
+def test_missing_pages_are_listed_one_by_one(raw: Path, index) -> None:
+    pages: list[oc.MissingPage] = []
+    _measure(raw, index, pages=pages)
+    got = [(r.work.rsplit("/", 1)[1], r.page, r.cause, r.stems) for r in pages]
+    # Not the elsewhere page (col. 25), in column order.
+    assert got == [("a", 17, "no_text", ["013"]), ("b", 21, "unplaced", []),
+                   ("c", 35, "unmapped", [])]
+    # A leaf the scan lacks needs OCR; a page whose OCR is blank does too, once
+    # --scans has looked at it, unless another scan fills it.
+    assert [r.needs_ocr for r in pages] == [False, False, True]
+    pages[0].scan_cause = "blank"
+    assert pages[0].needs_ocr and pages[0].to_json()["cause"] == "blank"
+    pages[0].fillable = True
+    assert not pages[0].needs_ocr
+    pages[0].scan_cause, pages[0].fillable = "latin", False
+    assert not pages[0].needs_ocr
+
+
 def test_column_maps_are_cached_per_extract(raw: Path, index, monkeypatch) -> None:
     first = [w.to_json() for w in _measure(raw, index)]
     assert (raw.parent / "cache" / f"{VOL}.json").exists()

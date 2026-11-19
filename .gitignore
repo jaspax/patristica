@@ -3,6 +3,9 @@
 # and the git dirs of the clones ingestors write into live in _gitdirs/.
 data/raw/_repos/
 data/raw/_gitdirs/
+# Page images for new OCR (scripts.ogpg_images, #719): a cache, refetched from
+# the Internet Archive; each OCR result records its image's URL.
+data/raw/_images/
 data/raw/_repo_archives/**/*.tmp
 
 # Local caches of derived values (scripts.ogpg_coverage's column maps)
