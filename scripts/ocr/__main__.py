@@ -33,29 +33,52 @@ log = logging.getLogger(__name__)
 
 STAGES = ("kraken", "kgc", "gemini_page", "opus_page", "synth1", "synth2", "final")
 GEMINI_MODEL = "gemini-3.8-flash"
-CLAUDE_MODEL = "claude-opus-5-5"
+CLAUDE_MODELS = {"opus": "claude-opus-5-5", "sonnet": "claude-sonnet-5-5",
+                 "haiku": "claude-haiku-5-5"}
+
+
+def _claude_price(i: float, o: float) -> dict[str, float]:
+    # Cache reads 0.1x input; cache writes 1.25x (5-minute) or 2x (1-hour).
+    return {"in": i, "out": o, "cache_read": i / 10, "cache_write_5m": i * 1.25,
+            "cache_write_1h": i * 2}
+
 
 # USD per million tokens, standard (direct) rates; batch APIs bill half.
 # Gemini 3.8 Flash doubles on 2027-01-01 ($1.50 / $7.50).
 PRICES = {
-    "gemini": {"in": 0.75, "out": 3.75},
-    "claude": {"in": 4.00, "out": 20.00, "cache_read": 0.40, "cache_write_5m": 5.00,
-               "cache_write_1h": 8.00},
+    "gemini-3.8-flash": {"in": 0.75, "out": 3.75},
+    "gemini-3.1-pro-preview": {"in": 2.00, "out": 12.00},
+    "claude-opus-5-5": _claude_price(4.00, 20.00),
+    "claude-sonnet-5-5": _claude_price(2.00, 10.00),
+    "claude-haiku-5-5": _claude_price(0.10, 0.50),
 }
+DEFAULT_MODEL = {"gemini": GEMINI_MODEL, "claude": CLAUDE_MODELS["opus"]}
 PROVIDER = {"kgc": "gemini", "gemini_page": "gemini", "opus_page": "claude",
             "synth1": "claude", "synth2": "claude"}
 
 
+def _record_model(args: argparse.Namespace, stage: str, provider: str, model: str,
+                  effort: str | None) -> None:
+    """Note the model a stage runs with, for `cost`."""
+    d = Path(args.out) / stage
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "_model.json").write_text(json.dumps({"provider": provider, "model": model,
+                                               "effort": effort}))
+
+
 def _gemini(args: argparse.Namespace, stage: str) -> Gemini:
-    return Gemini(GEMINI_MODEL, thinking="low", batch=not args.direct,
+    _record_model(args, stage, "gemini", args.gemini_model, "low")
+    return Gemini(args.gemini_model, thinking="low", batch=not args.direct,
                   state_dir=Path(args.out) / stage)
 
 
 def _claude(args: argparse.Namespace, stage: str):
+    model = CLAUDE_MODELS[args.claude_model]
     if args.claude == "cli":
-        return ClaudeCLI("opus", effort=args.effort)
-    return ClaudeBatch(CLAUDE_MODEL, effort=args.effort or "medium",
-                       state_dir=Path(args.out) / stage)
+        _record_model(args, stage, "claude", model, args.effort)
+        return ClaudeCLI(args.claude_model, effort=args.effort)
+    _record_model(args, stage, "claude", model, args.effort or "medium")
+    return ClaudeBatch(model, effort=args.effort or "medium", state_dir=Path(args.out) / stage)
 
 
 def _with_windows(args: argparse.Namespace, run: stages.Run, stage: str, body) -> None:
@@ -95,13 +118,13 @@ def cmd_run(args: argparse.Namespace) -> int:
     return 0
 
 
-def _charge(provider: str, u: dict) -> tuple[float, float, float]:
+def _charge(provider: str, u: dict, model: str | None = None) -> tuple[float, float, float]:
     """(input tokens, output tokens, USD at direct rates) of one request.
 
     Claude's cache reads and writes are priced at their own rates: a read at
     0.1x input, a write at 1.25x (5-minute) or 2x (1-hour) input.
     """
-    p = PRICES[provider]
+    p = PRICES[model or DEFAULT_MODEL[provider]]
     if provider == "gemini":
         tin = u.get("promptTokenCount", 0)
         tout = u.get("candidatesTokenCount", 0) + (u.get("thoughtsTokenCount") or 0)
@@ -131,6 +154,10 @@ def cmd_cost(args: argparse.Namespace) -> int:
         f = out / stage / "_usage.jsonl"
         if not f.exists():
             continue
+        meta_f = out / stage / "_model.json"
+        meta = json.loads(meta_f.read_text()) if meta_f.exists() else {}
+        model = meta.get("model")
+        provider = meta.get("provider", provider)  # a stage may run on the other provider
         tin = tout = usd = 0.0
         windows: dict[str, list[float]] = defaultdict(list)
         for line in f.read_text().splitlines():
@@ -138,7 +165,7 @@ def cmd_cost(args: argparse.Namespace) -> int:
             if r.get("error"):
                 continue
             u = r["usage"] or {}
-            i, o, d = _charge(provider, u)
+            i, o, d = _charge(provider, u, model)
             tin, tout, usd = tin + i, tout + o, usd + d
             for w, v in (u.get("limits") or {}).items():
                 if v is not None:
@@ -158,8 +185,9 @@ def cmd_cost(args: argparse.Namespace) -> int:
                         used[w] += r["after"][w] - v  # negative if the window reset meanwhile
             win = "  ".join(f"{w} {100 * v:.1f} pts" + (" (window reset?)" if v < 0 else "")
                             for w, v in sorted(used.items()))
+        label = f"{meta.get('model', '')} {meta.get('effort') or ''}".strip()
         print(f"{stage:12s} {n:5d} {tin / n:9.0f} {tout / n:9.0f} {usd / n:8.4f} "
-              f"{usd / n / 2:13.4f}  {win}")
+              f"{usd / n / 2:13.4f}  {win}  [{label}]")
     print(f"{'total':12s} {'':5s} {'':9s} {'':9s} {total:8.4f} {total / 2:13.4f}")
     return 0
 
@@ -186,6 +214,10 @@ def main(argv: list[str] | None = None) -> int:
                    help="synchronous Gemini calls, not the batch API")
     r.add_argument("--claude", choices=("api", "cli"), default="api",
                    help="Claude via the batch API (default) or a local claude -p")
+    r.add_argument("--claude-model", choices=tuple(CLAUDE_MODELS), default="opus",
+                   help="Claude model for the Claude stages (default opus)")
+    r.add_argument("--gemini-model", default=GEMINI_MODEL,
+                   help=f"Gemini model for the Gemini stages (default {GEMINI_MODEL})")
     r.add_argument("--effort", choices=("low", "medium", "high"),
                    help="Claude effort (default medium)")
     r.set_defaults(func=cmd_run)
