@@ -67,6 +67,15 @@ United Kingdom (and other life-plus-70 countries) until the end of 2027. The
 owner decided on 2026-11-12 to publish it from the US. Anyone reusing these
 works outside the United States should check their own country's term.
 
+**OGPG pages filled from Calfa's OCR (#719).** Where the OGL OCR of Migne's PG
+lost a page, some OGPG works carry that page's Greek from Calfa's OCR
+(Vidal-Gorène & Kindt, *Patrologia Graeca, OCRized and analyzed texts*,
+[Zenodo 19915273](https://zenodo.org/records/19915273), CC BY 4.0), kept in
+`data/ocr/ogpg/`. Those works stay `public_domain`, the licence of Migne's text
+and of the rest of the work, and credit Calfa in their `edition`, as CC BY 4.0
+asks; the pages themselves keep Calfa's CC BY 4.0, so reusing them needs that
+attribution.
+
 The web app's **Sources & licences** page (`/sources`) lists every collection
 with its licences, edition and source link. It is generated from the library
 index, so it stays current as the corpus changes.

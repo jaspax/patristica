@@ -3,9 +3,9 @@
  "anchor": "first1k/tlg0555/tlg001/1st1K-grc1",
  "method": "b411e365fd53a195",
  "anchor_cuts": "c41f3defa55c5c48",
- "words": "1507b025423ffb2a",
+ "words": "5ee74ec583f79c4b",
  "model": "",
- "stats": {"paragraphs": 112, "projected_paragraphs": 81, "provisional_paragraphs": 31, "shared": 0.67, "starts_lost": 247, "starts_projected": 985},
+ "stats": {"one_one_anchored": 0.8984, "one_one_provisional": 0.8605, "paragraphs": 121, "projected_paragraphs": 90, "provisional_paragraphs": 31, "shared": 0.7642, "starts_lost": 121, "starts_projected": 1111},
  "paragraphs": {
   "ogpg.vol-008.c0049.2": {"words": "1493711537e2b7a7", "starts": [0, 7, 29, 43]},
   "ogpg.vol-008.c0051.1": {"words": "7f765cdd04b359c8", "starts": [0, 34, 55, 77, 107, 134, 166, 184]},
@@ -118,6 +118,15 @@
   "ogpg.vol-008.c0221.1": {"words": "7cae1cd396273bce", "starts": [0, 16, 34, 67, 93, 108, 128, 154, 166, 184, 197, 217, 234, 256, 268]},
   "ogpg.vol-008.c0223.1": {"words": "211e22224e1576d0", "starts": [0, 15, 40, 53, 76, 88, 102]},
   "ogpg.vol-008.c0225.1": {"words": "9f68f7f951cd5e52", "starts": [0, 4, 18, 37, 51, 67, 88, 111, 137, 160, 180, 200, 221, 247, 266, 279, 295]},
-  "ogpg.vol-008.c0227.1": {"words": "e3b3e11eb2a3e5bc", "starts": [0, 12, 29, 46, 70, 86, 109, 134, 154]}
+  "ogpg.vol-008.c0227.1": {"words": "e3b3e11eb2a3e5bc", "starts": [0, 12, 29, 46, 70, 86, 109, 134, 154]},
+  "ogpg.vol-008.c0229.1": {"words": "9c30482dadcaa755", "starts": [0, 10, 39, 53, 71, 93, 113, 124, 142, 163, 189, 212, 237, 248]},
+  "ogpg.vol-008.c0231.1": {"words": "b19f133a9d838091", "starts": [0, 24, 36, 50, 68, 84, 96, 116, 139, 168, 194, 205, 222, 240, 260]},
+  "ogpg.vol-008.c0233.1": {"words": "437695de545575ec", "starts": [0, 2, 18, 37, 52, 70, 89, 112, 131, 154, 173, 195]},
+  "ogpg.vol-008.c0235.1": {"words": "cc1274280283e77c", "starts": [0, 8, 31, 57, 74, 89, 107, 128, 137, 148, 166, 185, 197, 225, 242, 257, 277, 289, 303, 322, 351]},
+  "ogpg.vol-008.c0237.1": {"words": "adb88136c6be79d5", "starts": [0, 3, 34, 53, 71, 90, 118, 148, 168, 185, 202, 218]},
+  "ogpg.vol-008.c0239.1": {"words": "af1455ef0cb20a3b", "starts": [0, 10, 24, 44, 61, 78, 92, 110, 132, 148, 162, 183, 198, 216, 234, 247, 266]},
+  "ogpg.vol-008.c0241.1": {"words": "305eed79bcd25540", "starts": [0, 1, 17, 36, 53, 82, 104, 126, 158, 172, 183, 198, 214, 233, 255, 266, 289]},
+  "ogpg.vol-008.c0243.1": {"words": "8989c54258b8f3af", "starts": [0, 5, 19, 40, 60, 78, 101, 117, 134, 145, 165, 178, 196, 224, 242]},
+  "ogpg.vol-008.c0245.1": {"words": "7381bd9e4a248323", "starts": [0, 19, 40, 60, 79, 90, 113, 132, 158, 175, 188]}
  }
 }
