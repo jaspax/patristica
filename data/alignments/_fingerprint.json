@@ -2316,6 +2316,7 @@
   "csel/stoa0022a/stoa001/opp-lat1": {
    "members": [
     "csel/stoa0022a/stoa001/opp-lat1",
+    "mt-eng/csel/stoa0022a/stoa001/opp-lat1",
     "oglt-pl/ambrosiaster/pl35_11_"
    ]
   },
@@ -2613,6 +2614,12 @@
     "oglt-pl/pseudo-augustinus/pl43_2_ser"
    ]
   },
+  "csel/stoa0045a/stoa001/opp-lat1": {
+   "members": [
+    "csel/stoa0045a/stoa001/opp-lat1",
+    "mt-eng/csel/stoa0045a/stoa001/opp-lat1"
+   ]
+  },
   "csel/stoa0058/stoa001/opp-lat3": {
    "members": [
     "csel/stoa0058/stoa001/opp-lat3",
@@ -2846,6 +2853,12 @@
     "oglt-pl/evagrius-gallus/pl20_31_alteercaiointerthe"
    ]
   },
+  "csel/stoa0120d/stoa001/opp-lat1": {
+   "members": [
+    "csel/stoa0120d/stoa001/opp-lat1",
+    "mt-eng/csel/stoa0120d/stoa001/opp-lat1"
+   ]
+  },
   "csel/stoa0121g/stoa001/opp-lat1": {
    "members": [
     "csel/stoa0121g/stoa001/opp-lat1",
@@ -2887,6 +2900,7 @@
   "csel/stoa0149b/stoa002/opp-lat1": {
    "members": [
     "csel/stoa0149b/stoa002/opp-lat1",
+    "mt-eng/csel/stoa0149b/stoa002/opp-lat1",
     "oglt-pl/hilarius-pictaviensis/pl10_13_un"
    ]
   },
@@ -3039,6 +3053,12 @@
    "members": [
     "csel/stoa0233d/stoa002/opp-lat1",
     "oglt-pl/anonymus/pl3_38_act"
+   ]
+  },
+  "csel/stoa0234e/stoa002/opp-lat1": {
+   "members": [
+    "csel/stoa0234e/stoa002/opp-lat1",
+    "mt-eng/csel/stoa0234e/stoa002/opp-lat1"
    ]
   },
   "csel/stoa0234f/stoa001/opp-lat1": {
@@ -4386,6 +4406,7 @@
   "first1k/tlg2042/tlg058/1st1K-grc1": {
    "members": [
     "first1k/tlg2042/tlg058/1st1K-grc1",
+    "mt-eng/first1k/tlg2042/tlg058/1st1K-grc1",
     "ogpg/vol-012/selecta-in-psalmos"
    ]
   },
@@ -5785,6 +5806,12 @@
     "ogpg/vol-026/ad-rufinianum"
    ]
   },
+  "ogpg/vol-026/ad-serapionem": {
+   "members": [
+    "mt-eng/ogpg/vol-026/ad-serapionem",
+    "ogpg/vol-026/ad-serapionem"
+   ]
+  },
   "ogpg/vol-026/de-synodis": {
    "members": [
     "npnf-works/athanasius-de-synodis",
@@ -5851,6 +5878,12 @@
    "members": [
     "mt-eng/ogpg/vol-028/synopsis-scripturae",
     "ogpg/vol-028/synopsis-scripturae"
+   ]
+  },
+  "ogpg/vol-029/homiliae-in-psalmos": {
+   "members": [
+    "mt-eng/ogpg/vol-029/homiliae-in-psalmos",
+    "ogpg/vol-029/homiliae-in-psalmos"
    ]
   },
   "ogpg/vol-029/in-hexaemeron": {
@@ -5977,6 +6010,12 @@
    "members": [
     "npnf-works/gregory-nazianzen-oration-21",
     "ogpg/vol-035/oratio-21"
+   ]
+  },
+  "ogpg/vol-035/oratio-26": {
+   "members": [
+    "mt-eng/ogpg/vol-035/oratio-26",
+    "ogpg/vol-035/oratio-26"
    ]
   },
   "ogpg/vol-035/oratio-3": {
@@ -6116,7 +6155,20 @@
   "ogpg/vol-043/in-sepulturam": {
    "members": [
     "ccmh-supr/epiphanius-in-sepulturam",
+    "mt-eng/ogpg/vol-043/in-sepulturam",
     "ogpg/vol-043/in-sepulturam"
+   ]
+  },
+  "ogpg/vol-044/ad-imaginem": {
+   "members": [
+    "mt-eng/ogpg/vol-044/ad-imaginem",
+    "ogpg/vol-044/ad-imaginem"
+   ]
+  },
+  "ogpg/vol-044/de-beatitudinibus": {
+   "members": [
+    "mt-eng/ogpg/vol-044/de-beatitudinibus",
+    "ogpg/vol-044/de-beatitudinibus"
    ]
   },
   "ogpg/vol-044/de-opificio-hominis": {
@@ -6134,10 +6186,23 @@
     "ogpg/vol-044/de-oratione-dominica"
    ]
   },
+  "ogpg/vol-044/de-vita-moysis": {
+   "members": [
+    "mt-eng/ogpg/vol-044/de-vita-moysis",
+    "ogpg/vol-044/de-vita-moysis"
+   ]
+  },
   "ogpg/vol-044/in-canticum": {
    "members": [
+    "mt-eng/ogpg/vol-044/in-canticum",
     "ogpg/vol-044/in-canticum",
     "titus-translations/gregory-of-nyssa-in-canticum"
+   ]
+  },
+  "ogpg/vol-044/in-ecclesiasten": {
+   "members": [
+    "mt-eng/ogpg/vol-044/in-ecclesiasten",
+    "ogpg/vol-044/in-ecclesiasten"
    ]
   },
   "ogpg/vol-044/in-hexaemeron": {
@@ -6150,6 +6215,12 @@
    "members": [
     "mt-eng/ogpg/vol-044/in-illud-tunc-et-ipse",
     "ogpg/vol-044/in-illud-tunc-et-ipse"
+   ]
+  },
+  "ogpg/vol-044/in-inscriptiones-psalmorum": {
+   "members": [
+    "mt-eng/ogpg/vol-044/in-inscriptiones-psalmorum",
+    "ogpg/vol-044/in-inscriptiones-psalmorum"
    ]
   },
   "ogpg/vol-045/ad-ablabium": {
@@ -6176,10 +6247,22 @@
     "ogpg/vol-045/ad-simplicium"
    ]
   },
+  "ogpg/vol-045/adversus-arium": {
+   "members": [
+    "mt-eng/ogpg/vol-045/adversus-arium",
+    "ogpg/vol-045/adversus-arium"
+   ]
+  },
   "ogpg/vol-045/adversus-macedonianos": {
    "members": [
     "npnf-works/gregory-of-nyssa-on-the-holy-spirit",
     "ogpg/vol-045/adversus-macedonianos"
+   ]
+  },
+  "ogpg/vol-045/antirrheticus": {
+   "members": [
+    "mt-eng/ogpg/vol-045/antirrheticus",
+    "ogpg/vol-045/antirrheticus"
    ]
   },
   "ogpg/vol-045/contra-eunomium": {
@@ -6241,6 +6324,12 @@
    "members": [
     "mt-eng/ogpg/vol-046/de-mortuis",
     "ogpg/vol-046/de-mortuis"
+   ]
+  },
+  "ogpg/vol-046/de-occursu-domini": {
+   "members": [
+    "mt-eng/ogpg/vol-046/de-occursu-domini",
+    "ogpg/vol-046/de-occursu-domini"
    ]
   },
   "ogpg/vol-046/de-pauperibus-amandis-1": {
@@ -6658,6 +6747,12 @@
     "ogpg/vol-065/theophilus-alexandrinus"
    ]
   },
+  "ogpg/vol-066/theodorus-in-prophetas": {
+   "members": [
+    "mt-eng/ogpg/vol-066/theodorus-in-prophetas",
+    "ogpg/vol-066/theodorus-in-prophetas"
+   ]
+  },
   "ogpg/vol-068/de-adoratione": {
    "members": [
     "mt-eng/pta/pta0005/pta001/pta-grc1",
@@ -6703,6 +6798,12 @@
     "tertullian-eng/cyril-scholia-de-incarnatione"
    ]
   },
+  "ogpg/vol-076/adversus-anthropomorphitas": {
+   "members": [
+    "mt-eng/ogpg/vol-076/adversus-anthropomorphitas",
+    "ogpg/vol-076/adversus-anthropomorphitas"
+   ]
+  },
   "ogpg/vol-076/adversus-nestorium": {
    "members": [
     "ogpg/vol-076/adversus-nestorium",
@@ -6728,6 +6829,24 @@
     "ogpg/vol-077/epistulae"
    ]
   },
+  "ogpg/vol-081/in-canticum": {
+   "members": [
+    "mt-eng/ogpg/vol-081/in-canticum",
+    "ogpg/vol-081/in-canticum"
+   ]
+  },
+  "ogpg/vol-081/in-danielem": {
+   "members": [
+    "mt-eng/ogpg/vol-081/in-danielem",
+    "ogpg/vol-081/in-danielem"
+   ]
+  },
+  "ogpg/vol-081/in-ezechielem": {
+   "members": [
+    "mt-eng/ogpg/vol-081/in-ezechielem",
+    "ogpg/vol-081/in-ezechielem"
+   ]
+  },
   "ogpg/vol-082/in-epistulas-pauli": {
    "members": [
     "ogpg/vol-082/in-epistulas-pauli",
@@ -6750,6 +6869,12 @@
    "members": [
     "mt-eng/ogpg/vol-085/antipater-bostrensis",
     "ogpg/vol-085/antipater-bostrensis"
+   ]
+  },
+  "ogpg/vol-086-pt1/leontius": {
+   "members": [
+    "mt-eng/ogpg/vol-086-pt1/leontius",
+    "ogpg/vol-086-pt1/leontius"
    ]
   },
   "ogpg/vol-086-pt2/eulogius": {
@@ -6795,6 +6920,12 @@
     "tertullian-eng/cosmas-topographia"
    ]
   },
+  "ogpg/vol-088/dorotheus-doctrinae": {
+   "members": [
+    "mt-eng/ogpg/vol-088/dorotheus-doctrinae",
+    "ogpg/vol-088/dorotheus-doctrinae"
+   ]
+  },
   "ogpg/vol-088/gregorius-de-baptismo-2": {
    "members": [
     "mt-eng/ogpg/vol-088/gregorius-de-baptismo-2",
@@ -6825,6 +6956,12 @@
     "ogpg/vol-088/paulus-persa-propositiones"
    ]
   },
+  "ogpg/vol-089/anastasius-antiochenus": {
+   "members": [
+    "mt-eng/ogpg/vol-089/anastasius-antiochenus",
+    "ogpg/vol-089/anastasius-antiochenus"
+   ]
+  },
   "ogpg/vol-089/antiochus-pandectes": {
    "members": [
     "mt-eng/ogpg/vol-089/antiochus-pandectes",
@@ -6837,10 +6974,22 @@
     "ogpg/vol-089/de-sacra-synaxi"
    ]
   },
+  "ogpg/vol-091/ambigua": {
+   "members": [
+    "mt-eng/ogpg/vol-091/ambigua",
+    "ogpg/vol-091/ambigua"
+   ]
+  },
   "ogpg/vol-091/mystagogia": {
    "members": [
     "mt-eng/ogpg/vol-091/mystagogia",
     "ogpg/vol-091/mystagogia"
+   ]
+  },
+  "ogpg/vol-094/de-haeresibus": {
+   "members": [
+    "mt-eng/ogpg/vol-094/de-haeresibus",
+    "ogpg/vol-094/de-haeresibus"
    ]
   },
   "ogpg/vol-094/expositio-fidei": {
@@ -6856,6 +7005,12 @@
     "perseus/tlg2934/tlg066/perseus-grc2"
    ]
   },
+  "ogpg/vol-096/canones-joannis-monachi": {
+   "members": [
+    "mt-eng/ogpg/vol-096/canones-joannis-monachi",
+    "ogpg/vol-096/canones-joannis-monachi"
+   ]
+  },
   "ogpg/vol-097/andreas-cretensis": {
    "members": [
     "mt-eng/ogpg/vol-097/andreas-cretensis",
@@ -6866,6 +7021,12 @@
    "members": [
     "mt-eng/ogpg/vol-097/theodorus-abucara",
     "ogpg/vol-097/theodorus-abucara"
+   ]
+  },
+  "ogpg/vol-098/hadrianus-isagoge": {
+   "members": [
+    "mt-eng/ogpg/vol-098/hadrianus-isagoge",
+    "ogpg/vol-098/hadrianus-isagoge"
    ]
   },
   "ogpg/vol-099/catechesis-chronica": {
@@ -6926,6 +7087,12 @@
    "members": [
     "mt-eng/ogpg/vol-109/georgius-monachus-continuatus",
     "ogpg/vol-109/georgius-monachus-continuatus"
+   ]
+  },
+  "ogpg/vol-109/theophanes-continuatus": {
+   "members": [
+    "mt-eng/ogpg/vol-109/theophanes-continuatus",
+    "ogpg/vol-109/theophanes-continuatus"
    ]
   },
   "ogpg/vol-116/menologium-3": {
