@@ -97,8 +97,7 @@ Then open http://localhost:3000. Re-run the export after the normalized data cha
 The deployed app runs on Vercel (root directory `web`) and reads the library from a DigitalOcean Spaces bucket through its CDN. The data pipeline publishes it as its last step (`uv run --extra pipeline python -m scripts.pipeline`, #248); merging a data change publishes nothing. To publish by hand:
 
 ```bash
-uv sync --extra deploy                                   # once: installs boto3
-uv run --extra deploy python -m scripts.upload_library   # add --dry-run to preview
+uv run python -m scripts.upload_library   # boto3 is in the default dev group; add --dry-run to preview
 ```
 
 The script reads `LIBRARY_ACCESS_KEY_ID`, `LIBRARY_SECRET_ACCESS_KEY`, `LIBRARY_BUCKET` and optionally `LIBRARY_REGION` (default `nyc3`) from the environment, `.env` or `web/.env`. It uploads only changed files (gzip-compressed), deletes files that are no longer in the export, and leaves out works whose licence isn't cleared (`unknown`). In Vercel, set `NEXT_PUBLIC_LIBRARY_URL` to the CDN URL. The bucket, CDN and key are set up with OpenTofu (`infra/README.md` → "Library").
