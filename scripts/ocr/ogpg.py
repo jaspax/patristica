@@ -105,11 +105,28 @@ def greek_side(img: Image.Image, gx: int) -> tuple[str | None, list[int], list[i
     return ("left", "right")[best], greek, latin
 
 
+def _invalidate(run: Path, pid: str) -> None:
+    """Remove a page's outputs from every stage of a run, so it is read again."""
+    if run.is_dir():
+        for stage in run.iterdir():
+            for f in (stage / f"{pid}.txt", stage / f"{pid}.xml"):
+                if f.exists():
+                    f.unlink()
+
+
 def prepare(volume: str, out: Path, images_dir: Path = IMAGES_DIR,
-            located: Path = LOCATED, limit: int | None = None) -> list[Prepared]:
+            located: Path = LOCATED, limit: int | None = None,
+            run: Path | None = None) -> list[Prepared]:
     """Crop the Greek column of every located page of ``volume`` that needs OCR
     -> ``out/images/{page}.jpg``, ``out/pages.txt`` (the pages to run) and
-    ``out/prepare.jsonl``.  Idempotent: a page already prepared is kept."""
+    ``out/prepare.jsonl``.
+
+    Idempotent: a page prepared from the image of the leaf now chosen is kept.
+    One whose leaf changed since (``scripts.ogpg_images`` located and fetched
+    another) is cropped again, and its outputs in the run (``run``, default
+    ``out/run``) are removed, so the pipeline reads it again.
+    """
+    run = run if run is not None else out / "run"
     vdir = images_dir / volume
     manifest = {}
     if (vdir / "manifest.jsonl").exists():
@@ -129,33 +146,48 @@ def prepare(volume: str, out: Path, images_dir: Path = IMAGES_DIR,
     for r in recs[:limit] if limit else recs:
         col = r["cols"][0]
         pid = page_id(volume, col)
-        if pid in done:
-            result.append(done[pid])
-            continue
         stem = f"c{col:04d}"
         e = manifest.get(stem)
         files = [f for f in (vdir / f"{stem}.jp2", vdir / f"{stem}.jpg") if f.exists()]
         if not files or not e or (e["ia_id"], e["page"]) != (r["ia_id"], r["leaf"]):
             log.warning("%s: no image of the chosen leaf (run scripts.ogpg_images fetch)", pid)
             continue
+        source = {"ia_id": e["ia_id"], "leaf": e["leaf"], "url": e["url"]}
+        old = done.get(pid)
+        if old is not None and old.source == source and (
+                old.side is None or (out / "images" / f"{pid}.jpg").exists()):
+            result.append(old)
+            continue
+        if old is not None:
+            log.info("%s: its image changed since it was prepared: cropped and read again", pid)
+            _invalidate(run, pid)
         img = Image.open(files[0]).convert("L")
         gx = gutter(img)
         side, greek, latin = greek_side(img, gx)
-        p = Prepared(volume, r["cols"], pid, side, gx, greek, latin,
-                     {"ia_id": e["ia_id"], "leaf": e["leaf"], "url": e["url"]})
+        p = Prepared(volume, r["cols"], pid, side, gx, greek, latin, source)
+        crop = out / "images" / f"{pid}.jpg"
         if side is not None:
             margin = img.width // 100
             box = (0, 0, gx - margin, img.height) if side == "left" else \
                 (gx + margin, 0, img.width, img.height)
-            img.crop(box).save(out / "images" / f"{pid}.jpg", quality=90)
-        with done_f.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(asdict(p)) + "\n")
+            img.crop(box).save(crop, quality=90)
+        elif crop.exists():
+            crop.unlink()
+        done[pid] = p
+        _write_prepared(done_f, done)
         result.append(p)
     pages = [p.page for p in result if p.side]
     (out / "pages.txt").write_text("\n".join(pages) + "\n", encoding="utf-8")
     log.info("%s: %d pages prepared, %d with a Greek column -> %s", volume, len(result),
              len(pages), out)
     return result
+
+
+def _write_prepared(path: Path, done: dict[str, Prepared]) -> None:
+    tmp = path.with_suffix(".part")
+    tmp.write_text("".join(json.dumps(asdict(done[k])) + "\n" for k in sorted(done)),
+                   encoding="utf-8")
+    tmp.rename(path)
 
 
 # ---------------------------------------------------------------------------
@@ -255,9 +287,13 @@ def export(run: Path, prep: Path, ocr_dir: Path = OCR_DIR) -> dict[str, int]:
         path = ocr_dir / f"{vol}.jsonl"
         old = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()] \
             if path.exists() else []
+        # Another source's page is never replaced; one of ours only by a page
+        # this run accepts for the same columns (a partial run keeps the rest).
         taken = {tuple(r["cols"]) for r in old if r["source"] != SOURCE}
-        keep = [r for r in old if r["source"] != SOURCE]
-        merged = keep + [r for r in recs if tuple(r["cols"]) not in taken]
+        new = [r for r in recs if tuple(r["cols"]) not in taken]
+        replaced = {tuple(r["cols"]) for r in new}
+        keep = [r for r in old if r["source"] != SOURCE or tuple(r["cols"]) not in replaced]
+        merged = keep + new
         merged.sort(key=lambda r: r["cols"][0])
         ocr_dir.mkdir(parents=True, exist_ok=True)
         path.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in merged),

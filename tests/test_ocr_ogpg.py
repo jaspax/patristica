@@ -91,3 +91,46 @@ def test_export_merges_without_replacing_another_source(tmp_path: Path) -> None:
     (rec,) = [json.loads(line) for line in (ocr / "vol-075.jsonl").read_text().splitlines()]
     assert rec["cols"] == [461, 462] and rec["head"] == "ok" and rec["ia_id"] == "x"
     assert rec["lines"][0].startswith("καὶ ὁ λόγος")
+
+
+def test_a_later_partial_export_keeps_the_pages_exported_before(tmp_path: Path) -> None:
+    prep, run = _prep(tmp_path)
+    ocr = tmp_path / "ocr"
+    ocr.mkdir()
+    (ocr / "vol-075.jsonl").write_text(
+        json.dumps({"cols": [601, 602], "lines": ["earlier"], "source": ogpg.SOURCE}) + "\n"
+        + json.dumps({"cols": [461, 462], "lines": ["stale"], "source": ogpg.SOURCE}) + "\n")
+    ogpg.export(run, prep, ocr)
+    recs = {r["cols"][0]: r for r in map(json.loads, (ocr / "vol-075.jsonl").read_text()
+                                          .splitlines())}
+    assert recs[601]["lines"] == ["earlier"]            # not in this run: kept
+    assert recs[461]["lines"][0].startswith("καὶ")       # accepted again: replaced
+
+
+def test_prepare_redoes_a_page_whose_leaf_changed(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(ogpg, "greek_side", lambda img, gx: ("left", [300, 0], [0, 300]))
+    images, out = tmp_path / "img" / "vol-075", tmp_path / "prep"
+    images.mkdir(parents=True)
+    Image.new("L", (400, 600), 255).save(images / "c0461.jpg")
+    located = tmp_path / "pages.jsonl"
+
+    def locate(item: str, leaf: int) -> None:
+        located.write_text(json.dumps({"volume": "vol-075", "cols": [461, 462], "ia_id": item,
+                                       "leaf": leaf}) + "\n")
+        (images / "manifest.jsonl").write_text(json.dumps(
+            {"file": "c0461.jpg", "ia_id": item, "page": leaf, "leaf": leaf + 1,
+             "url": f"u/{item}/{leaf}"}) + "\n")
+    locate("a", 7)
+    (p,) = ogpg.prepare("vol-075", out, images.parent, located)
+    assert p.source["url"] == "u/a/7" and (out / "images" / "vol-075-c0461.jpg").exists()
+    (out / "run" / "final").mkdir(parents=True)
+    (out / "run" / "final" / "vol-075-c0461.txt").write_text("old reading")
+    # Unchanged: kept, its reading too.
+    ogpg.prepare("vol-075", out, images.parent, located)
+    assert (out / "run" / "final" / "vol-075-c0461.txt").exists()
+    # Another leaf was located and fetched: cropped again, its readings removed.
+    locate("b", 9)
+    (p,) = ogpg.prepare("vol-075", out, images.parent, located)
+    assert p.source["url"] == "u/b/9"
+    assert not (out / "run" / "final" / "vol-075-c0461.txt").exists()
+    assert len((out / "prepare.jsonl").read_text().splitlines()) == 1

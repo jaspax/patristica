@@ -203,7 +203,7 @@ def cmd_cost(args: argparse.Namespace) -> int:
 def cmd_prepare(args: argparse.Namespace) -> int:
     from scripts.ocr import ogpg
     ogpg.prepare(args.volume, Path(args.out), Path(args.images_dir), Path(args.located),
-                 args.limit)
+                 args.limit, Path(args.run) if args.run else None)
     return 0
 
 
@@ -250,6 +250,8 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--located", default=str(ogpg.LOCATED),
                     help="scripts.ogpg_images locate output")
     pr.add_argument("--limit", type=int, help="only the first N pages")
+    pr.add_argument("--run", help="the run whose outputs of a re-cropped page are removed "
+                                  "(default OUT/run)")
     pr.set_defaults(func=cmd_prepare)
     ex = sub.add_parser("export", help="OGPG holes: a run's pages -> data/ocr/ogpg/{volume}.jsonl")
     ex.add_argument("--run", required=True, help="the run's --out directory")
