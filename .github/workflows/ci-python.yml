@@ -102,7 +102,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --locked --extra dev --extra eval --extra api --extra deploy --extra index --extra ocr
+        run: uv sync --locked --extra dev  # tools + every extra the tests import (#764)
 
       # data/ is in git-lfs and the checkout has pointer files (.lfsconfig, #244):
       # pull only the files this job reads, through a cache keyed on their pointers.

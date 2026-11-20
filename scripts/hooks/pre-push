@@ -47,7 +47,7 @@ if ! command -v git-lfs >/dev/null; then
     exit 1
 fi
 
-echo "pre-push: running unit tests (uv run pytest)..." >&2
+echo "pre-push: running unit tests (uv run pytest; the dev extra has every extra the tests import, #764)..." >&2
 if ! uv run --extra dev pytest -q -p no:cacheprovider; then
     echo "pre-push: unit tests failed; push aborted." >&2
     exit 1

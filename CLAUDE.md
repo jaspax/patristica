@@ -11,7 +11,7 @@ Patristica is a searchable database of Scriptural and Patristic writings from th
 - **HTTP**: `httpx` (async-capable) preferred over `requests`
 - **XML parsing**: `lxml` for TEI/OSIS/USFM; `beautifulsoup4` for HTML scraping
 - **Token counting**: `tiktoken` (cl100k_base encoding)
-- **Package management**: `pyproject.toml` with `uv` for environment management
+- **Package management**: `pyproject.toml` with `uv` for environment management. The `dev` extra holds the test tools and every extra the unit tests import (`pipeline`, `api`, `ocr`); the pre-push hook and CI install it, and the default `dev` dependency group (`patristica[dev]`) makes a plain `uv run` / `uv sync` install it too, so a sync never strips what the tests and the pipeline need (#764). When a test starts importing a new optional package, add its extra to `dev`, not to CI's install line. Only `eval-local` (torch) and `usfm` (Node) stay opt-in; the API image syncs with `--no-dev`.
 - **Database** (Phase 2): PostgreSQL 16 + pgvector
 - **Backend API** (Phase 3): FastAPI
 - **Frontend** (Phase 3): Next.js 14+ / React / TypeScript

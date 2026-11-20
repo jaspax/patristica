@@ -24,7 +24,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-mock", "ruff", "mypy"]
+# The test tools and every extra the unit tests import (#764): the pre-push hook,
+# CI and, through the default dev group below, a plain `uv sync` install it. When
+# a test starts importing a new optional package, add its extra here. Not
+# eval-local or usfm: no test needs torch or Node.
+dev = ["pytest", "pytest-mock", "ruff", "mypy", "patristica[pipeline,api,ocr]"]
 usfm = ["usfm-grammar"]  # requires Node.js
 deploy = ["boto3"]  # scripts.upload_library, scripts.bootstrap_infra (DigitalOcean Spaces, S3 API)
 api = ["fastapi", "uvicorn[standard]", "psycopg[binary]", "psycopg-pool", "numpy"]  # api/ (FastAPI backend, #117; search #141)
@@ -34,6 +38,12 @@ eval = ["numpy", "httpx", "anthropic"]  # scripts.embed_eval: dense retrieval, A
 eval-local = ["numpy", "sentence-transformers", "torch"]  # local embedders (CPU torch; not in CI)
 ocr = ["rapidfuzz", "pillow", "numpy", "httpx", "anthropic"]  # scripts.ocr: OCR eval scorer and pipeline (#705, #718)
 pipeline = ["patristica[embed,index,deploy,eval]"]  # scripts.pipeline: every step in one run (#248)
+
+# uv installs this group by default with `uv run` and `uv sync` (`--no-dev` leaves
+# it out, as the api image does), so a sync never strips what the tests and the
+# pipeline need (#764).
+[dependency-groups]
+dev = ["patristica[dev]"]
 
 [project.scripts]
 pipeline = "scripts.pipeline:main"
