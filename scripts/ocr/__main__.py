@@ -3,6 +3,14 @@
     uv run --extra ocr python -m scripts.ocr flags-train            # once; needs data/normalized
     uv run --extra ocr python -m scripts.ocr run --pages PAGES --images DIR --out DIR
     uv run --extra ocr python -m scripts.ocr cost --out DIR
+    uv run --extra ocr python -m scripts.ocr prepare --volume vol-075 --out DIR  # #721
+    uv run --extra ocr python -m scripts.ocr export --run DIR/run --prep DIR
+
+On the OGPG holes, `prepare` crops the Greek column of each located page
+(scripts.ogpg_images) into DIR/images with DIR/pages.txt, `run` reads them
+(--pages DIR/pages.txt --images DIR/images --out DIR/run), and `export` checks
+each page's running head and writes data/ocr/ogpg/{volume}.jsonl for the
+ingestor (scripts/ocr/ogpg.py).
 
 `run` executes the stages in order (see scripts/ocr/stages.py) and resumes
 where a previous run stopped. Gemini (GEMINI_API_KEY) and Claude
@@ -192,6 +200,19 @@ def cmd_cost(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_prepare(args: argparse.Namespace) -> int:
+    from scripts.ocr import ogpg
+    ogpg.prepare(args.volume, Path(args.out), Path(args.images_dir), Path(args.located),
+                 args.limit, Path(args.run) if args.run else None)
+    return 0
+
+
+def cmd_export(args: argparse.Namespace) -> int:
+    from scripts.ocr import ogpg
+    ogpg.export(Path(args.run), Path(args.prep), Path(args.ocr_dir))
+    return 0
+
+
 def cmd_flags_train(args: argparse.Namespace) -> int:
     n = flags.train(Path(args.normalized))
     log.info("Flag models trained on %d reference chunks -> %s", n, flags.MODEL)
@@ -221,6 +242,22 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--effort", choices=("low", "medium", "high"),
                    help="Claude effort (default medium)")
     r.set_defaults(func=cmd_run)
+    from scripts.ocr import ogpg
+    pr = sub.add_parser("prepare", help="OGPG holes: crop the Greek column of each located page")
+    pr.add_argument("--volume", required=True, help="e.g. vol-075")
+    pr.add_argument("--out", required=True, help="directory for images/, pages.txt, prepare.jsonl")
+    pr.add_argument("--images-dir", default=str(ogpg.IMAGES_DIR))
+    pr.add_argument("--located", default=str(ogpg.LOCATED),
+                    help="scripts.ogpg_images locate output")
+    pr.add_argument("--limit", type=int, help="only the first N pages")
+    pr.add_argument("--run", help="the run whose outputs of a re-cropped page are removed "
+                                  "(default OUT/run)")
+    pr.set_defaults(func=cmd_prepare)
+    ex = sub.add_parser("export", help="OGPG holes: a run's pages -> data/ocr/ogpg/{volume}.jsonl")
+    ex.add_argument("--run", required=True, help="the run's --out directory")
+    ex.add_argument("--prep", required=True, help="the prepare --out directory")
+    ex.add_argument("--ocr-dir", default=str(ogpg.OCR_DIR))
+    ex.set_defaults(func=cmd_export)
     c = sub.add_parser("cost", help="tokens and dollars per page of a run")
     c.add_argument("--out", required=True)
     c.set_defaults(func=cmd_cost)
