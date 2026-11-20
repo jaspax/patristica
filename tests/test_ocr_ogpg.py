@@ -36,6 +36,9 @@ def test_head_check() -> None:
     # A reader reads another page's number: the leaf is a page off.
     assert ogpg.head_check(["459 THESAURUS.\nκαὶ", "\nκαὶ"], [461, 462]) == "off"
     assert ogpg.head_check(["THESAURUS.\nκαὶ"], [461, 462]) == "unread"
+    # A battered digit misread far from the page's columns says nothing.
+    assert ogpg.head_check(["817 DE SS. TRINITATE\nκαὶ"], [917, 918]) == "unread"
+    assert ogpg.head_check(["761 DE SS. TRINITATE\nκαὶ"], [765, 766]) == "off"
 
 
 def test_drop_head_keeps_greek_headings() -> None:

@@ -205,14 +205,20 @@ def head_numbers(text: str) -> set[int]:
     return set()
 
 
+# A head number this close to the page's own columns, but not one of them,
+# says the leaf is another page (a page or two off); one farther away is a
+# misread digit (817 for a battered 917) and says nothing.
+NEAR_COLUMNS = 12
+
+
 def head_check(readings: list[str], cols: list[int]) -> str:
     """``ok`` when a reader reads one of the page's columns in the head,
-    ``off`` when readers read only other numbers (the leaf is another page),
-    ``unread`` when none reads a number there."""
-    nums = [head_numbers(t) for t in readings]
-    if any(n & set(cols) for n in nums):
+    ``off`` when readers read only nearby other columns (the leaf is another
+    page), ``unread`` when no reader reads a number that tells either way."""
+    nums = set().union(*(head_numbers(t) for t in readings)) if readings else set()
+    if nums & set(cols):
         return "ok"
-    if any(nums):
+    if any(0 < min(abs(n - c) for c in cols) <= NEAR_COLUMNS for n in nums):
         return "off"
     return "unread"
 
