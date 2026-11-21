@@ -1,12 +1,12 @@
 {
  "format": 1,
  "group": "ogpg/vol-056/in-natalem-christi",
- "pivot": "ogpg/vol-056/in-natalem-christi",
- "groups": 76,
- "inputs": "51d0b0816965dde2",
- "run": {"aligner": 2, "date": "2026-11-20", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
+ "pivot": "tertullian-eng/chrysostom-in-natalem-christi",
+ "groups": 80,
+ "inputs": "40aff2be573e703f",
+ "run": {"aligner": 2, "date": "2026-11-21", "method": "pivot star; banded monotonic DP over unit vectors (vecalign-style beads up to 4:1, baseline-corrected cosine), mutual-nearest-neighbour anchors, re-alignment of unaligned blocks", "models": ["voyage/voyage-4-large"], "params": {"anchor_margin": 0.25, "band": 24, "block": 1024, "full_cells": 4000000, "margin": 0.05, "merge_penalty": 0.06, "min_run": 3, "passes": 3, "prior": 0.0, "size_weight": 0.5}, "script": "scripts.align"},
  "members": [
-  {"work_id": "ogpg/vol-056/in-natalem-christi", "units": 95, "ids": "5aa36b88ae60a886", "inputs": "7b2119f77dd80b13", "spans": ".....++++++++++++++++++++++++++++.+=.++++++++++++++++++++..+++++++++++++++++++++..++++....+=..+", "conf": "9999988999999999999999999999899999999999999999997999999999999999999999999999"},
-  {"work_id": "tertullian-eng/chrysostom-in-natalem-christi", "units": 86, "ids": "4807380aca065bc6", "inputs": "f645843f3bfff235", "spans": ".++++++++++++++++++++++++++++..+++++++++++++++++++++...+++++++++++++++++++++...++++++.", "conf": "9999988999999999999999999999899999999999999999997999999999999999999999999999"}
+  {"work_id": "ogpg/vol-056/in-natalem-christi", "units": 95, "ids": "5aa36b88ae60a886", "inputs": "7b2119f77dd80b13", "spans": ".....++++++++++++++++++++++++++++.+=+++++++++++++++++++++..+++++++++++++++++++++..++++..++=++.+", "conf": "99999889999999999999999999998899999999999999999997999999999999999999999999879889"},
+  {"work_id": "tertullian-eng/chrysostom-in-natalem-christi", "units": 91, "ids": "1c6bfd7d3036d503", "inputs": "e1e57eb939ab7aa6", "spans": ".++++++++++++++++++++++++++++..++++++++++++++++++++++...+++++++++++++++++++++...++++++++.+.", "conf": "99999889999999999999999999998899999999999999999997999999999999999999999999879889"}
  ]
 }
