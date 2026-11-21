@@ -241,15 +241,19 @@ def drop_head(text: str, cols: list[int]) -> str:
     return "\n".join(lines).strip()
 
 
-_MARGIN_LETTER = re.compile(r"^[A-E]\s+(?=\S)")
+# Migne's section letters beside the column, A-E, which readers write in Latin
+# or Greek script: at the start of a line (a right-hand column) or its end (a
+# left-hand one).  Only a bare letter: a speaker's label (Α. / Β.) has its stop.
+_MARGIN_START = re.compile(r"^[A-EΑΒΓΔΕ]\s+(?=\S)")
+_MARGIN_END = re.compile(r"(?<=\S)\s+[A-EΑΒΓΔΕ]$")
 
 
 def clean(text: str) -> str:
     """A page's text for the ingestor: Migne's margin letters (A-E, the
-    section marks beside the column) dropped from line starts, and the lines
+    section marks beside the column) dropped from line starts and ends, and the lines
     after the text dropped: the notes of Scripture references and the scanner's
     stamp, mostly Latin letters and digits."""
-    lines = [_MARGIN_LETTER.sub("", ln).strip() for ln in text.splitlines()]
+    lines = [_MARGIN_END.sub("", _MARGIN_START.sub("", ln)).strip() for ln in text.splitlines()]
     lines = [ln for ln in lines if ln]
     while lines and _greek(lines[-1]) < 0.5 * max(1, _greek(lines[-1]) + _latin(lines[-1])):
         lines.pop()
