@@ -39,8 +39,9 @@ LOCATED = REPO_ROOT / "data" / "cache" / "ogpg_images" / "pages.jsonl"
 OCR_DIR = REPO_ROOT / "data" / "ocr" / "ogpg"
 
 SOURCE = "patristica-ocr-v1"
+# Shown to readers in the edition of the works the pages go to: no issue numbers.
 CREDIT = ("pages missing from the OGL OCR newly OCR'd for Patristica from Internet Archive "
-          "scans (Kraken CLLG, Gemini and Claude, #721)")
+          "scans (Kraken CLLG, Gemini and Claude)")
 # Greek letters a page's text needs to be exported.
 MIN_GREEK = 300
 # Greek letters a half's sample band needs to count as the Greek column.
