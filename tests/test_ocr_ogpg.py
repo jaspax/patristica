@@ -51,6 +51,10 @@ def test_clean_drops_margin_letters_and_the_notes_after_the_text() -> None:
     text = ("A ἐγείροντι τοὺς νεκρούς\nB μὲν ὡς Υἱός\nτοῦ Θεοῦ τῷ\n"
             "59 I Cor. iv, 1. 61 Galat. i, 12.\nDigitized by Google")
     assert ogpg.clean(text) == "ἐγείροντι τοὺς νεκρούς\nμὲν ὡς Υἱός\nτοῦ Θεοῦ τῷ"
+    # Greek-script letters too (#766), at a line's end as well; speakers' labels stay.
+    text = "Α ἐγείροντι τοὺς\nφήσειεν ἂν ὁ διεστραμμένος· Ε\nΑ. Πῶς λέγεις;\nΒ. Οὕτω."
+    assert ogpg.clean(text) == ("ἐγείροντι τοὺς\nφήσειεν ἂν ὁ διεστραμμένος·\n"
+                                "Α. Πῶς λέγεις;\nΒ. Οὕτω.")
 
 
 GREEK = "καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος. " * 10
