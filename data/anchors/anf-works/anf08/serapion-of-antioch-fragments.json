@@ -2,10 +2,10 @@
  "work_id": "anf-works/serapion-of-antioch-fragments",
  "anchor": "ogpg/vol-005/serapion-antiochenus",
  "method": "7c99b01da01bd8eb",
- "anchor_cuts": "ab3c04f68bbd6bd6",
+ "anchor_cuts": "fd4eb1a9a38e4846",
  "words": "c3c0e6bdf5b2ae5c",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 10, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 3, "one_one": 0.5294, "rounds": 3, "span": [0, 17], "units": 16},
+ "stats": {"beads": 10, "calibration": [1.0, 0.0], "converged": true, "fallback_paragraphs": 3, "kept": "provisional", "one_one": 0.5, "one_one_anchored": 0.0469, "one_one_provisional": 0.0469, "rounds": 2, "span": [0, 18], "units": 16},
  "paragraphs": {
   "Serap": {"words": "8239fe27569578fd", "starts": [0]},
   "Serap.1": {"words": "7e9ae1c4222be827", "starts": [0]},

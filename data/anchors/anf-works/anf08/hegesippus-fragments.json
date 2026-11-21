@@ -2,19 +2,19 @@
  "work_id": "anf-works/hegesippus-fragments",
  "anchor": "ogpg/vol-005/hegesippus",
  "method": "7c99b01da01bd8eb",
- "anchor_cuts": "42386d66d2cc90a4",
+ "anchor_cuts": "7e797c81d47a2b99",
  "words": "08797dfdc41354d0",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 68, "calibration": [0.6665, 0.1768], "converged": false, "fallback_paragraphs": 2, "one_one": 0.7356, "rounds": 4, "units": 77},
+ "stats": {"beads": 73, "calibration": [0.6934, 0.1778], "converged": false, "fallback_paragraphs": 2, "one_one": 0.7253, "one_one_anchored": 0.6923, "one_one_provisional": 0.6813, "rounds": 4, "units": 81},
  "paragraphs": {
   "Heges.I": {"words": "bf5fd62ed64f01ba", "starts": [0]},
   "Heges.I.1": {"words": "a13c764cde613382", "starts": [0]},
   "Heges.I.2": {"words": "a0b754cdbd721867", "starts": [0]},
-  "Heges.I.3": {"words": "813490db71725a65", "starts": [0, 103, 142, 160]},
+  "Heges.I.3": {"words": "813490db71725a65", "starts": [0, 34, 63, 82, 103, 142, 160]},
   "Heges.I.4": {"words": "dfee91c446bc904c", "starts": [0, 30, 50, 85]},
   "Heges.I.5": {"words": "323e414e376c8c2a", "starts": [0, 32, 50, 77, 101]},
-  "Heges.I.6": {"words": "8a1752069437d6ef", "starts": [0, 21, 43, 62]},
-  "Heges.I.7": {"words": "039722f26dd28bb5", "starts": [0, 19, 88, 125]},
+  "Heges.I.6": {"words": "8a1752069437d6ef", "starts": [0, 21, 38, 55]},
+  "Heges.I.7": {"words": "039722f26dd28bb5", "starts": [0, 19, 88, 110]},
   "Heges.I.8": {"words": "d6f2c9e4d22baf8a", "starts": [0, 50]},
   "Heges.I.9": {"words": "fa741c0287288fdb", "starts": [0, 25]},
   "Heges.I.10": {"words": "c7e83271277fd790", "starts": [0]},
@@ -33,7 +33,7 @@
   "Heges.IV.1": {"words": "5dabc827a0a8870c", "starts": [0, 21]},
   "Heges.IV.2": {"words": "b1bea0e2ffe9f695", "starts": [0, 31]},
   "Heges.IV.3": {"words": "59151c87541a2e99", "starts": [0, 18]},
-  "Heges.IV.4": {"words": "b2cfa6efda68100b", "starts": [0, 17, 35, 55, 69, 76, 95, 104]},
-  "Heges.IV.5": {"words": "ea1a27be55ac0d83", "starts": [0, 29]}
+  "Heges.IV.4": {"words": "b2cfa6efda68100b", "starts": [0, 17, 35, 55, 69, 89, 98, 121, 129]},
+  "Heges.IV.5": {"words": "ea1a27be55ac0d83", "starts": [0, 3]}
  }
 }
