@@ -243,3 +243,61 @@ def test_cost_prices_each_stage_by_its_recorded_model(tmp_path: Path, capsys) ->
     assert main(["cost", "--out", str(tmp_path)]) == 0
     out = capsys.readouterr().out
     assert "2.0000" in out and "gemini-3.1-pro-preview low" in out
+
+
+def _run_dir(tmp_path: Path) -> tuple[Path, Path]:
+    pages = tmp_path / "pages.txt"
+    pages.write_text("p1\n")
+    (tmp_path / "img").mkdir()
+    Image.new("RGB", (40, 40), "white").save(tmp_path / "img" / "p1.jpg")
+    return pages, tmp_path / "out"
+
+
+def test_second_reader_auto_switches_to_gemini_when_a_window_is_nearly_spent(
+        tmp_path: Path, monkeypatch) -> None:
+    from scripts.ocr import __main__ as cli
+
+    pages, out = _run_dir(tmp_path)
+    used = []
+    monkeypatch.setattr(cli.stages, "page_reader",
+                        lambda run, stage, backend, **reader: used.append(reader["model"]))
+    monkeypatch.setattr(cli, "_claude", lambda args, stage: "claude-backend")
+    monkeypatch.setattr(cli, "_with_windows", lambda args, run, stage, body: body())
+    monkeypatch.setattr(cli, "Gemini", lambda *a, **k: "gemini-backend")
+    argv = ["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out", str(out),
+            "--stage", "opus_page", "--claude", "cli", "--second-reader", "auto"]
+    for windows, model in (({"five_hour": 0.40, "seven_day": 0.80}, "claude-opus-5-5"),
+                           ({"five_hour": 0.30, "seven_day": 0.96}, cli.SECOND_READER_GEMINI),
+                           ({}, "claude-opus-5-5")):        # unreadable: stays on Opus
+        monkeypatch.setattr(cli.ClaudeCLI, "windows", staticmethod(lambda w=windows: w))
+        used.clear()
+        assert main(argv) == 0
+        assert used == [model]
+
+
+def test_second_reader_auto_stops_before_synthesis_in_a_full_window(
+        tmp_path: Path, monkeypatch) -> None:
+    from scripts.ocr import __main__ as cli
+
+    pages, out = _run_dir(tmp_path)
+    monkeypatch.setattr(cli.ClaudeCLI, "windows", staticmethod(lambda: {"five_hour": 0.97}))
+    called = []
+    monkeypatch.setattr(cli.stages, "synth", lambda *a: called.append(a))
+    argv = ["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out", str(out),
+            "--stage", "synth1", "--claude", "cli", "--second-reader", "auto"]
+    assert main(argv) == 3 and called == []
+
+
+def test_cost_prices_a_mixed_stage_line_by_line(tmp_path: Path, capsys) -> None:
+    d = tmp_path / "opus_page"
+    d.mkdir()
+    (d / "p1.txt").write_text("x")
+    (d / "_model.json").write_text(json.dumps(
+        {"provider": "gemini", "model": "gemini-3.1-pro-preview", "effort": "low"}))
+    lines = [{"key": "p1#0", "usage": {"input_tokens": 1_000_000, "output_tokens": 0},
+              "error": None, "provider": "claude", "model": "claude-opus-5-5"},
+             {"key": "p1#1", "usage": {"promptTokenCount": 1_000_000, "candidatesTokenCount": 0},
+              "error": None, "provider": "gemini", "model": "gemini-3.1-pro-preview"}]
+    (d / "_usage.jsonl").write_text("".join(json.dumps(x) + "\n" for x in lines))
+    assert main(["cost", "--out", str(tmp_path)]) == 0
+    assert "6.0000" in capsys.readouterr().out     # $4 of Opus + $2 of Gemini 3.1 Pro
