@@ -47,14 +47,27 @@ def test_drop_head_keeps_greek_headings() -> None:
     assert ogpg.drop_head("ἐγείροντι τοὺς", [463, 464]) == "ἐγείροντι τοὺς"
 
 
-def test_clean_drops_margin_letters_and_the_notes_after_the_text() -> None:
+def test_clean_drops_margin_letters_and_keeps_the_footer_as_notes() -> None:
     text = ("A ἐγείροντι τοὺς νεκρούς\nB μὲν ὡς Υἱός\nτοῦ Θεοῦ τῷ\n"
             "59 I Cor. iv, 1. 61 Galat. i, 12.\nDigitized by Google")
-    assert ogpg.clean(text) == "ἐγείροντι τοὺς νεκρούς\nμὲν ὡς Υἱός\nτοῦ Θεοῦ τῷ"
+    assert ogpg.clean(text) == (["ἐγείροντι τοὺς νεκρούς", "μὲν ὡς Υἱός", "τοῦ Θεοῦ τῷ"],
+                                ["59 I Cor. iv, 1. 61 Galat. i, 12."])
     # Greek-script letters too (#766), at a line's end as well; speakers' labels stay.
     text = "Α ἐγείροντι τοὺς\nφήσειεν ἂν ὁ διεστραμμένος· Ε\nΑ. Πῶς λέγεις;\nΒ. Οὕτω."
-    assert ogpg.clean(text) == ("ἐγείροντι τοὺς\nφήσειεν ἂν ὁ διεστραμμένος·\n"
-                                "Α. Πῶς λέγεις;\nΒ. Οὕτω.")
+    assert ogpg.clean(text) == (["ἐγείροντι τοὺς", "φήσειεν ἂν ὁ διεστραμμένος·",
+                                 "Α. Πῶς λέγεις;", "Β. Οὕτω."], [])
+
+
+def test_clean_keeps_greek_variant_readings_in_the_notes_and_drops_latin_leakage() -> None:
+    # #774: the variant readings after the Scripture notes are notes too, and a
+    # stretch of the Latin column inside the Greek one is dropped.
+    body = ["ἀνθρώπινα γίνεται, ἀνθρώπου δὲ τὰ θεῖα",
+            "et inconfusæ circumincessionis naturarum, nec",
+            "Εἷς γὰρ ἐστιν, ὁ κἀκεῖνο ὢν ἀϊδίως"] + ["καὶ ὁ λόγος ἦν πρὸς τὸν θεόν"] * 6
+    footer = ["Jerem. xl, 10. Jon. I, 1 seqq.", "Varia", "h ἄλλ. ἀγωγήν. i ἄλλ. ἀνατέταλκεν."]
+    kept, notes = ogpg.clean("\n".join(body + footer))
+    assert notes == footer
+    assert "et inconfusæ circumincessionis naturarum, nec" not in kept and len(kept) == 8
 
 
 GREEK = "καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος. " * 10

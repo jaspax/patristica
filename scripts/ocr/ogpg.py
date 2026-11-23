@@ -249,16 +249,40 @@ _MARGIN_START = re.compile(r"^[A-EΑΒΓΔΕ]\s+(?=\S)")
 _MARGIN_END = re.compile(r"(?<=\S)\s+[A-EΑΒΓΔΕ]$")
 
 
-def clean(text: str) -> str:
-    """A page's text for the ingestor: Migne's margin letters (A-E, the
-    section marks beside the column) dropped from line starts and ends, and the lines
-    after the text dropped: the notes of Scripture references and the scanner's
-    stamp, mostly Latin letters and digits."""
+# Migne's footnotes start with a Scripture reference (``95 Philipp. II, 6.``)
+# or the heading of the variant readings (``Variæ lectiones``).
+_BOOKS = (r"Gen|Exod|Levit|Num|Deut|Jos|Judic|Ruth|Reg|Paral|Esdr|Nehem|Tob|Judith|Esth|Job|"
+          r"Psal|Prov|Eccle|Cant|Sap|Eccli|Isa|Jerem|Thren|Baruch|Ezech|Dan|Ose|Joel|Amos|"
+          r"Abd|Jon|Mich|Nahum|Habac|Sophon|Agg|Zach|Malach|Mac|Matth|Marc|Luc|Joan|Act|"
+          r"Rom|Cor|Galat|Ephes|Philipp|Coloss|Thess|Tim|Tit|Philem|Hebr|Jac|Petr|Jud|Apoc|"
+          r"Ibid")
+_FOOTER_START = re.compile(rf"^(?:\d{{1,3}}\s+)?(?:[IV]{{1,3}}\s+)?(?:{_BOOKS})\b\.?|^Vari")
+_SCANNER = re.compile(r"Digitized by|Google$")
+# The footer is looked for in the bottom part of the page only.
+FOOTER_FROM = 0.6
+
+
+def _mostly_latin(line: str) -> bool:
+    latin, greek = _latin(line), _greek(line)
+    return latin >= 8 and latin > 2 * greek
+
+
+def clean(text: str) -> tuple[list[str], list[str]]:
+    """A page's text for the ingestor -> (body lines, note lines).
+
+    Migne's margin letters (A-E, the section marks beside the column) are
+    dropped from line starts and ends, and the scanner's stamp.  The footer,
+    from its first Scripture reference or ``Variæ lectiones`` in the bottom of
+    the page to the end, is Migne's notes: returned apart, for the ingestor to
+    mark as editorial ``note`` spans (kept, not deleted).  Lines of the Latin
+    column that ran into the Greek one (mostly Latin letters) are dropped.
+    """
     lines = [_MARGIN_END.sub("", _MARGIN_START.sub("", ln)).strip() for ln in text.splitlines()]
-    lines = [ln for ln in lines if ln]
-    while lines and _greek(lines[-1]) < 0.5 * max(1, _greek(lines[-1]) + _latin(lines[-1])):
-        lines.pop()
-    return "\n".join(lines)
+    lines = [ln for ln in lines if ln and not _SCANNER.search(ln)]
+    start = next((i for i in range(int(len(lines) * FOOTER_FROM), len(lines))
+                  if _FOOTER_START.match(lines[i])), len(lines))
+    body, notes = lines[:start], lines[start:]
+    return [ln for ln in body if not _mostly_latin(ln)], notes
 
 
 def export(run: Path, prep: Path, ocr_dir: Path = OCR_DIR) -> dict[str, int]:
@@ -285,15 +309,15 @@ def export(run: Path, prep: Path, ocr_dir: Path = OCR_DIR) -> dict[str, int]:
             log.info("%s: the head reads %s, not %s: rejected", pid,
                      sorted(set().union(*(head_numbers(t) for t in readings))), p.cols)
             continue
-        text = clean(drop_head(final.read_text(encoding="utf-8"), p.cols))
-        if _greek(text) < MIN_GREEK:
+        body, notes = clean(drop_head(final.read_text(encoding="utf-8"), p.cols))
+        if _greek("\n".join(body)) < MIN_GREEK:
             counts["thin"] += 1
             continue
         counts["unread"] += check == "unread"
         counts["exported"] += 1
         by_vol.setdefault(p.volume, []).append(
-            {"cols": p.cols, "lines": text.splitlines(), "source": SOURCE, "head": check,
-             **p.source})
+            {"cols": p.cols, "lines": body, **({"notes": notes} if notes else {}),
+             "source": SOURCE, "head": check, **p.source})
     for vol, recs in by_vol.items():
         path = ocr_dir / f"{vol}.jsonl"
         old = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()] \
