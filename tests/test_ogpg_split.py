@@ -493,6 +493,28 @@ class TestOcrPages:
         assert "already there" not in str(after)          # never in place of OGL text
         assert work.edition.endswith("; pages from Calfa (CC BY 4.0)")
 
+    def test_a_pages_notes_are_marked_editorial(self, tmp_path: Path):
+        d = tmp_path / "ocr"
+        d.mkdir()
+        (d / "vol-045.jsonl").write_text(json.dumps(
+            {"cols": [15, 16], "lines": ["ὁ λόγος"], "notes": ["Varia", "h ἄλλ. ἀγωγήν."],
+             "source": "patristica-ocr-v1"}) + "\n")
+        (page,) = ogpg.ocr_pages("vol-045", d)
+        assert page["text"] == "ὁ λόγος Varia h ἄλλ. ἀγωγήν."
+        s, e, kind = page["editorial"][0]
+        assert page["text"][s:e] == "Varia h ἄλλ. ἀγωγήν." and kind == "note"
+        (_, _, units), = ogpg.split_volume("Vol.-45", _extract(self.HEADS, self.PARAS), [],
+                                           ocr=[page])
+        (unit,) = [u for u in units if u["ref"] == "ogpg.vol-045.c0015.1"]
+        assert unit["editorial"] == page["editorial"]
+
+    def test_a_heading_split_moves_the_note_span(self):
+        para = {"text": "αβγ ΛΟΓΟΣ δεζ NOTE", "editorial": [[14, 18, "note"]]}
+        head = pgi._with_spans({**para, "text": "αβγ"}, para["editorial"], 0, 3)
+        tail = pgi._with_spans({**para, "text": "ΛΟΓΟΣ δεζ NOTE"}, para["editorial"], 4, 18)
+        assert "editorial" not in head and tail["editorial"] == [[10, 14, "note"]]
+        assert tail["text"][10:14] == "NOTE"
+
     def test_only_works_given_pages_are_credited(self, tmp_path: Path):
         ocr, credits = self._ocr(tmp_path)
         rows = _index(

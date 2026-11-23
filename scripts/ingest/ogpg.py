@@ -946,7 +946,9 @@ OCR_DIR = Path(__file__).resolve().parents[2] / "data" / "ocr" / "ogpg"
 
 def ocr_pages(vol_slug: str, ocr_dir: Path = OCR_DIR) -> list[dict]:
     """A volume's pages of new OCR, as fills (``{"cols", "scan", "stem", "title",
-    "text", "ocr_source"}``): each page one paragraph, its line-end hyphens joined."""
+    "text", "ocr_source"}``): each page one paragraph, its line-end hyphens joined.
+    A page's ``notes`` (Migne's footnotes) follow its text, marked as an
+    editorial ``note`` span (#236), so readers see them and search doesn't."""
     path = ocr_dir / f"{vol_slug}.jsonl"
     if not path.exists():
         return []
@@ -954,9 +956,15 @@ def ocr_pages(vol_slug: str, ocr_dir: Path = OCR_DIR) -> list[dict]:
     for line in path.read_text(encoding="utf-8").splitlines():
         r = json.loads(line)
         text = " ".join(_fix_hyphenation("\n".join(r["lines"])).split())
-        if text:
-            out.append({"cols": tuple(r["cols"]), "scan": r["source"], "stem": None,
-                        "title": None, "text": text, "ocr_source": r["source"]})
+        if not text:
+            continue
+        page = {"cols": tuple(r["cols"]), "scan": r["source"], "stem": None,
+                "title": None, "text": text, "ocr_source": r["source"]}
+        note = " ".join(" ".join(r.get("notes") or []).split())
+        if note:
+            page["text"] = f"{text} {note}"
+            page["editorial"] = [[len(text) + 1, len(page["text"]), "note"]]
+        out.append(page)
     return out
 
 
@@ -1316,9 +1324,10 @@ def _in_place(paragraphs: list[dict], moved: dict[str, str]) -> list[dict]:
     return [p for _, _, p in keyed]
 
 
-def _unit(ref: str, text: str) -> dict:
-    """A raw unit, with Migne's notes at its end marked editorial (#450)."""
-    spans = notes.note_spans(text)
+def _unit(ref: str, text: str, editorial: list | None = None) -> dict:
+    """A raw unit, with Migne's notes at its end marked editorial (#450), or the
+    spans its source already marks (a page of new OCR with its notes)."""
+    spans = editorial or notes.note_spans(text)
     return {"ref": ref, "text": text, "editorial": spans} if spans else {"ref": ref, "text": text}
 
 
@@ -1365,7 +1374,7 @@ def split_volume(
     if not rows:
         work = _credited(_make_work(repo_name, vol_nums, part, vol_slug, scan), paras, credits)
         return [(f"{vol_slug}.json", work,
-                 [_unit(r, p["text"]) for r, p in zip(refs, paras)])]
+                 [_unit(r, p["text"], p.get("editorial")) for r, p in zip(refs, paras)])]
 
     owners = pgi.assign_works(paras, rows)
     last_col = max((p["cols"][1] for p in paras if p.get("cols")), default=None)
@@ -1373,7 +1382,7 @@ def split_volume(
     sources: dict[str | None, list[dict]] = {}
     for ref, para, owner in zip(refs, paras, owners):
         key = None if owner is None else rows[owner].slug
-        buckets.setdefault(key, []).append(_unit(ref, para["text"]))
+        buckets.setdefault(key, []).append(_unit(ref, para["text"], para.get("editorial")))
         sources.setdefault(key, []).append(para)
     by_slug: dict[str, list[pgi.IndexRow]] = {}
     for row in rows:

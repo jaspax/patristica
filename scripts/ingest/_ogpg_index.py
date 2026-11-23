@@ -411,9 +411,22 @@ def split_inline_headings(paragraphs: list[dict], rows: list[IndexRow]) -> list[
             out.append(para)
             continue
         text = para["text"]
-        out.append({**para, "text": text[:k].rstrip()})
-        out.append({**para, "text": text[k:], "title": None})
+        head, tail = text[:k].rstrip(), text[k:]
+        out.append(_with_spans({**para, "text": head}, para.get("editorial"), 0, len(head)))
+        out.append(_with_spans({**para, "text": tail, "title": None}, para.get("editorial"),
+                               k, len(text)))
     return out
+
+
+def _with_spans(para: dict, spans: list | None, start: int, end: int) -> dict:
+    """``para`` with the editorial spans that fall in ``text[start:end]`` of the
+    paragraph it was cut from, moved to its own offsets."""
+    para.pop("editorial", None)
+    kept = [[max(a, start) - start, min(b, end) - start, kind]
+            for a, b, kind in spans or [] if a < end and b > start]
+    if kept:
+        para["editorial"] = kept
+    return para
 
 
 def _assign_page(idx: range, span: tuple[int, int], paragraphs: list[dict],
