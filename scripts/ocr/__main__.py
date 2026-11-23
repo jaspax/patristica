@@ -61,6 +61,9 @@ PRICES = {
     "claude-haiku-5-5": _claude_price(0.10, 0.50),
 }
 DEFAULT_MODEL = {"gemini": GEMINI_MODEL, "claude": CLAUDE_MODELS["opus"]}
+# The second whole-page reader when the subscription is nearly spent
+# (--second-reader gemini|auto): as good as Opus on the eval (#751).
+SECOND_READER_GEMINI = "gemini-3.1-pro-preview"
 PROVIDER = {"kgc": "gemini", "gemini_page": "gemini", "opus_page": "claude",
             "synth1": "claude", "synth2": "claude"}
 
@@ -101,7 +104,82 @@ def _with_windows(args: argparse.Namespace, run: stages.Run, stage: str, body) -
         f.write(json.dumps({"before": before, "after": after}) + "\n")
 
 
+def _windows_now(tries: int = 3) -> dict[str, float]:
+    """The subscription's usage windows; {} when `claude -p` doesn't report them."""
+    for _ in range(tries):
+        w = ClaudeCLI.windows()
+        if w:
+            return w
+    return {}
+
+
+def _nearly_spent(args: argparse.Namespace) -> dict[str, float]:
+    """The windows at or over --switch-at ({} when none is, or none could be read)."""
+    if args.second_reader != "auto" or args.claude != "cli":
+        return {}
+    return {k: v for k, v in _windows_now().items() if v is not None and v >= args.switch_at}
+
+
+def _backfill_usage(stage_dir: Path) -> None:
+    """Tag the stage's usage lines that name no reader with the reader its
+    _model.json records (Opus when it has none), before another reader may
+    overwrite that file: ``cost`` prices each line by its own reader."""
+    f = stage_dir / "_usage.jsonl"
+    if not f.exists():
+        return
+    meta_f = stage_dir / "_model.json"
+    meta = json.loads(meta_f.read_text()) if meta_f.exists() else {}
+    provider = meta.get("provider", "claude")
+    model = meta.get("model") or DEFAULT_MODEL[provider]
+    lines = [json.loads(line) for line in f.read_text().splitlines()]
+    if all("model" in r for r in lines):
+        return
+    for r in lines:
+        if "model" not in r:
+            r.update(provider=provider, model=model)
+    f.write_text("".join(json.dumps(r, ensure_ascii=False, default=str) + "\n" for r in lines))
+
+
+def _second_reader(args: argparse.Namespace, run: stages.Run, stage: str) -> None:
+    """The second whole-page reader: Opus, or Gemini 3.1 Pro (--second-reader gemini,
+    or auto when a subscription window is nearly spent).
+
+    A run with no page to read changes nothing.  A Gemini batch already
+    submitted for the stage (its checkpoint) is finished with Gemini whatever
+    the windows say now, so its pages are not paid for twice.
+    """
+    if not run.todo(stage):
+        return
+    stage_dir = run.dir(stage)
+    _backfill_usage(stage_dir)
+    use_gemini = args.second_reader == "gemini"
+    if not use_gemini and (stage_dir / "_batch_gemini.json").exists():
+        log.info("%s: a Gemini batch is pending; finishing it with %s", stage,
+                 SECOND_READER_GEMINI)
+        use_gemini = True
+    if not use_gemini:
+        spent = _nearly_spent(args)
+        if spent:
+            log.info("subscription windows %s at or over %.0f%%: %s reads with %s", spent,
+                     100 * args.switch_at, stage, SECOND_READER_GEMINI)
+            use_gemini = True
+    if use_gemini:
+        _record_model(args, stage, "gemini", SECOND_READER_GEMINI, "low")
+        backend = Gemini(SECOND_READER_GEMINI, thinking="low", batch=not args.direct,
+                         state_dir=Path(args.out) / stage)
+        stages.page_reader(run, stage, backend, provider="gemini", model=SECOND_READER_GEMINI)
+        return
+    _with_windows(args, run, stage, lambda: stages.page_reader(
+        run, stage, _claude(args, stage), provider="claude",
+        model=CLAUDE_MODELS[args.claude_model]))
+
+
 def cmd_run(args: argparse.Namespace) -> int:
+    if args.second_reader == "auto" and args.claude != "cli":
+        log.error("--second-reader auto watches the subscription's windows, so it needs "
+                  "--claude cli (with the default --claude api it would send paid API "
+                  "requests instead)")
+        return 2
     pages = Path(args.pages).read_text(encoding="utf-8").split()
     run = stages.Run(pages, Path(args.images), Path(args.out))
     wanted = args.stage or list(STAGES)
@@ -117,9 +195,13 @@ def cmd_run(args: argparse.Namespace) -> int:
         elif stage == "gemini_page":
             stages.page_reader(run, stage, _gemini(args, stage))
         elif stage == "opus_page":
-            _with_windows(args, run, stage,
-                          lambda: stages.page_reader(run, stage, _claude(args, stage)))
+            _second_reader(args, run, stage)
         elif stage in ("synth1", "synth2"):
+            spent = _nearly_spent(args) if run.todo(stage) else {}
+            if spent:
+                log.warning("subscription windows %s at or over %.0f%%: stopping before %s; "
+                            "run again once they reset", spent, 100 * args.switch_at, stage)
+                return 3
             _with_windows(args, run, stage, lambda: stages.synth(run, stage, _claude(args, stage)))
         elif stage == "final":
             stages.final(run)
@@ -173,7 +255,8 @@ def cmd_cost(args: argparse.Namespace) -> int:
             if r.get("error"):
                 continue
             u = r["usage"] or {}
-            i, o, d = _charge(provider, u, model)
+            # A stage may mix readers (--second-reader auto): each line says its own.
+            i, o, d = _charge(r.get("provider") or provider, u, r.get("model") or model)
             tin, tout, usd = tin + i, tout + o, usd + d
             for w, v in (u.get("limits") or {}).items():
                 if v is not None:
@@ -239,6 +322,13 @@ def main(argv: list[str] | None = None) -> int:
                    help="Claude model for the Claude stages (default opus)")
     r.add_argument("--gemini-model", default=GEMINI_MODEL,
                    help=f"Gemini model for the Gemini stages (default {GEMINI_MODEL})")
+    r.add_argument("--second-reader", choices=("opus", "gemini", "auto"), default="opus",
+                   help="the second whole-page reader (stage opus_page): Opus (default), "
+                        f"{SECOND_READER_GEMINI}, or auto: Opus until a claude -p window "
+                        "reaches --switch-at, then Gemini; auto also stops before a "
+                        "synthesis stage while a window is that full (exit 3)")
+    r.add_argument("--switch-at", type=float, default=0.95,
+                   help="window utilization at which --second-reader auto switches (0.95)")
     r.add_argument("--effort", choices=("low", "medium", "high"),
                    help="Claude effort (default medium)")
     r.set_defaults(func=cmd_run)

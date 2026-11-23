@@ -57,10 +57,12 @@ class Run:
     def text(self, stage: str, page: str) -> str:
         return (self.out / stage / f"{page}.txt").read_text(encoding="utf-8")
 
-    def log_usage(self, stage: str, results: dict[str, Result]) -> None:
+    def log_usage(self, stage: str, results: dict[str, Result], **reader: str) -> None:
+        """Append each request's usage; ``reader`` (provider, model) is recorded on
+        every line when a stage's requests may come from more than one model."""
         with (self.dir(stage) / "_usage.jsonl").open("a") as f:
             for key, r in results.items():
-                f.write(json.dumps({"key": key, "usage": r.usage, "error": r.error},
+                f.write(json.dumps({"key": key, "usage": r.usage, "error": r.error, **reader},
                                    ensure_ascii=False, default=str) + "\n")
 
 
@@ -109,10 +111,11 @@ def _write_pages(run: Run, stage: str, results: dict[str, Result]) -> None:
         (run.dir(stage) / f"{page}.txt").write_text(text + "\n", encoding="utf-8")
 
 
-def page_reader(run: Run, stage: str, backend) -> None:
-    """A model reads every page in strips (gemini_page, opus_page)."""
+def page_reader(run: Run, stage: str, backend, **reader: str) -> None:
+    """A model reads every page in strips (gemini_page, opus_page); ``reader``
+    (provider, model) is logged with each request's usage."""
     results = backend.run(_page_jobs(run, run.todo(stage)))
-    run.log_usage(stage, results)
+    run.log_usage(stage, results, **reader)
     _write_pages(run, stage, results)
     backend.ack()
 
