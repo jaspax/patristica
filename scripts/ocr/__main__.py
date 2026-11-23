@@ -120,11 +120,44 @@ def _nearly_spent(args: argparse.Namespace) -> dict[str, float]:
     return {k: v for k, v in _windows_now().items() if v is not None and v >= args.switch_at}
 
 
+def _backfill_usage(stage_dir: Path) -> None:
+    """Tag the stage's usage lines that name no reader with the reader its
+    _model.json records (Opus when it has none), before another reader may
+    overwrite that file: ``cost`` prices each line by its own reader."""
+    f = stage_dir / "_usage.jsonl"
+    if not f.exists():
+        return
+    meta_f = stage_dir / "_model.json"
+    meta = json.loads(meta_f.read_text()) if meta_f.exists() else {}
+    provider = meta.get("provider", "claude")
+    model = meta.get("model") or DEFAULT_MODEL[provider]
+    lines = [json.loads(line) for line in f.read_text().splitlines()]
+    if all("model" in r for r in lines):
+        return
+    for r in lines:
+        if "model" not in r:
+            r.update(provider=provider, model=model)
+    f.write_text("".join(json.dumps(r, ensure_ascii=False, default=str) + "\n" for r in lines))
+
+
 def _second_reader(args: argparse.Namespace, run: stages.Run, stage: str) -> None:
     """The second whole-page reader: Opus, or Gemini 3.1 Pro (--second-reader gemini,
-    or auto when a subscription window is nearly spent)."""
+    or auto when a subscription window is nearly spent).
+
+    A run with no page to read changes nothing.  A Gemini batch already
+    submitted for the stage (its checkpoint) is finished with Gemini whatever
+    the windows say now, so its pages are not paid for twice.
+    """
+    if not run.todo(stage):
+        return
+    stage_dir = run.dir(stage)
+    _backfill_usage(stage_dir)
     use_gemini = args.second_reader == "gemini"
-    if not use_gemini and run.todo(stage):
+    if not use_gemini and (stage_dir / "_batch_gemini.json").exists():
+        log.info("%s: a Gemini batch is pending; finishing it with %s", stage,
+                 SECOND_READER_GEMINI)
+        use_gemini = True
+    if not use_gemini:
         spent = _nearly_spent(args)
         if spent:
             log.info("subscription windows %s at or over %.0f%%: %s reads with %s", spent,
@@ -142,6 +175,11 @@ def _second_reader(args: argparse.Namespace, run: stages.Run, stage: str) -> Non
 
 
 def cmd_run(args: argparse.Namespace) -> int:
+    if args.second_reader == "auto" and args.claude != "cli":
+        log.error("--second-reader auto watches the subscription's windows, so it needs "
+                  "--claude cli (with the default --claude api it would send paid API "
+                  "requests instead)")
+        return 2
     pages = Path(args.pages).read_text(encoding="utf-8").split()
     run = stages.Run(pages, Path(args.images), Path(args.out))
     wanted = args.stage or list(STAGES)

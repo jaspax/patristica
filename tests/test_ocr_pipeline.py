@@ -301,3 +301,37 @@ def test_cost_prices_a_mixed_stage_line_by_line(tmp_path: Path, capsys) -> None:
     (d / "_usage.jsonl").write_text("".join(json.dumps(x) + "\n" for x in lines))
     assert main(["cost", "--out", str(tmp_path)]) == 0
     assert "6.0000" in capsys.readouterr().out     # $4 of Opus + $2 of Gemini 3.1 Pro
+
+
+def test_second_reader_auto_keeps_old_usage_priced_and_finishes_a_pending_gemini_batch(
+        tmp_path: Path, monkeypatch, capsys) -> None:
+    from scripts.ocr import __main__ as cli
+
+    pages, out = _run_dir(tmp_path)
+    used = []
+    monkeypatch.setattr(cli.stages, "page_reader",
+                        lambda run, stage, backend, **reader: used.append(reader["model"]))
+    monkeypatch.setattr(cli, "Gemini", lambda *a, **k: "gemini-backend")
+    monkeypatch.setattr(cli.ClaudeCLI, "windows", staticmethod(lambda: {"seven_day": 0.10}))
+    d = out / "opus_page"
+    d.mkdir(parents=True)
+    (d / "_model.json").write_text(json.dumps({"provider": "claude", "model": "claude-opus-5-5"}))
+    (d / "_usage.jsonl").write_text(json.dumps(
+        {"key": "p0#0", "usage": {"input_tokens": 1_000_000, "output_tokens": 0},
+         "error": None}) + "\n")                       # written before reader tags
+    (d / "_batch_gemini.json").write_text("{}")         # an interrupted Gemini batch
+    argv = ["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out", str(out),
+            "--stage", "opus_page", "--claude", "cli", "--second-reader", "auto"]
+    assert main(argv) == 0
+    assert used == [cli.SECOND_READER_GEMINI]       # the batch is finished, not re-read by Opus
+    (line,) = [json.loads(x) for x in (d / "_usage.jsonl").read_text().splitlines()]
+    assert line["model"] == "claude-opus-5-5"       # the old line keeps its reader
+    (d / "p1.txt").write_text("x")
+    assert main(["cost", "--out", str(out)]) == 0
+    assert "4.0000" in capsys.readouterr().out      # priced as Opus, not Gemini
+
+
+def test_second_reader_auto_needs_claude_cli(tmp_path: Path) -> None:
+    pages, out = _run_dir(tmp_path)
+    assert main(["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out",
+                 str(out), "--stage", "opus_page", "--second-reader", "auto"]) == 2
