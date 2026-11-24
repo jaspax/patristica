@@ -335,3 +335,98 @@ def test_second_reader_auto_needs_claude_cli(tmp_path: Path) -> None:
     pages, out = _run_dir(tmp_path)
     assert main(["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out",
                  str(out), "--stage", "opus_page", "--second-reader", "auto"]) == 2
+
+
+def _cli_stdout(utilization: float | None = None, status: str = "allowed",
+                result: str = "ok", error: bool = False) -> str:
+    info = {"status": status, "rateLimitType": "five_hour"}
+    if utilization is not None:
+        info["unifiedWindows"] = {"five_hour": {"utilization": utilization}}
+    return "\n".join(json.dumps(e) for e in (
+        {"type": "rate_limit_event", "rate_limit_info": info},
+        {"type": "result", "result": result, "is_error": error, "usage": {}}))
+
+
+def test_claude_cli_skips_the_calls_left_once_a_window_fills(monkeypatch) -> None:
+    import subprocess
+    from types import SimpleNamespace
+
+    from scripts.ocr.backends import ClaudeCLI, Job
+
+    sent = []
+    outs = iter([_cli_stdout(0.50), _cli_stdout(0.96)])
+
+    def fake_run(cmd, **kw):
+        sent.append(cmd)
+        return SimpleNamespace(stdout=next(outs), stderr="")
+    monkeypatch.setattr(subprocess, "run", fake_run)
+    cli = ClaudeCLI(workers=1, stop_at=0.95)
+    res = cli.run([Job(k, "s", [("text", "t")]) for k in ("a", "b", "c", "d")])
+    assert len(sent) == 2 and cli.stopped == {"five_hour": 0.96}
+    assert res["b"].text == "ok" and res["c"].error.startswith("skipped") and not res["d"].text
+
+
+def test_claude_cli_reads_a_reached_limit_as_a_full_window(monkeypatch) -> None:
+    import subprocess
+    from types import SimpleNamespace
+
+    from scripts.ocr.backends import ClaudeCLI
+
+    for out in (_cli_stdout(status="rejected", result="", error=True),
+                _cli_stdout(result="You've hit your limit · resets 3am", error=True)):
+        monkeypatch.setattr(subprocess, "run",
+                            lambda cmd, out=out, **kw: SimpleNamespace(stdout=out, stderr=""))
+        assert max(ClaudeCLI.windows().values()) == 1.0
+
+
+def test_second_reader_auto_hands_the_rest_to_gemini_when_opus_stops(
+        tmp_path: Path, monkeypatch) -> None:
+    from types import SimpleNamespace
+
+    from scripts.ocr import __main__ as cli
+
+    pages, out = _run_dir(tmp_path)
+    used = []
+
+    def reader(run, stage, backend, **r):
+        used.append(r["model"])
+        if backend == "gemini-backend":
+            (run.dir(stage) / "p1.txt").write_text("x")
+    monkeypatch.setattr(cli.stages, "page_reader", reader)
+    monkeypatch.setattr(cli, "_claude",
+                        lambda args, stage: SimpleNamespace(stopped={"five_hour": 0.97}))
+    monkeypatch.setattr(cli, "_with_windows", lambda args, run, stage, body: body())
+    monkeypatch.setattr(cli, "Gemini", lambda *a, **k: "gemini-backend")
+    monkeypatch.setattr(cli.ClaudeCLI, "windows", staticmethod(lambda: {"five_hour": 0.5}))
+    argv = ["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out", str(out),
+            "--stage", "opus_page", "--claude", "cli", "--second-reader", "auto"]
+    assert main(argv) == 0
+    assert used == ["claude-opus-5-5", cli.SECOND_READER_GEMINI]
+
+
+def test_synthesis_cut_short_by_a_full_window_exits_3(tmp_path: Path, monkeypatch) -> None:
+    from types import SimpleNamespace
+
+    from scripts.ocr import __main__ as cli
+
+    pages, out = _run_dir(tmp_path)
+    monkeypatch.setattr(cli.ClaudeCLI, "windows", staticmethod(lambda: {"five_hour": 0.5}))
+    monkeypatch.setattr(cli, "_claude",
+                        lambda args, stage: SimpleNamespace(stopped={"five_hour": 1.0}))
+    monkeypatch.setattr(cli, "_with_windows", lambda args, run, stage, body: body())
+    monkeypatch.setattr(cli.stages, "synth", lambda *a: None)
+    argv = ["run", "--pages", str(pages), "--images", str(tmp_path / "img"), "--out", str(out),
+            "--stage", "synth1", "--stage", "final", "--claude", "cli", "--second-reader", "auto"]
+    assert main(argv) == 3
+
+
+def test_final_waits_for_pages_whose_inputs_are_missing(tmp_path: Path) -> None:
+    from scripts.ocr import stages
+
+    run = stages.Run(["p1", "p2"], tmp_path / "img", tmp_path / "out")
+    for s in ("synth1", "synth2", "kgc", "opus_page", "gemini_page"):
+        (run.dir(s) / "p1.txt").write_text("καὶ ὁ λόγος\n")
+    (run.dir("synth1") / "p2.txt").write_text("καὶ\n")      # p2 lacks the other inputs
+    stages.final(run)
+    assert (run.out / "final" / "p1.txt").exists()
+    assert not (run.out / "final" / "p2.txt").exists()

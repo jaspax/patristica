@@ -54,6 +54,16 @@ class Run:
         d = self.dir(stage)
         return [p for p in self.pages if not (d / f"{p}.{ext}").exists()]
 
+    def ready(self, stage: str, inputs: tuple[str, ...]) -> list[str]:
+        """The pages still to do in ``stage`` whose ``inputs`` stages all have a
+        text; the others are logged and left for a later run."""
+        todo = self.todo(stage)
+        ready = [p for p in todo if all((self.out / s / f"{p}.txt").exists() for s in inputs)]
+        if len(ready) < len(todo):
+            log.warning("%s: %d pages wait for %s", stage, len(todo) - len(ready),
+                        "/".join(inputs))
+        return ready
+
     def text(self, stage: str, page: str) -> str:
         return (self.out / stage / f"{page}.txt").read_text(encoding="utf-8")
 
@@ -223,7 +233,7 @@ def recovered_lines(missing: dict[int, dict[str, list[str]]]) -> tuple[dict[int,
 def synth(run: Run, stage: str, backend) -> None:
     """Opus writes the disputed lines from their images and all readings."""
     jobs, plans = [], {}
-    for p in run.todo(stage):
+    for p in run.ready(stage, READERS):
         lines, agreed, readings, missing = disputed(run, p)
         todo = [i for i, a in enumerate(agreed) if a is None]
         plans[p] = (lines, agreed, readings, missing)
@@ -267,7 +277,7 @@ def synth(run: Run, stage: str, backend) -> None:
 
 def final(run: Run) -> None:
     """Word vote of the two synthesis runs and the three readers, then the Θεός repair."""
-    for p in run.todo("final"):
+    for p in run.ready("final", ("synth1", "synth2") + READERS):
         text = vote(run.text("synth1", p),
                     [run.text(s, p) for s in ("synth2", "kgc", "opus_page", "gemini_page")])
         (run.dir("final") / f"{p}.txt").write_text(capitalize_theos(text) + "\n", encoding="utf-8")
