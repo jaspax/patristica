@@ -22,6 +22,7 @@ Usage::
     uv run python -m scripts.data unpack              # … then the clones
     uv run python -m scripts.data pull --job tests    # CI: the files the unit tests read
     uv run python -m scripts.data needs --job status  # list them
+    uv run python -m scripts.data scope               # full or scoped ($PATRISTICA_SCOPE_BASE)
     uv run python -m scripts.data pack                # after an ingest re-cloned or pulled
     uv run python -m scripts.data status
 """
@@ -37,8 +38,9 @@ import shutil
 import subprocess
 import sys
 import tarfile
-from collections.abc import Callable, Iterator
+from collections.abc import Callable, Iterable, Iterator
 from concurrent.futures import ProcessPoolExecutor
+from dataclasses import dataclass
 from pathlib import Path
 
 from patristica import fingerprint
@@ -126,9 +128,125 @@ def translated_paths(norm: Path) -> set[str]:
     return {e["path"] for e in _works(norm) if e["work"]["language"] in tr.TRANSLATED_LANGUAGES}
 
 
+# ---------------------------------------------------------------------------
+# Scoped corpus checks (CI on a pull request)
+# ---------------------------------------------------------------------------
+
+#: CI sets it on a pull request to the commit the PR is compared with (the merge
+#: commit's first parent): the corpus checks then cover only what changed since.
+SCOPE_ENV = "PATRISTICA_SCOPE_BASE"
+#: Changed paths that can change the corpus checks of works whose own files
+#: didn't change: these run the checks in full.
+FULL_SCOPE_FILES = frozenset({
+    "data/normalized/_works.jsonl", "data/normalized/_fingerprints.jsonl",
+    "data/normalized/_fingerprint.json", "pyproject.toml", "uv.lock",
+    ".github/workflows/ci-python.yml", "patristica/fingerprint.py", "tests/conftest.py",
+    "tests/test_anchor_fingerprint.py", "tests/test_alignment.py",
+})
+FULL_SCOPE_PREFIXES = ("patristica/data/",)
+#: The code of the checks: a change to any module these import runs them in full.
+SCOPE_CODE = ("scripts.anchor", "scripts.data", "patristica.alignment_store",
+              "patristica.versions", "patristica.corpus")
+
+
+@dataclass(frozen=True)
+class Scope:
+    """The repo-relative paths a pull request changed (the corpus checks look
+    only at the works they touch)."""
+
+    changed: frozenset[str]
+
+    def normalized(self, *paths: str) -> bool:
+        """Whether any of these ``data/normalized`` paths changed."""
+        return any(f"data/normalized/{p}" in self.changed for p in paths)
+
+    def anchors(self, path: str) -> bool:
+        return f"data/anchors/{path}" in self.changed
+
+    def alignment(self, path: str) -> bool:
+        """Whether this alignment file (its path in ``data/alignments``) changed."""
+        return f"data/alignments/{path}" in self.changed
+
+
+def full_scope_reason(changed: Iterable[str], root: Path = REPO) -> str | None:
+    """Why *changed* needs the corpus checks in full, or None."""
+    code = {path.relative_to(root).as_posix()
+            for m in fingerprint.module_closure(SCOPE_CODE, root)
+            if (path := fingerprint.module_path(m, root)) is not None}
+    for path in sorted(changed):
+        if path in FULL_SCOPE_FILES or path.startswith(FULL_SCOPE_PREFIXES) or path in code:
+            return path
+    return None
+
+
+def check_scope(base: str | None = None) -> Scope | None:
+    """The scope of the corpus checks: None to check everything (no base set,
+    or a change that can affect unchanged works, or git failed), else the
+    paths changed since *base* (default: ``$PATRISTICA_SCOPE_BASE``)."""
+    base = base or os.environ.get(SCOPE_ENV)
+    if not base:
+        return None
+    out = subprocess.run(["git", "diff", "--name-only", "--no-renames", base, "HEAD"],
+                         cwd=REPO, capture_output=True, text=True)
+    if out.returncode != 0:
+        log.warning("scope: git diff against %s failed, checking everything: %s",
+                    base, out.stderr.strip())
+        return None
+    changed = frozenset(line for line in out.stdout.splitlines() if line)
+    reason = full_scope_reason(changed)
+    if reason is not None:
+        log.info("scope: %s changed, checking everything", reason)
+        return None
+    return Scope(changed)
+
+
+def scoped_anchored_paths(norm: Path, scope: Scope) -> set[str]:
+    """:func:`anchored_paths` of the works *scope* touches (their own file, their
+    anchor's or their cut file), with their anchors."""
+    out: set[str] = set()
+    for path, target in _anchor_pairs(norm):
+        if scope.normalized(path, target or "") or scope.anchors(path):
+            out.add(path)
+            if target:
+                out.add(target)
+    return out
+
+
+def scoped_aligned_paths(norm: Path, align_dir: Path, scope: Scope) -> set[str]:
+    """Every member of each alignment *scope* touches (its file, or a member's)."""
+    by_id = {e["work"]["work_id"]: e["path"] for e in _works(norm)}
+    out: set[str] = set()
+    for path, members in _alignment_members(align_dir):
+        paths = [by_id[w] for w in members if w in by_id]
+        if scope.alignment(path.relative_to(align_dir).as_posix()) or scope.normalized(*paths):
+            out.update(paths)
+    return out
+
+
+def _alignment_members(align_dir: Path) -> Iterator[tuple[Path, list[str]]]:
+    """Each alignment file with its member work ids (not decoded further)."""
+    if not align_dir.is_dir():
+        return
+    for path in sorted(align_dir.rglob("*.json")):
+        if not path.name.startswith("_"):
+            raw = json.loads(path.read_text(encoding="utf-8"))
+            yield path, [m["work_id"] for m in raw["members"]]
+
+
 def anchored_paths(norm: Path) -> set[str]:
     """Works the anchoring rule anchors and their anchors (``tests/test_anchor_fingerprint.py``
     and ``scripts.status``'s anchor row read both, #304, #638)."""
+    out: set[str] = set()
+    for path, target in _anchor_pairs(norm):
+        out.add(path)
+        if target:
+            out.add(target)
+    return out
+
+
+def _anchor_pairs(norm: Path) -> list[tuple[str, str | None]]:
+    """(path, its anchor's path or None) of every work the rule anchors, except
+    works normalize records as never anchored."""
     from patristica import anchor_rule
 
     works = _works(norm)
@@ -141,29 +259,28 @@ def anchored_paths(norm: Path) -> set[str]:
             rec = json.loads(line) if line.strip() else {}
             if "anchor" in rec and rec["anchor"] is None:
                 standard.add(rec["path"])
-    out: set[str] = set()
-    for work_id, target in anchor_rule.anchors({e["work"]["work_id"]: e["work"] for e in works},
-                                               recorded).items():
-        if by_id[work_id] in standard:
-            continue
-        out.add(by_id[work_id])
-        if target in by_id:
-            out.add(by_id[target])
-    return out
+    return [(by_id[work_id], by_id.get(target))
+            for work_id, target in anchor_rule.anchors(
+                {e["work"]["work_id"]: e["work"] for e in works}, recorded).items()
+            if by_id[work_id] not in standard]
 
 
-def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None) -> list[str]:
+def needs(job: str, norm: Path = NORMALIZED, align_dir: Path | None = None,
+          scope: Scope | None = None) -> list[str]:
     """Repo-relative LFS paths *job* reads: ``tests`` the unit tests, ``status``
     also ``scripts.status``. A new test that reads normalized work files adds
-    its set here."""
+    its set here. With a *scope* (:func:`check_scope`), the corpus checks read
+    only the works it touches."""
     from patristica import alignment_store as store
 
     align_dir = align_dir or REPO / store.DEFAULT_DIR
     if job not in ("tests", "status"):
         raise ValueError(f"unknown job {job!r}")
-    paths = (book_group_paths(norm) | scripture_book_paths(norm)
-             | aligned_paths(norm, align_dir) | language_sample_paths(norm)
-             | anchored_paths(norm))
+    paths = book_group_paths(norm) | scripture_book_paths(norm) | language_sample_paths(norm)
+    if scope is None:
+        paths |= aligned_paths(norm, align_dir) | anchored_paths(norm)
+    else:
+        paths |= scoped_aligned_paths(norm, align_dir, scope) | scoped_anchored_paths(norm, scope)
     if job == "status":
         paths |= translated_paths(norm)
     prefix = norm.relative_to(REPO).as_posix()
@@ -393,6 +510,8 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
     n = sub.add_parser("needs", help="list the LFS files a job reads")
     n.add_argument("--job", required=True, choices=("tests", "status"))
+    sub.add_parser("scope", help=f"whether the corpus checks are scoped (${SCOPE_ENV}): "
+                                 "prints 'full' or 'scoped'")
     pl = sub.add_parser("pull", help="git lfs pull a job's files, or everything")
     which = pl.add_mutually_exclusive_group(required=True)
     which.add_argument("--job", choices=("tests", "status"))
@@ -406,9 +525,11 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     if args.cmd == "needs":
-        print("\n".join(needs(args.job)))
+        print("\n".join(needs(args.job, scope=check_scope())))
+    elif args.cmd == "scope":
+        print("full" if check_scope() is None else "scoped")
     elif args.cmd == "pull":
-        lfs_pull(None if args.all else needs(args.job))
+        lfs_pull(None if args.all else needs(args.job, scope=check_scope()))
     elif args.cmd == "pack":
         log.info("clones: %s", pack(force=args.force))
     elif args.cmd == "unpack":
