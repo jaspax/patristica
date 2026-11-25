@@ -280,8 +280,18 @@ def test_tracked_alignments_match_the_corpus() -> None:
         assert a.pivot in a.members
         for wid in a.members:
             assert wid in groups.members[a.group]
+    # On a pull request CI checks only the alignments it touches (master is checked in full).
+    from scripts import data
+
+    scope = data.check_scope()
+    if scope is not None:
+        alignments = [(path, a) for path, a in alignments
+                      if scope.alignment(path.relative_to(store.DEFAULT_DIR).as_posix())
+                      or scope.normalized(*(entries[w]["path"] for w in a.members))]
     # Parsing the members' files is nearly all of the test: in parallel (#789).
     paths = sorted({str(norm / entries[wid]["path"]) for _, a in alignments for wid in a.members})
+    if not paths:
+        return
     with ProcessPoolExecutor(min(os.cpu_count() or 1, 8),
                              mp_context=multiprocessing.get_context("spawn")) as pool:
         current = dict(zip(paths, pool.map(_units_and_ids, paths, chunksize=16)))

@@ -147,6 +147,54 @@ def test_needs_includes_anchored_works_and_their_originals(tmp_path, monkeypatch
     assert data.anchored_paths(tmp_path) == {"tr/w.json", "orig/w.json"}
 
 
+def test_full_scope_for_what_can_change_unchanged_works():
+    assert data.full_scope_reason(["api/search.py", "scripts/ocr/run.py",
+                                   "data/normalized/kjv/gen.json", "data/anchors/x/y.json"]) is None
+    for path in ("data/normalized/_works.jsonl", "patristica/data/version_links.csv",
+                 "patristica/versify.py", "scripts/anchor.py", "patristica/fingerprint.py",
+                 "uv.lock", "tests/test_alignment.py", "patristica/__init__.py"):
+        assert data.full_scope_reason(["README.md", path]) == path
+
+
+def test_check_scope_from_the_environment(monkeypatch):
+    monkeypatch.delenv(data.SCOPE_ENV, raising=False)
+    assert data.check_scope() is None                       # no base: everything
+    monkeypatch.setenv(data.SCOPE_ENV, "HEAD")
+    assert data.check_scope() == data.Scope(frozenset())    # nothing changed
+    monkeypatch.setenv(data.SCOPE_ENV, "no-such-revision")
+    assert data.check_scope() is None                       # git failed: everything
+
+
+def test_scoped_needs_read_only_the_touched_works(tmp_path):
+    norm, aligned = tmp_path / "normalized", tmp_path / "alignments"
+    norm.mkdir()
+    lines = [{"path": "tr/w.json", "work": {"work_id": "tr/w", "source_id": "tr",
+                                             "language": "eng", "translation_of": "orig/w"}},
+             {"path": "orig/w.json", "work": {"work_id": "orig/w", "source_id": "orig",
+                                               "language": "lat"}},
+             {"path": "tr/v.json", "work": {"work_id": "tr/v", "source_id": "tr",
+                                             "language": "eng", "translation_of": "orig/v"}},
+             {"path": "orig/v.json", "work": {"work_id": "orig/v", "source_id": "orig",
+                                               "language": "lat"}}]
+    (norm / "_works.jsonl").write_text("".join(json.dumps(x) + "\n" for x in lines))
+    (aligned / "g").mkdir(parents=True)
+    for name, members in (("w", ["tr/w", "orig/w"]), ("v", ["tr/v", "orig/v"])):
+        (aligned / "g" / f"{name}.json").write_text(json.dumps(
+            {"members": [{"work_id": m} for m in members]}))
+
+    original_changed = data.Scope(frozenset({"data/normalized/orig/w.json"}))
+    assert data.scoped_anchored_paths(norm, original_changed) == {"tr/w.json", "orig/w.json"}
+    assert data.scoped_aligned_paths(norm, aligned, original_changed) == {
+        "tr/w.json", "orig/w.json"}
+    cut_changed = data.Scope(frozenset({"data/anchors/tr/v.json"}))
+    assert data.scoped_anchored_paths(norm, cut_changed) == {"tr/v.json", "orig/v.json"}
+    assert data.scoped_aligned_paths(norm, aligned, cut_changed) == set()
+    alignment_changed = data.Scope(frozenset({"data/alignments/g/v.json"}))
+    assert data.scoped_aligned_paths(norm, aligned, alignment_changed) == {
+        "tr/v.json", "orig/v.json"}
+    assert data.scoped_anchored_paths(norm, data.Scope(frozenset())) == set()
+
+
 def test_lfs_pull_overrides_the_default_exclude():
     calls = []
     data.lfs_pull(["data/normalized/kjv/gen.json", "data/normalized/kjv/exod.json"],

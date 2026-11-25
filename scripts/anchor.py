@@ -281,7 +281,8 @@ def _check_all(cands: list[Candidate], norm: Path, anchors_dir: Path,
 
 
 def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS,
-                use_cache: bool = True, workers: int | None = None) -> list[State]:
+                use_cache: bool = True, workers: int | None = None,
+                select: Callable[[Candidate], bool] | None = None) -> list[State]:
     """Every anchorable work's state, plus works normalize hasn't fingerprinted
     and cut files of works that aren't anchored (orphans). Needs no vectors.
 
@@ -289,8 +290,12 @@ def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS,
     while its normalized file, its anchor's and its cut file keep their stat
     and its anchor, method and model are the same, so a no-op check reads
     only the changed works (#782). Works to check are checked in *workers*
-    processes (default: one per CPU) when there are many."""
+    processes (default: one per CPU) when there are many. *select* limits the
+    works checked (CI's scoped run, ``scripts.data.check_scope``)."""
     cands, unbuilt = candidates(norm, anchors_dir)
+    known = {c.path for c in cands}
+    if select is not None:  # orphans are still found among all candidates
+        cands = [c for c in cands if select(c)]
     states = [State(None, UNNORMALIZED, p) for p in unbuilt]
     cache = check_cache(norm) if use_cache else None
     checked: list[State | None] = []
@@ -315,7 +320,6 @@ def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS,
     states += checked
     if cache is not None:
         cache.save()
-    known = {c.path for c in cands}
     for path in _cut_paths(anchors_dir):
         if path not in known:
             states.append(State(None, ORPHAN, path))

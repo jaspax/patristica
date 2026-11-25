@@ -14,7 +14,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts import anchor, status
+from scripts import anchor, data, status
 from scripts import normalize as nz
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,7 +26,11 @@ RERUN = ("run `uv run --extra embed python -m scripts.anchor --pay` (paid, cents
 
 
 def test_every_anchored_work_has_a_current_cut_file() -> None:
-    bad = [anchor.describe(s) for s in anchor.check_works(NORMALIZED, ANCHORS)
+    # On a pull request CI checks only the works it touches (master is checked in full).
+    scope = data.check_scope()
+    select = None if scope is None else (
+        lambda c: scope.normalized(c.path, c.anchor_path) or scope.anchors(c.path))
+    bad = [anchor.describe(s) for s in anchor.check_works(NORMALIZED, ANCHORS, select=select)
            if s.status in anchor.FAILING]
     assert not bad, f"missing or stale cut files ({RERUN}): " + ", ".join(bad[:10])
 

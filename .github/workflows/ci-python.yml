@@ -10,10 +10,29 @@ name: CI · Python
 #   ci-mt.yml         PRs that only add machine translations (data/raw/mt-eng)
 # A PR whose files all fall outside these paths (docs only) runs no CI.
 #
-# Runs on PRs only: everything reaches master through a PR (the pre-push hook
-# blocks direct pushes). Before merging, re-run a PR's checks if master has
-# moved since its last run; use workflow_dispatch to check master itself.
+# Runs on PRs and on pushes to master (#793). A push to master checks the whole
+# corpus, saves the LFS cache where every PR can restore it (a cache saved by a PR
+# is visible only to that PR) and reports the pipeline status. A PR then checks
+# the corpus only where it changed it (scripts.data check_scope): master is
+# checked in full, so works the PR didn't touch are as master left them. Before
+# merging, re-run a PR's checks if master has moved since its last run.
 on:
+  push:
+    branches: [master]
+    # The same paths as pull_request below.
+    paths:
+      - "**"
+      - "!web/**"
+      - "web/src/lib/format.ts"
+      - "web/src/lib/sources.ts"
+      - "web/src/lib/redirects.ts"
+      - "!infra/**"
+      - "!docs/**"
+      - "!**.md"
+      - "!.claude/**"
+      - "!.github/**"
+      - ".github/workflows/ci-python.yml"
+      - "!data/raw/mt-eng/**"
   pull_request:
     # Everything but the other workflows' areas and docs. Order matters: a later
     # pattern overrides an earlier one. The tests read three web/ files.
@@ -96,6 +115,8 @@ jobs:
           start ci-web-image.yml '^(web/(Dockerfile|\.dockerignore|package(-lock)?\.json|next\.config\.ts)|infra/compose/)'
 
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # a PR's merge commit and its base, for the scope below
 
       - uses: astral-sh/setup-uv@v6
         with:
@@ -104,15 +125,38 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked --extra dev  # tools + every extra the tests import (#764)
 
+      # On a PR, the corpus checks cover the works it changed (#793): "full" when
+      # it changed what can affect the others (the manifest, patristica/data, the
+      # checks' code), "scoped" otherwise. A push to master is always "full".
+      - name: Scope of the corpus checks
+        id: scope
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            base=$(git rev-parse HEAD^1)
+            echo "PATRISTICA_SCOPE_BASE=$base" >> "$GITHUB_ENV"
+            export PATRISTICA_SCOPE_BASE=$base
+          fi
+          scope=$(uv run python -m scripts.data scope)
+          echo "scope=$scope" >> "$GITHUB_OUTPUT"
+          echo "::notice::corpus checks: $scope"
+
       # data/ is in git-lfs and the checkout has pointer files (.lfsconfig, #244):
       # pull only the files this job reads, through a cache keyed on their pointers.
+      # A scoped run doesn't run scripts.status, which reads the whole corpus.
       - name: Which LFS files this job reads
         id: lfs
+        env:
+          SCOPE: ${{ steps.scope.outputs.scope }}
         run: |
-          { uv run python -m scripts.data needs --job tests
-            uv run python -m scripts.data needs --job status; } | sort -u > "$RUNNER_TEMP/lfs-needs"
+          jobs="tests"
+          [ "$SCOPE" = full ] && jobs="tests status"
+          echo "jobs=$jobs" >> "$GITHUB_OUTPUT"
+          for job in $jobs; do uv run python -m scripts.data needs --job "$job"; done \
+            | sort -u > "$RUNNER_TEMP/lfs-needs"
+          echo "::notice::$(wc -l < "$RUNNER_TEMP/lfs-needs") LFS files"
           echo "key=lfs-tests-$(xargs cat < "$RUNNER_TEMP/lfs-needs" | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
 
+      # Restores master's cache (or this PR's own); pushes to master save theirs.
       - uses: actions/cache@v4
         with:
           path: .git/lfs
@@ -120,14 +164,22 @@ jobs:
           restore-keys: lfs-tests-
 
       - name: Pull them
+        env:
+          JOBS: ${{ steps.lfs.outputs.jobs }}
         run: |
-          uv run python -m scripts.data pull --job tests
-          uv run python -m scripts.data pull --job status
+          for job in $JOBS; do uv run python -m scripts.data pull --job "$job"; done
 
       - name: Run unit tests
         run: uv run pytest -n auto  # pytest-xdist: one worker per core (#789)
 
-      # Reported even when a test failed, as when it was a job of its own.
+      # Reported even when a test failed, as when it was a job of its own; a
+      # scoped PR run leaves it to the run on master after the merge.
       - name: Pipeline status
-        if: success() || failure()
+        if: (success() || failure()) && steps.scope.outputs.scope == 'full'
         run: uv run python -m scripts.status --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Pipeline status (scoped run)
+        if: (success() || failure()) && steps.scope.outputs.scope == 'scoped'
+        run: |
+          echo "Corpus checks scoped to this PR's changes; the pipeline status table is" \
+            "reported by the run on master after the merge (#793)." >> "$GITHUB_STEP_SUMMARY"
