@@ -181,6 +181,16 @@ def read_rows(path: Path) -> emb.WorkEmbeddings:
         keys = [r.key for r in runs]
         rows = [emb.Row(str(c), int(k), str(sh), keys[int(i)])
                 for c, k, sh, i in zip(z["chunk_id"], z["kind"], z["sha"], z["run"])]
+        with z.zip.open("vec.npy") as f:
+            version = np.lib.format.read_magic(f)
+            if version == (1, 0):
+                shape, _, _ = np.lib.format.read_array_header_1_0(f)
+            elif version == (2, 0):
+                shape, _, _ = np.lib.format.read_array_header_2_0(f)
+            else:
+                raise ValueError(f"{path}: unsupported vector NPY format {version}")
+        if len(shape) != 2 or shape[0] != len(rows):
+            raise ValueError(f"{path}: {len(rows)} embedding rows but vector shape {shape}")
     return emb.WorkEmbeddings(meta["work_id"], meta["source_path"],
                               {r.key: r for r in runs}, rows, None)
 

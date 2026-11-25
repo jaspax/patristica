@@ -74,8 +74,21 @@ class StatCache:
         except (OSError, ValueError) as e:
             log.warning("%s: unreadable cache, starting afresh (%s)", path, e)
             return
-        if data.get("version") == self.VERSION and data.get("head") == head:
-            self.entries = data.get("entries", {})
+        if (not isinstance(data, dict) or data.get("version") != self.VERSION
+                or data.get("head") != head):
+            return
+        entries = data.get("entries", {})
+        if not isinstance(entries, dict):
+            return
+        self.entries = {
+            key: entry for key, entry in entries.items()
+            if isinstance(entry, dict) and "value" in entry
+            and isinstance(entry.get("files"), list)
+            and all(stamp is None or (
+                isinstance(stamp, list) and len(stamp) == 4
+                and all(type(value) is int for value in stamp)
+            ) for stamp in entry["files"])
+        }
 
     def get(self, key: str, stamps: Stamps, tag: object = None) -> Any | None:
         """The value stored for *key* with these *stamps* and *tag*, else None."""
@@ -122,4 +135,7 @@ class StatCache:
             log.warning("%s: could not save the cache (%s)", self.path, e)
         finally:
             if tmp is not None:
-                Path(tmp).unlink(missing_ok=True)
+                try:
+                    Path(tmp).unlink(missing_ok=True)
+                except OSError:
+                    pass
