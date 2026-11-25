@@ -39,6 +39,8 @@ export interface WorkRow {
    * exported before it.
    */
   machine_translation?: boolean;
+  /** The work has a description (workAboutFile(row), #795). Absent otherwise. */
+  about?: boolean;
   chunks: number;
   file: string;
 }
@@ -80,6 +82,41 @@ export interface Author {
   external_ids: string[];
   /** For a pseudonymous author, the id of the author whose name the works carry. */
   pseudo_of: string | null;
+  /** The author has a bio (authorAboutFile(id), #795). Absent otherwise. */
+  about?: boolean;
+}
+
+/** A work's description or an author's bio (scripts/export_library.py, #795). */
+export interface About {
+  /** 50–100 words of prose, written by AI from Wikipedia and other sources. */
+  text: string;
+  /** The English Wikipedia article, when there is one. */
+  wikipedia: string | null;
+}
+
+/** Library file of a work's description (`about/` + its work file). */
+export function workAboutFile(row: Pick<WorkRow, "file">): string {
+  return `about/${row.file}`;
+}
+
+/** Library file of an author's bio. */
+export function authorAboutFile(id: string): string {
+  return `about/authors/${id}.json`;
+}
+
+const aboutCache = new Map<string, Promise<About>>();
+
+/** Load an about file once per page session. A failed load is retried on the next call. */
+export function loadAbout(file: string): Promise<About> {
+  let promise = aboutCache.get(file);
+  if (!promise) {
+    promise = fetchJson<About>(libraryUrl(file)).catch((err) => {
+      aboutCache.delete(file);
+      throw err;
+    });
+    aboutCache.set(file, promise);
+  }
+  return promise;
 }
 
 export interface AuthorsFile {

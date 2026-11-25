@@ -104,7 +104,8 @@ class TestExport:
     def test_index(self, corpus: Path, tmp_path: Path):
         out = tmp_path / "library"
         counts = export_library(corpus, out)
-        assert counts == {"works": 3, "written": 3, "removed": 0, "alignments": 0}
+        assert counts == {"works": 3, "written": 3, "removed": 0, "alignments": 0,
+                          "about": 0}
 
         index = json.loads((out / "index.json").read_text(encoding="utf-8"))
         assert index["sources"] == {
@@ -351,3 +352,51 @@ def test_works_of_heading_marking_sources_say_so() -> None:
     assert "first1k" in HEADING_MARKING_SOURCES
     assert build("first1k")["marks_headings"] is True
     assert "marks_headings" not in build("pta")
+
+
+class TestAbout:
+    """Descriptions and bios (#795): separate ``about/`` files, flagged in the index."""
+
+    def _descriptions(self, root: Path, works: list[dict], authors: list[dict]) -> Path:
+        from patristica import descriptions
+        from patristica.descriptions import Description
+
+        descriptions.save(root / descriptions.WORKS_FILE, [Description(**w) for w in works])
+        descriptions.save(root / descriptions.AUTHORS_FILE, [Description(**a) for a in authors])
+        return root
+
+    def test_writes_and_flags(self, corpus: Path, tmp_path: Path):
+        desc = self._descriptions(
+            tmp_path / "desc",
+            [{"id": "pta/x", "text": "A work.", "wikipedia": None},
+             {"id": "gone/work", "text": "Not in the corpus."}],
+            [{"id": "augustine-of-hippo", "text": "A bishop.",
+              "wikipedia": "https://en.wikipedia.org/wiki/Augustine_of_Hippo"}])
+        out = tmp_path / "library"
+        counts = export_library(corpus, out, desc_dir=desc)
+        assert counts["about"] == 2
+
+        rows = {r["id"]: r for r in json.loads((out / "index.json").read_text())["works"]}
+        assert rows["pta/x"]["about"] is True
+        assert "about" not in rows["kjv/gen"]
+        about = json.loads((out / "about/works/pta/x.json").read_text())
+        assert about == {"text": "A work.", "wikipedia": None}
+
+        authors = {a["id"]: a for a in json.loads((out / "authors.json").read_text())["authors"]}
+        assert authors["augustine-of-hippo"]["about"] is True
+        assert "about" not in authors["jerome"]
+        bio = json.loads((out / "about/authors/augustine-of-hippo.json").read_text())
+        assert bio["wikipedia"].endswith("/Augustine_of_Hippo")
+
+    def test_text_change_changes_version_and_stale_files_go(self, corpus: Path, tmp_path: Path):
+        out = tmp_path / "library"
+        desc = self._descriptions(tmp_path / "desc", [{"id": "pta/x", "text": "One."}], [])
+        export_library(corpus, out, desc_dir=desc)
+        v1 = json.loads((out / "index.json").read_text())["version"]
+        self._descriptions(desc, [{"id": "pta/x", "text": "Two."}], [])
+        export_library(corpus, out, desc_dir=desc)
+        v2 = json.loads((out / "index.json").read_text())["version"]
+        assert v1 != v2
+        self._descriptions(desc, [], [])
+        export_library(corpus, out, desc_dir=desc)
+        assert not (out / "about/works/pta/x.json").exists()

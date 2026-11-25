@@ -110,6 +110,16 @@ def alignment_keys(index: dict[str, Any], published: set[str], library_dir: Path
     return keys
 
 
+def about_keys(index: dict[str, Any], authors: dict[str, Any]) -> list[str]:
+    """Keys of the descriptions and bios to publish (#795): those of the works in
+    *index* (already the public one) and of every author, where the export wrote one."""
+    from scripts.export_library import author_about_file, work_about_file
+
+    keys = [work_about_file(w["file"]) for w in index["works"] if w.get("about")]
+    keys += [author_about_file(a["id"]) for a in authors["authors"] if a.get("about")]
+    return keys
+
+
 def compress(data: bytes) -> bytes:
     """Gzip *data* for storage with ``Content-Encoding: gzip``."""
     return gzip.compress(data, compresslevel=9, mtime=0)
@@ -218,6 +228,11 @@ def upload_library(
         local[w["file"]] = sha256_hex(path.read_bytes())
     for key in alignments.values():
         local[key] = sha256_hex((library_dir / key).read_bytes())
+    for key in about_keys(pub, json.loads(authors_path.read_text(encoding="utf-8"))):
+        path = library_dir / key
+        if not path.exists():
+            raise UploadError(f"About file listed in the export is missing: {path}")
+        local[key] = sha256_hex(path.read_bytes())
 
     client = _client()
     bucket = os.environ["LIBRARY_BUCKET"]
