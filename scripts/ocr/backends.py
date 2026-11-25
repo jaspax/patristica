@@ -403,6 +403,10 @@ class ClaudeBatch(_Batched):
         return out
 
 
+# How `claude -p` says the subscription's limit is reached.
+_LIMIT_HIT = re.compile(r"usage limit|hit your limit|limit reached", re.I)
+
+
 class ClaudeCLI:
     """Claude through a local `claude -p` (the Claude subscription; rate-limited, no money).
 
@@ -411,10 +415,24 @@ class ClaudeCLI:
     much of the windows it took.
     """
 
-    def __init__(self, model: str = "opus", effort: str | None = None, workers: int = 3) -> None:
-        self.model, self.effort, self.workers = model, effort, workers
+    def __init__(self, model: str = "opus", effort: str | None = None, workers: int = 3,
+                 stop_at: float | None = None) -> None:
+        """``stop_at``: once a call reports a window at or over this utilization (or
+        the subscription's limit), the calls not yet sent are skipped (``stopped``)."""
+        self.model, self.effort, self.workers, self.stop_at = model, effort, workers, stop_at
+        self.stopped: dict[str, float] = {}
 
     def _one(self, job: Job) -> tuple[str, Result]:
+        if self.stopped:
+            return job.key, Result("", error=f"skipped: subscription windows {self.stopped}")
+        key, r = self._call(job)
+        full = {w: v for w, v in (r.usage.get("limits") or {}).items()
+                if v is not None and self.stop_at is not None and v >= self.stop_at}
+        if full:
+            self.stopped.update(full)
+        return key, r
+
+    def _call(self, job: Job) -> tuple[str, Result]:
         msg = {"type": "user", "message": {"role": "user", "content": _claude_content(job)}}
         cmd = ["claude", "-p", "--model", self.model, "--system-prompt", job.system,
                "--tools", "", "--setting-sources", "", "--strict-mcp-config",
@@ -434,10 +452,16 @@ class ClaudeCLI:
             if ev.get("type") == "result":
                 result = ev
             elif ev.get("type") == "rate_limit_event":
-                windows = (ev.get("rate_limit_info") or {}).get("unifiedWindows") or {}
+                info = ev.get("rate_limit_info") or {}
+                windows = info.get("unifiedWindows") or {}
                 limits.update({w: v.get("utilization") for w, v in windows.items()})
+                if info.get("status") == "rejected":
+                    limits[info.get("rateLimitType") or "limit"] = 1.0
         if result is None or result.get("is_error"):
-            return job.key, Result("", error=(proc.stderr or proc.stdout)[-300:])
+            error = (proc.stderr or proc.stdout)[-300:]
+            if _LIMIT_HIT.search(error) or _LIMIT_HIT.search(str((result or {}).get("result"))):
+                limits.setdefault("limit", 1.0)
+            return job.key, Result("", {"limits": limits}, error=error)
         return job.key, Result(result.get("result") or "", {**(result.get("usage") or {}),
                                                              "limits": limits})
 
@@ -453,7 +477,8 @@ class ClaudeCLI:
         """The subscription's usage windows now (five_hour, seven_day utilization).
 
         `claude -p` reports them in a rate_limit_event, but not on every call, so
-        a stage reads them with a tiny Haiku call before and after it runs.
+        a stage reads them with a tiny Haiku call before and after it runs.  A limit
+        already reached reads as a window at 1.0.
         """
         _, r = ClaudeCLI("haiku")._one(Job("windows", "Reply with OK.", [("text", "OK?")]))
         return dict(r.usage.get("limits") or {})

@@ -87,7 +87,10 @@ def _claude(args: argparse.Namespace, stage: str):
     model = CLAUDE_MODELS[args.claude_model]
     if args.claude == "cli":
         _record_model(args, stage, "claude", model, args.effort)
-        return ClaudeCLI(args.claude_model, effort=args.effort)
+        # Under auto, a window that fills during the stage stops it (the calls
+        # left are skipped), so the rest goes to Gemini or waits for a reset.
+        stop_at = args.switch_at if args.second_reader == "auto" else None
+        return ClaudeCLI(args.claude_model, effort=args.effort, stop_at=stop_at)
     _record_model(args, stage, "claude", model, args.effort or "medium")
     return ClaudeBatch(model, effort=args.effort or "medium", state_dir=Path(args.out) / stage)
 
@@ -169,9 +172,17 @@ def _second_reader(args: argparse.Namespace, run: stages.Run, stage: str) -> Non
                          state_dir=Path(args.out) / stage)
         stages.page_reader(run, stage, backend, provider="gemini", model=SECOND_READER_GEMINI)
         return
+    claude = _claude(args, stage)
     _with_windows(args, run, stage, lambda: stages.page_reader(
-        run, stage, _claude(args, stage), provider="claude",
-        model=CLAUDE_MODELS[args.claude_model]))
+        run, stage, claude, provider="claude", model=CLAUDE_MODELS[args.claude_model]))
+    if getattr(claude, "stopped", None) and run.todo(stage):
+        log.info("subscription windows %s at or over %.0f%% during %s: the %d pages left "
+                 "read with %s", claude.stopped, 100 * args.switch_at, stage,
+                 len(run.todo(stage)), SECOND_READER_GEMINI)
+        _record_model(args, stage, "gemini", SECOND_READER_GEMINI, "low")
+        backend = Gemini(SECOND_READER_GEMINI, thinking="low", batch=not args.direct,
+                         state_dir=Path(args.out) / stage)
+        stages.page_reader(run, stage, backend, provider="gemini", model=SECOND_READER_GEMINI)
 
 
 def cmd_run(args: argparse.Namespace) -> int:
@@ -202,7 +213,13 @@ def cmd_run(args: argparse.Namespace) -> int:
                 log.warning("subscription windows %s at or over %.0f%%: stopping before %s; "
                             "run again once they reset", spent, 100 * args.switch_at, stage)
                 return 3
-            _with_windows(args, run, stage, lambda: stages.synth(run, stage, _claude(args, stage)))
+            claude = _claude(args, stage)
+            _with_windows(args, run, stage, lambda: stages.synth(run, stage, claude))
+            if getattr(claude, "stopped", None) and run.todo(stage):
+                log.warning("subscription windows %s at or over %.0f%% during %s: %d pages "
+                            "left; run again once they reset", claude.stopped,
+                            100 * args.switch_at, stage, len(run.todo(stage)))
+                return 3
         elif stage == "final":
             stages.final(run)
     return 0
@@ -325,8 +342,9 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--second-reader", choices=("opus", "gemini", "auto"), default="opus",
                    help="the second whole-page reader (stage opus_page): Opus (default), "
                         f"{SECOND_READER_GEMINI}, or auto: Opus until a claude -p window "
-                        "reaches --switch-at, then Gemini; auto also stops before a "
-                        "synthesis stage while a window is that full (exit 3)")
+                        "reaches --switch-at (before or during the stage; a reached limit "
+                        "counts as full), then Gemini for the pages left; auto also stops "
+                        "a synthesis stage while a window is that full (exit 3)")
     r.add_argument("--switch-at", type=float, default=0.95,
                    help="window utilization at which --second-reader auto switches (0.95)")
     r.add_argument("--effort", choices=("low", "medium", "high"),
