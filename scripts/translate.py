@@ -46,6 +46,7 @@ Needs ``OPENAI_API_KEY`` (environment or ``.env``) for Sol.
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import logging
 import random
@@ -58,10 +59,11 @@ from pathlib import Path
 
 from pydantic import BaseModel
 
-from patristica import console
+from patristica import console, fingerprint
 from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES
 from patristica.editorial import source_text
+from patristica.stat_cache import StatCache, cache_dir, file_stamps
 from scripts.embed_eval.translate import (
     LANGUAGE_NAMES,
     MODELS,
@@ -136,18 +138,34 @@ def make_groups(chunks: list[dict]) -> list[list[dict]]:
     return groups
 
 
+@functools.cache
+def _plan_head() -> str:
+    return fingerprint.code_hash("scripts.translate")
+
+
 def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list[str],
-         include_unpublishable: bool) -> tuple[list[WorkJob], int]:
+         include_unpublishable: bool, use_cache: bool = True) -> tuple[list[WorkJob], int]:
     """Load every in-scope work; fill in reusable translations; group the rest.
 
     Returns the jobs and the number of chunks filled by reusing identical text.
+    A work found fully translated is remembered (``data/cache/translate_plan.json``)
+    while its normalized and translation files keep their stat, and is then
+    skipped without reading them (#782).
     """
-    by_text: dict[tuple[str, str], tuple[tr.ChunkTranslation, tr.Provenance]] = {}
-    for stored in tr.iter_store(store_dir):
-        for t in stored.translations:
-            by_text[(stored.source_language, t.source_sha256)] = (
-                t, stored.provenance[t.provenance])
+    by_text: dict[tuple[str, str], tuple[tr.ChunkTranslation, tr.Provenance]] | None = None
 
+    def reusable() -> dict[tuple[str, str], tuple[tr.ChunkTranslation, tr.Provenance]]:
+        nonlocal by_text
+        if by_text is None:
+            by_text = {}
+            for stored in tr.iter_store(store_dir):
+                for t in stored.translations:
+                    by_text[(stored.source_language, t.source_sha256)] = (
+                        t, stored.provenance[t.provenance])
+        return by_text
+
+    cache = (StatCache(cache_dir(input_dir) / "translate_plan.json", _plan_head())
+             if use_cache else None)
     jobs = []
     reused = 0
     for entry in load_works(input_dir):
@@ -158,6 +176,10 @@ def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list
             continue
         if work["license"] in EXCLUDED_LICENSES and not include_unpublishable:
             log.debug("skipping %s (licence %s)", work["work_id"], work["license"])
+            continue
+        stamps = file_stamps([input_dir / entry["path"],
+                              tr.translation_path(store_dir, entry["path"])])
+        if cache is not None and cache.get(work["work_id"], stamps, work["language"]):
             continue
         chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
         store = tr.load(store_dir, entry["path"]) or tr.WorkTranslations(
@@ -174,7 +196,7 @@ def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list
             row = rows.get(c["chunk_id"])
             if row is not None and row.source_sha256 == sha:
                 continue
-            hit = by_text.get((c["language"], sha))
+            hit = reusable().get((c["language"], sha))
             if hit is not None:
                 t, prov = hit
                 store.put(t.model_copy(update={"chunk_id": c["chunk_id"]}), prov)
@@ -185,6 +207,12 @@ def plan(input_dir: Path, store_dir: Path, langs: list[str], work_prefixes: list
         job.groups = make_groups(todo)
         if job.dirty or job.groups or has_stale_rows(store, chunks):
             jobs.append(job)
+            if cache is not None:
+                cache.forget(work["work_id"])
+        elif cache is not None:
+            cache.put(work["work_id"], stamps, True, work["language"])
+    if cache is not None:
+        cache.save()
     return jobs, reused
 
 

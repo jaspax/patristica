@@ -64,6 +64,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import functools
 import json
 import logging
 import sys
@@ -78,6 +79,7 @@ from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import EXCLUDED_LICENSES, load_works
 from patristica.editorial import source_text, spans_of
+from patristica.stat_cache import StatCache, cache_dir, file_stamps
 from patristica.translations import text_sha
 
 if TYPE_CHECKING:
@@ -242,17 +244,58 @@ def check_work(c: Candidate, norm: Path, anchors_dir: Path,
     return State(c, CURRENT)
 
 
-def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS) -> list[State]:
+@functools.cache
+def _check_head() -> str:
+    """What decides a :func:`check_work` verdict besides its files and candidate."""
+    return fingerprint.code_hash("scripts.anchor")
+
+
+def check_cache(norm: Path) -> StatCache:
+    """:func:`check_works`' cache of current works (#782), beside *norm*."""
+    return StatCache(cache_dir(norm) / "anchor_check.json", _check_head())
+
+
+def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS,
+                use_cache: bool = True) -> list[State]:
     """Every anchorable work's state, plus works normalize hasn't fingerprinted
-    and cut files of works that aren't anchored (orphans). Needs no vectors."""
+    and cut files of works that aren't anchored (orphans). Needs no vectors.
+
+    A work found current is remembered (``data/cache/anchor_check.json``)
+    while its normalized file, its anchor's and its cut file keep their stat
+    and its anchor, method and model are the same, so a no-op check reads
+    only the changed works (#782)."""
     cands, unbuilt = candidates(norm, anchors_dir)
     states = [State(None, UNNORMALIZED, p) for p in unbuilt]
-    states += [check_work(c, norm, anchors_dir) for c in cands]
+    cache = check_cache(norm) if use_cache else None
+    for c in cands:
+        stamps = file_stamps([norm / c.path, norm / c.anchor_path,
+                              anchor_store.cut_path(anchors_dir, c.path)])
+        tag = [c.anchor, c.anchor_path, c.anchor_language, c.method, method_hash(c), _model()]
+        if cache is not None and cache.get(c.work_id, stamps, tag) == CURRENT:
+            states.append(State(c, CURRENT))
+            continue
+        s = check_work(c, norm, anchors_dir)
+        if cache is not None:
+            if s.status == CURRENT:
+                cache.put(c.work_id, stamps, CURRENT, tag)
+            else:
+                cache.forget(c.work_id)
+        states.append(s)
+    if cache is not None:
+        cache.save()
     known = {c.path for c in cands}
-    for path, _ in anchor_store.iter_store(anchors_dir):
+    for path in _cut_paths(anchors_dir):
         if path not in known:
             states.append(State(None, ORPHAN, path))
     return states
+
+
+def _cut_paths(anchors_dir: Path) -> list[str]:
+    """Every cut file's normalized path (``anchor_store.iter_store`` without parsing them)."""
+    if not anchors_dir.is_dir():
+        return []
+    return [p.relative_to(anchors_dir).as_posix() for p in sorted(anchors_dir.rglob("*.json"))
+            if not p.name.startswith("_")]
 
 
 def describe(s: State) -> str:

@@ -42,6 +42,7 @@ are the first 16 hex digits of a SHA-256, like ``translations.text_sha``.
 from __future__ import annotations
 
 import ast
+import functools
 import hashlib
 import json
 from collections import deque
@@ -73,7 +74,18 @@ def sha16(data: bytes | str) -> str:
     return hashlib.sha256(data).hexdigest()[:16]
 
 
+_SCALARS = (str, int, float, bool, type(None))
+
+
 def _canonical_value(value: object) -> object:
+    # Exact-type fast paths first: the hashed values are mostly lists of
+    # strings (a paragraph's words), and the ABC ``isinstance`` checks below
+    # cost more than the hashing itself (#782). Same output as the slow path.
+    t = type(value)
+    if t in _SCALARS:
+        return value
+    if t is list or t is tuple:
+        return [v if type(v) is str else _canonical_value(v) for v in value]
     if isinstance(value, Mapping):
         items = [(k if isinstance(k, str) else repr(k), _canonical_value(v))
                  for k, v in value.items()]
@@ -159,12 +171,18 @@ def _walk(entries: str | Iterable[str], root: Path,
         seen[name] = importer
         parts = name.split(".")
         pending.extend((".".join(parts[:i]), name) for i in range(1, len(parts)))
-        tree = ast.parse(path.read_bytes(), filename=str(path))
-        pending.extend(
-            (imported, name)
-            for imported in sorted(_imported_names(tree, name, path.name == "__init__.py"))
-        )
+        pending.extend((imported, name) for imported in _imports(
+            name, path.read_bytes(), str(path), path.name == "__init__.py"))
     return seen
+
+
+# Parsing is most of a code hash, and one process (``scripts.status``: an ingest
+# hash per source) hashes the same shared modules many times: both caches are
+# keyed on the source bytes, so an edited file is parsed again (#782).
+@functools.lru_cache(maxsize=4096)
+def _imports(name: str, source: bytes, filename: str, is_package: bool) -> tuple[str, ...]:
+    return tuple(sorted(_imported_names(ast.parse(source, filename=filename), name,
+                                        is_package)))
 
 
 def module_closure(entries: str | Iterable[str], root: Path = REPO_ROOT,
@@ -275,7 +293,12 @@ def module_hash(name: str, exclude: Collection[str] = (), root: Path = REPO_ROOT
     path = module_path(name, root)
     if path is None:
         raise FingerprintError(f"No module {name!r} under {root}")
-    tree = ast.parse(path.read_bytes(), filename=str(path))
+    return _module_hash(name, path.read_bytes(), str(path), tuple(sorted(exclude)))
+
+
+@functools.lru_cache(maxsize=4096)
+def _module_hash(name: str, source: bytes, filename: str, exclude: tuple[str, ...]) -> str:
+    tree = ast.parse(source, filename=filename)
     _strip_docstrings(tree)
     vocabularies = VOCABULARIES.get(name, ())
     if vocabularies:

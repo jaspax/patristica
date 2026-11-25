@@ -47,8 +47,10 @@ from pathlib import Path
 
 from patristica import alignment_store as store
 from patristica import console, fingerprint
+from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import load_works
+from patristica.stat_cache import StatCache, cache_dir, file_stamps
 
 log = logging.getLogger(__name__)
 
@@ -225,16 +227,32 @@ def alignments_with_changed_units(norm: Path = NORMALIZED,
     """Alignment files with a member whose chunk ids changed since it was aligned
     (consumers drop that member until ``scripts.align`` runs again)."""
     paths = {e["work"]["work_id"]: e["path"] for e in load_works(norm)}
+    # Each work's chunk-id hash, kept while its normalized file is unchanged (#782).
+    cache = StatCache(cache_dir(norm) / "chunk_ids.json",
+                      fingerprint.code_hash("patristica.alignment_store"))
+    ids: dict[str, str] = {}
+
+    def ids_of(rel: str) -> str:
+        if rel not in ids:
+            stamps = file_stamps([norm / rel])
+            sha = cache.get(rel, stamps)
+            if sha is None:
+                chunks = json.loads((norm / rel).read_text(encoding="utf-8"))
+                sha = store.ids_sha([c["chunk_id"] for c in chunks])
+                cache.put(rel, stamps, sha)
+            ids[rel] = sha
+        return ids[rel]
+
     stale = []
     for path, a in store.iter_store(align_dir):
         for wid, m in a.members.items():
             if wid not in paths or not (norm / paths[wid]).exists():
                 stale.append(a.group)
                 break
-            chunks = json.loads((norm / paths[wid]).read_text(encoding="utf-8"))
-            if m.ids != store.ids_sha([c["chunk_id"] for c in chunks]):
+            if m.ids != ids_of(paths[wid]):
                 stale.append(a.group)
                 break
+    cache.save()
     return stale
 
 
@@ -244,9 +262,40 @@ def align_drift(norm: Path, trans: Path, vecs: Path, align_dir: Path) -> Counter
 
     jobs, _, _ = align.make_jobs(norm, trans, vecs, align_dir, dry_run=True)
     counts: Counter[str] = Counter()
-    with align.make_pool(max(1, (os.cpu_count() or 2) // 2)) as pool:
-        for _, outcome in pool.map(align.run_job, jobs):
-            counts[outcome.split(":", 1)[0]] += 1
+    # A group found unchanged is remembered while its alignment file and its
+    # members' normalized files, translations and vectors keep their stat (#782).
+    # Headed by the whole closure, registries included (align's own code hash
+    # leaves them to each group's inputs hash), and the versification tables.
+    from patristica import versification
+
+    tables = sorted(p for p in versification._DATA_DIR.rglob("*") if p.is_file())
+    cache = StatCache(cache_dir(norm) / "align_drift.json",
+                      fingerprint.code_hash("scripts.align", data_files=tables))
+
+    def key(job: align.Job) -> tuple[list, list]:
+        files = [store.path_for(align_dir, job.group)]
+        for e in job.entries:
+            files += [norm / e["path"], tr.translation_path(trans, e["path"]),
+                      emb.shard_path(vecs, e["path"])]
+        return file_stamps(files), [job.code_current, fingerprint.value_hash(job.entries)]
+
+    todo = []
+    for job in jobs:
+        stamps, tag = key(job)
+        if cache.get(job.group, stamps, tag) == "unchanged":
+            counts["unchanged"] += 1
+        else:
+            todo.append((job, stamps, tag))
+    if todo:
+        with align.make_pool(max(1, min(len(todo), (os.cpu_count() or 2) // 2))) as pool:
+            for (job, stamps, tag), (_, outcome) in zip(
+                    todo, pool.map(align.run_job, [j for j, _, _ in todo])):
+                counts[outcome.split(":", 1)[0]] += 1
+                if outcome == "unchanged":
+                    cache.put(job.group, stamps, outcome, tag)
+                else:
+                    cache.forget(job.group)
+        cache.save()
     return counts
 
 

@@ -58,6 +58,7 @@ patristica/
 │                              # curated: data/mt_exceptions.csv (divergent versions), data/mt_blocked.csv (too damaged, with issue)
 │   ├── console.py             # the steps' shared console output (#535): setup_logging(), TRACE, PATRISTICA_LOG_LEVEL
 │   └── fingerprint.py         # code/data hashes for pipeline staleness checks (#130): code_hash, import_chain
+│   └── stat_cache.py          # per-work verdicts kept while their files' stat is unchanged (data/cache/, #782)
 ├── scripts/
 │   ├── ingest/
 │   │   ├── _common.py         # shared utilities: download_file, parse_tei, parse_osis, parse_usfm, clean_html, slugify_ref
@@ -324,6 +325,7 @@ What follows from that:
 - A work whose metadata changed but whose text, chunk ids, translations and vectors didn't (`works.body_sha`, #234) is updated in place by `build_index`, with no vectors re-sent. Metadata covers the work record (title, author ids, dates, genre, edition, …) and the chunks' date fields and `out_of_period`. So an attribution or dating fix costs SQL updates, not a reload (db/README.md → "Loading").
 - Alignments have the same kind of check ("Passage alignment" above).
 - Cut files of anchored derived verses too (#304): `tests/test_anchor_fingerprint.py` and `scripts.status` (row "anchor cuts", `scripts.anchor --check`) fail when a work the rule anchors has no cut file, one made from other words, or a normalized output not cut as it says. A cut file whose original's cuts, anchor or method (`ANCHOR_VERSION`, `RefineParams`) changed is **frozen**: a warning, re-cut only with `scripts.anchor --recut WORK`. A change to the anchor code alone re-cuts nothing.
+- **No-op passes are cached (#782):** `scripts.anchor`'s check, `scripts.embed`'s and `scripts.translate`'s plans and `scripts.status`'s chunk-id and alignment checks remember each work (or group) they found current in `data/cache/` (gitignored, `patristica/stat_cache.py`), keyed on its files' stat (size, mtime, ctime, inode) and the step's code hash, as build_index's input-hash cache does (#607); only changed works are read. Delete `data/cache/` to force a full pass.
 - `scripts.status` shows every step's freshness in one table: the checks above, pending translations and their cost, and with `--raw` / `--vectors` the local raw data, vectors still to embed and alignment groups to redo. CI writes it to the job summary of the `pipeline` job. `scripts.validate` reads every normalized work, so it runs where the data is (the pre-push hook, the pipeline), not in CI (#244). The plan is on #130.
 
 `_works.jsonl` is the only work manifest: `validate`, `export_library` and `scripts.lookup` all read it. There is no `_index.json`.
