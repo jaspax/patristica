@@ -125,7 +125,7 @@ jobs:
           uv run python -m scripts.data pull --job status
 
       - name: Run unit tests
-        run: uv run pytest
+        run: uv run pytest -n auto  # pytest-xdist: one worker per core (#789)
 
       # Reported even when a test failed, as when it was a job of its own.
       - name: Pipeline status

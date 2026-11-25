@@ -28,7 +28,7 @@ dependencies = [
 # CI and, through the default dev group below, a plain `uv sync` install it. When
 # a test starts importing a new optional package, add its extra here. Not
 # eval-local or usfm: no test needs torch or Node.
-dev = ["pytest", "pytest-mock", "ruff", "mypy", "patristica[pipeline,api,ocr]"]
+dev = ["pytest", "pytest-mock", "pytest-xdist", "ruff", "mypy", "patristica[pipeline,api,ocr]"]
 usfm = ["usfm-grammar"]  # requires Node.js
 deploy = ["boto3"]  # scripts.upload_library, scripts.bootstrap_infra (DigitalOcean Spaces, S3 API)
 api = ["fastapi", "uvicorn[standard]", "psycopg[binary]", "psycopg-pool", "numpy"]  # api/ (FastAPI backend, #117; search #141)

@@ -25,7 +25,16 @@ def pg_url() -> Iterator[str]:
 
     schema = f"test_{uuid.uuid4().hex[:12]}"
     with psycopg.connect(url, autocommit=True) as conn:
-        conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
+        # db/schema.sql's extensions, made once in public: created by a test's
+        # schema.sql they would land in its own schema (first on its search_path),
+        # invisible to tests running beside it (pytest -n) and dropped with it.
+        # CREATE EXTENSION IF NOT EXISTS isn't safe concurrently: hold a lock.
+        conn.execute("SELECT pg_advisory_lock(3141592)")
+        try:
+            for ext in ("vector", "pg_trgm"):
+                conn.execute(f"CREATE EXTENSION IF NOT EXISTS {ext} WITH SCHEMA public")
+        finally:
+            conn.execute("SELECT pg_advisory_unlock(3141592)")
         conn.execute(f"CREATE SCHEMA {schema}")
     try:
         yield make_conninfo(url, options=f"-c search_path={schema},public")
