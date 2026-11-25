@@ -49,6 +49,7 @@ estimate is $0, #248).
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import logging
 import time
@@ -60,12 +61,13 @@ from typing import TYPE_CHECKING
 
 from tqdm import tqdm
 
-from patristica import console
+from patristica import console, fingerprint
 from patristica import embeddings as emb
 from patristica import translations as tr
 from patristica.corpus import load_works, select  # noqa: F401  (re-exported)
 from patristica.editorial import source_text
 from patristica.embedders import ApiEmbedder, ApiError, VoyageEmbedder, cl100k
+from patristica.stat_cache import StatCache, cache_dir, file_stamps
 
 if TYPE_CHECKING:
     import numpy as np
@@ -101,6 +103,8 @@ class Job:
     runs: list[emb.EmbeddingRun | None]
     previous: emb.WorkEmbeddings | None
     remaining: int = 0
+    #: The work's shard already holds exactly these rows: nothing to send or write.
+    clean: bool = False
 
 
 @dataclass
@@ -160,28 +164,114 @@ def wanted_items(chunks: list[dict], translations: tr.WorkTranslations | None,
     return items
 
 
-def plan_job(entry: dict, input_dir: Path, store_dir: Path, trans_dir: Path,
-             spec: emb.EmbeddingRun, stats: Stats) -> Job:
-    """Load a work, its translations and its shard; reuse every vector still valid."""
-    work = entry["work"]
-    chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
-    translations = tr.load(trans_dir, entry["path"])
-    items = wanted_items(chunks, translations, stats, work["work_id"])
-    previous = emb.load(store_dir, entry["path"])
-    job = Job(work["work_id"], entry["path"], items, [None] * len(items),
-              [None] * len(items), previous)
+#: Stands in for a reused vector that wasn't read (:func:`read_rows`): a dry run
+#: or a clean work never needs it.
+_UNREAD = object()
+
+
+def read_rows(path: Path) -> emb.WorkEmbeddings:
+    """A shard without its vectors (``vecs`` is None): ``embeddings.read`` minus the
+    array that is nearly all of the file, for deciding whether a work changed (#782).
+    Kept here, not in ``patristica.embeddings``, which is in scripts.align's code hash."""
+    import numpy as np
+
+    with np.load(path, allow_pickle=False) as z:
+        meta = json.loads(str(z["meta"]))
+        runs = [emb.EmbeddingRun(**r) for r in meta["runs"]]
+        keys = [r.key for r in runs]
+        rows = [emb.Row(str(c), int(k), str(sh), keys[int(i)])
+                for c, k, sh, i in zip(z["chunk_id"], z["kind"], z["sha"], z["run"])]
+        with z.zip.open("vec.npy") as f:
+            version = np.lib.format.read_magic(f)
+            if version == (1, 0):
+                shape, _, _ = np.lib.format.read_array_header_1_0(f)
+            elif version == (2, 0):
+                shape, _, _ = np.lib.format.read_array_header_2_0(f)
+            else:
+                raise ValueError(f"{path}: unsupported vector NPY format {version}")
+        if len(shape) != 2 or shape[0] != len(rows):
+            raise ValueError(f"{path}: {len(rows)} embedding rows but vector shape {shape}")
+    return emb.WorkEmbeddings(meta["work_id"], meta["source_path"],
+                              {r.key: r for r in runs}, rows, None)
+
+
+def _reuse(job: Job, previous: emb.WorkEmbeddings | None, spec: emb.EmbeddingRun) -> None:
+    """Take every row of *previous* still valid for *job* (vectors only if it has them)."""
+    job.previous = previous
+    job.vecs = [None] * len(job.items)
+    job.runs = [None] * len(job.items)
     if previous is not None:
         index = previous.by_key()
-        for i, item in enumerate(items):
+        for i, item in enumerate(job.items):
             j = index.get((item.chunk_id, item.kind))
             if j is None:
                 continue
             row = previous.rows[j]
             run = previous.runs[row.run]
             if row.sha == item.sha and run.same_space(spec):
-                job.vecs[i] = previous.vecs[j]
+                job.vecs[i] = previous.vecs[j] if previous.vecs is not None else _UNREAD
                 job.runs[i] = run
     job.remaining = sum(v is None for v in job.vecs)
+
+
+def _unchanged(job: Job) -> bool:
+    """True when :func:`finish` would leave the shard as it is: every row reused,
+    in the shard's order, with no run left over."""
+    prev = job.previous
+    if prev is None:
+        return not job.items  # no shard and no rows
+    if (job.remaining or len(job.items) != len(prev.rows)
+            or (prev.work_id, prev.source_path) != (job.work_id, job.source_path)
+            or set(prev.runs) != {r.run for r in prev.rows}):
+        return False
+    return all((row.chunk_id, row.kind, row.sha) == (it.chunk_id, it.kind, it.sha)
+               and prev.runs[row.run] is run
+               for it, run, row in zip(job.items, job.runs, prev.rows))
+
+
+def plan_job(entry: dict, input_dir: Path, store_dir: Path, trans_dir: Path,
+             spec: emb.EmbeddingRun, stats: Stats, *, dry_run: bool = False,
+             cache: StatCache | None = None) -> Job:
+    """Load a work, its translations and its shard; reuse every vector still valid.
+
+    The shard's vectors are read only when the shard will be rewritten (not in
+    a dry run). A work found clean is remembered in *cache* while its three
+    files keep their stat, and is then counted without reading them (#782).
+    """
+    work = entry["work"]
+    shard = emb.shard_path(store_dir, entry["path"])
+    stamps = file_stamps([input_dir / entry["path"],
+                          tr.translation_path(trans_dir, entry["path"]), shard])
+    hit = cache.get(work["work_id"], stamps) if cache is not None else None
+    if hit is not None:
+        units, short, untranslated, vectors = hit
+        stats.works += 1
+        stats.units += units
+        stats.short += short
+        stats.untranslated += untranslated
+        if untranslated:
+            stats.untranslated_works[work["work_id"]] = untranslated
+        stats.vectors += vectors
+        stats.reused += vectors
+        return Job(work["work_id"], entry["path"], [], [], [], None, clean=True)
+
+    before = (stats.units, stats.short, stats.untranslated)
+    chunks = json.loads((input_dir / entry["path"]).read_text(encoding="utf-8"))
+    translations = tr.load(trans_dir, entry["path"])
+    items = wanted_items(chunks, translations, stats, work["work_id"])
+    job = Job(work["work_id"], entry["path"], items, [], [], None)
+    _reuse(job, read_rows(shard) if shard.exists() else None, spec)
+    job.clean = _unchanged(job)
+    if job.clean:
+        if cache is not None:
+            cache.put(work["work_id"], stamps,
+                      [stats.units - before[0], stats.short - before[1],
+                       stats.untranslated - before[2], len(items)])
+    else:
+        if cache is not None:
+            cache.forget(work["work_id"])
+        if not dry_run and job.previous is not None:  # finish() writes: needs the vectors
+            _reuse(job, emb.read(shard), spec)
     stats.works += 1
     stats.vectors += len(items)
     stats.reused += len(items) - job.remaining
@@ -214,11 +304,21 @@ def prune(store_dir: Path, keep: Iterable[str], stats: Stats) -> None:
             stats.deleted += 1
 
 
+@functools.cache
+def _code_hash() -> str:
+    return fingerprint.code_hash("scripts.embed")
+
+
+def plan_head(spec: emb.EmbeddingRun) -> str:
+    """What decides a work's plan besides its files: this code and the vector space."""
+    return fingerprint.value_hash([_code_hash(), spec.model, spec.dims, spec.input_type])
+
+
 def run(input_dir: Path, store_dir: Path, trans_dir: Path, *, sources: list[str] = (),
         prefixes: list[str] = (), limit_works: int | None = None, workers: int = 4,
         dry_run: bool = False, include_unpublishable: bool = False,
         make_embedder: Callable[[], ApiEmbedder] = lambda: VoyageEmbedder(MODEL, DIMS),
-        ) -> Stats:
+        use_cache: bool = True) -> Stats:
     import numpy as np
 
     stats = Stats()
@@ -232,6 +332,8 @@ def run(input_dir: Path, store_dir: Path, trans_dir: Path, *, sources: list[str]
     batch_size = getattr(embedder, "batch_size", VoyageEmbedder.batch_size)
     max_tokens = getattr(embedder, "max_batch_tokens", None) or VoyageEmbedder.max_batch_tokens
     enc = cl100k()
+    cache = (StatCache(cache_dir(input_dir) / "embed_plan.json", plan_head(spec))
+             if use_cache else None)
 
     waiters: dict[str, list[tuple[Job, int]]] = {}  # text → rows waiting for its vector
     inflight: dict[Future, list[str]] = {}
@@ -269,7 +371,10 @@ def run(input_dir: Path, store_dir: Path, trans_dir: Path, *, sources: list[str]
         for entry in tqdm(works, desc="works", unit="work"):
             if limit_works is not None and embedded_works >= limit_works:
                 break
-            job = plan_job(entry, input_dir, store_dir, trans_dir, spec, stats)
+            job = plan_job(entry, input_dir, store_dir, trans_dir, spec, stats,
+                           dry_run=dry_run, cache=cache)
+            if job.clean:
+                continue
             if job.remaining:
                 embedded_works += 1
             if dry_run:
@@ -305,6 +410,8 @@ def run(input_dir: Path, store_dir: Path, trans_dir: Path, *, sources: list[str]
     finally:
         if pool is not None:
             pool.shutdown(wait=True, cancel_futures=True)
+        if cache is not None:
+            cache.save()
 
     if not dry_run and not sources and not prefixes and limit_works is None:
         prune(store_dir, [e["path"] for e in works], stats)
