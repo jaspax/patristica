@@ -108,7 +108,15 @@ def aligned_paths(norm: Path, align_dir: Path) -> set[str]:
     from patristica import alignment_store as store
 
     by_id = {e["work"]["work_id"]: e["path"] for e in _works(norm)}
-    return {by_id[w] for _, a in store.iter_store(align_dir) for w in a.members if w in by_id}
+    out: set[str] = set()
+
+    def collect(members: list[str]) -> bool:  # the ids are all we need: decode nothing (#789)
+        out.update(by_id[w] for w in members if w in by_id)
+        return False
+
+    for _ in store.iter_store(align_dir, members=collect):
+        pass
+    return out
 
 
 def translated_paths(norm: Path) -> set[str]:

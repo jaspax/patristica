@@ -67,6 +67,7 @@ import contextlib
 import functools
 import json
 import logging
+import os
 import sys
 import time
 from collections.abc import Callable, Collection, Iterator
@@ -209,11 +210,14 @@ def _chunks(norm: Path, path: str) -> list[dict]:
     return json.loads((norm / path).read_text(encoding="utf-8"))
 
 
-def paragraph_words(paras: list[anchoring.Paragraph]) -> str:
-    """The ``words`` input of a cut: every paragraph's ref and words."""
+def paragraph_words(paras: list[anchoring.Paragraph], hashes: list[str] | None = None) -> str:
+    """The ``words`` input of a cut: every paragraph's ref and words (*hashes*:
+    their ``words_hash`` values, when the caller has them already)."""
     from patristica import fingerprint
 
-    return fingerprint.value_hash([[p.ref, p.words_hash] for p in paras])
+    if hashes is None:
+        hashes = [p.words_hash for p in paras]
+    return fingerprint.value_hash([[p.ref, h] for p, h in zip(paras, hashes)])
 
 
 def check_work(c: Candidate, norm: Path, anchors_dir: Path,
@@ -223,14 +227,16 @@ def check_work(c: Candidate, norm: Path, anchors_dir: Path,
     if cut is None:
         return State(c, MISSING, "no cut file")
     paras = anchoring.paragraphs(_chunks(norm, c.path))
-    if cut.words != paragraph_words(paras):
-        changed = [p.ref for p in paras
-                   if p.ref not in cut.paragraphs or cut.paragraphs[p.ref].words != p.words_hash]
+    # ``Paragraph.words_hash`` is a property, recomputed on every use: hash once.
+    hashes = [p.words_hash for p in paras]
+    if cut.words != paragraph_words(paras, hashes):
+        changed = [p.ref for p, h in zip(paras, hashes)
+                   if p.ref not in cut.paragraphs or cut.paragraphs[p.ref].words != h]
         return State(c, WORDS, f"{len(changed)} paragraphs changed"
                      + (f", e.g. {changed[0]}" if changed else ""))
-    for p in paras:
+    for p, h in zip(paras, hashes):
         rec = cut.paragraphs.get(p.ref)
-        if rec is None or rec.words != p.words_hash or rec.starts != p.starts:
+        if rec is None or rec.words != h or rec.starts != p.starts:
             return State(c, OUTPUT, f"{p.ref} isn't cut as its cut file says: re-run "
                                     "scripts.normalize")
     if cut.anchor != c.anchor:
@@ -255,32 +261,58 @@ def check_cache(norm: Path) -> StatCache:
     return StatCache(cache_dir(norm) / "anchor_check.json", _check_head())
 
 
+#: Below this many works to check, :func:`check_works` doesn't start a process pool.
+PARALLEL_MIN = 64
+
+
+def _check_all(cands: list[Candidate], norm: Path, anchors_dir: Path,
+               workers: int | None) -> list[State]:
+    """:func:`check_work` for each of *cands*, in order: in worker processes when
+    there are many (a cold check of the corpus parses ~2,600 files, #789)."""
+    n = min(workers if workers is not None else (os.cpu_count() or 1), len(cands))
+    if n < 2 or len(cands) < PARALLEL_MIN:
+        return [check_work(c, norm, anchors_dir) for c in cands]
+    import multiprocessing
+    from concurrent.futures import ProcessPoolExecutor
+
+    with ProcessPoolExecutor(n, mp_context=multiprocessing.get_context("spawn")) as pool:
+        return list(pool.map(check_work, cands, [norm] * len(cands),
+                             [anchors_dir] * len(cands), chunksize=8))
+
+
 def check_works(norm: Path = NORMALIZED, anchors_dir: Path = ANCHORS,
-                use_cache: bool = True) -> list[State]:
+                use_cache: bool = True, workers: int | None = None) -> list[State]:
     """Every anchorable work's state, plus works normalize hasn't fingerprinted
     and cut files of works that aren't anchored (orphans). Needs no vectors.
 
     A work found current is remembered (``data/cache/anchor_check.json``)
     while its normalized file, its anchor's and its cut file keep their stat
     and its anchor, method and model are the same, so a no-op check reads
-    only the changed works (#782)."""
+    only the changed works (#782). Works to check are checked in *workers*
+    processes (default: one per CPU) when there are many."""
     cands, unbuilt = candidates(norm, anchors_dir)
     states = [State(None, UNNORMALIZED, p) for p in unbuilt]
     cache = check_cache(norm) if use_cache else None
+    checked: list[State | None] = []
+    todo: list[tuple[int, Candidate, list, list]] = []
     for c in cands:
         stamps = file_stamps([norm / c.path, norm / c.anchor_path,
                               anchor_store.cut_path(anchors_dir, c.path)])
         tag = [c.anchor, c.anchor_path, c.anchor_language, c.method, method_hash(c), _model()]
         if cache is not None and cache.get(c.work_id, stamps, tag) == CURRENT:
-            states.append(State(c, CURRENT))
-            continue
-        s = check_work(c, norm, anchors_dir)
+            checked.append(State(c, CURRENT))
+        else:
+            todo.append((len(checked), c, stamps, tag))
+            checked.append(None)
+    for (i, c, stamps, tag), s in zip(todo, _check_all([c for _, c, _, _ in todo], norm,
+                                                       anchors_dir, workers)):
+        checked[i] = s
         if cache is not None:
             if s.status == CURRENT:
                 cache.put(c.work_id, stamps, CURRENT, tag)
             else:
                 cache.forget(c.work_id)
-        states.append(s)
+    states += checked
     if cache is not None:
         cache.save()
     known = {c.path for c in cands}

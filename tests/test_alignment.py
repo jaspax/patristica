@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import pytest
 
@@ -252,9 +253,17 @@ def test_path_for() -> None:
         store.path_for(store.DEFAULT_DIR, "../x")
 
 
+def _units_and_ids(path: str) -> tuple[int, str]:
+    """A normalized work's unit count and chunk-id hash (run in worker processes)."""
+    chunks = json.loads(Path(path).read_text(encoding="utf-8"))
+    return len(chunks), store.ids_sha([c["chunk_id"] for c in chunks])
+
+
 def test_tracked_alignments_match_the_corpus() -> None:
     """Every tracked alignment parses, and its members' units are the works' current chunks."""
-    from pathlib import Path
+    import multiprocessing
+    import os
+    from concurrent.futures import ProcessPoolExecutor
 
     from patristica.versions import derive_version_groups
 
@@ -264,16 +273,23 @@ def test_tracked_alignments_match_the_corpus() -> None:
     groups = derive_version_groups(
         {w: e["work"].get("translation_of") for w, e in entries.items()},
         external_ids={w: e["work"].get("external_ids", []) for w, e in entries.items()})
-    for path, a in store.iter_store(store.DEFAULT_DIR):
+    alignments = list(store.iter_store(store.DEFAULT_DIR))
+    for path, a in alignments:
         assert path == store.path_for(store.DEFAULT_DIR, a.group)
         assert a.group in groups.members, f"{path}: {a.group} is no longer a version group"
         assert a.pivot in a.members
-        for wid, mem in a.members.items():
+        for wid in a.members:
             assert wid in groups.members[a.group]
-            chunks = json.loads((norm / entries[wid]["path"]).read_text(encoding="utf-8"))
-            assert mem.units == len(chunks)
-            assert mem.ids == store.ids_sha([c["chunk_id"] for c in chunks]), \
-                f"{path}: {wid} changed since it was aligned (run scripts.align)"
+    # Parsing the members' files is nearly all of the test: in parallel (#789).
+    paths = sorted({str(norm / entries[wid]["path"]) for _, a in alignments for wid in a.members})
+    with ProcessPoolExecutor(min(os.cpu_count() or 1, 8),
+                             mp_context=multiprocessing.get_context("spawn")) as pool:
+        current = dict(zip(paths, pool.map(_units_and_ids, paths, chunksize=16)))
+    for path, a in alignments:
+        for wid, mem in a.members.items():
+            units, ids = current[str(norm / entries[wid]["path"])]
+            assert mem.units == units
+            assert mem.ids == ids, f"{path}: {wid} changed since it was aligned (run scripts.align)"
 
 
 def test_from_json_checks_counts() -> None:
