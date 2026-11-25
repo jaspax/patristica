@@ -60,3 +60,11 @@ def test_dates_and_urls():
     assert describe.wikipedia_url("Ælfric of Eynsham") == (
         "https://en.wikipedia.org/wiki/%C3%86lfric_of_Eynsham")
     assert describe.wikipedia_url("Origen (theologian)").endswith("/Origen_(theologian)")
+
+
+def test_text_problem_flags_length_and_source_talk():
+    assert describe.text_problem("word " * 90) is None
+    assert "101 words" in describe.text_problem("word " * 101)
+    assert describe.text_problem("The catalogue dates his activity to 400.") is not None
+    assert describe.text_problem("The Panarion is a catalogue of heresies.") is None
+    assert describe.text_problem("Its date is uncertain in the catalogue of Gennadius.") is None

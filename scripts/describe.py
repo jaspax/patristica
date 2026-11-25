@@ -41,6 +41,7 @@ import argparse
 import hashlib
 import json
 import logging
+import re
 import subprocess
 import tempfile
 import threading
@@ -77,7 +78,8 @@ Scripture and Christian writings of the first millennium (Greek, Latin, Syriac, 
 Coptic, Armenian, Ge'ez, Slavonic, Georgian, Arabic, Irish and more). Each note \
 appears beside an author's or a work's catalogue facts.
 
-Write one paragraph of plain, neutral, encyclopedic English, 50 to 100 words (never more than 100).
+Write one paragraph of plain, neutral, encyclopedic English of 60 to 90 \
+words: never more than 100.
 - For a person: who they were, when and where they lived, their role (bishop, \
 monk, theologian, poet…), and what they are known for, including major works \
 or ideas.
@@ -200,6 +202,7 @@ def wikipedia_url(title: str) -> str:
 class Usage:
     five_hour: float | None = None
     seven_day: float | None = None
+    five_hour_resets: object = None  # as the CLI reports it (epoch seconds)
 
 
 def ask(system: str, user: str, model: str = MODEL) -> tuple[Reply, Usage]:
@@ -215,8 +218,10 @@ def ask(system: str, user: str, model: str = MODEL) -> tuple[Reply, Usage]:
                               timeout=600)
     reply, usage = parse_claude_stream(model, proc.stdout, proc.returncode, proc.stderr, Reply)
     limits = usage.get("limits", {})
-    return reply, Usage((limits.get("five_hour") or {}).get("utilization"),
-                        (limits.get("seven_day") or {}).get("utilization"))
+    five = limits.get("five_hour") or {}
+    return reply, Usage(five.get("utilization"),
+                        (limits.get("seven_day") or {}).get("utilization"),
+                        five.get("resets_at"))
 
 
 # --- Subjects ---------------------------------------------------------------
@@ -405,6 +410,23 @@ def load_manifest(path: Path = WORKS_MANIFEST) -> list[dict[str, Any]]:
         return [json.loads(line) for line in f if line.strip()]
 
 
+MAX_WORDS = 100
+_SOURCE_TALK = re.compile(
+    r"\b(?:the|in the|by the) (?:catalogue|catalog)\b(?! of)|"
+    r"\bcatalogue (?:facts|records|entry|dates)\b|\bthe sources? (?:given|provided)\b",
+    re.IGNORECASE)
+
+
+def text_problem(text: str) -> str | None:
+    """Why a note breaks the brief (too long, talks about its sources), or None."""
+    words = len(text.split())
+    if words > MAX_WORDS:
+        return f"it had {words} words; the limit is {MAX_WORDS} (aim for 60-90)"
+    if _SOURCE_TALK.search(text):
+        return "it referred to the catalogue or the sources; state the facts directly"
+    return None
+
+
 def match_title(chosen: str, titles: list[str]) -> str | None:
     """The candidate title the model chose; it sometimes adds the short description."""
     chosen = chosen.strip().removeprefix("Article title:").strip()
@@ -417,7 +439,12 @@ def match_title(chosen: str, titles: list[str]) -> str | None:
 def describe(subject: Subject, wiki: Wikipedia, model: str) -> tuple[list[Description], Usage]:
     subject.load_excerpt()
     cands = wiki.candidates(subject.queries)
-    reply, usage = ask(SYSTEM, subject.prompt(cands), model)
+    prompt = subject.prompt(cands)
+    reply, usage = ask(SYSTEM, prompt, model)
+    if (problem := text_problem(reply.text)) is not None:  # one retry, told what was wrong
+        log.debug("%s: %s; retrying", subject.key, problem)
+        reply, usage = ask(SYSTEM, f"{prompt}\n\n## Note\nA first draft was rejected: "
+                           f"{problem}. Write it again.", model)
     url = None
     if reply.wikipedia_title:
         if (title := match_title(reply.wikipedia_title, [c["title"] for c in cands])):
@@ -437,8 +464,13 @@ def generated(d: Description | None) -> bool:
     return d is not None and d.model != PLACEHOLDER_MODEL
 
 
-def needs(subject: Subject, have: dict[str, Description], redo: bool) -> bool:
+def needs(subject: Subject, have: dict[str, Description], redo: bool,
+          fix: bool = False) -> bool:
+    """Whether *subject* goes to the model: some member lacks a generated note,
+    or (*fix*) one breaks the brief (``text_problem``)."""
     if redo:
+        return True
+    if fix and any(text_problem(have[i].text) for i in subject.ids if i in have):
         return True
     return not all(generated(have.get(i)) for i in subject.ids)
 
@@ -481,7 +513,7 @@ def pending(normalized: Path = Path("data/normalized"),
 
 def generate(subjects: list[Subject], path: Path, model: str, workers: int,
              stop_at: float, redo: bool, limit: int | None, requests: bool = True,
-             only: set[str] | None = None) -> int:
+             only: set[str] | None = None, fix: bool = False) -> int:
     have = descriptions.load(path)
     copied, dropped = settle(subjects, have)
     if copied or dropped:
@@ -490,7 +522,7 @@ def generate(subjects: list[Subject], path: Path, model: str, workers: int,
     descriptions.save(path, have.values())
     if only:
         subjects = [s for s in subjects if s.key in only or only & set(s.ids)]
-    todo = [s for s in subjects if needs(s, have, redo)]
+    todo = [s for s in subjects if needs(s, have, redo, fix)]
     if not requests:
         log.info("%s: %d subjects to describe (--no-requests: none sent)", path.name, len(todo))
         return 0
@@ -525,8 +557,9 @@ def generate(subjects: list[Subject], path: Path, model: str, workers: int,
                     have[e.id] = e
                 done += 1
                 if usage.five_hour is not None and usage.five_hour >= stop_at and not stop:
-                    log.warning("Five-hour usage at %.0f%%: stopping (resume later)",
-                                100 * usage.five_hour)
+                    log.warning("Five-hour usage at %.0f%%: stopping (resume after the "
+                                "window resets: %s)", 100 * usage.five_hour,
+                                usage.five_hour_resets)
                     stop = True
                 if done % 25 == 0:
                     descriptions.save(path, have.values())
@@ -599,6 +632,8 @@ def main() -> None:
     g.add_argument("--stop-at", type=float, default=0.85,
                    help="stop sending at this five-hour usage (0-1)")
     g.add_argument("--normalized-dir", type=Path, default=Path("data/normalized"))
+    g.add_argument("--fix", action="store_true",
+                   help="also rewrite generated notes that are too long or talk about sources")
     g.add_argument("--keep-going", action="store_true",
                    help="exit 0 even when some requests failed (they are logged; the pipeline)")
     g.add_argument("--no-requests", action="store_true",
@@ -623,7 +658,7 @@ def main() -> None:
     for subjects, path in jobs:
         failed += generate(subjects, path, args.model, args.workers, args.stop_at,
                            args.redo or bool(args.id), args.limit, not args.no_requests,
-                           set(args.id) or None)
+                           set(args.id) or None, args.fix)
     raise SystemExit(1 if failed and not args.keep_going else 0)
 
 
