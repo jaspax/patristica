@@ -17,7 +17,7 @@ afterEach(() => {
 });
 
 describe("AboutPanel", () => {
-  it("shows the text, the Wikipedia link and the AI note", async () => {
+  it("shows the text and the Wikipedia link", async () => {
     fetchMock.mockResolvedValue(
       new Response(JSON.stringify({ text: "A bishop of Hippo.", wikipedia: "https://en.wikipedia.org/wiki/Augustine_of_Hippo" })),
     );
@@ -27,7 +27,7 @@ describe("AboutPanel", () => {
     expect(screen.getByRole("link", { name: "Wikipedia" }).getAttribute("href")).toBe(
       "https://en.wikipedia.org/wiki/Augustine_of_Hippo",
     );
-    expect(aside.textContent).toContain("Summary written by AI");
+    expect(aside.textContent).not.toContain("AI");
     expect(fetchMock.mock.calls[0][0]).toBe("/library/about/authors/augustine-of-hippo.json");
   });
 

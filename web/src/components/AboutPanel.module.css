@@ -15,10 +15,6 @@
   font-size: 0.82rem;
 }
 
-.note {
-  color: var(--muted);
-}
-
 /* Stacked under the header's facts on narrow screens. */
 @media (max-width: 55.99rem) {
   .about {
