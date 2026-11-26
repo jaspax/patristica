@@ -2,10 +2,10 @@
  "work_id": "mt-eng/ogpg/vol-081/in-danielem",
  "anchor": "ogpg/vol-081/in-danielem",
  "method": "7c99b01da01bd8eb",
- "anchor_cuts": "5d5aa0408cd80ac0",
+ "anchor_cuts": "c2acef219bd155d1",
  "words": "0bc72f11081cee8c",
  "model": "voyage/voyage-4-large",
- "stats": {"beads": 2641, "calibration": [0.7469, 0.1529], "converged": false, "fallback_paragraphs": 0, "one_one": 0.9906, "one_one_anchored": 0.9887, "one_one_provisional": 0.7498, "rounds": 4, "units": 2646},
+ "stats": {"beads": 2644, "calibration": [0.7129, 0.1685], "converged": false, "fallback_paragraphs": 0, "kept": "provisional", "one_one": 0.9835, "one_one_anchored": 0.9813, "one_one_provisional": 0.9813, "rounds": 4, "units": 2650},
  "paragraphs": {
   "ogpg.vol-081.c1255.2": {"words": "c4fe669d0dce7df4", "starts": [0, 13, 35, 49]},
   "ogpg.vol-081.c1257.1": {"words": "b9d40bdfd9daa47f", "starts": [0, 12, 28, 66, 87, 123, 153, 176, 208, 236, 258, 288, 325, 355, 378, 402, 437]},
