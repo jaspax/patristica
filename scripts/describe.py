@@ -329,8 +329,80 @@ LANGUAGES = {
 }
 
 
+#: Two titles in one language with less similarity than this are different texts.
+SAME_TITLE = 0.5
+
+
+def _title_key(title: str) -> str:
+    from patristica.textfold import fold
+
+    return " ".join(fold(title).lower().split())
+
+
+_STOP = frozenset("a an and the of on in to with from by for de ad et in cum ex contra".split())
+
+
+def _words(title: str) -> set[str]:
+    return {w for w in re.findall(r"\w+", _title_key(title)) if w not in _STOP}
+
+
+def _similar(a: str, b: str) -> bool:
+    """Same text by title: close as strings, or sharing most content words
+    ("De Filio (Orat. 29)" / "Oratio 29: Oratio theologica III (De Filio I)")."""
+    from difflib import SequenceMatcher
+
+    if SequenceMatcher(None, _title_key(a), _title_key(b)).ratio() >= SAME_TITLE:
+        return True
+    wa, wb = _words(a), _words(b)
+    return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= SAME_TITLE
+
+
+def mixed(ws: list[dict[str, Any]]) -> bool:
+    """A version group that merges different texts (a collection with its parts,
+    #804): two members in one language whose titles are clearly different."""
+    by_lang: dict[str, list[str]] = {}
+    for w in ws:
+        by_lang.setdefault(w["language"], []).append(w["title"])
+    return any(not _similar(a, b) for titles in by_lang.values()
+               for i, a in enumerate(titles) for b in titles[i + 1:])
+
+
+def clusters(ws: list[dict[str, Any]]) -> list[list[str]]:
+    """The members of a mixed group that are one text: joined by a similar title
+    in the same language, and a translation to its original unless a sibling in
+    its language with a different title is a "translation" of the same original
+    (then the original is a collection of both: #804). A member joined to none is
+    its own cluster (a separate description is safe; a wrong shared one is not)."""
+    ids = [w["work_id"] for w in ws]
+    parent = {i: i for i in ids}
+
+    def find(i: str) -> str:
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for w in ws:
+        target = w.get("translation_of")
+        if target not in parent:
+            continue
+        siblings = [o for o in ws if o is not w and o.get("translation_of") == target
+                    and o["language"] == w["language"]]
+        if all(_similar(w["title"], o["title"]) for o in siblings):
+            parent[find(w["work_id"])] = find(target)
+    for i, a in enumerate(ws):
+        for b in ws[i + 1:]:
+            if a["language"] == b["language"] and _similar(a["title"], b["title"]):
+                parent[find(a["work_id"])] = find(b["work_id"])
+    out: dict[str, list[str]] = {}
+    for i in ids:
+        out.setdefault(find(i), []).append(i)
+    return sorted(sorted(c) for c in out.values())
+
+
 def work_subjects(entries: list[dict[str, Any]], normalized: Path) -> list[Subject]:
-    """One subject per version group (or ungrouped work)."""
+    """One subject per version group (or ungrouped work); a mixed group (#804)
+    gets one per cluster of its members that are the same text."""
     works = {e["work"]["work_id"]: e for e in entries}
     groups = derive_version_groups(
         {wid: e["work"].get("translation_of") for wid, e in works.items()},
@@ -339,8 +411,14 @@ def work_subjects(entries: list[dict[str, Any]], normalized: Path) -> list[Subje
     for wid in works:
         members.setdefault(groups.group(wid) or wid, []).append(wid)
     index = author_index().authors
-    return [group_subject(key, sorted(ids), works, index, normalized)
-            for key, ids in sorted(members.items())]
+    subjects = []
+    for key, ids in sorted(members.items()):
+        ws = [works[i]["work"] for i in ids]
+        parts = clusters(ws) if len(ids) > 1 and mixed(ws) else [sorted(ids)]
+        for part in parts:
+            subjects.append(group_subject(key if len(parts) == 1 else f"{key}#{part[0]}",
+                                          part, works, index, normalized))
+    return subjects
 
 
 def _is_mt(w: dict[str, Any]) -> bool:
