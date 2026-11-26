@@ -68,3 +68,27 @@ def test_text_problem_flags_length_and_source_talk():
     assert describe.text_problem("The catalogue dates his activity to 400.") is not None
     assert describe.text_problem("The Panarion is a catalogue of heresies.") is None
     assert describe.text_problem("Its date is uncertain in the catalogue of Gennadius.") is None
+
+
+def test_mixed_groups_split_a_collection_from_its_parts():
+    """#804: "translations" of a collection that are different pieces of it get
+    their own descriptions; true versions still share one."""
+    ws = [
+        {"work_id": "pl/letters", "language": "lat", "title": "Epistolae: prima classis"},
+        {"work_id": "en/sel", "language": "eng", "title": "Selected Letters",
+         "translation_of": "pl/letters"},
+        {"work_id": "en/1-63", "language": "eng", "title": "Letters 1-63",
+         "translation_of": "pl/letters"},
+        {"work_id": "en/aux", "language": "eng",
+         "title": "Sermon Against Auxentius on the Giving Up of the Basilicas",
+         "translation_of": "pl/letters"},
+    ]
+    assert describe.mixed(ws)
+    assert describe.clusters(ws) == [["en/1-63", "en/sel"], ["en/aux"], ["pl/letters"]]
+
+    versions = [{"work_id": "grc", "language": "grc", "title": "De Filio (Orat. 29)"},
+                {"work_id": "pg", "language": "grc",
+                 "title": "Oratio 29: Oratio theologica III (De Filio I)"},
+                {"work_id": "eng", "language": "eng", "title": "Third Theological Oration",
+                 "translation_of": "grc"}]
+    assert not describe.mixed(versions)
