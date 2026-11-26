@@ -34,8 +34,9 @@ class FakeEstimates:
     def anchor(self) -> tuple[int, float]:
         return self._anchor.pop(0) if self._anchor else (0, 0.0)
 
-    def __init__(self, translate=(), embed=(), anchor=()) -> None:
+    def __init__(self, translate=(), embed=(), anchor=(), describe=()) -> None:
         self._translate, self._embed, self._anchor = list(translate), list(embed), list(anchor)
+        self._describe = list(describe)
         self.models: list[str] = []
 
     def translate(self, model: str = pl.DEFAULT_TRANSLATE_MODEL) -> tuple[int, float]:
@@ -45,11 +46,15 @@ class FakeEstimates:
     def embed(self) -> tuple[int, float]:
         return self._embed.pop(0) if self._embed else (0, 0.0)
 
+    def describe(self) -> int:
+        return self._describe.pop(0) if self._describe else 0
+
 
 def make(fail=(), changes=("data/normalized/kjv/gen.json",), translate=(), embed=(),
-         anchor=(), **opts):
+         anchor=(), describe=(), **opts):
     runner = FakeRunner(fail)
-    p = pl.Pipeline(pl.Options(**opts), runner, FakeEstimates(translate, embed, anchor),
+    p = pl.Pipeline(pl.Options(**opts), runner,
+                    FakeEstimates(translate, embed, anchor, describe),
                     validate_changes=lambda: list(changes))
     return p, runner
 
@@ -65,6 +70,7 @@ def test_runs_every_step_in_order_and_sends_nothing_at_zero_cost():
         ["scripts.normalize"], ["scripts.anchor", "--check"], ["scripts.validate", "--brief"],
         ["scripts.translate"],
         ["scripts.embed", "--no-requests"], ["scripts.align"], ["scripts.build_index"],
+        ["scripts.describe", "generate", "--no-requests"],
         ["scripts.export_library"], ["scripts.upload_library"]]
     assert [r.step for r in p.results] == list(pl.STEPS)
     assert set(statuses(p).values()) == {"done"}
@@ -143,7 +149,7 @@ def test_a_failing_step_stops_the_run():
     assert p.run() == 1
     assert runner.commands[-1] == ["scripts.align"]
     assert statuses(p)["align"] == "failed"
-    assert [r.detail for r in p.results[6:]] == ["not reached"] * 3
+    assert [r.detail for r in p.results[6:]] == ["not reached"] * 4
 
 
 def test_anchor_is_free_when_no_cut_file_is_stale():
@@ -260,7 +266,7 @@ def test_preflight_lists_every_problem_at_once(data):
 
 def test_preflight_skipped_steps_need_nothing(data):
     opts = pl.Options(pay=True, skip=frozenset({"anchor", "translate", "embed",
-                                                "build_index", "upload_library"}))
+                                                "build_index", "describe", "upload_library"}))
     checks, _ = run_preflight(data, opts)
     assert set(checks) == {"data/normalized", "data/raw"}
 
@@ -312,9 +318,9 @@ def test_each_step_is_headed_and_closed_and_the_table_takes_its_summary():
     p.normalize = normalize
     assert p.run() == 0
     text = screen.getvalue().decode()
-    assert "── [1/9] normalize ──" in text and "── [9/9]" not in text
+    assert "── [1/10] normalize ──" in text and "── [10/10]" not in text
     assert "✓ normalize done in 0s" in text
-    assert "– [9/9] upload_library: skipped (--skip)" in text
+    assert "– [10/10] upload_library: skipped (--skip)" in text
     assert "– validate skipped in 0s · skipped: nothing validate reads changed" in text
     assert p.results[0].detail == "276 total chunks written"
     assert all(len(line) <= 60 for line in text.splitlines() if line.startswith("──"))
@@ -347,3 +353,18 @@ def test_runner_passes_the_width_and_level_and_runs_modules_through_the_launcher
     assert calls[0][1:] == ["-m", "patristica.console", "scripts.validate", "--brief"]
     assert "$ python" in screen.getvalue().decode().splitlines()[-1]
     assert "patristica.console" not in screen.getvalue().decode()
+
+
+def test_describe_copies_for_free_and_writes_new_ones_only_with_pay():
+    """#795: copies within version groups always; new bios and descriptions need --pay."""
+    p, runner = make(describe=[3])
+    assert p.run() == 0
+    assert runner.commands[-1] == ["scripts.describe", "generate", "--no-requests"]
+    assert statuses(p)["describe"] == "stopped"
+    assert "3 authors and works" in p.results[pl.STEPS.index("describe")].detail
+
+    p, runner = make(pay=True, describe=[3, 1])
+    assert p.run() == 0
+    assert ["scripts.describe", "generate", "--keep-going"] in runner.commands
+    assert "2 authors and works described; 1 failed" in p.results[
+        pl.STEPS.index("describe")].detail

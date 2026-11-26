@@ -15,10 +15,18 @@ import {
 } from "@/lib/filter";
 import { formatAuthorDate, formatDate, TRADITIONS } from "@/lib/format";
 import { languageInfo } from "@/lib/lang";
-import { authorHref, loadLibrary, workHref, type Author, type Library } from "@/lib/library";
+import {
+  authorAboutFile,
+  authorHref,
+  loadLibrary,
+  workHref,
+  type Author,
+  type Library,
+} from "@/lib/library";
 import { useDebouncedText } from "@/lib/useDebouncedText";
 import { useLoaded } from "@/lib/useLoaded";
 
+import AboutPanel from "./AboutPanel";
 import FilterFields from "./FilterFields";
 import filterStyles from "./Filters.module.css";
 import LoadError from "./LoadError";
@@ -109,72 +117,76 @@ function Profile({ author, library }: { author: Author; library: Library }) {
         <Link href="/authors">Authors</Link>
       </nav>
 
-      <header className={styles.header}>
-        <h1>{author.name}</h1>
-        <dl className={styles.meta}>
-          {author.birth && (
-            <>
-              <dt>Born</dt>
-              <dd>{formatAuthorDate(author.birth)}</dd>
-            </>
+      <header className={author.about ? `${styles.header} ${styles.withAbout}` : styles.header}>
+        <div className={styles.headMain}>
+          <h1>{author.name}</h1>
+          <dl className={styles.meta}>
+            {author.birth && (
+              <>
+                <dt>Born</dt>
+                <dd>{formatAuthorDate(author.birth)}</dd>
+              </>
+            )}
+            {author.death && (
+              <>
+                <dt>Died</dt>
+                <dd>{formatAuthorDate(author.death)}</dd>
+              </>
+            )}
+            {author.floruit && (
+              <>
+                <dt>Active</dt>
+                <dd>fl. {formatAuthorDate(author.floruit)}</dd>
+              </>
+            )}
+            {author.tradition && (
+              <>
+                <dt>Tradition</dt>
+                <dd>{TRADITIONS[author.tradition] ?? author.tradition}</dd>
+              </>
+            )}
+            {real && (
+              <>
+                <dt>Pseudonymous</dt>
+                <dd>
+                  Works that carry the name of{" "}
+                  <AuthorLink author={real} count={counts.get(real.id) ?? 0} />
+                </dd>
+              </>
+            )}
+            {pseudonyms.length > 0 && (
+              <>
+                <dt>Pseudonymous works</dt>
+                <dd>
+                  <ul className={styles.inlineList}>
+                    {pseudonyms.map((p) => (
+                      <li key={p.id}>
+                        <AuthorLink author={p} count={counts.get(p.id) ?? 0} />
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </>
+            )}
+            {author.aliases.length > 0 && (
+              <>
+                <dt>Also known as</dt>
+                <dd dir="auto">{author.aliases.join(" · ")}</dd>
+              </>
+            )}
+            {author.external_ids.length > 0 && (
+              <>
+                <dt>Catalogue ids</dt>
+                <dd>{author.external_ids.join(", ")}</dd>
+              </>
+            )}
+          </dl>
+          {author.birth || author.death || author.floruit ? null : (
+            <p className={styles.note}>No dates are recorded for this author.</p>
           )}
-          {author.death && (
-            <>
-              <dt>Died</dt>
-              <dd>{formatAuthorDate(author.death)}</dd>
-            </>
-          )}
-          {author.floruit && (
-            <>
-              <dt>Active</dt>
-              <dd>fl. {formatAuthorDate(author.floruit)}</dd>
-            </>
-          )}
-          {author.tradition && (
-            <>
-              <dt>Tradition</dt>
-              <dd>{TRADITIONS[author.tradition] ?? author.tradition}</dd>
-            </>
-          )}
-          {real && (
-            <>
-              <dt>Pseudonymous</dt>
-              <dd>
-                Works that carry the name of{" "}
-                <AuthorLink author={real} count={counts.get(real.id) ?? 0} />
-              </dd>
-            </>
-          )}
-          {pseudonyms.length > 0 && (
-            <>
-              <dt>Pseudonymous works</dt>
-              <dd>
-                <ul className={styles.inlineList}>
-                  {pseudonyms.map((p) => (
-                    <li key={p.id}>
-                      <AuthorLink author={p} count={counts.get(p.id) ?? 0} />
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </>
-          )}
-          {author.aliases.length > 0 && (
-            <>
-              <dt>Also known as</dt>
-              <dd dir="auto">{author.aliases.join(" · ")}</dd>
-            </>
-          )}
-          {author.external_ids.length > 0 && (
-            <>
-              <dt>Catalogue ids</dt>
-              <dd>{author.external_ids.join(", ")}</dd>
-            </>
-          )}
-        </dl>
-        {author.birth || author.death || author.floruit ? null : (
-          <p className={styles.note}>No dates are recorded for this author.</p>
-        )}
+        </div>
+        {/* The author's bio (#795), to the right of the facts. */}
+        {author.about && <AboutPanel file={authorAboutFile(author.id)} label={`About ${author.name}`} />}
       </header>
 
       <section aria-labelledby="works">

@@ -27,6 +27,12 @@ writes ``data/library/`` (gitignored):
   ``alignments/{group}.json``. ``index.json`` lists the groups that have one
   under ``alignments``. A member whose chunk count no longer matches is left
   out until ``scripts.align`` runs again.
+- ``about/works/{path}`` and ``about/authors/{author_id}.json`` — a work's
+  description or an author's bio (``patristica.descriptions``, #795),
+  ``{"text", "wikipedia"}``, for every work and author that has one in
+  ``data/descriptions/``. The index row (or ``authors.json`` record) of each
+  carries ``"about": true``; the others have no such key. They are separate
+  files so the index and the work texts don't grow.
 - ``works/{path}`` — a slim per-work file, ``{"work_id", "ref_prefix",
   "chunks": [[ref_suffix, text], ...]}``, where ``path`` mirrors the work's
   path under ``data/normalized/``.  The common dot-separated ref prefix is
@@ -66,7 +72,7 @@ from typing import Any
 
 from tqdm import tqdm
 
-from patristica import alignment_store, console, editorial, machine_translation
+from patristica import alignment_store, console, descriptions, editorial, machine_translation
 from patristica.authors import author_index, work_author_date_range
 from patristica.models import Chunk, Work
 from patristica.sources import MACHINE_TRANSLATION_SOURCES, SOURCE_LABELS, source_label
@@ -77,6 +83,7 @@ log = logging.getLogger(__name__)
 
 WORKS_SUBDIR = "works"
 ALIGNMENTS_SUBDIR = "alignments"
+ABOUT_SUBDIR = "about"
 INDEX_NAME = "index.json"
 AUTHORS_NAME = "authors.json"
 
@@ -228,15 +235,16 @@ def library_version(
     works_dir: Path,
     authors: list[dict[str, Any]],
     alignment_files: tuple[str, ...] = (),
+    about_files: tuple[str, ...] = (),
 ) -> str:
-    """Content hash of the export: index rows, labels, authors, work and alignment files."""
+    """Content hash of the export: index rows, labels, authors, work, alignment and about files."""
     h = hashlib.sha256()
     h.update(
         json.dumps([sources, rows, authors], ensure_ascii=False, sort_keys=True).encode("utf-8")
     )
     for row in rows:
         h.update(hashlib.sha256((works_dir.parent / row["file"]).read_bytes()).digest())
-    for file in alignment_files:
+    for file in (*alignment_files, *about_files):
         h.update(file.encode("utf-8"))
         h.update(hashlib.sha256((works_dir.parent / file).read_bytes()).digest())
     return h.hexdigest()[:16]
@@ -291,6 +299,49 @@ def export_alignments(align_dir: Path, output_dir: Path, units: dict[str, int]
     return sorted(written)
 
 
+def work_about_file(file: str) -> str:
+    """The library path of a work's description: ``about/`` + its work file's path."""
+    return f"{ABOUT_SUBDIR}/{file}"
+
+
+def author_about_file(author_id: str) -> str:
+    """The library path of an author's bio."""
+    return f"{ABOUT_SUBDIR}/authors/{author_id}.json"
+
+
+def export_about(output_dir: Path, rows: list[dict[str, Any]], authors: list[dict[str, Any]],
+                 desc_dir: Path) -> list[str]:
+    """Write the ``about`` file of every work and author with a description (#795).
+
+    Marks their index rows and author records with ``"about": true``, deletes
+    the files of entities that no longer have one, and returns the files written
+    (sorted). Descriptions of works or authors not in the export are ignored.
+    """
+    works = descriptions.load_works(desc_dir)
+    bios = descriptions.load_authors(desc_dir)
+    files: dict[str, dict[str, object]] = {}
+    for row in rows:
+        if (d := works.get(row["id"])) is not None:
+            row["about"] = True
+            files[work_about_file(row["file"])] = d.about()
+    for author in authors:
+        if (d := bios.get(author["id"])) is not None:
+            author["about"] = True
+            files[author_about_file(author["id"])] = d.about()
+    for rel, about in files.items():
+        dst = output_dir / rel
+        text = json.dumps(about, ensure_ascii=False, separators=(",", ":"))
+        if not dst.exists() or dst.read_text(encoding="utf-8") != text:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_text(text, encoding="utf-8")
+    root = output_dir / ABOUT_SUBDIR
+    if root.exists():
+        for p in root.rglob("*.json"):
+            if p.relative_to(output_dir).as_posix() not in files:
+                p.unlink()
+    return sorted(files)
+
+
 def _previous_counts(index_path: Path) -> dict[str, int]:
     """Chunk counts from an earlier ``index.json``, so up-to-date works need not be re-read."""
     if not index_path.exists():
@@ -304,12 +355,14 @@ def _previous_counts(index_path: Path) -> dict[str, int]:
 
 
 def export_library(input_dir: Path, output_dir: Path, force: bool = False,
-                   align_dir: Path = alignment_store.DEFAULT_DIR) -> dict[str, int]:
+                   align_dir: Path = alignment_store.DEFAULT_DIR,
+                   desc_dir: Path | None = None) -> dict[str, int]:
     """Export every work in *input_dir* to *output_dir*.
 
     Returns counts: ``works`` (index rows), ``written`` (work files rebuilt),
-    ``removed`` (stale work files deleted) and ``alignments`` (alignment files
-    in the export).
+    ``removed`` (stale work files deleted), ``alignments`` (alignment files
+    in the export) and ``about`` (description and bio files, from *desc_dir*;
+    none without it).
     """
     entries = read_works_manifest(input_dir)
     # A machine translation whose work has since gained a published English
@@ -381,9 +434,10 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
             f"author_ids not in the author index (re-run scripts.normalize): {unknown}"
         )
     alignments = export_alignments(align_dir, output_dir, {r["id"]: r["chunks"] for r in rows})
+    about = export_about(output_dir, rows, authors, desc_dir) if desc_dir is not None else []
     index = {
         "version": library_version(sources, rows, works_dir, authors,
-                                   tuple(alignment_file(g) for g in alignments)),
+                                   tuple(alignment_file(g) for g in alignments), tuple(about)),
         "sources": sources,
         "works": rows,
         "alignments": alignments,
@@ -396,10 +450,12 @@ def export_library(input_dir: Path, output_dir: Path, force: bool = False,
     index_path.write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
-    log.info("%s works in the index, %s alignment files; %s work files written, %s removed",
-             f"{len(rows):,}", f"{len(alignments):,}", f"{written:,}", f"{removed:,}")
+    log.info("%s works in the index, %s alignment files, %s about files; "
+             "%s work files written, %s removed",
+             f"{len(rows):,}", f"{len(alignments):,}", f"{len(about):,}", f"{written:,}",
+             f"{removed:,}")
     return {"works": len(rows), "written": written, "removed": removed,
-            "alignments": len(alignments)}
+            "alignments": len(alignments), "about": len(about)}
 
 
 def main() -> None:
@@ -409,10 +465,11 @@ def main() -> None:
     parser.add_argument("--output-dir", default="data/library")
     parser.add_argument("--force", action="store_true", help="rebuild every work file")
     parser.add_argument("--alignments-dir", default=str(alignment_store.DEFAULT_DIR))
+    parser.add_argument("--descriptions-dir", default=str(descriptions.DEFAULT_DIR))
     args = parser.parse_args()
 
     export_library(Path(args.input_dir), Path(args.output_dir), force=args.force,
-                   align_dir=Path(args.alignments_dir))
+                   align_dir=Path(args.alignments_dir), desc_dir=Path(args.descriptions_dir))
 
 
 if __name__ == "__main__":

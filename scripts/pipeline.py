@@ -2,7 +2,7 @@
 Run every data pipeline step once, in order, skipping what is current (#248).
 
     normalize → anchor → validate → translate → embed → align → build_index
-    → export_library → upload_library
+    → describe → export_library → upload_library
 
 Each step is its own script, run as a subprocess exactly as by hand, and each
 skips the work its fingerprints show is current (#130), so a run after a small
@@ -26,6 +26,11 @@ counting against the subscription's usage windows, which it logs
 (``docs/translation-backends.md``). ``--translate-model sol`` uses Sol through
 the OpenAI API instead and retries what Sol's content filter blocks with
 ``opus`` through the Anthropic API; ``--translate-model opus`` uses that alone.
+
+describe (#795) writes the bio or description of every new author and
+version group with Claude Sonnet through a local ``claude -p`` (subscription,
+no dollar cost), and only with ``--pay``; copying a group's description to a
+new member of it, and dropping removed ids, needs nothing.
 
 Before any step, a preflight lists every problem at once: missing local data,
 the API keys (with ``--pay``), the search database through the SSH tunnel
@@ -78,7 +83,7 @@ LOG_DIR = REPO / "logs"
 TUNNEL = REPO / "infra" / "db-tunnel.sh"
 
 STEPS = ("normalize", "anchor", "validate", "translate", "embed", "align", "build_index",
-         "export_library", "upload_library")
+         "describe", "export_library", "upload_library")
 PAID = frozenset({"anchor", "translate", "embed"})
 LIBRARY_KEYS = ("LIBRARY_ACCESS_KEY_ID", "LIBRARY_SECRET_ACCESS_KEY", "LIBRARY_BUCKET")
 LFS_POINTER = b"version https://git-lfs"
@@ -275,6 +280,13 @@ class Estimates:
 
         return status.pending_vectors(NORMALIZED, TRANSLATIONS, EMBEDDINGS)
 
+    def describe(self) -> int:
+        """Authors and version groups still without a bio or description (#795);
+        written on the subscription, so no dollar cost."""
+        from scripts import describe
+
+        return describe.pending(NORMALIZED)
+
     def anchor(self) -> tuple[int, float]:
         """Works to cut and an upper bound of the cost (``scripts.anchor``)."""
         from scripts import anchor
@@ -407,6 +419,11 @@ def preflight(opts: Options, *, lookup: Callable[[str], str | None] = env_value,
                 checks.append(Check("claude CLI (local-opus)", found, "" if found else
                                     "not on PATH: log in to the subscription, or pass "
                                     "--translate-model sol"))
+        if "describe" not in opts.skip and not (
+                "translate" not in opts.skip and opts.translate_model == "local-opus"):
+            found = which("claude") is not None
+            checks.append(Check("claude CLI (describe)", found, "" if found else
+                                "not on PATH: log in to the subscription, or --skip describe"))
         if not {"embed", "anchor"} <= opts.skip:
             wanted.append("VOYAGE_API_KEY")
         for name in wanted:
@@ -575,6 +592,21 @@ class Pipeline:
         else:
             self._run(python("scripts.build_index"), tunnel=True)
         return "", 0.0
+
+    def describe(self) -> tuple[str, float]:
+        """Bios and descriptions (#795): copies within version groups are free; new
+        authors and groups go to Claude on the subscription, only with --pay."""
+        self._run(python("scripts.describe", "generate", "--no-requests"))
+        todo = self.estimates.describe()
+        if not todo:
+            return "nothing to describe", 0.0
+        if not self.opts.pay:
+            raise Stop(f"{todo:,} authors and works to describe (subscription): "
+                       "re-run with --pay")
+        self._run(python("scripts.describe", "generate", "--keep-going"))
+        left = self.estimates.describe()
+        detail = f"{todo - left:,} authors and works described"
+        return detail + (f"; {left:,} failed (see the log)" if left else ""), 0.0
 
     def export_library(self) -> tuple[str, float]:
         self._run(python("scripts.export_library"))

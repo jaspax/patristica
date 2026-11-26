@@ -1,0 +1,26 @@
+/* A description or bio (#795) in the right column of a page header. */
+.about {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-inline-start: 1.25rem;
+  border-inline-start: 2px solid var(--border);
+}
+
+.text {
+  margin: 0;
+}
+
+.foot {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+}
+
+/* Stacked under the header's facts on narrow screens. */
+@media (max-width: 55.99rem) {
+  .about {
+    padding-inline-start: 0;
+    border-inline-start: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+}

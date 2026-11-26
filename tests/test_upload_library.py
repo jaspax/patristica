@@ -108,3 +108,12 @@ def test_upload_requires_authors_file(tmp_path: Path):
     (tmp_path / "index.json").write_text('{"version": "", "sources": {}, "works": []}')
     with pytest.raises(UploadError, match="authors.json"):
         upload_library(tmp_path, dry_run=True)
+
+
+def test_about_keys_follow_the_public_index():
+    from scripts.upload_library import about_keys
+
+    index = {"works": [{"id": "a/x", "file": "works/a/x.json", "about": True},
+                       {"id": "a/y", "file": "works/a/y.json"}]}
+    authors = {"authors": [{"id": "jerome", "about": True}, {"id": "origen"}]}
+    assert about_keys(index, authors) == ["about/works/a/x.json", "about/authors/jerome.json"]

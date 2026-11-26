@@ -11,6 +11,7 @@ import {
   loadWork,
   workAuthors,
   workHref,
+  workAboutFile,
   workIdFromSegments,
   type Library,
   type WorkRow,
@@ -21,6 +22,7 @@ import { useLoaded } from "@/lib/useLoaded";
 import { useOffscreen } from "@/lib/useOffscreen";
 import { currentPosition, originalIds, positionIn, versionMembers } from "@/lib/versions";
 
+import AboutPanel from "./AboutPanel";
 import AuthorLinks from "./AuthorLinks";
 import LoadError from "./LoadError";
 import MachineTranslationNotice from "./MachineTranslationNotice";
@@ -120,110 +122,114 @@ function Reader({ row, library }: { row: WorkRow; library: Library }) {
         <Link href={`/works?source=${encodeURIComponent(row.source_id)}`}>{collection}</Link>
       </nav>
 
-      <header className={styles.header}>
-        <h1 lang={lang.lang} dir="auto">
-          {row.title}
-        </h1>
-        {byline.length > 0 && (
-          <p
-            className={styles.author}
-            lang={byline.some((a) => a.id === null) ? lang.lang : undefined}
-            dir="auto"
-          >
-            <AuthorLinks authors={byline} />
-          </p>
-        )}
-        {/* At a glance: when, in what language, what kind. The rest folds away under Details. */}
-        <dl className={styles.facts}>
-          <div>
-            <dt>Date</dt>
-            <dd>{formatDateLong(row)}</dd>
-          </div>
-          <div>
-            <dt>Language</dt>
-            <dd>{lang.name}</dd>
-          </div>
-          <div>
-            <dt>Genre</dt>
-            <dd>{GENRES[row.genre] ?? row.genre}</dd>
-          </div>
-          {row.machine_translation && (
-            <div>
-              <dt className="visually-hidden">Translation</dt>
-              <dd>
-                <span className={styles.badge}>Machine translation</span>
-              </dd>
-            </div>
+      <header className={row.about ? `${styles.header} ${styles.withAbout}` : styles.header}>
+        <div className={styles.headMain}>
+          <h1 lang={lang.lang} dir="auto">
+            {row.title}
+          </h1>
+          {byline.length > 0 && (
+            <p
+              className={styles.author}
+              lang={byline.some((a) => a.id === null) ? lang.lang : undefined}
+              dir="auto"
+            >
+              <AuthorLinks authors={byline} />
+            </p>
           )}
-        </dl>
-        {row.machine_translation && (
-          <MachineTranslationNotice
-            original={original ?? members.find((w) => originals.has(w.id))}
-            positionFor={positionFor}
-          />
-        )}
-        <details className={styles.details}>
-          <summary>Details</summary>
-          <dl className={styles.meta}>
-            {attribution && (
-              <>
-                <dt>Attributed as</dt>
-                <dd lang={lang.lang} dir="auto">
-                  {attribution}
-                </dd>
-              </>
-            )}
-            <dt>Collection</dt>
-            <dd>{collection}</dd>
-            {row.edition && (
-              <>
-                <dt>Edition</dt>
-                <dd>{row.edition}</dd>
-              </>
-            )}
-            <dt>Licence</dt>
-            <dd>{license.url ? <a href={license.url}>{license.label}</a> : license.label}</dd>
-            {row.provenance_url && (
-              <>
-                <dt>Source</dt>
-                <dd className={styles.url}>
-                  <a href={row.provenance_url}>{row.provenance_url}</a>
-                </dd>
-              </>
-            )}
-            {row.translation_of && (
-              <>
-                <dt>Translation of</dt>
+          {/* At a glance: when, in what language, what kind. The rest folds away under Details. */}
+          <dl className={styles.facts}>
+            <div>
+              <dt>Date</dt>
+              <dd>{formatDateLong(row)}</dd>
+            </div>
+            <div>
+              <dt>Language</dt>
+              <dd>{lang.name}</dd>
+            </div>
+            <div>
+              <dt>Genre</dt>
+              <dd>{GENRES[row.genre] ?? row.genre}</dd>
+            </div>
+            {row.machine_translation && (
+              <div>
+                <dt className="visually-hidden">Translation</dt>
                 <dd>
-                  {original ? (
-                    <VersionLink target={original} positionFor={positionFor}>
-                      {originalNames ? `${originalNames}, ` : ""}
-                      {original.title}
-                    </VersionLink>
-                  ) : (
-                    <code>{row.translation_of}</code>
-                  )}
+                  <span className={styles.badge}>Machine translation</span>
                 </dd>
-              </>
-            )}
-            {groupOriginals.length > 0 && (
-              <>
-                <dt>Original</dt>
-                <dd>
-                  {groupOriginals.map((w, i) => (
-                    <span key={w.id}>
-                      {i > 0 && ", "}
-                      <VersionLink target={w} positionFor={positionFor}>
-                        {languageInfo(w.language).name}: {index.sources[w.source_id] ?? w.source_id}
-                      </VersionLink>
-                    </span>
-                  ))}
-                </dd>
-              </>
+              </div>
             )}
           </dl>
-        </details>
-        <VersionSwitcher ref={headerVersions} {...versionProps} />
+          {row.machine_translation && (
+            <MachineTranslationNotice
+              original={original ?? members.find((w) => originals.has(w.id))}
+              positionFor={positionFor}
+            />
+          )}
+          <details className={styles.details}>
+            <summary>Details</summary>
+            <dl className={styles.meta}>
+              {attribution && (
+                <>
+                  <dt>Attributed as</dt>
+                  <dd lang={lang.lang} dir="auto">
+                    {attribution}
+                  </dd>
+                </>
+              )}
+              <dt>Collection</dt>
+              <dd>{collection}</dd>
+              {row.edition && (
+                <>
+                  <dt>Edition</dt>
+                  <dd>{row.edition}</dd>
+                </>
+              )}
+              <dt>Licence</dt>
+              <dd>{license.url ? <a href={license.url}>{license.label}</a> : license.label}</dd>
+              {row.provenance_url && (
+                <>
+                  <dt>Source</dt>
+                  <dd className={styles.url}>
+                    <a href={row.provenance_url}>{row.provenance_url}</a>
+                  </dd>
+                </>
+              )}
+              {row.translation_of && (
+                <>
+                  <dt>Translation of</dt>
+                  <dd>
+                    {original ? (
+                      <VersionLink target={original} positionFor={positionFor}>
+                        {originalNames ? `${originalNames}, ` : ""}
+                        {original.title}
+                      </VersionLink>
+                    ) : (
+                      <code>{row.translation_of}</code>
+                    )}
+                  </dd>
+                </>
+              )}
+              {groupOriginals.length > 0 && (
+                <>
+                  <dt>Original</dt>
+                  <dd>
+                    {groupOriginals.map((w, i) => (
+                      <span key={w.id}>
+                        {i > 0 && ", "}
+                        <VersionLink target={w} positionFor={positionFor}>
+                          {languageInfo(w.language).name}: {index.sources[w.source_id] ?? w.source_id}
+                        </VersionLink>
+                      </span>
+                    ))}
+                  </dd>
+                </>
+              )}
+            </dl>
+          </details>
+          <VersionSwitcher ref={headerVersions} {...versionProps} />
+        </div>
+        {/* The work's description (#795), to the right of the facts. */}
+        {row.about && <AboutPanel file={workAboutFile(row)} label="About this work" />}
       </header>
 
       {/* Once the header's list is off screen, the same list floats beside the text. */}

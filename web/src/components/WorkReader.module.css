@@ -17,6 +17,27 @@
   font-weight: 600;
 }
 
+/* With a description (#795): the description to the right of the facts, up to 34rem wide,
+   the facts in the rest; stacked below them on narrow screens. */
+.withAbout {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 34rem);
+  gap: 1rem 2.5rem;
+  align-items: start;
+}
+
+.headMain {
+  min-width: 0;
+}
+
+@media (max-width: 55.99rem) {
+  .withAbout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: var(--text-width);
+  }
+}
+
 .author {
   font-size: 1.15rem;
   color: var(--muted);
