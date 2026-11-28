@@ -112,6 +112,7 @@ MTs are made by a nightly agent on the Claude subscription, while the owner is a
   - It files `data-quality` issues for problems in a source, searching first.
   - It blocks works those problems make impractical to translate (`patristica/data/mt_blocked.csv`, `work_id,issue,reason`), and unblocks them when their issue is closed.
   - All table edits of a night are one more commit in the same PR.
+- **Acts on Copilot's review** (#815): after opening the night's PR it waits for the review (`scripts.pr_review wait`), checks each comment against the source, fixes the small legitimate ones in the MT file's `text` as a `Review fix` commit, and replies to and resolves each thread; it declines a wrong comment with the source's words and leaves it for the owner. Reviews that came after an earlier night ended are handled at the start of the next one: on the PR's branch while it is open, in tonight's PR once it is merged.
 - **Leaves nothing locally:** the worktree is detached at `origin/master` (no local branches), and it is removed once every commit is pushed. If a push fails, the worktree stays and the next night pushes it first.
 - **Reports** with one comment per night on the pinned issue **#429**: what was translated, what was curated, issues filed, what was skipped and why, the usage, and why it stopped.
 
