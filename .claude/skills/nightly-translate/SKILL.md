@@ -15,6 +15,7 @@ Your job tonight:
 - translate a few well-chosen works, **one commit per work**, all on tonight's branch;
 - curate as you go: exceptions for divergent ancient versions, data-quality issues, blocked works. The table edits go in one more commit on the same branch;
 - open **one PR for the night** at the end (the owner reviews a night at a time; 15 PRs a night was too much clicking);
+- **act on Copilot's review** of tonight's PR, and of earlier nights' PRs it reviewed after their night ended (section 6), so the owner doesn't have to ask;
 - leave **nothing behind locally**: the worktree is detached (no local branches), and you remove it once everything is pushed;
 - post **one report comment on issue #429**. Then stop. You are a coordinator, so keep your own token use small: `scripts.machine_translate` does the translating (Opus through `local-opus`), and `scripts.nightly_budget` does the arithmetic. Don't read whole works into your context.
 
@@ -22,7 +23,7 @@ Your job tonight:
 - translate with `--model sol` or `--model opus`: they cost money;
 - run `scripts.pipeline`, `normalize`, `anchor`, `embed` or `build_index`;
 - push to `master`, force-push, or amend;
-- edit files other than `logs/**`, and, in the night's worktree only, the worktree's `patristica/data/mt_exceptions.csv` and `patristica/data/mt_blocked.csv`. The translator writes the raw MT file itself.
+- edit files other than `logs/**`, and, in the night's worktree only, the worktree's `patristica/data/mt_exceptions.csv` and `patristica/data/mt_blocked.csv`. The translator writes the raw MT file itself; the one exception is a review fix to its `text` (section 6).
 
 Paths: you run in the **main checkout** (the working directory, which has all the data). The night's worktree is always `.claude/worktrees/nightly-mt`, checked out **detached** at `origin/master`: never create a local branch in it. `{date}` is tonight's local date (`date +%F`) and `{HHMM}` the UTC time the run started (as in the report's file name). Tonight's branch exists only on GitHub: `B` = `mt/{date}-{HHMM}`, and every push goes to `HEAD:refs/heads/B`.
 
@@ -60,6 +61,12 @@ The pre-push hook runs the unit tests in that worktree, which is why it needs th
 **A worktree left from a failed night** may hold commits that never reached GitHub. Look before removing it: `git -C .claude/worktrees/nightly-mt log --oneline origin/master..HEAD`. If it lists commits, find that night's branch name in its report or `logs/mt-pr-*.md` and push them there (`HEAD:refs/heads/mt/{that date}-{that HHMM}`, as in step 4.9), then open that night's PR from its `logs/mt-pr-…md` draft (step 5.3) if `gh pr list --head mt/{…} --state all` shows none. Only then `git worktree remove .claude/worktrees/nightly-mt --force`.
 
 Likewise, if a `logs/mt-pr-*.md` draft from an earlier night has a pushed branch but no PR (`gh pr list --head {branch} --state all` is empty), open it now (step 5.3) and say so in tonight's report.
+
+**Earlier nights' reviews.** Copilot sometimes reviews after a night has ended. Before choosing works, handle them (section 6):
+- every **open** `machine-translation` PR: `gh pr list --label machine-translation --state open --json number,headRefName`;
+- the **merged** ones since the last night: `gh pr list --label machine-translation --state merged --limit 3 --json number,headRefName,mergedAt`.
+
+Run `uv run python -m scripts.pr_review threads N` for each. An unresolved thread is tonight's to handle unless its last comment is an earlier night's reply (it starts with `*Nightly MT run`; that thread waits for the owner). Do the open PRs first, each on its own branch, then `git -C .claude/worktrees/nightly-mt switch --detach origin/master`, then the merged ones: their fixes are tonight's first commits, on `B`.
 
 ## 3. Choose works
 
@@ -133,7 +140,7 @@ Let `W` be the work id, `N` its characters and `P` its normalized path (from the
    ```bash
    scripts/nightly/with-https.sh git -C .claude/worktrees/nightly-mt push https://github.com/jaspax/patristica.git HEAD:refs/heads/B
    ```
-   - The pre-push hook runs the unit tests (about a minute). If they fail, say so in the report, stop translating, and keep the worktree (step 5.4). Never use `--no-verify`.
+   - The pre-push hook runs the unit tests (about a minute). If they fail, say so in the report, stop translating, and keep the worktree (step 5.5). Never use `--no-verify`.
 10. Add the work to tonight's PR draft, `logs/mt-pr-{date}-{HHMM}.md`, filled from `.github/PULL_REQUEST_TEMPLATE/machine_translation.md`: a row in the table, and its section (why this work, English elsewhere from step 0, spot-check notes, source problems with issue links). Create the draft with the first work; Edit it after that.
 11. Re-plan (step 1.2) and continue with the next work, or stop.
 
@@ -143,25 +150,63 @@ Let `W` be the work id, `N` its characters and `P` its normalized path (from the
 2. **Curation**, if tonight's notes have any table edits: one more commit on the same worktree, after the works.
    - Apply the notes to `.claude/worktrees/nightly-mt/patristica/data/mt_exceptions.csv` and `mt_blocked.csv` with Edit. Keep each file's header and row order (by work id).
    - Commit both with `git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv patristica/data/mt_blocked.csv` and a commit like the one in step 4.8 ("Machine-translation curation, {date}"), push it to `B` (as in 4.9), and fill the draft's "Curation" section: each row added or removed, with its reason or the closed issue.
-   - If the night translated nothing, the curation commit alone still makes tonight's PR.
+   - If the night translated nothing, the curation commit (or review fixes for merged PRs, section 6) alone still makes tonight's PR.
 3. **Open tonight's one PR**, if `B` has any commits (a night with nothing to commit has no PR). Fill in the draft's header (date, count, usage) first:
    ```bash
    gh pr create --base master --head B --label machine-translation --title "Machine translations, {date}: {N} works" --body-file logs/mt-pr-{date}-{HHMM}.md
    ```
-4. **Clean up, leaving nothing locally.** Only when every commit is on GitHub (`git -C .claude/worktrees/nightly-mt log --oneline origin/master..HEAD` lists only commits you pushed to `B`, and the last push succeeded):
+4. **Copilot's review.** It usually comes 3–5 minutes after the PR opens. Wait for it **in the background** (Bash `run_in_background`) and act on the exit notification:
+   ```bash
+   uv run python -m scripts.pr_review wait N
+   ```
+   Exit 3 means no review after 9 minutes: run it once more. If there is still none, say so in the report; the next night handles it (section 2). When it has come, handle every unresolved thread from `uv run python -m scripts.pr_review threads N` (section 6) **before** removing the worktree.
+5. **Clean up, leaving nothing locally.** Only when every commit is on GitHub (`git -C .claude/worktrees/nightly-mt log --oneline origin/master..HEAD` lists only commits you pushed to `B`, and the last push succeeded):
    ```bash
    git worktree remove .claude/worktrees/nightly-mt --force
    git worktree prune
    ```
    There are no local branches to delete, since the worktree was detached all night. If a push failed, **keep the worktree** and say in the report which commits are unpushed; the next night pushes them first (section 2).
-5. Write the report to a new file, `logs/nightly-mt-{date}-{HHMM}.md` (`HHMM` is when tonight's run started, in UTC; a second run on the same date must not overwrite the first's report), and post it: `gh issue comment 429 --body-file logs/nightly-mt-{date}-{HHMM}.md`. The report has:
+6. Write the report to a new file, `logs/nightly-mt-{date}-{HHMM}.md` (`HHMM` is when tonight's run started, in UTC; a second run on the same date must not overwrite the first's report), and post it: `gh issue comment 429 --body-file logs/nightly-mt-{date}-{HHMM}.md`. The report has:
    - **Tonight's PR** (link) and **Translated:** each work with its characters and time.
+   - **Review:** each Copilot comment (tonight's and earlier nights'), and what you did: fixed (commit), declined (why), or left for the owner; or that no review had come.
    - **Curation:** exceptions added (or versions judged close); works blocked and unblocked (in the same PR).
    - **Data-quality issues** filed tonight (links), and existing ones you found.
    - **Considered and skipped:** with why (in an open PR, public-domain English noted on #341, blocked, garbled OCR, too long tonight, failed run).
    - **Usage:** 5-hour and 7-day at the start and end, and tonight's weekly allowance.
    - **Why the run stopped:** deadline, 5-hour window, weekly allowance, extra usage, or an error (quote it).
    - **Unfinished work** in `logs/mt-partial/`, if any, and whether the worktree was removed (if not, why).
-6. **A night that fails early** (a denied command, `gh` or the CLI not working, no usage figures) still posts a short comment on #429 saying what failed. If even that fails, the report file in `logs/` and your final message are the record (`claude agents`, `claude logs`).
+7. **A night that fails early** (a denied command, `gh` or the CLI not working, no usage figures) still posts a short comment on #429 saying what failed. If even that fails, the report file in `logs/` and your final message are the record (`claude agents`, `claude logs`).
 
 End with the report as your final message.
+
+## 6. Acting on review comments
+
+Copilot reads every PR and comments on what it thinks is wrong: on an MT PR mostly a mistranslated sentence (it quotes the source), sometimes the PR text or a curation row. It is often right but not always, so **check each claim against the source before acting**: read the paragraph in `data/normalized/P` and the same ref in the MT file (Read with offset/limit, or Grep for the ref), never the whole work.
+
+For each unresolved thread (`thread` id, `path`, and the first comment's `id`) whose last comment isn't already a night's reply. Replies are posted from the owner's account, so **start every reply with `*Nightly MT run, {date}:*`**: that is how a later night knows the thread is answered.
+
+1. **Legitimate, and a small fix** (a word, a sentence, a wrong subject or negation, an omitted clause): fix it in the PR's branch.
+   - The PR's branch is `{headRefName}`. Tonight's is the worktree as it stands. For an earlier night's **open** PR, fetch it and check it out detached:
+     ```bash
+     scripts/nightly/with-https.sh git fetch https://github.com/jaspax/patristica.git {headRefName}:refs/remotes/origin/{headRefName}
+     git -C .claude/worktrees/nightly-mt switch --detach origin/{headRefName}
+     ```
+     For a **merged** PR, the fix goes into tonight's branch instead (the worktree at `origin/master` or tonight's commits), and tonight's PR says under "After merging" that the pipeline needs `--accept-raw-change` for that work.
+   - Edit only that paragraph's `text` in `.claude/worktrees/nightly-mt/data/raw/mt-eng/P`, with Edit: never its `ref` or `source_sha`, never the `machine_translation` block. It is JSON, so keep quotes escaped (`\"`). A unit with an `editorial` key (a translated title or heading) records its text's length in its span, so don't hand-fix it: treat it as case 2.
+   - Commit as in step 4.8, with the message `Review fix: {title} ({W})` and the lines `Part of #422.`, `Copilot review on #{N}.` and the co-author line. Push as in step 4.9, to the right branch:
+     - an **open** PR: its own branch, `HEAD:refs/heads/{headRefName}`;
+     - a **merged** PR: tonight's branch, `HEAD:refs/heads/B`, never the merged branch.
+   - For a merged PR, the fix is in tonight's PR, so create tonight's draft `logs/mt-pr-{date}-{HHMM}.md` (step 4.10) with the first such fix if it doesn't exist yet, and list each fix in a "Review fixes" section: the work, the old PR and thread, and under "After merging" that the pipeline needs `--accept-raw-change` for it. A night with only such fixes still opens its PR (step 5.3).
+   - Write a short reply to `logs/review-reply-{N}-{id}.md` (what was wrong, the new wording, the commit), then:
+     ```bash
+     uv run python -m scripts.pr_review reply N COMMENT_ID --body-file logs/review-reply-{N}-{id}.md
+     uv run python -m scripts.pr_review resolve THREAD_ID
+     ```
+     For a merged PR, the reply names tonight's branch `B` (tonight's PR doesn't exist yet; the report links it).
+   - A curation comment (a wrong reason in `mt_exceptions.csv` / `mt_blocked.csv`) is fixed the same way, in the curation commit.
+2. **Legitimate, but not a small fix** (whole passages wrong, a paragraph missing, the source itself corrupt): don't hand-rewrite. Reply with what you found, leave the thread open, and say in the report what the owner should decide (retranslate, block the work, file a data-quality issue: if the source is at fault, file it, section 3.6, and link it in the reply).
+3. **Not legitimate** (the source does say what the translation says, or the comment misreads the Latin or Greek): reply with why, quoting the source words, and leave the thread unresolved for the owner.
+4. **About the PR text** (a wrong count or link in the description): you can't edit the description; reply with the correction, and resolve.
+
+After an earlier open PR's fixes are pushed, switch back (`git -C .claude/worktrees/nightly-mt switch --detach origin/master`) before anything else; never switch away once the worktree holds tonight's commits (merged-PR fixes, works). Don't wait for Copilot to re-review your fixes. A comment from a person is handled the same way, except that you never decline it: reply and leave it for the owner.
+

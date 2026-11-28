@@ -89,6 +89,7 @@ patristica/
 │   ├── ocr/eval/              # OCR eval set + scorer for the PG holes (#718): ground truth, OGL baseline, CER/accents/real words
 │   ├── ocr/                   # OCR pipeline for the PG holes (#720): Kraken → word flags → Gemini/Opus readers → selective Opus synthesis → vote; batch APIs; `cost`
 │   ├── status.py              # freshness of every pipeline step in one table (#130)
+│   ├── pr_review.py           # a PR's review threads for agents: wait for Copilot, list, reply, resolve (#815)
 │   ├── data.py                # data/ in git-lfs (#244): pull a job's files or all, archive/restore the upstream clones
 │   ├── migrate_layout.py      # #102 genre-first → source-first migration (raw / eval / tracked)
 │   ├── build_index.py         # normalized + translations + embeddings → Postgres/pgvector search DB (#137; db/README.md)
@@ -469,6 +470,10 @@ These rules are mandatory for all changes, including ones made by Claude.
 - **Nightly machine translation (#425):** a systemd user timer (`scripts/nightly/`, 22:15 America/Chicago) starts a background Claude Code session running the project skill `.claude/skills/nightly-translate` with the allowlist in `.claude/settings.json` (`--permission-mode dontAsk`). It opens the night's PR, files data-quality issues, removes its worktree once everything is pushed, and reports once per night on the pinned issue #429. `scripts.nightly_budget` keeps the usage log (`logs/usage.jsonl`) and its projection. Install and operation: `docs/machine-translation.md` → "Nightly runs".
 - **CI must pass** before a PR is merged. Don't merge over a red build; fix it or, if the failure is unrelated, file an issue and fix that first.
 - Keep PRs focused on one issue.
+- **Copilot reviews every PR (#815), and the agent that opened it acts on the review without being asked.** The review usually lands 3–5 minutes after the PR opens, sometimes hours later. So after opening a PR, and again before you report it done, run `uv run python -m scripts.pr_review wait N` (up to 9 minutes; exit 3 means not yet) and `… threads N` (the unresolved threads as JSON). Then judge each comment on its merits; Copilot is often right but not always:
+  - **Legitimate** (a real bug, a broken CLAUDE.md rule, a wrong translation, a missing step such as a description or a label): fix it on the branch in a new commit (never amend or force-push), push, then `… reply N COMMENT_ID --body-file F` saying what changed and in which commit, and `… resolve THREAD_ID`.
+  - **Wrong or out of scope**: reply with the reason (for example, the code already handles it, or the reading of the source is wrong, quoting the text). Leave the thread unresolved for the owner. A real follow-up that doesn't belong in this PR gets an issue, linked in the reply.
+  - Mention what you fixed and what you declined in your final report. Comments from people get the same treatment, but a person's request is never declined without asking. A sub-agent that opens a PR does this before it returns. `/steward` (typed by the user) keeps watching a PR for later reviews, CI and conflicts. The nightly MT run does this in its skill (`.claude/skills/nightly-translate`, step 5).
 
 ### Worktrees and parallel work
 
