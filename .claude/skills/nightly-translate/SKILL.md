@@ -150,7 +150,7 @@ Let `W` be the work id, `N` its characters and `P` its normalized path (from the
 2. **Curation**, if tonight's notes have any table edits: one more commit on the same worktree, after the works.
    - Apply the notes to `.claude/worktrees/nightly-mt/patristica/data/mt_exceptions.csv` and `mt_blocked.csv` with Edit. Keep each file's header and row order (by work id).
    - Commit both with `git -C .claude/worktrees/nightly-mt add patristica/data/mt_exceptions.csv patristica/data/mt_blocked.csv` and a commit like the one in step 4.8 ("Machine-translation curation, {date}"), push it to `B` (as in 4.9), and fill the draft's "Curation" section: each row added or removed, with its reason or the closed issue.
-   - If the night translated nothing, the curation commit alone still makes tonight's PR.
+   - If the night translated nothing, the curation commit (or review fixes for merged PRs, section 6) alone still makes tonight's PR.
 3. **Open tonight's one PR**, if `B` has any commits (a night with nothing to commit has no PR). Fill in the draft's header (date, count, usage) first:
    ```bash
    gh pr create --base master --head B --label machine-translation --title "Machine translations, {date}: {N} works" --body-file logs/mt-pr-{date}-{HHMM}.md
@@ -192,8 +192,11 @@ For each unresolved thread (`thread` id, `path`, and the first comment's `id`) w
      git -C .claude/worktrees/nightly-mt switch --detach origin/{headRefName}
      ```
      For a **merged** PR, the fix goes into tonight's branch instead (the worktree at `origin/master` or tonight's commits), and tonight's PR says under "After merging" that the pipeline needs `--accept-raw-change` for that work.
-   - Edit only that paragraph's `text` in `.claude/worktrees/nightly-mt/data/raw/mt-eng/P`, with Edit: never its `ref` or `source_sha`, never the `machine_translation` block. It is JSON, so keep quotes escaped (`\"`).
-   - Commit and push as in steps 4.8–4.9, with the message `Review fix: {title} ({W})` and the lines `Part of #422.`, `Copilot review on #{N}.` and the co-author line; push to the PR's branch (`HEAD:refs/heads/{headRefName}`).
+   - Edit only that paragraph's `text` in `.claude/worktrees/nightly-mt/data/raw/mt-eng/P`, with Edit: never its `ref` or `source_sha`, never the `machine_translation` block. It is JSON, so keep quotes escaped (`\"`). A unit with an `editorial` key (a translated title or heading) records its text's length in its span, so don't hand-fix it: treat it as case 2.
+   - Commit as in step 4.8, with the message `Review fix: {title} ({W})` and the lines `Part of #422.`, `Copilot review on #{N}.` and the co-author line. Push as in step 4.9, to the right branch:
+     - an **open** PR: its own branch, `HEAD:refs/heads/{headRefName}`;
+     - a **merged** PR: tonight's branch, `HEAD:refs/heads/B`, never the merged branch.
+   - For a merged PR, the fix is in tonight's PR, so create tonight's draft `logs/mt-pr-{date}-{HHMM}.md` (step 4.10) with the first such fix if it doesn't exist yet, and list each fix in a "Review fixes" section: the work, the old PR and thread, and under "After merging" that the pipeline needs `--accept-raw-change` for it. A night with only such fixes still opens its PR (step 5.3).
    - Write a short reply to `logs/review-reply-{N}-{id}.md` (what was wrong, the new wording, the commit), then:
      ```bash
      uv run python -m scripts.pr_review reply N COMMENT_ID --body-file logs/review-reply-{N}-{id}.md

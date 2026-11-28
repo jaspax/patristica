@@ -47,9 +47,13 @@ query($owner: String!, $name: String!, $number: Int!) {
   repository(owner: $owner, name: $name) {
     pullRequest(number: $number) {
       reviewThreads(first: 100) {
+        pageInfo { hasNextPage }
         nodes {
           id isResolved isOutdated path line
-          comments(first: 50) { nodes { databaseId author { login } body url } }
+          comments(first: 100) {
+            pageInfo { hasNextPage }
+            nodes { databaseId author { login } body url }
+          }
         }
       }
     }
@@ -133,9 +137,14 @@ def threads(
             ]
         )
     )
-    nodes = out["data"]["repository"]["pullRequest"]["reviewThreads"]["nodes"]
+    conn = out["data"]["repository"]["pullRequest"]["reviewThreads"]
+    # Never omit a thread or the last reply silently; PRs here have a handful.
+    if (conn.get("pageInfo") or {}).get("hasNextPage"):
+        raise GhError(f"PR #{pr} has over 100 review threads; read them on GitHub")
     result = []
-    for t in nodes:
+    for t in conn["nodes"]:
+        if (t["comments"].get("pageInfo") or {}).get("hasNextPage"):
+            raise GhError(f"thread {t['id']} on PR #{pr} has over 100 comments")
         if t["isResolved"] and not include_resolved:
             continue
         comments = [

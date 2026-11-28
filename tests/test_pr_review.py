@@ -93,3 +93,15 @@ def test_resolve():
         {"data": {"resolveReviewThread": {"thread": {"id": "T1", "isResolved": True}}}}
     )
     assert pr_review.resolve("T1", gh=lambda a: out)
+
+
+def test_threads_refuses_a_truncated_page():
+    payload = json.loads(_threads_payload())
+    conn = payload["data"]["repository"]["pullRequest"]["reviewThreads"]
+    conn["pageInfo"] = {"hasNextPage": True}
+    with pytest.raises(pr_review.GhError):
+        pr_review.threads(5, gh=lambda a: json.dumps(payload))
+    conn["pageInfo"] = {"hasNextPage": False}
+    conn["nodes"][0]["comments"]["pageInfo"] = {"hasNextPage": True}
+    with pytest.raises(pr_review.GhError):
+        pr_review.threads(5, gh=lambda a: json.dumps(payload))
